@@ -1,50 +1,23 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import SiteLayout from "../layouts/SiteLayout.astro";
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+<SiteLayout title="FLY Unlimited" description="FLY Unlimited">
+  <section style="padding-top: 24px;">
+    <div style="display:flex; align-items:center; gap:14px;">
+      <img src="/logo.png" alt="FLY Unlimited" style="width:56px; height:56px; object-fit:contain;" />
+      <div style="display:flex; flex-direction:column;">
+        <div style="font-weight:900; letter-spacing:-0.02em; font-size:18px;">FLY</div>
+        <div style="color: rgba(11,11,15,0.62); font-size:13px;">Unlimited</div>
+      </div>
+    </div>
+
+    <h1 class="h1" style="margin-top: 18px;">A premium experience from the first tap.</h1>
+    <p class="sub">Replace this line with your one-sentence pitch.</p>
+
+    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;">
+      <a class="btn" href="/how-it-works">How it works</a>
+      <a class="btn btnGhost" href="/info">Info</a>
+    </div>
+  </section>
+</SiteLayout>
