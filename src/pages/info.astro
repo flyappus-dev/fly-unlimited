@@ -1,0 +1,25 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+---
+
+<SiteLayout title="Info • FLY Unlimited" description="Info">
+  <h1 class="h1">Info</h1>
+  <p class="sub">Contact + legal links.</p>
+
+  <div class="grid" style="margin-top:22px;">
+    <div class="card" style="padding:18px;">
+      <div style="font-weight:900;">Contact</div>
+      <div style="color:var(--muted); line-height:1.7; margin-top:6px;">
+        <a href="/contact" style="text-decoration: underline;">Contact page</a>
+      </div>
+    </div>
+
+    <div class="card" style="padding:18px;">
+      <div style="font-weight:900;">Legal</div>
+      <div style="color:var(--muted); line-height:1.7; margin-top:6px;">
+        <a href="/terms" style="text-decoration: underline;">Terms</a> ·
+        <a href="/privacy" style="text-decoration: underline;">Privacy</a>
+      </div>
+    </div>
+  </div>
+</SiteLayout>
