@@ -1,0 +1,41 @@
+---
+const { logo = "/logo.png" } = Astro.props;
+const path = Astro.url.pathname;
+
+const nav = [
+  { href: "/", label: "Home" },
+  { href: "/how-it-works", label: "How it works" },
+  { href: "/info", label: "Info" },
+];
+---
+
+<header class="hdr">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Home">
+      <img src={logo} alt="FLY Unlimited" />
+      <span>FLY Unlimited</span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      {nav.map((item) => {
+        const active = item.href === "/" ? path === "/" : path.startsWith(item.href);
+        return (
+          <a class:list={["link", active && "active"]} href={item.href}>
+            {item.label}
+          </a>
+        );
+      })}
+    </nav>
+  </div>
+</header>
+
+<style>
+  .hdr{position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(11,11,15,.10);background:rgba(255,255,255,.82);backdrop-filter:blur(10px)}
+  .wrap{max-width:1080px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .brand{display:inline-flex;align-items:center;gap:10px;font-weight:850;letter-spacing:-.02em}
+  .brand img{width:26px;height:26px;object-fit:contain}
+  .nav{display:inline-flex;gap:6px;padding:6px;border:1px solid rgba(11,11,15,.10);border-radius:999px;background:rgba(11,11,15,.03)}
+  .link{padding:9px 12px;border-radius:999px;font-weight:650;color:rgba(11,11,15,.72)}
+  .link:hover{background:rgba(11,11,15,.06)}
+  .active{background:rgba(11,11,15,.92);color:#fff}
+</style>
