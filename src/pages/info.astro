@@ -1,6 +1,11 @@
 ---
 const siteName = "FLY Unlimited";
-const contactEmail = "hello@fly-unlimited.com"; // change if needed
+
+// ✅ Put the email you want public here (recommended: hello@ / contact@ / support@)
+const publicEmail = "contact@fly-unlimited.com";
+
+// Optional: your personal/admin email (not shown publicly unless you want it)
+const adminEmail = "name.lastname@yourdomain.com";
 ---
 
 <!doctype html>
@@ -74,10 +79,17 @@ const contactEmail = "hello@fly-unlimited.com"; // change if needed
         padding:18px;
         max-width:760px;
         margin:0 auto;
+        background:#fff;
       }
       .row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-      .label{color:var(--muted);font-weight:700}
+      .label{color:var(--muted);font-weight:800}
       .value a{color:#0b0c10;text-decoration:underline}
+
+      .hint{
+        margin-top:12px;
+        color:var(--muted);
+        font-size:13px;
+      }
 
       .footer{
         margin-top:64px;padding-top:18px;border-top:1px solid var(--line);
@@ -110,25 +122,31 @@ const contactEmail = "hello@fly-unlimited.com"; // change if needed
         </div>
 
         <h1>Info</h1>
-        <p class="sub">Contact + basic information for Apple enrollment and support.</p>
+        <p class="sub">Contact + basic information for enrollment and support.</p>
 
         <section class="panel">
           <div class="row">
-            <div class="label">Email</div>
-            <div class="value"><a href={`mailto:${contactEmail}`}>{contactEmail}</a></div>
+            <div class="label">Public contact</div>
+            <div class="value"><a href={`mailto:${publicEmail}`}>{publicEmail}</a></div>
           </div>
+
           <hr style="border:none;border-top:1px solid var(--line);margin:14px 0;" />
+
           <div class="row">
             <div class="label">Status</div>
             <div class="value">In development • Coming soon</div>
           </div>
+
           <hr style="border:none;border-top:1px solid var(--line);margin:14px 0;" />
+
           <div class="row">
             <div class="label">Legal</div>
-            <div class="value">
-              <a href="/terms/">Terms</a> • <a href="/privacy/">Privacy</a>
-            </div>
+            <div class="value"><a href="/terms/">Terms</a> • <a href="/privacy/">Privacy</a></div>
           </div>
+
+          <p class="hint">
+            Tip: Use a general address (like <strong>hello@</strong> or <strong>support@</strong>) publicly, and keep your personal address private.
+          </p>
         </section>
 
         <footer class="footer">
