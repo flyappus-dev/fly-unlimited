@@ -1,23 +1,143 @@
 ---
-import SiteLayout from "../layouts/SiteLayout.astro";
+const siteName = "FLY Unlimited";
+const contactEmail = "hello@fly-unlimited.com"; // change if needed
 ---
 
-<SiteLayout title="How it works • FLY Unlimited" description="How it works">
-  <h1 class="h1">How it works</h1>
-  <p class="sub">Three simple steps.</p>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>How it works • {siteName}</title>
+    <meta name="description" content="How FLY Unlimited works." />
+    <style>
+      :root{
+        --bg:#ffffff;
+        --text:#0b0c10;
+        --muted:rgba(11,12,16,.68);
+        --line:rgba(11,12,16,.10);
+        --pill:rgba(11,12,16,.06);
+        --max:980px;
+        --radius:16px;
+      }
+      *{box-sizing:border-box}
+      html,body{margin:0;padding:0}
+      body{
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+        background:var(--bg);
+        color:var(--text);
+        line-height:1.45;
+      }
+      a{color:inherit;text-decoration:none}
+      a:hover{opacity:.92}
 
-  <div class="grid" style="margin-top:22px;">
-    <div class="card" style="padding:18px;">
-      <div style="font-weight:900;">1) Request</div>
-      <div style="color:var(--muted); line-height:1.7; margin-top:6px;">Describe step 1.</div>
+      .wrap{max-width:var(--max);margin:0 auto;padding:22px 20px 70px}
+
+      .top{
+        display:flex;align-items:center;justify-content:space-between;gap:16px;
+        padding:10px 4px;
+      }
+      .brand{display:flex;align-items:center;min-height:44px}
+      .mascot{width:26px;height:26px;border-radius:10px;object-fit:contain;display:block}
+
+      .tabs{
+        display:flex;gap:8px;align-items:center;
+        background:var(--pill);border:1px solid var(--line);
+        border-radius:999px;padding:6px;
+      }
+      .tab{
+        padding:8px 12px;border-radius:999px;
+        font-weight:700;font-size:14px;color:rgba(11,12,16,.72);
+      }
+      .tab.active{background:#0b0c10;color:#fff}
+
+      .page{padding:64px 0 0}
+      .logoRow{display:flex;justify-content:center;margin-bottom:14px}
+      .logoRow img{height:34px;width:auto;display:block}
+
+      h1{
+        margin:0 0 10px;
+        text-align:center;
+        font-size: clamp(28px, 3.2vw, 42px);
+        letter-spacing:-.5px;
+      }
+      .sub{
+        margin:0 auto 28px;
+        text-align:center;
+        max-width:760px;
+        color:var(--muted);
+        font-size:16px;
+      }
+
+      .cards{display:grid;gap:14px;margin-top:18px}
+      .card{
+        border:1px solid var(--line);
+        border-radius:18px;
+        padding:18px 18px 16px;
+        background:#fff;
+      }
+      .card h3{margin:0 0 6px;font-size:16px}
+      .card p{margin:0;color:var(--muted)}
+
+      .footer{
+        margin-top:64px;padding-top:18px;border-top:1px solid var(--line);
+        display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+        color:var(--muted);font-size:13px;
+      }
+      .links{display:flex;gap:14px;flex-wrap:wrap}
+      .links a{color:var(--muted)}
+      .links a:hover{color:var(--text)}
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header class="top">
+        <a class="brand" href="/" aria-label="Home">
+          <img class="mascot" src="/logo-alt.png" alt="FLY mascot" />
+        </a>
+
+        <nav class="tabs" aria-label="Navigation">
+          <a class="tab" href="/">Home</a>
+          <a class="tab active" href="/how-it-works/">How it works</a>
+          <a class="tab" href="/info/">Info</a>
+        </nav>
+      </header>
+
+      <main class="page">
+        <div class="logoRow">
+          <img src="/logo.png" alt="FLY Unlimited" />
+        </div>
+
+        <h1>How it works</h1>
+        <p class="sub">A simple, polished flow — built for clarity and speed.</p>
+
+        <section class="cards">
+          <div class="card">
+            <h3>1) Request</h3>
+            <p>Start a request in seconds with clear details.</p>
+          </div>
+
+          <div class="card">
+            <h3>2) Confirm</h3>
+            <p>Review and confirm — everything stays simple and transparent.</p>
+          </div>
+
+          <div class="card">
+            <h3>3) Complete</h3>
+            <p>Finish the flow smoothly. Updates and notifications keep you in sync.</p>
+          </div>
+        </section>
+
+        <footer class="footer">
+          <div>© 2026 {siteName}</div>
+          <div class="links">
+            <a href="/info/">Contact</a>
+            <a href="/terms/">Terms</a>
+            <a href="/privacy/">Privacy</a>
+          </div>
+        </footer>
+      </main>
     </div>
-    <div class="card" style="padding:18px;">
-      <div style="font-weight:900;">2) Confirm</div>
-      <div style="color:var(--muted); line-height:1.7; margin-top:6px;">Describe step 2.</div>
-    </div>
-    <div class="card" style="padding:18px;">
-      <div style="font-weight:900;">3) Complete</div>
-      <div style="color:var(--muted); line-height:1.7; margin-top:6px;">Describe step 3.</div>
-    </div>
-  </div>
-</SiteLayout>
+  </body>
+</html>
