@@ -1,6 +1,13 @@
 ---
 const siteName = "FLY Unlimited";
+const headline = "The FLY App";
+const subtitle =
+  "A premium iOS experience built for speed, trust, and simplicity. Coming soon to the App Store.";
 const contactEmail = "hello@fly-unlimited.com"; // change if needed
+
+// If you don't have the App Store link yet, leave as "#"
+const appStoreUrl = "#";
+const googlePlayUrl = "#"; // optional if you don't want Android, we can hide it
 ---
 
 <!doctype html>
@@ -9,199 +16,206 @@ const contactEmail = "hello@fly-unlimited.com"; // change if needed
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{siteName}</title>
-    <meta name="description" content="FLY Unlimited — coming soon to the App Store." />
-    <meta name="theme-color" content="#0b0c10" />
+    <meta name="description" content="FLY Unlimited — coming soon." />
     <style>
       :root{
-        --bg:#0b0c10;
-        --card:#11131a;
-        --text:#f6f7ff;
-        --muted:rgba(246,247,255,.72);
-        --line:rgba(246,247,255,.12);
-        --accent:#7c5cff;
-        --accent2:#20e3b2;
-        --radius:18px;
-        --max:1060px;
-        --shadow: 0 22px 90px rgba(0,0,0,.45);
+        --bg:#ffffff;
+        --text:#0b0c10;
+        --muted:rgba(11,12,16,.68);
+        --line:rgba(11,12,16,.10);
+        --pill:rgba(11,12,16,.06);
+        --max:1100px;
+        --radius:16px;
       }
+
       *{box-sizing:border-box}
       html,body{margin:0;padding:0}
       body{
-        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-        background:
-          radial-gradient(1200px 600px at 20% -10%, rgba(124,92,255,.35), transparent 60%),
-          radial-gradient(900px 600px at 90% 10%, rgba(32,227,178,.22), transparent 55%),
-          radial-gradient(1000px 700px at 50% 120%, rgba(124,92,255,.18), transparent 60%),
-          var(--bg);
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+        background:var(--bg);
         color:var(--text);
         line-height:1.45;
       }
       a{color:inherit;text-decoration:none}
       a:hover{opacity:.92}
 
-      .container{max-width:var(--max);margin:0 auto;padding:28px 20px 56px}
-      .nav{
-        display:flex;align-items:center;justify-content:space-between;gap:16px;
-        padding:14px 16px;
-        background:rgba(255,255,255,.05);
-        border:1px solid var(--line);
-        border-radius:999px;
-        backdrop-filter: blur(12px);
-      }
-      .brand{display:flex;align-items:center;gap:12px;min-width:220px}
-      .brand img{height:22px;width:auto;display:block}
-      .brand small{display:block;color:var(--muted);font-weight:600;letter-spacing:.2px;margin-top:2px}
+      .wrap{max-width:var(--max);margin:0 auto;padding:22px 20px 70px}
 
-      .tabs{display:flex;gap:8px;flex-wrap:wrap}
-      .tab{
-        padding:9px 12px;border-radius:999px;
-        border:1px solid transparent;
-        color:var(--muted);
-        font-weight:600;
-        font-size:14px;
-      }
-      .tab.active{
-        color:var(--text);
-        background:rgba(255,255,255,.07);
-        border-color:var(--line);
-      }
-
-      .hero{
-        padding:56px 10px 34px;
-        display:grid;
-        grid-template-columns: 1.15fr .85fr;
-        gap:26px;
-        align-items:center;
-      }
-      @media (max-width: 900px){
-        .hero{grid-template-columns:1fr;padding-top:44px}
-      }
-
-      .kicker{
-        display:inline-flex;align-items:center;gap:10px;
-        padding:8px 12px;border-radius:999px;
-        background:rgba(255,255,255,.06);
-        border:1px solid var(--line);
-        color:var(--muted);
-        font-weight:600;
-        width:fit-content;
-      }
-      .dot{
-        width:8px;height:8px;border-radius:99px;
-        background:linear-gradient(135deg,var(--accent),var(--accent2));
-        box-shadow:0 0 0 6px rgba(124,92,255,.12);
-      }
-
-      h1{
-        margin:18px 0 10px;
-        font-size: clamp(42px, 6vw, 68px);
-        letter-spacing:-1px;
-        line-height:1.03;
-      }
-      .sub{
-        max-width:680px;
-        font-size: clamp(16px, 2.2vw, 19px);
-        color:var(--muted);
-        margin:0 0 18px;
-      }
-
-      .ctaRow{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
-      .btn{
-        display:inline-flex;align-items:center;justify-content:center;gap:10px;
-        padding:12px 16px;border-radius:14px;
-        border:1px solid var(--line);
-        background:rgba(255,255,255,.06);
-        font-weight:800;
-      }
-      .btn.primary{
-        border-color:transparent;
-        background:linear-gradient(135deg, rgba(124,92,255,.95), rgba(32,227,178,.9));
-        color:#0b0c10;
-      }
-
-      .grid{
-        display:grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap:14px;
-        margin-top:26px;
-      }
-      @media (max-width: 900px){ .grid{grid-template-columns:1fr} }
-      .card{
-        background:rgba(255,255,255,.05);
-        border:1px solid var(--line);
-        border-radius:var(--radius);
-        padding:18px 18px 16px;
-        box-shadow: var(--shadow);
-      }
-      .card h3{margin:0 0 6px;font-size:16px}
-      .card p{margin:0;color:var(--muted)}
-
-      /* Mascot accent */
-      .mascotWrap{
+      /* Top bar */
+      .top{
         display:flex;
-        justify-content:flex-end;
+        align-items:center;
+        justify-content:space-between;
+        gap:16px;
+        padding:10px 4px;
+      }
+
+      .brand{
+        display:flex;
+        align-items:center;
+        gap:10px;
+        min-height:44px;
       }
       .mascot{
-        width:min(340px, 78vw);
-        aspect-ratio: 1 / 1;
-        border-radius: 28px;
-        padding: 18px;
-        background:rgba(255,255,255,.04);
-        border:1px solid var(--line);
-        box-shadow: var(--shadow);
+        width:26px;
+        height:26px;
+        border-radius:10px;
+        display:block;
+        object-fit:contain;
+      }
+      .wordmark{
         display:flex;
         align-items:center;
-        justify-content:center;
-        position:relative;
-        overflow:hidden;
+        gap:10px;
       }
-      .mascot:before{
-        content:"";
-        position:absolute;
-        inset:-40%;
-        background: radial-gradient(circle at 30% 20%, rgba(124,92,255,.28), transparent 55%),
-                    radial-gradient(circle at 80% 70%, rgba(32,227,178,.20), transparent 50%);
-        filter: blur(0px);
-      }
-      .mascot img{
-        width: 78%;
-        height:auto;
+      .wordmark img{
+        height:18px;
+        width:auto;
         display:block;
-        position:relative;
-        opacity:.95;
-      }
-      .note{
-        margin-top:10px;
-        font-size:13px;
-        color:rgba(246,247,255,.58);
       }
 
-      .footer{
-        margin-top:34px;
-        padding-top:18px;
-        border-top:1px solid var(--line);
-        display:flex;align-items:center;justify-content:space-between;gap:14px;
+      .tabs{
+        display:flex;
+        gap:8px;
+        align-items:center;
+        background:var(--pill);
+        border:1px solid var(--line);
+        border-radius:999px;
+        padding:6px;
+      }
+      .tab{
+        padding:8px 12px;
+        border-radius:999px;
+        font-weight:700;
+        font-size:14px;
+        color:rgba(11,12,16,.72);
+      }
+      .tab.active{
+        background:#0b0c10;
+        color:#fff;
+      }
+
+      /* Hero */
+      .hero{
+        padding:92px 0 42px;
+        text-align:center;
+      }
+      h1{
+        margin:0 0 10px;
+        font-size: clamp(34px, 4.2vw, 56px);
+        letter-spacing:-.6px;
+      }
+      .sub{
+        margin:0 auto;
+        max-width:760px;
+        font-size:18px;
         color:var(--muted);
-        font-size:13px;
+      }
+
+      .storeRow{
+        margin-top:26px;
+        display:flex;
+        gap:14px;
+        justify-content:center;
         flex-wrap:wrap;
       }
-      .footerLinks{display:flex;gap:14px;flex-wrap:wrap}
-      .footerLinks a{color:var(--muted)}
-      .footerLinks a:hover{color:var(--text)}
+
+      .storeBtn{
+        display:inline-flex;
+        align-items:center;
+        gap:10px;
+        padding:12px 16px;
+        border:1px solid var(--line);
+        border-radius:14px;
+        background:#fff;
+        font-weight:800;
+        transition:transform .08s ease;
+      }
+      .storeBtn:active{transform:scale(.99)}
+      .storeBtn svg{width:22px;height:22px}
+      .soon{
+        margin-left:6px;
+        font-size:12px;
+        font-weight:900;
+        padding:4px 8px;
+        border-radius:999px;
+        background:var(--pill);
+        border:1px solid var(--line);
+        color:rgba(11,12,16,.72);
+      }
+
+      /* Feature icons row */
+      .features{
+        margin-top:64px;
+        display:grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap:26px;
+      }
+      @media (max-width: 980px){
+        .features{grid-template-columns: repeat(2, minmax(0, 1fr));}
+      }
+      @media (max-width: 560px){
+        .features{grid-template-columns: 1fr;}
+      }
+      .feat{
+        text-align:center;
+      }
+      .featIcon{
+        width:92px;height:92px;
+        margin:0 auto 14px;
+        display:grid;
+        place-items:center;
+      }
+      .featIcon svg{
+        width:92px;height:92px;
+        stroke:#0b0c10;
+        stroke-width:2.4;
+        fill:none;
+      }
+      .feat h3{
+        margin:0 0 6px;
+        font-size:16px;
+        letter-spacing:-.1px;
+      }
+      .feat p{
+        margin:0 auto;
+        max-width:240px;
+        color:var(--muted);
+        font-size:14px;
+      }
+
+      /* Footer */
+      .footer{
+        margin-top:72px;
+        padding-top:18px;
+        border-top:1px solid var(--line);
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:14px;
+        flex-wrap:wrap;
+        color:var(--muted);
+        font-size:13px;
+      }
+      .footer a{color:var(--muted)}
+      .footer a:hover{color:var(--text)}
+      .links{display:flex;gap:14px;flex-wrap:wrap}
     </style>
   </head>
 
   <body>
-    <div class="container">
-      <header class="nav">
-        <a class="brand" href="/">
-          <div>
+    <div class="wrap">
+      <header class="top">
+        <a class="brand" href="/" aria-label="FLY Unlimited">
+          <!-- small mascot icon -->
+          <img class="mascot" src="/logo-alt.png" alt="FLY mascot" />
+          <!-- main wordmark -->
+          <span class="wordmark">
             <img src="/logo.png" alt="FLY Unlimited" />
-            <small>Coming soon to the App Store</small>
-          </div>
+          </span>
         </a>
 
-        <nav class="tabs" aria-label="Primary">
+        <nav class="tabs" aria-label="Navigation">
           <a class="tab active" href="/">Home</a>
           <a class="tab" href="/how-it-works/">How it works</a>
           <a class="tab" href="/info/">Info</a>
@@ -209,53 +223,97 @@ const contactEmail = "hello@fly-unlimited.com"; // change if needed
       </header>
 
       <main class="hero">
-        <section>
-          <div class="kicker"><span class="dot"></span> Pre-launch</div>
-          <h1>FLY, unlimited.</h1>
-          <p class="sub">
-            A premium iOS experience built for speed, trust, and simplicity.
-            We’re polishing the final details and launching soon.
-          </p>
+        <h1>{headline}</h1>
+        <p class="sub">{subtitle}</p>
 
-          <div class="ctaRow">
-            <a class="btn primary" href="/info/">Contact / About</a>
-            <a class="btn" href={`mailto:${contactEmail}`}>Email: {contactEmail}</a>
+        <div class="storeRow" aria-label="Store links">
+          <a class="storeBtn" href={appStoreUrl} aria-label="App Store">
+            <!-- Apple icon -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M16.6 13.2c.1 2.8 2.5 3.7 2.5 3.7s-1.9 5.3-4.5 5.3c-1.1 0-2-.7-3.2-.7s-2.3.7-3.2.7C5.8 22.2 3 17.7 3 13.6c0-3.5 2.1-5.3 4-5.3 1.2 0 2.3.8 3.2.8.9 0 2.2-.9 3.7-.9.6 0 2.6.1 3.8 2-3.4 1.9-3.1 5-3.1 5z" fill="#0b0c10" stroke="none"/>
+              <path d="M15.3 2.2c.1 1.3-.5 2.6-1.3 3.5-.9.9-2.2 1.6-3.4 1.5-.2-1.3.5-2.7 1.3-3.5.9-.9 2.3-1.6 3.4-1.5z" fill="#0b0c10" stroke="none"/>
+            </svg>
+            App Store <span class="soon">Coming soon</span>
+          </a>
+
+          <!-- Optional: hide this if you don't want Android -->
+          <a class="storeBtn" href={googlePlayUrl} aria-label="Google Play">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 3.5v17c0 .8.9 1.3 1.6.9l14.7-8.5c.7-.4.7-1.4 0-1.8L5.6 2.6C4.9 2.2 4 2.7 4 3.5z" fill="#0b0c10" stroke="none"/>
+            </svg>
+            Google Play <span class="soon">Later</span>
+          </a>
+        </div>
+
+        <section class="features" aria-label="Key features">
+          <div class="feat">
+            <div class="featIcon">
+              <!-- cup icon -->
+              <svg viewBox="0 0 24 24">
+                <path d="M7 6h10l-1 14H8L7 6z"/>
+                <path d="M9 6V4h6v2"/>
+                <path d="M6 8H4c0 3 2 5 5 5"/>
+              </svg>
+            </div>
+            <h3>Fast</h3>
+            <p>Quick flows that feel instant.</p>
           </div>
 
-          <div class="grid" aria-label="Highlights">
-            <div class="card">
-              <h3>Fast</h3>
-              <p>Designed to feel instant—clean flows, no friction.</p>
+          <div class="feat">
+            <div class="featIcon">
+              <!-- gift icon -->
+              <svg viewBox="0 0 24 24">
+                <path d="M20 12v9H4v-9"/>
+                <path d="M2 7h20v5H2z"/>
+                <path d="M12 7v14"/>
+                <path d="M12 7c-1.2 0-3-.8-3-2.2C9 3.7 10 3 11 3c1.7 0 2.6 2.1 3 4z"/>
+                <path d="M12 7c1.2 0 3-.8 3-2.2C15 3.7 14 3 13 3c-1.7 0-2.6 2.1-3 4z"/>
+              </svg>
             </div>
-            <div class="card">
-              <h3>Secure</h3>
-              <p>Built with privacy and safety in mind from day one.</p>
+            <h3>Premium</h3>
+            <p>Clean design, polished UX.</p>
+          </div>
+
+          <div class="feat">
+            <div class="featIcon">
+              <!-- scooter/delivery icon -->
+              <svg viewBox="0 0 24 24">
+                <path d="M5 18h7"/>
+                <path d="M14 18h2"/>
+                <path d="M7 18a2 2 0 1 0 0 .01"/>
+                <path d="M18 18a2 2 0 1 0 0 .01"/>
+                <path d="M14 6h4l2 6h-6l-2-6"/>
+                <path d="M9 12h5"/>
+              </svg>
             </div>
-            <div class="card">
-              <h3>Simple</h3>
-              <p>Focused UX that stays out of your way.</p>
+            <h3>Reliable</h3>
+            <p>Built for real-world use.</p>
+          </div>
+
+          <div class="feat">
+            <div class="featIcon">
+              <!-- megaphone icon -->
+              <svg viewBox="0 0 24 24">
+                <path d="M3 11v2"/>
+                <path d="M6 10v4"/>
+                <path d="M6 12l14-6v12l-14-6z"/>
+                <path d="M6 14l2.5 6H11l-2-6"/>
+              </svg>
             </div>
+            <h3>Updates</h3>
+            <p>Launching soon — stay tuned.</p>
           </div>
         </section>
 
-        <aside class="mascotWrap" aria-label="Brand mascot">
-          <div>
-            <div class="mascot">
-              <img src="/logo-alt.png" alt="FLY mascot" />
-            </div>
-            <div class="note">Mascot preview — final branding in progress.</div>
+        <footer class="footer">
+          <div>© 2026 {siteName}</div>
+          <div class="links">
+            <a href="/info/">Contact</a>
+            <a href="/terms/">Terms</a>
+            <a href="/privacy/">Privacy</a>
           </div>
-        </aside>
+        </footer>
       </main>
-
-      <footer class="footer">
-        <div>© 2026 {siteName}</div>
-        <div class="footerLinks">
-          <a href="/terms/">Terms</a>
-          <a href="/privacy/">Privacy</a>
-          <a href="/info/">Contact</a>
-        </div>
-      </footer>
     </div>
   </body>
 </html>
