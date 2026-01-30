@@ -84,31 +84,34 @@ const appStoreUrl = "#";
 
       /* Hero */
       .hero{
-        padding:86px 0 42px; /* a touch tighter up top */
+        padding:96px 0 42px;
         text-align:center;
       }
 
-      /* ✅ Bigger center logo */
+      /* ✅ MUCH bigger center logo */
       .centerLogo{
         display:block;
         margin:0 auto 18px;
-        height:64px; /* was 40px */
+        height:140px;  /* BIG */
         width:auto;
       }
+      @media (max-width: 980px){
+        .centerLogo{height:120px;}
+      }
       @media (max-width: 560px){
-        .centerLogo{height:56px;}
+        .centerLogo{height:92px;}
       }
 
       .sub{
         margin:0 auto;
-        max-width:860px;
+        max-width:900px;
         font-size:19px;
         color:var(--muted);
       }
 
       /* ✅ push features down */
       .features{
-        margin-top:92px; /* was 64px */
+        margin-top:118px;
         display:grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
         gap:26px;
