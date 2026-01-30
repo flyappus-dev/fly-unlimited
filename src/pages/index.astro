@@ -1,19 +1,261 @@
 ---
-import SiteLayout from "../layouts/SiteLayout.astro";
+const siteName = "FLY Unlimited";
+const contactEmail = "hello@fly-unlimited.com"; // change if needed
 ---
 
-<SiteLayout title="FLY Unlimited" description="FLY Unlimited">
-  <h1 class="h1">Welcome to FLY Unlimited.</h1>
-  <p class="sub">Replace this with your one-sentence pitch.</p>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{siteName}</title>
+    <meta name="description" content="FLY Unlimited — coming soon to the App Store." />
+    <meta name="theme-color" content="#0b0c10" />
+    <style>
+      :root{
+        --bg:#0b0c10;
+        --card:#11131a;
+        --text:#f6f7ff;
+        --muted:rgba(246,247,255,.72);
+        --line:rgba(246,247,255,.12);
+        --accent:#7c5cff;
+        --accent2:#20e3b2;
+        --radius:18px;
+        --max:1060px;
+        --shadow: 0 22px 90px rgba(0,0,0,.45);
+      }
+      *{box-sizing:border-box}
+      html,body{margin:0;padding:0}
+      body{
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+        background:
+          radial-gradient(1200px 600px at 20% -10%, rgba(124,92,255,.35), transparent 60%),
+          radial-gradient(900px 600px at 90% 10%, rgba(32,227,178,.22), transparent 55%),
+          radial-gradient(1000px 700px at 50% 120%, rgba(124,92,255,.18), transparent 60%),
+          var(--bg);
+        color:var(--text);
+        line-height:1.45;
+      }
+      a{color:inherit;text-decoration:none}
+      a:hover{opacity:.92}
 
-  <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;">
-    <a class="btn" href="/how-it-works">How it works</a>
-    <a class="btn btnGhost" href="/info">Info</a>
-  </div>
+      .container{max-width:var(--max);margin:0 auto;padding:28px 20px 56px}
+      .nav{
+        display:flex;align-items:center;justify-content:space-between;gap:16px;
+        padding:14px 16px;
+        background:rgba(255,255,255,.05);
+        border:1px solid var(--line);
+        border-radius:999px;
+        backdrop-filter: blur(12px);
+      }
+      .brand{display:flex;align-items:center;gap:12px;min-width:220px}
+      .brand img{height:22px;width:auto;display:block}
+      .brand small{display:block;color:var(--muted);font-weight:600;letter-spacing:.2px;margin-top:2px}
 
-  <div class="grid grid3" style="margin-top:22px;">
-    <div class="card" style="padding:16px;"><b>Fast</b><div style="color:var(--muted);margin-top:6px;">One line benefit.</div></div>
-    <div class="card" style="padding:16px;"><b>Secure</b><div style="color:var(--muted);margin-top:6px;">One line benefit.</div></div>
-    <div class="card" style="padding:16px;"><b>Simple</b><div style="color:var(--muted);margin-top:6px;">One line benefit.</div></div>
-  </div>
-</SiteLayout>
+      .tabs{display:flex;gap:8px;flex-wrap:wrap}
+      .tab{
+        padding:9px 12px;border-radius:999px;
+        border:1px solid transparent;
+        color:var(--muted);
+        font-weight:600;
+        font-size:14px;
+      }
+      .tab.active{
+        color:var(--text);
+        background:rgba(255,255,255,.07);
+        border-color:var(--line);
+      }
+
+      .hero{
+        padding:56px 10px 34px;
+        display:grid;
+        grid-template-columns: 1.15fr .85fr;
+        gap:26px;
+        align-items:center;
+      }
+      @media (max-width: 900px){
+        .hero{grid-template-columns:1fr;padding-top:44px}
+      }
+
+      .kicker{
+        display:inline-flex;align-items:center;gap:10px;
+        padding:8px 12px;border-radius:999px;
+        background:rgba(255,255,255,.06);
+        border:1px solid var(--line);
+        color:var(--muted);
+        font-weight:600;
+        width:fit-content;
+      }
+      .dot{
+        width:8px;height:8px;border-radius:99px;
+        background:linear-gradient(135deg,var(--accent),var(--accent2));
+        box-shadow:0 0 0 6px rgba(124,92,255,.12);
+      }
+
+      h1{
+        margin:18px 0 10px;
+        font-size: clamp(42px, 6vw, 68px);
+        letter-spacing:-1px;
+        line-height:1.03;
+      }
+      .sub{
+        max-width:680px;
+        font-size: clamp(16px, 2.2vw, 19px);
+        color:var(--muted);
+        margin:0 0 18px;
+      }
+
+      .ctaRow{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+      .btn{
+        display:inline-flex;align-items:center;justify-content:center;gap:10px;
+        padding:12px 16px;border-radius:14px;
+        border:1px solid var(--line);
+        background:rgba(255,255,255,.06);
+        font-weight:800;
+      }
+      .btn.primary{
+        border-color:transparent;
+        background:linear-gradient(135deg, rgba(124,92,255,.95), rgba(32,227,178,.9));
+        color:#0b0c10;
+      }
+
+      .grid{
+        display:grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap:14px;
+        margin-top:26px;
+      }
+      @media (max-width: 900px){ .grid{grid-template-columns:1fr} }
+      .card{
+        background:rgba(255,255,255,.05);
+        border:1px solid var(--line);
+        border-radius:var(--radius);
+        padding:18px 18px 16px;
+        box-shadow: var(--shadow);
+      }
+      .card h3{margin:0 0 6px;font-size:16px}
+      .card p{margin:0;color:var(--muted)}
+
+      /* Mascot accent */
+      .mascotWrap{
+        display:flex;
+        justify-content:flex-end;
+      }
+      .mascot{
+        width:min(340px, 78vw);
+        aspect-ratio: 1 / 1;
+        border-radius: 28px;
+        padding: 18px;
+        background:rgba(255,255,255,.04);
+        border:1px solid var(--line);
+        box-shadow: var(--shadow);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        position:relative;
+        overflow:hidden;
+      }
+      .mascot:before{
+        content:"";
+        position:absolute;
+        inset:-40%;
+        background: radial-gradient(circle at 30% 20%, rgba(124,92,255,.28), transparent 55%),
+                    radial-gradient(circle at 80% 70%, rgba(32,227,178,.20), transparent 50%);
+        filter: blur(0px);
+      }
+      .mascot img{
+        width: 78%;
+        height:auto;
+        display:block;
+        position:relative;
+        opacity:.95;
+      }
+      .note{
+        margin-top:10px;
+        font-size:13px;
+        color:rgba(246,247,255,.58);
+      }
+
+      .footer{
+        margin-top:34px;
+        padding-top:18px;
+        border-top:1px solid var(--line);
+        display:flex;align-items:center;justify-content:space-between;gap:14px;
+        color:var(--muted);
+        font-size:13px;
+        flex-wrap:wrap;
+      }
+      .footerLinks{display:flex;gap:14px;flex-wrap:wrap}
+      .footerLinks a{color:var(--muted)}
+      .footerLinks a:hover{color:var(--text)}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="nav">
+        <a class="brand" href="/">
+          <div>
+            <img src="/logo.png" alt="FLY Unlimited" />
+            <small>Coming soon to the App Store</small>
+          </div>
+        </a>
+
+        <nav class="tabs" aria-label="Primary">
+          <a class="tab active" href="/">Home</a>
+          <a class="tab" href="/how-it-works/">How it works</a>
+          <a class="tab" href="/info/">Info</a>
+        </nav>
+      </header>
+
+      <main class="hero">
+        <section>
+          <div class="kicker"><span class="dot"></span> Pre-launch</div>
+          <h1>FLY, unlimited.</h1>
+          <p class="sub">
+            A premium iOS experience built for speed, trust, and simplicity.
+            We’re polishing the final details and launching soon.
+          </p>
+
+          <div class="ctaRow">
+            <a class="btn primary" href="/info/">Contact / About</a>
+            <a class="btn" href={`mailto:${contactEmail}`}>Email: {contactEmail}</a>
+          </div>
+
+          <div class="grid" aria-label="Highlights">
+            <div class="card">
+              <h3>Fast</h3>
+              <p>Designed to feel instant—clean flows, no friction.</p>
+            </div>
+            <div class="card">
+              <h3>Secure</h3>
+              <p>Built with privacy and safety in mind from day one.</p>
+            </div>
+            <div class="card">
+              <h3>Simple</h3>
+              <p>Focused UX that stays out of your way.</p>
+            </div>
+          </div>
+        </section>
+
+        <aside class="mascotWrap" aria-label="Brand mascot">
+          <div>
+            <div class="mascot">
+              <img src="/logo-alt.png" alt="FLY mascot" />
+            </div>
+            <div class="note">Mascot preview — final branding in progress.</div>
+          </div>
+        </aside>
+      </main>
+
+      <footer class="footer">
+        <div>© 2026 {siteName}</div>
+        <div class="footerLinks">
+          <a href="/terms/">Terms</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/info/">Contact</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
