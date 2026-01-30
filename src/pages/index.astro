@@ -13,6 +13,7 @@ const appStoreUrl = "#";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{siteName}</title>
     <meta name="description" content="FLY Unlimited — coming soon." />
+
     <style>
       :root{
         --bg:#ffffff;
@@ -21,7 +22,7 @@ const appStoreUrl = "#";
         --line:rgba(11,12,16,.10);
         --pill:rgba(11,12,16,.06);
         --max:1100px;
-        --radius:16px;
+        --radius:18px;
       }
 
       *{box-sizing:border-box}
@@ -32,10 +33,11 @@ const appStoreUrl = "#";
         color:var(--text);
         line-height:1.45;
       }
-      a{color:inherit;text-decoration:none}
-      a:hover{opacity:.92}
 
-      .wrap{max-width:var(--max);margin:0 auto;padding:22px 20px 70px}
+      a{color:inherit;text-decoration:none}
+      a:hover{opacity:.96}
+
+      .wrap{max-width:var(--max);margin:0 auto;padding:22px 20px 72px}
 
       /* Top bar */
       .top{
@@ -46,7 +48,6 @@ const appStoreUrl = "#";
         padding:10px 4px;
       }
 
-      /* only mascot on the left */
       .brand{
         display:flex;
         align-items:center;
@@ -61,38 +62,53 @@ const appStoreUrl = "#";
         object-fit:contain;
       }
 
-      .tabs{
+      /* ✅ Icon-only nav */
+      .nav{
         display:flex;
-        gap:8px;
         align-items:center;
-        background:var(--pill);
+        gap:10px;
+        padding:8px;
         border:1px solid var(--line);
         border-radius:999px;
-        padding:6px;
+        background:rgba(255,255,255,.9);
+        backdrop-filter:saturate(180%) blur(8px);
       }
-      .tab{
-        padding:8px 12px;
+      .navBtn{
+        width:40px;height:40px;
+        display:grid;
+        place-items:center;
         border-radius:999px;
-        font-weight:700;
-        font-size:14px;
+        border:1px solid transparent;
         color:rgba(11,12,16,.72);
       }
-      .tab.active{
+      .navBtn:hover{
+        background:var(--pill);
+        border-color:var(--line);
+      }
+      .navBtn.active{
         background:#0b0c10;
         color:#fff;
+      }
+      .navBtn svg{
+        width:18px;height:18px;
+        stroke:currentColor;
+        stroke-width:2.2;
+        fill:none;
+        stroke-linecap:round;
+        stroke-linejoin:round;
       }
 
       /* Hero */
       .hero{
-        padding:96px 0 42px;
+        padding:92px 0 10px;
         text-align:center;
       }
 
-      /* ✅ MUCH bigger center logo */
+      /* ✅ BIG logo */
       .centerLogo{
         display:block;
         margin:0 auto 18px;
-        height:140px;  /* BIG */
+        height:140px;
         width:auto;
       }
       @media (max-width: 980px){
@@ -104,17 +120,56 @@ const appStoreUrl = "#";
 
       .sub{
         margin:0 auto;
-        max-width:900px;
+        max-width:920px;
         font-size:19px;
         color:var(--muted);
       }
 
-      /* ✅ push features down */
+      /* ✅ Premium hero image */
+      .heroMedia{
+        margin:44px auto 0;
+        max-width:980px;
+        border-radius:24px;
+        border:1px solid var(--line);
+        overflow:hidden;
+        background:#fff;
+        box-shadow: 0 14px 40px rgba(11,12,16,.06);
+      }
+      .heroMedia img{
+        width:100%;
+        height:auto;
+        display:block;
+      }
+      .heroMediaCaption{
+        padding:14px 16px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:12px;
+        border-top:1px solid var(--line);
+        color:var(--muted);
+        font-size:13px;
+      }
+      .chip{
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        padding:8px 12px;
+        border:1px solid var(--line);
+        border-radius:999px;
+        background:#fff;
+        color:rgba(11,12,16,.78);
+        font-weight:800;
+        white-space:nowrap;
+      }
+      .chip svg{width:16px;height:16px;stroke:#0b0c10;stroke-width:2.2;fill:none}
+
+      /* ✅ Feature cards (premium, not “giant icons”) */
       .features{
-        margin-top:118px;
+        margin-top:72px;
         display:grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap:26px;
+        gap:16px;
       }
       @media (max-width: 980px){
         .features{grid-template-columns: repeat(2, minmax(0, 1fr));}
@@ -123,38 +178,52 @@ const appStoreUrl = "#";
         .features{grid-template-columns: 1fr;}
       }
 
-      .feat{
-        text-align:center;
+      .card{
+        text-align:left;
+        border:1px solid var(--line);
+        border-radius:20px;
+        padding:18px;
+        background:#fff;
+        box-shadow: 0 10px 28px rgba(11,12,16,.04);
       }
-      .featIcon{
-        width:92px;height:92px;
-        margin:0 auto 14px;
+      .cardTop{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:12px;
+        margin-bottom:10px;
+      }
+      .iconBadge{
+        width:42px;height:42px;
+        border-radius:14px;
         display:grid;
         place-items:center;
+        background:var(--pill);
+        border:1px solid var(--line);
       }
-      .featIcon svg{
-        width:92px;height:92px;
+      .iconBadge svg{
+        width:18px;height:18px;
         stroke:#0b0c10;
-        stroke-width:2.4;
+        stroke-width:2.2;
         fill:none;
         stroke-linecap:round;
         stroke-linejoin:round;
       }
-      .feat h3{
-        margin:0 0 6px;
-        font-size:16px;
-        letter-spacing:-.1px;
+      .card h3{
+        margin:0;
+        font-size:15px;
+        letter-spacing:-.2px;
       }
-      .feat p{
-        margin:0 auto;
-        max-width:260px;
+      .card p{
+        margin:0;
         color:var(--muted);
-        font-size:14px;
+        font-size:13.5px;
+        line-height:1.5;
       }
 
       /* Footer */
       .footer{
-        margin-top:72px;
+        margin-top:74px;
         padding-top:18px;
         border-top:1px solid var(--line);
         display:flex;
@@ -192,10 +261,36 @@ const appStoreUrl = "#";
           <img class="mascot" src="/logo-alt.png" alt="FLY mascot" />
         </a>
 
-        <nav class="tabs" aria-label="Navigation">
-          <a class="tab active" href="/">Home</a>
-          <a class="tab" href="/how-it-works/">How it works</a>
-          <a class="tab" href="/info/">Info</a>
+        <!-- ✅ icon-only nav -->
+        <nav class="nav" aria-label="Navigation">
+          <a class="navBtn active" href="/" aria-label="Home" title="Home">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 10.5 12 3l9 7.5" />
+              <path d="M5.5 9.8V21h13V9.8" />
+            </svg>
+          </a>
+
+          <a class="navBtn" href="/how-it-works/" aria-label="How it works" title="How it works">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2v4" />
+              <path d="M12 18v4" />
+              <path d="M4.93 4.93 7.76 7.76" />
+              <path d="M16.24 16.24 19.07 19.07" />
+              <path d="M2 12h4" />
+              <path d="M18 12h4" />
+              <path d="M4.93 19.07 7.76 16.24" />
+              <path d="M16.24 7.76 19.07 4.93" />
+              <circle cx="12" cy="12" r="3.2" />
+            </svg>
+          </a>
+
+          <a class="navBtn" href="/info/" aria-label="Info" title="Info">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 10.6v6" />
+              <path d="M12 7.4h.01" />
+            </svg>
+          </a>
         </nav>
       </header>
 
@@ -206,61 +301,73 @@ const appStoreUrl = "#";
           Looking forward to connecting, sharing, collaborating, exchanging, creating, and FLYing with you.
         </p>
 
-        <section class="features" aria-label="Key features">
-          <!-- 1) What do you need? -->
-          <div class="feat">
-            <div class="featIcon">
-              <!-- chat/question bubble -->
+        <!-- ✅ Replace /public/hero.jpg with your own later -->
+        <div class="heroMedia" role="img" aria-label="FLY preview">
+          <img src="/hero.jpg" alt="FLY preview (placeholder)" />
+          <div class="heroMediaCaption">
+            <span>Coming soon to iOS.</span>
+            <span class="chip" aria-label="App Store coming soon">
               <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M21 12a8 8 0 0 1-8 8H7l-4 3 1.2-4.7A8 8 0 1 1 21 12z" />
-                <path d="M9.7 9.2a2.3 2.3 0 0 1 4.2 1.2c0 1.6-1.6 2-2.2 2.6-.4.4-.4.8-.4 1.5" />
-                <path d="M11.8 16.9h.01" />
+                <path d="M16.6 13.2c.1 2.8 2.5 3.7 2.5 3.7s-1.9 5.3-4.5 5.3c-1.1 0-2-.7-3.2-.7s-2.3.7-3.2.7C5.8 22.2 3 17.7 3 13.6c0-3.5 2.1-5.3 4-5.3 1.2 0 2.3.8 3.2.8.9 0 2.2-.9 3.7-.9.6 0 2.6.1 3.8 2-3.4 1.9-3.1 5-3.1 5z" fill="#0b0c10" stroke="none"/>
+                <path d="M15.3 2.2c.1 1.3-.5 2.6-1.3 3.5-.9.9-2.2 1.6-3.4 1.5-.2-1.3.5-2.7 1.3-3.5.9-.9 2.3-1.6 3.4-1.5z" fill="#0b0c10" stroke="none"/>
               </svg>
+              App Store — Coming soon
+            </span>
+          </div>
+        </div>
+
+        <section class="features" aria-label="Key features">
+          <div class="card">
+            <div class="cardTop">
+              <div class="iconBadge" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M21 12a8 8 0 0 1-8 8H7l-4 3 1.2-4.7A8 8 0 1 1 21 12z" />
+                  <path d="M12 8.6c-1.4 0-2.5.8-2.5 2" />
+                  <path d="M12 15.8h.01" />
+                </svg>
+              </div>
+              <h3>What do you need?</h3>
             </div>
-            <h3>What do you need?</h3>
             <p>Whatever it is just ask.</p>
           </div>
 
-          <!-- 2) I'm interested! -->
-          <div class="feat">
-            <div class="featIcon">
-              <!-- compass + heart -->
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="9" />
-                <path d="M14.8 9.2 13.2 13.2 9.2 14.8 10.8 10.8z" />
-                <path d="M16.9 16.1c-.8 1-2.2 1.6-3.5.8-1.3.8-2.7.2-3.5-.8-.8-1 .1-2.4 1.4-2.5 1.1-.1 1.8.7 2.1 1.2.3-.5 1-1.3 2.1-1.2 1.3.1 2.2 1.5 1.4 2.5z" />
-              </svg>
+          <div class="card">
+            <div class="cardTop">
+              <div class="iconBadge" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 21s-6-4.2-6-9a3.6 3.6 0 0 1 6-2.2A3.6 3.6 0 0 1 18 12c0 4.8-6 9-6 9z" />
+                  <path d="M12 4v2" />
+                  <path d="M12 8v.01" />
+                </svg>
+              </div>
+              <h3>I’m interested!</h3>
             </div>
-            <h3>I’m interested!</h3>
             <p>Find things to do that fit what you love.</p>
           </div>
 
-          <!-- 3) It's LiveTime! -->
-          <div class="feat">
-            <div class="featIcon">
-              <!-- lightning / realtime -->
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M13 2 4 14h7l-1 8 10-14h-7z" />
-                <path d="M5 4c1.3 1.2 1.3 3.1 0 4.3" />
-                <path d="M19 15.7c1.3 1.2 1.3 3.1 0 4.3" />
-              </svg>
+          <div class="card">
+            <div class="cardTop">
+              <div class="iconBadge" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M13 2 4 14h7l-1 8 10-14h-7z" />
+                </svg>
+              </div>
+              <h3>It’s LiveTime!</h3>
             </div>
-            <h3>It’s LiveTime!</h3>
             <p>Create, collab, exchange and do it all right now.</p>
           </div>
 
-          <!-- 4) No Time to Waste -->
-          <div class="feat">
-            <div class="featIcon">
-              <!-- stopwatch -->
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M9 2h6" />
-                <path d="M12 14V9" />
-                <path d="M12 22a8 8 0 1 0-8-8 8 8 0 0 0 8 8z" />
-                <path d="M16.5 6.5 18 5" />
-              </svg>
+          <div class="card">
+            <div class="cardTop">
+              <div class="iconBadge" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M9 2h6" />
+                  <path d="M12 14V9" />
+                  <path d="M12 22a8 8 0 1 0-8-8 8 8 0 0 0 8 8z" />
+                </svg>
+              </div>
+              <h3>No Time to Waste</h3>
             </div>
-            <h3>No Time to Waste</h3>
             <p>Get what you need fast, whatever it is.</p>
           </div>
         </section>
