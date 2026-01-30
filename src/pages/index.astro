@@ -1,13 +1,9 @@
 ---
 const siteName = "FLY Unlimited";
-const headline = "The FLY App";
-const subtitle =
-  "A premium iOS experience built for speed, trust, and simplicity. Coming soon to the App Store.";
 const contactEmail = "hello@fly-unlimited.com"; // change if needed
 
-// If you don't have the App Store link yet, leave as "#"
+// App Store link (if you don't have it yet, leave "#")
 const appStoreUrl = "#";
-const googlePlayUrl = "#"; // optional if you don't want Android, we can hide it
 ---
 
 <!doctype html>
@@ -50,6 +46,7 @@ const googlePlayUrl = "#"; // optional if you don't want Android, we can hide it
         padding:10px 4px;
       }
 
+      /* ✅ only mascot on the left */
       .brand{
         display:flex;
         align-items:center;
@@ -62,16 +59,6 @@ const googlePlayUrl = "#"; // optional if you don't want Android, we can hide it
         border-radius:10px;
         display:block;
         object-fit:contain;
-      }
-      .wordmark{
-        display:flex;
-        align-items:center;
-        gap:10px;
-      }
-      .wordmark img{
-        height:18px;
-        width:auto;
-        display:block;
       }
 
       .tabs{
@@ -100,48 +87,20 @@ const googlePlayUrl = "#"; // optional if you don't want Android, we can hide it
         padding:92px 0 42px;
         text-align:center;
       }
-      h1{
-        margin:0 0 10px;
-        font-size: clamp(34px, 4.2vw, 56px);
-        letter-spacing:-.6px;
+
+      /* ✅ center logo.png instead of title */
+      .centerLogo{
+        display:block;
+        margin:0 auto 14px;
+        height:40px; /* adjust if you want slightly larger/smaller */
+        width:auto;
       }
+
       .sub{
         margin:0 auto;
-        max-width:760px;
+        max-width:820px;
         font-size:18px;
         color:var(--muted);
-      }
-
-      .storeRow{
-        margin-top:26px;
-        display:flex;
-        gap:14px;
-        justify-content:center;
-        flex-wrap:wrap;
-      }
-
-      .storeBtn{
-        display:inline-flex;
-        align-items:center;
-        gap:10px;
-        padding:12px 16px;
-        border:1px solid var(--line);
-        border-radius:14px;
-        background:#fff;
-        font-weight:800;
-        transition:transform .08s ease;
-      }
-      .storeBtn:active{transform:scale(.99)}
-      .storeBtn svg{width:22px;height:22px}
-      .soon{
-        margin-left:6px;
-        font-size:12px;
-        font-weight:900;
-        padding:4px 8px;
-        border-radius:999px;
-        background:var(--pill);
-        border:1px solid var(--line);
-        color:rgba(11,12,16,.72);
       }
 
       /* Feature icons row */
@@ -197,22 +156,32 @@ const googlePlayUrl = "#"; // optional if you don't want Android, we can hide it
         color:var(--muted);
         font-size:13px;
       }
-      .footer a{color:var(--muted)}
-      .footer a:hover{color:var(--text)}
-      .links{display:flex;gap:14px;flex-wrap:wrap}
+      .links{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+      .links a{color:var(--muted)}
+      .links a:hover{color:var(--text)}
+
+      /* ✅ App Store note at bottom-right */
+      .appNote{
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        padding:8px 12px;
+        border:1px solid var(--line);
+        border-radius:999px;
+        background:#fff;
+        font-weight:800;
+        color:rgba(11,12,16,.78);
+      }
+      .appNote svg{width:18px;height:18px}
     </style>
   </head>
 
   <body>
     <div class="wrap">
       <header class="top">
+        <!-- ✅ Left: ONLY mascot -->
         <a class="brand" href="/" aria-label="FLY Unlimited">
-          <!-- small mascot icon -->
           <img class="mascot" src="/logo-alt.png" alt="FLY mascot" />
-          <!-- main wordmark -->
-          <span class="wordmark">
-            <img src="/logo.png" alt="FLY Unlimited" />
-          </span>
         </a>
 
         <nav class="tabs" aria-label="Navigation">
@@ -223,32 +192,17 @@ const googlePlayUrl = "#"; // optional if you don't want Android, we can hide it
       </header>
 
       <main class="hero">
-        <h1>{headline}</h1>
-        <p class="sub">{subtitle}</p>
+        <!-- ✅ Center: logo.png -->
+        <img class="centerLogo" src="/logo.png" alt="FLY Unlimited" />
 
-        <div class="storeRow" aria-label="Store links">
-          <a class="storeBtn" href={appStoreUrl} aria-label="App Store">
-            <!-- Apple icon -->
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M16.6 13.2c.1 2.8 2.5 3.7 2.5 3.7s-1.9 5.3-4.5 5.3c-1.1 0-2-.7-3.2-.7s-2.3.7-3.2.7C5.8 22.2 3 17.7 3 13.6c0-3.5 2.1-5.3 4-5.3 1.2 0 2.3.8 3.2.8.9 0 2.2-.9 3.7-.9.6 0 2.6.1 3.8 2-3.4 1.9-3.1 5-3.1 5z" fill="#0b0c10" stroke="none"/>
-              <path d="M15.3 2.2c.1 1.3-.5 2.6-1.3 3.5-.9.9-2.2 1.6-3.4 1.5-.2-1.3.5-2.7 1.3-3.5.9-.9 2.3-1.6 3.4-1.5z" fill="#0b0c10" stroke="none"/>
-            </svg>
-            App Store <span class="soon">Coming soon</span>
-          </a>
-
-          <!-- Optional: hide this if you don't want Android -->
-          <a class="storeBtn" href={googlePlayUrl} aria-label="Google Play">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M4 3.5v17c0 .8.9 1.3 1.6.9l14.7-8.5c.7-.4.7-1.4 0-1.8L5.6 2.6C4.9 2.2 4 2.7 4 3.5z" fill="#0b0c10" stroke="none"/>
-            </svg>
-            Google Play <span class="soon">Later</span>
-          </a>
-        </div>
+        <!-- ✅ New subtitle line -->
+        <p class="sub">
+          Looking forward to connecting, sharing, collaborating, exchanging, creating, and FLYing with you.
+        </p>
 
         <section class="features" aria-label="Key features">
           <div class="feat">
             <div class="featIcon">
-              <!-- cup icon -->
               <svg viewBox="0 0 24 24">
                 <path d="M7 6h10l-1 14H8L7 6z"/>
                 <path d="M9 6V4h6v2"/>
@@ -261,7 +215,6 @@ const googlePlayUrl = "#"; // optional if you don't want Android, we can hide it
 
           <div class="feat">
             <div class="featIcon">
-              <!-- gift icon -->
               <svg viewBox="0 0 24 24">
                 <path d="M20 12v9H4v-9"/>
                 <path d="M2 7h20v5H2z"/>
@@ -276,7 +229,6 @@ const googlePlayUrl = "#"; // optional if you don't want Android, we can hide it
 
           <div class="feat">
             <div class="featIcon">
-              <!-- scooter/delivery icon -->
               <svg viewBox="0 0 24 24">
                 <path d="M5 18h7"/>
                 <path d="M14 18h2"/>
@@ -292,7 +244,6 @@ const googlePlayUrl = "#"; // optional if you don't want Android, we can hide it
 
           <div class="feat">
             <div class="featIcon">
-              <!-- megaphone icon -->
               <svg viewBox="0 0 24 24">
                 <path d="M3 11v2"/>
                 <path d="M6 10v4"/>
@@ -307,10 +258,20 @@ const googlePlayUrl = "#"; // optional if you don't want Android, we can hide it
 
         <footer class="footer">
           <div>© 2026 {siteName}</div>
+
           <div class="links">
             <a href="/info/">Contact</a>
             <a href="/terms/">Terms</a>
             <a href="/privacy/">Privacy</a>
+
+            <!-- ✅ App Store "coming soon" bottom-right -->
+            <a class="appNote" href={appStoreUrl} aria-label="App Store coming soon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M16.6 13.2c.1 2.8 2.5 3.7 2.5 3.7s-1.9 5.3-4.5 5.3c-1.1 0-2-.7-3.2-.7s-2.3.7-3.2.7C5.8 22.2 3 17.7 3 13.6c0-3.5 2.1-5.3 4-5.3 1.2 0 2.3.8 3.2.8.9 0 2.2-.9 3.7-.9.6 0 2.6.1 3.8 2-3.4 1.9-3.1 5-3.1 5z" fill="#0b0c10" stroke="none"/>
+                <path d="M15.3 2.2c.1 1.3-.5 2.6-1.3 3.5-.9.9-2.2 1.6-3.4 1.5-.2-1.3.5-2.7 1.3-3.5.9-.9 2.3-1.6 3.4-1.5z" fill="#0b0c10" stroke="none"/>
+              </svg>
+              App Store — Coming soon
+            </a>
           </div>
         </footer>
       </main>
