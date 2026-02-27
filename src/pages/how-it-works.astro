@@ -8,8 +8,9 @@ const contactEmail = "hello@fly-unlimited.com"; // change if needed
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LiveTime • {siteName}</title>
-    <meta name="description" content="LiveTime — how FLY Unlimited works." />
+    <title>How it works • {siteName}</title>
+    <meta name="description" content="Learn how to create a FLY, start LiveTime, add proof, and submit — simple and polished." />
+
     <style>
       :root{
         --bg:#ffffff;
@@ -17,8 +18,13 @@ const contactEmail = "hello@fly-unlimited.com"; // change if needed
         --muted:rgba(11,12,16,.68);
         --line:rgba(11,12,16,.10);
         --pill:rgba(11,12,16,.06);
+        --shadow: 0 10px 28px rgba(11,12,16,.04);
         --max:980px;
         --radius:18px;
+
+        /* ✅ Brand accent (swap to your exact purple if desired) */
+        --main:#6C2BD9;
+        --mainSoft: rgba(108,43,217,.12);
       }
       *{box-sizing:border-box}
       html,body{margin:0;padding:0}
@@ -101,21 +107,108 @@ const contactEmail = "hello@fly-unlimited.com"; // change if needed
         letter-spacing:-.5px;
       }
       .sub{
-        margin:0 auto 28px;
+        margin:0 auto 22px;
         text-align:center;
         max-width:760px;
         color:var(--muted);
         font-size:16px;
       }
 
+      /* ✅ Hero */
+      .hero{
+        margin: 18px auto 22px;
+        display:grid;
+        gap:14px;
+      }
+      .ctaRow{
+        display:flex;
+        justify-content:center;
+        gap:10px;
+        flex-wrap:wrap;
+        margin: 10px 0 0;
+      }
+      .btn{
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        padding:10px 14px;
+        border-radius:999px;
+        border:1px solid var(--line);
+        background:#fff;
+        color:#0b0c10;
+        font-size:14px;
+        box-shadow: 0 10px 28px rgba(11,12,16,.03);
+      }
+      .btn:hover{ background: rgba(11,12,16,.02); }
+      .btnPrimary{
+        background: var(--main);
+        border-color: transparent;
+        color:#fff;
+        box-shadow: 0 14px 34px rgba(108,43,217,.20);
+      }
+      .btnPrimary:hover{ opacity:.96; }
+      .btn svg{
+        width:16px;height:16px;
+        stroke:currentColor;
+        stroke-width:2.2;
+        fill:none;
+        stroke-linecap:round;
+        stroke-linejoin:round;
+      }
+
+      /* ✅ Optional hero image slot */
+      .heroMedia{
+        border:1px solid var(--line);
+        border-radius: 22px;
+        overflow:hidden;
+        background: #fff;
+        box-shadow: var(--shadow);
+      }
+      .heroMediaInner{
+        display:grid;
+        place-items:center;
+        background: linear-gradient(145deg, var(--mainSoft), rgba(255,255,255,.88));
+        padding: 16px;
+      }
+      .heroMediaInner img{
+        width:100%;
+        height:auto;
+        display:block;
+        border-radius: 16px;
+        border: 1px solid rgba(11,12,16,.08);
+        background:#fff;
+      }
+      .heroMediaNote{
+        padding: 10px 14px 14px;
+        color: var(--muted);
+        font-size: 13px;
+        border-top:1px solid var(--line);
+      }
+
+      /* ✅ Sections */
+      .section{
+        margin-top: 26px;
+      }
+      .sectionTitle{
+        margin: 0 0 8px;
+        font-size: 16px;
+        letter-spacing: -.2px;
+        text-align:left;
+      }
+      .sectionSub{
+        margin: 0 0 14px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
       /* ✅ premium cards */
-      .cards{display:grid;gap:14px;margin-top:18px}
+      .cards{display:grid;gap:14px;margin-top:12px}
       .card{
         border:1px solid var(--line);
         border-radius:20px;
         padding:18px;
         background:#fff;
-        box-shadow: 0 10px 28px rgba(11,12,16,.04);
+        box-shadow: var(--shadow);
       }
       .cardTop{
         display:flex;
@@ -143,6 +236,72 @@ const contactEmail = "hello@fly-unlimited.com"; // change if needed
       }
       .card h3{margin:0;font-size:16px;letter-spacing:-.2px}
       .card p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+
+      /* ✅ Two-column blocks */
+      .grid2{
+        display:grid;
+        gap:14px;
+      }
+      @media (min-width: 860px){
+        .grid2{ grid-template-columns: 1fr 1fr; }
+        .hero{ grid-template-columns: 1.1fr .9fr; align-items: start; }
+        .sub{ margin-bottom: 18px; }
+      }
+
+      /* ✅ Bullet list */
+      .list{
+        margin: 10px 0 0;
+        padding-left: 18px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .list li{ margin: 6px 0; }
+
+      /* ✅ FAQ */
+      details{
+        border:1px solid var(--line);
+        border-radius: 18px;
+        padding: 14px 16px;
+        background:#fff;
+        box-shadow: 0 10px 28px rgba(11,12,16,.03);
+      }
+      details + details{ margin-top: 10px; }
+      summary{
+        cursor:pointer;
+        list-style:none;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:10px;
+        font-weight: 650;
+        letter-spacing: -.2px;
+        font-size: 14.5px;
+      }
+      summary::-webkit-details-marker{ display:none; }
+      .faqA{
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .chev{
+        width:18px;height:18px;
+        border-radius: 999px;
+        display:grid;
+        place-items:center;
+        background: var(--pill);
+        border:1px solid var(--line);
+        flex: 0 0 auto;
+      }
+      .chev svg{ width:14px;height:14px; stroke:#0b0c10; stroke-width:2.2; fill:none; }
+      details[open] .chev svg{ transform: rotate(180deg); }
+
+      /* ✅ CTA card */
+      .ctaCard{
+        border:1px solid rgba(108,43,217,.22);
+        background: linear-gradient(145deg, var(--mainSoft), rgba(255,255,255,.90));
+      }
+      .ctaCard h3{ font-size: 17px; }
+      .ctaCard p{ max-width: 70ch; }
 
       .footer{
         margin-top:64px;
@@ -178,8 +337,8 @@ const contactEmail = "hello@fly-unlimited.com"; // change if needed
             </svg>
           </a>
 
-          <!-- ✅ LiveTime (current page) -->
-          <a class="navBtn active" href="/how-it-works/" aria-label="LiveTime" title="LiveTime">
+          <!-- ✅ How it works (current page) -->
+          <a class="navBtn active" href="/how-it-works/" aria-label="How it works" title="How it works">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M13 2 4 14h7l-1 8 10-14h-7z" />
             </svg>
@@ -200,49 +359,337 @@ const contactEmail = "hello@fly-unlimited.com"; // change if needed
           <img src="/logo.png" alt="FLY Unlimited" />
         </div>
 
-        <!-- ✅ renamed section -->
-        <h1>LiveTime</h1>
-        <p class="sub">A simple, polished flow — built for clarity and speed.</p>
+        <h1>How it works</h1>
+        <p class="sub">Create a FLY → run it in LiveTime → add proof → submit. A simple, polished flow built for clarity and speed.</p>
 
-        <section class="cards" aria-label="LiveTime steps">
+        <div class="ctaRow" aria-label="Primary actions">
+          <a class="btn btnPrimary" href="#quickstart" aria-label="Jump to quick start">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+            Quick start
+          </a>
+          <a class="btn" href="mailto:{contactEmail}" aria-label="Contact support">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+            Contact
+          </a>
+        </div>
+
+        <!-- ✅ Optional hero screenshot slot -->
+        <div class="hero" aria-label="Hero">
           <div class="card">
             <div class="cardTop">
-              <h3>1) Request</h3>
+              <h3>What is a FLY?</h3>
               <span class="badge" aria-hidden="true">
                 <svg viewBox="0 0 24 24">
-                  <path d="M21 12a8 8 0 0 1-8 8H7l-4 3 1.2-4.7A8 8 0 1 1 21 12z" />
+                  <path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1 1 18 0z" />
+                  <path d="M12 10a2.5 2.5 0 1 0 0 .01z" />
                 </svg>
               </span>
             </div>
-            <p>Start a request in seconds with clear details.</p>
+            <p>A FLY is a structured request with a checklist (materials, info, goals) and a LiveTime trail that keeps everything organized — from start to submission.</p>
+
+            <ul class="list">
+              <li><b>Clear checklist</b> — everyone knows what “done” means.</li>
+              <li><b>LiveTime trail</b> — photos, files, updates while you work.</li>
+              <li><b>Clean submission</b> — review is fast because proof is organized.</li>
+            </ul>
           </div>
 
-          <div class="card">
-            <div class="cardTop">
-              <h3>2) Confirm</h3>
-              <span class="badge" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path d="M20 6 9 17l-5-5" />
-                </svg>
-              </span>
+          <div class="heroMedia">
+            <div class="heroMediaInner">
+              <!-- ✅ Replace with your hero image (screenshot/mock). Example: /how-it-works/hero.png -->
+              <img src="/how-it-works/hero.png" alt="FLY app screenshot" onerror="this.style.display='none'" />
+              <!-- If you prefer: swap to .jpg/.webp -->
             </div>
-            <p>Review and confirm — everything stays simple and transparent.</p>
+            <div class="heroMediaNote">Drop your preferred hero screenshot here (optional).</div>
           </div>
+        </div>
 
-          <div class="card">
+        <!-- ✅ QUICK START -->
+        <section id="quickstart" class="section" aria-label="Quick start">
+          <h2 class="sectionTitle">Quick start</h2>
+          <p class="sectionSub">Most people complete their first FLY in minutes.</p>
+
+          <section class="cards" aria-label="Steps">
+            <div class="card">
+              <div class="cardTop">
+                <h3>1) Create a FLY</h3>
+                <span class="badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 5v14" />
+                    <path d="M5 12h14" />
+                  </svg>
+                </span>
+              </div>
+              <p>Choose a category, write a clear title, and set a location if needed. Keep it specific — it helps the right people understand the request instantly.</p>
+            </div>
+
+            <div class="card">
+              <div class="cardTop">
+                <h3>2) Add your checklist</h3>
+                <span class="badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M9 6h11" />
+                    <path d="M9 12h11" />
+                    <path d="M9 18h11" />
+                    <path d="M4 6h.01" />
+                    <path d="M4 12h.01" />
+                    <path d="M4 18h.01" />
+                  </svg>
+                </span>
+              </div>
+              <p>Add what matters: materials, key information, and goals. This becomes the shared “definition of done.”</p>
+            </div>
+
+            <div class="card">
+              <div class="cardTop">
+                <h3>3) Start LiveTime</h3>
+                <span class="badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M13 2 4 14h7l-1 8 10-14h-7z" />
+                  </svg>
+                </span>
+              </div>
+              <p>Tap <b>Start</b> to begin LiveTime. You can resume anytime, message the other person, or open directions to the location.</p>
+            </div>
+
+            <div class="card">
+              <div class="cardTop">
+                <h3>4) Add proof as you go</h3>
+                <span class="badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M4 7h16v12H4z" />
+                    <path d="M8 11l2 2 4-4" />
+                  </svg>
+                </span>
+              </div>
+              <p>Add photos, files, and notes inside each checklist item — so everything stays in the right place and review is fast.</p>
+            </div>
+
+            <div class="card">
+              <div class="cardTop">
+                <h3>5) Submit when complete</h3>
+                <span class="badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 2v14" />
+                    <path d="M7 11l5 5 5-5" />
+                    <path d="M5 22h14" />
+                  </svg>
+                </span>
+              </div>
+              <p>When goals are done, tap <b>Submit</b>. The author reviews the LiveTime trail and finalizes the FLY.</p>
+            </div>
+          </section>
+        </section>
+
+        <!-- ✅ LIVETIME EXPLAINED -->
+        <section class="section" aria-label="LiveTime explained">
+          <h2 class="sectionTitle">LiveTime keeps everything organized</h2>
+          <p class="sectionSub">LiveTime is where the work happens — progress, proof, and messages in one clean place.</p>
+
+          <div class="grid2">
+            <div class="card">
+              <div class="cardTop">
+                <h3>Built for clarity</h3>
+                <span class="badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 20s7-4 7-10a7 7 0 1 0-14 0c0 6 7 10 7 10z" />
+                    <path d="M9 10h6" />
+                  </svg>
+                </span>
+              </div>
+              <p>Instead of long threads and scattered media, each checklist item can have its own photos, files, and notes.</p>
+              <ul class="list">
+                <li><b>Resume anytime</b> — pick up where you left off.</li>
+                <li><b>Item threads</b> — proof stays attached to the right step.</li>
+                <li><b>Clean handoff</b> — submission is simple because everything is organized.</li>
+              </ul>
+            </div>
+
+            <div class="heroMedia" aria-label="LiveTime screenshot slot">
+              <div class="heroMediaInner">
+                <!-- ✅ Replace with your LiveTime screenshot if desired -->
+                <img src="/how-it-works/livetime.png" alt="LiveTime screenshot" onerror="this.style.display='none'" />
+              </div>
+              <div class="heroMediaNote">Optional LiveTime screenshot.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ✅ ROLES -->
+        <section class="section" aria-label="Roles">
+          <h2 class="sectionTitle">Two roles, one workflow</h2>
+          <p class="sectionSub">Whether you’re the author or performer, the flow stays simple.</p>
+
+          <div class="grid2">
+            <div class="card">
+              <div class="cardTop">
+                <h3>If you’re the Author</h3>
+                <span class="badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
+                    <path d="M4 21a8 8 0 0 1 16 0" />
+                  </svg>
+                </span>
+              </div>
+              <ul class="list">
+                <li>Create the FLY and define the checklist.</li>
+                <li>Message candidates and confirm details.</li>
+                <li>Review the LiveTime trail and submitted proof.</li>
+                <li>Approve to finalize the FLY.</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <div class="cardTop">
+                <h3>If you’re the Performer</h3>
+                <span class="badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M20 7 10 17l-5-5" />
+                    <path d="M12 2v3" />
+                    <path d="M6 4h12" />
+                  </svg>
+                </span>
+              </div>
+              <ul class="list">
+                <li>Accept and start LiveTime when ready.</li>
+                <li>Add proof inside each checklist item.</li>
+                <li>Submit when finished.</li>
+                <li>Stay responsive to messages if clarification is needed.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- ✅ BEST PRACTICES -->
+        <section class="section" aria-label="Best practices">
+          <h2 class="sectionTitle">Best practices</h2>
+          <p class="sectionSub">Small habits that make every FLY smoother.</p>
+
+          <section class="cards" aria-label="Best practices cards">
+            <div class="card">
+              <div class="cardTop">
+                <h3>Use short, specific titles</h3>
+                <span class="badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M4 6h16" />
+                    <path d="M4 12h10" />
+                    <path d="M4 18h13" />
+                  </svg>
+                </span>
+              </div>
+              <p>Clear titles reduce back-and-forth and help the right people understand the request instantly.</p>
+            </div>
+
+            <div class="card">
+              <div class="cardTop">
+                <h3>Keep checklists focused</h3>
+                <span class="badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M8 6h13" />
+                    <path d="M8 12h13" />
+                    <path d="M8 18h13" />
+                    <path d="M3 6l1 1 2-2" />
+                    <path d="M3 12l1 1 2-2" />
+                    <path d="M3 18l1 1 2-2" />
+                  </svg>
+                </span>
+              </div>
+              <p>3–7 checklist items is a sweet spot: enough structure without feeling heavy.</p>
+            </div>
+
+            <div class="card">
+              <div class="cardTop">
+                <h3>Attach proof where it belongs</h3>
+                <span class="badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M9 18h6" />
+                    <path d="M12 2 3 7v10l9 5 9-5V7z" />
+                  </svg>
+                </span>
+              </div>
+              <p>Photos and files inside the right checklist item make review faster and cleaner.</p>
+            </div>
+
+            <div class="card">
+              <div class="cardTop">
+                <h3>End with a clear finish line</h3>
+                <span class="badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M4 20V4" />
+                    <path d="M4 5h12l-2 3 2 3H4" />
+                    <path d="M14 13h6" />
+                    <path d="M17 10v6" />
+                  </svg>
+                </span>
+              </div>
+              <p>Your last goal should read like the final check: “Done when…”</p>
+            </div>
+          </section>
+        </section>
+
+        <!-- ✅ FAQ -->
+        <section class="section" aria-label="FAQ">
+          <h2 class="sectionTitle">FAQ</h2>
+          <p class="sectionSub">Quick answers to common questions.</p>
+
+          <details>
+            <summary>
+              Do I need to use LiveTime?
+              <span class="chev" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <div class="faqA">If the FLY is active, LiveTime is the cleanest way to keep updates and proof organized — and makes submission painless.</div>
+          </details>
+
+          <details>
+            <summary>
+              Can I message inside a FLY?
+              <span class="chev" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <div class="faqA">Yes. Use <b>Message</b> to keep the conversation tied to the job so nothing gets lost.</div>
+          </details>
+
+          <details>
+            <summary>
+              What should I submit?
+              <span class="chev" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <div class="faqA">Anything that proves completion: key photos, files, receipts (if relevant), and notes — placed inside the related checklist item.</div>
+          </details>
+
+          <details>
+            <summary>
+              What happens after submit?
+              <span class="chev" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <div class="faqA">The author reviews the submission, asks questions if needed, and finalizes the FLY.</div>
+          </details>
+        </section>
+
+        <!-- ✅ FINAL CTA -->
+        <section class="section" aria-label="Final CTA">
+          <div class="card ctaCard">
             <div class="cardTop">
-              <h3>3) Complete</h3>
-              <span class="badge" aria-hidden="true">
+              <h3>Ready to try your first FLY?</h3>
+              <span class="badge" aria-hidden="true" style="background: rgba(255,255,255,.65); border-color: rgba(108,43,217,.18);">
                 <svg viewBox="0 0 24 24">
-                  <path d="M12 2v4" />
-                  <path d="M12 18v4" />
-                  <path d="M7 7l3 3" />
-                  <path d="M17 7l-3 3" />
-                  <circle cx="12" cy="12" r="4" />
+                  <path d="M12 5v14" />
+                  <path d="M5 12h14" />
                 </svg>
               </span>
             </div>
-            <p>Finish the flow smoothly. Updates and notifications keep you in sync.</p>
+            <p>Create one in minutes. Keep everything organized from start to finish.</p>
+            <div class="ctaRow" style="justify-content:flex-start; margin-top:12px;">
+              <a class="btn btnPrimary" href="#quickstart" aria-label="Start with quick start">Start here</a>
+              <a class="btn" href="mailto:{contactEmail}" aria-label="Email support">Email support</a>
+            </div>
           </div>
         </section>
 
