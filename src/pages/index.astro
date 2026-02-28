@@ -1,8 +1,6 @@
 ---
 const siteName = "FLY Unlimited";
 const contactEmail = "hello@fly-unlimited.com"; // change if needed
-
-// App Store link (if you don't have it yet, leave "#")
 const appStoreUrl = "#";
 ---
 
@@ -11,8 +9,8 @@ const appStoreUrl = "#";
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{siteName}</title>
-    <meta name="description" content="FLY Unlimited — LiveTime collaboration, beautifully simple." />
+    <title>How it works • {siteName}</title>
+    <meta name="description" content="How FLY works — create a FLY, run it in LiveTime, add proof, submit. Clean and simple." />
 
     <style>
       :root{
@@ -21,21 +19,17 @@ const appStoreUrl = "#";
         --muted:rgba(11,12,16,.62);
         --hair:rgba(11,12,16,.10);
 
-        /* Accent */
         --main:#6C2BD9;
         --mainSoft: rgba(108,43,217,.14);
 
-        /* Layout */
         --max:1120px;
 
-        /* Apple-ish rounding + shadows */
         --rXL: 34px;
         --rL: 28px;
         --rM: 22px;
 
-        --shadowHero: 0 30px 90px rgba(0,0,0,.16);
-        --shadowTile: 0 26px 70px rgba(0,0,0,.12);
         --shadowFloat: 0 22px 60px rgba(0,0,0,.14);
+        --shadowSoft: 0 18px 46px rgba(0,0,0,.10);
 
         --ease: cubic-bezier(.2,.8,.2,1);
       }
@@ -46,10 +40,11 @@ const appStoreUrl = "#";
         font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
         background: var(--bg);
         color: var(--text);
-        line-height: 1.25;
         -webkit-font-smoothing: antialiased;
         text-rendering: optimizeLegibility;
+        line-height: 1.25;
       }
+
       a{ color:inherit; text-decoration:none; }
       a:focus-visible{
         outline: 3px solid rgba(108,43,217,.35);
@@ -57,7 +52,7 @@ const appStoreUrl = "#";
         border-radius: 12px;
       }
 
-      /* ===== Top nav (Apple-clean, no pill container) ===== */
+      /* ===== Top nav ===== */
       .topbar{
         position: sticky;
         top: 0;
@@ -88,27 +83,17 @@ const appStoreUrl = "#";
         display:block;
       }
 
-      .nav{
-        display:flex;
-        align-items:center;
-        gap: 10px;
-      }
+      .nav{ display:flex; align-items:center; gap:10px; }
       .navBtn{
         width:42px;height:42px;
         display:grid;
         place-items:center;
-        border-radius: 999px;
+        border-radius:999px;
         color: rgba(11,12,16,.70);
-        transition: background .18s var(--ease), color .18s var(--ease), transform .18s var(--ease);
+        transition: background .18s var(--ease), color .18s var(--ease);
       }
-      .navBtn:hover{
-        background: rgba(0,0,0,.05);
-        color: rgba(11,12,16,.92);
-      }
-      .navBtn.active{
-        background: rgba(0,0,0,.10);
-        color: rgba(11,12,16,.96);
-      }
+      .navBtn:hover{ background: rgba(0,0,0,.05); color: rgba(11,12,16,.92); }
+      .navBtn.active{ background: rgba(0,0,0,.10); color: rgba(11,12,16,.96); }
       .navBtn svg{
         width:18px;height:18px;
         stroke: currentColor;
@@ -118,46 +103,28 @@ const appStoreUrl = "#";
         stroke-linejoin:round;
       }
 
-      /* ===== Sections ===== */
+      /* ===== Layout ===== */
       .wrap{
         max-width: var(--max);
         margin: 0 auto;
         padding: 0 18px;
       }
 
-      /* ===== Full-bleed Hero ===== */
+      .section{ padding: 84px 0; }
+      @media (max-width: 700px){
+        .section{ padding: 66px 0; }
+      }
+
+      /* ===== Hero ===== */
       .hero{
-        min-height: 92vh;
-        display:grid;
-        align-items:end;
-        position: relative;
-        overflow:hidden;
-
-        /* ✅ No broken image icons: background-image falls back to gradients */
+        padding: 86px 0 58px;
         background:
-          radial-gradient(900px 420px at 15% 20%, rgba(108,43,217,.18), transparent 55%),
-          radial-gradient(700px 380px at 85% 35%, rgba(0,0,0,.07), transparent 50%),
-          linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(250,250,252,1) 70%, rgba(255,255,255,1) 100%),
-          url("/hero.jpg");
-        background-size: cover;
-        background-position: center;
-      }
-      .hero::after{
-        content:"";
-        position:absolute;
-        inset:0;
-        /* gentle readability lift */
-        background: linear-gradient(180deg, rgba(255,255,255,.35) 0%, rgba(255,255,255,.74) 55%, rgba(255,255,255,1) 100%);
-        pointer-events:none;
+          radial-gradient(900px 420px at 18% 18%, rgba(108,43,217,.16), transparent 58%),
+          radial-gradient(780px 420px at 82% 26%, rgba(0,0,0,.06), transparent 55%),
+          linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(250,250,252,1) 70%, rgba(255,255,255,1) 100%);
       }
 
-      .heroInner{
-        position: relative;
-        z-index: 2;
-        padding: 92px 0 62px;
-      }
-
-      .heroKicker{
+      .kicker{
         display:inline-flex;
         align-items:center;
         gap:10px;
@@ -179,16 +146,16 @@ const appStoreUrl = "#";
 
       h1{
         margin: 18px 0 10px;
-        font-size: clamp(34px, 5.0vw, 64px);
-        letter-spacing: -1.3px;
+        font-size: clamp(34px, 5.0vw, 66px);
+        letter-spacing: -1.4px;
         line-height: 1.02;
       }
-      .heroSub{
+      .sub{
         margin: 0;
-        max-width: 62ch;
-        font-size: clamp(16px, 1.65vw, 20px);
+        max-width: 66ch;
+        font-size: clamp(16px, 1.55vw, 20px);
         color: rgba(11,12,16,.68);
-        line-height: 1.35;
+        line-height: 1.45;
       }
 
       .ctaRow{
@@ -198,7 +165,6 @@ const appStoreUrl = "#";
         flex-wrap: wrap;
         align-items:center;
       }
-
       .btn{
         display:inline-flex;
         align-items:center;
@@ -208,30 +174,25 @@ const appStoreUrl = "#";
         padding: 0 16px;
         border-radius: 999px;
         border: 1px solid rgba(0,0,0,.10);
-        background: rgba(255,255,255,.84);
+        background: rgba(255,255,255,.90);
         color: rgba(11,12,16,.92);
-        font-weight: 750;
+        font-weight: 760;
         font-size: 14px;
         letter-spacing: .1px;
         transition: transform .18s var(--ease), background .18s var(--ease), box-shadow .18s var(--ease);
-        backdrop-filter: blur(10px);
       }
       .btn:hover{
         transform: translateY(-1px);
         box-shadow: 0 16px 40px rgba(0,0,0,.10);
-        background: rgba(255,255,255,.92);
+        background: rgba(255,255,255,.96);
       }
-
       .btnPrimary{
         border-color: transparent;
         background: var(--text);
         color: #fff;
         box-shadow: 0 18px 48px rgba(0,0,0,.18);
       }
-      .btnPrimary:hover{
-        background: #000;
-      }
-
+      .btnPrimary:hover{ background:#000; }
       .btn svg{
         width:16px;height:16px;
         stroke: currentColor;
@@ -241,11 +202,25 @@ const appStoreUrl = "#";
         stroke-linejoin:round;
       }
 
-      /* ===== “Get to know” floating tiles (Apple carousel style) ===== */
-      .section{
-        padding: 78px 0;
+      /* ===== Floating image ===== */
+      .float{
+        width: 100%;
+        border-radius: var(--rXL);
+        box-shadow: var(--shadowFloat);
+        background:
+          radial-gradient(700px 480px at 60% 20%, rgba(108,43,217,.18), transparent 58%),
+          radial-gradient(650px 520px at 30% 55%, rgba(0,0,0,.10), transparent 58%),
+          linear-gradient(180deg, #f6f6f8 0%, #ffffff 70%),
+          url("/how-it-works/hero.jpg");
+        background-size: cover;
+        background-position: center;
+        overflow:hidden;
       }
+      .float.heroShot{ aspect-ratio: 16 / 9; margin-top: 26px; }
+      .float.stepShot{ aspect-ratio: 4 / 5; }
+      .float.wideShot{ aspect-ratio: 16 / 10; }
 
+      /* ===== Section headings ===== */
       .sectionHeader{
         display:flex;
         align-items:flex-end;
@@ -263,167 +238,134 @@ const appStoreUrl = "#";
         margin:0;
         color: var(--muted);
         font-size: 14.5px;
-        line-height:1.35;
-        max-width: 60ch;
+        line-height:1.45;
+        max-width: 64ch;
       }
 
-      .tiles{
-        display:flex;
-        gap: 16px;
-        overflow-x: auto;
-        padding-bottom: 6px;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-      }
-      .tiles::-webkit-scrollbar{ height: 10px; }
-      .tiles::-webkit-scrollbar-thumb{ background: rgba(0,0,0,.08); border-radius: 999px; }
-      .tiles::-webkit-scrollbar-track{ background: rgba(0,0,0,.02); border-radius: 999px; }
-
-      .tile{
-        flex: 0 0 auto;
-        width: min(520px, 86vw);
-        height: 520px;
-        border-radius: var(--rXL);
-        position: relative;
-        overflow:hidden;
-        scroll-snap-align: start;
-
-        /* Floating image feel */
-        box-shadow: var(--shadowTile);
-        transform: translateZ(0);
-        transition: transform .28s var(--ease);
-        background:
-          radial-gradient(800px 420px at 20% 15%, rgba(108,43,217,.22), transparent 60%),
-          radial-gradient(760px 520px at 75% 40%, rgba(0,0,0,.10), transparent 55%),
-          linear-gradient(180deg, #f6f6f8 0%, #ffffff 70%),
-          url("/landing/tile-1.jpg");
-        background-size: cover;
-        background-position: center;
-      }
-      .tile:hover{ transform: translateY(-3px); }
-
-      /* Different placeholder images per tile */
-      .tile.two{
-        background-image:
-          radial-gradient(700px 360px at 15% 20%, rgba(0,0,0,.10), transparent 60%),
-          radial-gradient(800px 500px at 75% 45%, rgba(108,43,217,.18), transparent 58%),
-          linear-gradient(180deg, #f6f6f8 0%, #ffffff 70%),
-          url("/landing/tile-2.jpg");
-      }
-      .tile.three{
-        background-image:
-          radial-gradient(760px 440px at 20% 18%, rgba(108,43,217,.20), transparent 60%),
-          radial-gradient(740px 520px at 80% 40%, rgba(0,0,0,.10), transparent 56%),
-          linear-gradient(180deg, #f6f6f8 0%, #ffffff 70%),
-          url("/landing/tile-3.jpg");
-      }
-
-      .tileText{
-        position:absolute;
-        inset: 0;
-        padding: 26px 26px 22px;
-        display:flex;
-        flex-direction:column;
-        justify-content:space-between;
-        background: linear-gradient(180deg, rgba(255,255,255,.35) 0%, rgba(255,255,255,.12) 36%, rgba(255,255,255,.78) 100%);
-      }
-      .tileKicker{
-        font-size: 13px;
-        font-weight: 750;
-        color: rgba(11,12,16,.72);
-        letter-spacing: .15px;
-      }
-      .tileTitle{
-        margin: 8px 0 0;
-        font-size: 30px;
-        letter-spacing: -0.7px;
-        line-height: 1.05;
-      }
-      .tileSub{
-        margin: 10px 0 0;
-        color: rgba(11,12,16,.68);
-        font-size: 15px;
-        line-height: 1.35;
-        max-width: 38ch;
-      }
-      .tileCta{
-        display:inline-flex;
-        align-items:center;
-        gap:10px;
-        font-weight: 800;
-        font-size: 14px;
-        letter-spacing: .1px;
-        color: rgba(11,12,16,.86);
-      }
-      .tileCta svg{
-        width:16px;height:16px;
-        stroke: currentColor;
-        stroke-width:2.2;
-        fill:none;
-      }
-
-      /* ===== Split section (text + floating screenshot) ===== */
-      .split{
+      /* ===== Steps: Apple-style storytelling rows ===== */
+      .steps{
         display:grid;
-        gap: 26px;
+        gap: 64px;
+        margin-top: 22px;
+      }
+      .stepRow{
+        display:grid;
+        gap: 22px;
         align-items:center;
       }
       @media (min-width: 980px){
-        .split{ grid-template-columns: 1.1fr .9fr; }
+        .stepRow{ grid-template-columns: 1.05fr .95fr; gap: 34px; }
+        .stepRow.reverse{ grid-template-columns: .95fr 1.05fr; }
+        .stepRow.reverse .stepText{ order: 2; }
+        .stepRow.reverse .stepMedia{ order: 1; }
       }
 
-      .bigTitle{
-        margin: 0;
-        font-size: clamp(26px, 3.1vw, 44px);
+      .stepNum{
+        display:inline-flex;
+        align-items:center;
+        gap:10px;
+        font-weight: 820;
+        letter-spacing: .18px;
+        color: rgba(11,12,16,.78);
+        font-size: 13px;
+      }
+      .stepNum .pill{
+        height: 26px;
+        padding: 0 10px;
+        display:inline-flex;
+        align-items:center;
+        border-radius: 999px;
+        background: rgba(0,0,0,.05);
+        border: 1px solid rgba(0,0,0,.08);
+        color: rgba(11,12,16,.86);
+      }
+
+      .stepTitle{
+        margin: 10px 0 0;
+        font-size: clamp(26px, 3.2vw, 44px);
         letter-spacing: -1px;
         line-height: 1.05;
       }
-      .bigSub{
+      .stepSub{
         margin: 12px 0 0;
         color: rgba(11,12,16,.68);
         font-size: 16px;
-        line-height: 1.45;
-        max-width: 62ch;
+        line-height: 1.55;
+        max-width: 66ch;
       }
-
-      .floatShot{
-        width: 100%;
-        aspect-ratio: 4 / 5;
-        border-radius: var(--rXL);
-        box-shadow: var(--shadowFloat);
-        background:
-          radial-gradient(700px 480px at 60% 20%, rgba(108,43,217,.18), transparent 58%),
-          radial-gradient(650px 520px at 30% 55%, rgba(0,0,0,.10), transparent 58%),
-          linear-gradient(180deg, #f6f6f8 0%, #ffffff 70%),
-          url("/landing/shot-1.jpg");
-        background-size: cover;
-        background-position: center;
+      .bullets{
+        margin: 14px 0 0;
+        padding-left: 18px;
+        color: rgba(11,12,16,.64);
+        font-size: 14.5px;
+        line-height: 1.6;
       }
+      .bullets li{ margin: 7px 0; }
 
-      /* ===== Minimal “features” row (no cards) ===== */
-      .miniGrid{
+      /* ===== Roles (two columns, no boxes) ===== */
+      .roles{
         display:grid;
-        gap: 18px;
+        gap: 22px;
         margin-top: 18px;
       }
-      @media (min-width: 900px){
-        .miniGrid{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+      @media (min-width: 980px){
+        .roles{ grid-template-columns: 1fr 1fr; gap: 38px; }
       }
-      .mini{
-        padding: 10px 2px;
-      }
-      .mini h3{
+      .roleTitle{
         margin: 0;
-        font-size: 15px;
-        letter-spacing: -.2px;
+        font-size: 18px;
+        letter-spacing: -.3px;
       }
-      .mini p{
+      .roleP{
         margin: 10px 0 0;
-        color: var(--muted);
-        font-size: 14px;
-        line-height: 1.45;
-        max-width: 46ch;
+        color: rgba(11,12,16,.68);
+        font-size: 15.5px;
+        line-height: 1.55;
+        max-width: 60ch;
       }
+
+      /* ===== FAQ ===== */
+      details{
+        border-top: 1px solid rgba(0,0,0,.10);
+        padding: 16px 0;
+      }
+      details:last-child{ border-bottom: 1px solid rgba(0,0,0,.10); }
+      summary{
+        cursor:pointer;
+        list-style:none;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap: 14px;
+        font-weight: 780;
+        letter-spacing: -.2px;
+        font-size: 15px;
+      }
+      summary::-webkit-details-marker{ display:none; }
+      .faqA{
+        margin-top: 10px;
+        color: rgba(11,12,16,.66);
+        font-size: 14.8px;
+        line-height: 1.6;
+        max-width: 74ch;
+      }
+      .chev{
+        width:34px;height:34px;
+        border-radius:999px;
+        display:grid;
+        place-items:center;
+        background: rgba(0,0,0,.05);
+        border: 1px solid rgba(0,0,0,.08);
+        flex: 0 0 auto;
+      }
+      .chev svg{
+        width:16px;height:16px;
+        stroke:#0b0c10;
+        stroke-width:2.2;
+        fill:none;
+        transition: transform .18s var(--ease);
+      }
+      details[open] .chev svg{ transform: rotate(180deg); }
 
       /* ===== Footer ===== */
       .footer{
@@ -444,13 +386,6 @@ const appStoreUrl = "#";
       }
       .links a{ color: rgba(11,12,16,.62); }
       .links a:hover{ color: rgba(11,12,16,.90); }
-
-      /* spacing tweaks for small screens */
-      @media (max-width: 560px){
-        .heroInner{ padding: 74px 0 54px; }
-        .tile{ height: 460px; border-radius: 30px; }
-        .tileText{ padding: 22px; }
-      }
     </style>
   </head>
 
@@ -462,14 +397,14 @@ const appStoreUrl = "#";
         </a>
 
         <nav class="nav" aria-label="Navigation">
-          <a class="navBtn active" href="/" aria-label="Home" title="Home">
+          <a class="navBtn" href="/" aria-label="Home" title="Home">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M3 10.5 12 3l9 7.5" />
               <path d="M5.5 9.8V21h13V9.8" />
             </svg>
           </a>
 
-          <a class="navBtn" href="/how-it-works/" aria-label="How it works" title="How it works">
+          <a class="navBtn active" href="/how-it-works/" aria-label="How it works" title="How it works">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M13 2 4 14h7l-1 8 10-14h-7z" />
             </svg>
@@ -486,18 +421,15 @@ const appStoreUrl = "#";
       </div>
     </header>
 
-    <!-- ===== Full-bleed hero ===== -->
-    <section class="hero" aria-label="Hero">
-      <div class="wrap heroInner">
-        <div class="heroKicker">
-          <span class="dot" aria-hidden="true"></span>
-          LiveTime collaboration, beautifully simple.
-        </div>
+    <!-- ===== HERO ===== -->
+    <section class="hero" aria-label="How it works hero">
+      <div class="wrap">
+        <div class="kicker"><span class="dot" aria-hidden="true"></span>How it works</div>
 
-        <h1>Connect. Create. Collaborate.<br/>In LiveTime.</h1>
-        <p class="heroSub">
-          FLY helps you request, coordinate, and complete real-world work with clarity —
-          a clean checklist, a LiveTime trail, and a polished finish.
+        <h1>From request to completion.<br/>In LiveTime.</h1>
+        <p class="sub">
+          Create a FLY, define the checklist, run it in LiveTime, attach proof where it belongs,
+          and submit with a clean finish.
         </p>
 
         <div class="ctaRow" aria-label="Primary actions">
@@ -505,104 +437,259 @@ const appStoreUrl = "#";
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 7l-5 5 5 5"/><path d="M9 12h12"/></svg>
             Get the app
           </a>
-
-          <a class="btn" href="/how-it-works/" aria-label="How it works">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 10-14h-7z"/></svg>
-            How it works
+          <a class="btn" href="#steps" aria-label="Jump to steps">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+            The steps
           </a>
-
           <a class="btn" href={"mailto:" + contactEmail} aria-label="Contact">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
             Contact
           </a>
         </div>
+
+        <!-- Floating hero image placeholder -->
+        <div class="float heroShot" role="img" aria-label="How it works hero image placeholder"></div>
       </div>
     </section>
 
-    <!-- ===== Apple-style floating tiles ===== -->
-    <section class="section" aria-label="Get to know FLY">
+    <!-- ===== STEPS ===== -->
+    <section id="steps" class="section" aria-label="Steps">
       <div class="wrap">
         <div class="sectionHeader">
           <div>
-            <h2 class="sectionTitle">Get to know FLY.</h2>
-            <p class="sectionNote">Three simple ideas — made premium: clarity, momentum, and a clean finish.</p>
+            <h2 class="sectionTitle">The flow, step by step.</h2>
+            <p class="sectionNote">Simple by design. Everything stays organized — so completion is obvious.</p>
           </div>
         </div>
 
-        <div class="tiles" aria-label="Feature tiles">
-          <a class="tile" href="/how-it-works/" aria-label="Clarity tile">
-            <div class="tileText">
-              <div>
-                <div class="tileKicker">Clarity</div>
-                <div class="tileTitle">A checklist that stays clean.</div>
-                <div class="tileSub">Materials, info, and goals — so everyone knows what “done” means.</div>
-              </div>
-              <div class="tileCta">
-                Explore how it works
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
-              </div>
+        <div class="steps">
+          <!-- Step 1 -->
+          <div class="stepRow">
+            <div class="stepText">
+              <div class="stepNum"><span class="pill">Step 1</span> Create</div>
+              <div class="stepTitle">Create a FLY.</div>
+              <p class="stepSub">
+                Write a clear title, choose a category, and add location details if needed.
+                Keep it specific — it improves results immediately.
+              </p>
+              <ul class="bullets">
+                <li>Use a short title that describes the outcome.</li>
+                <li>Add any timing/location constraints up front.</li>
+              </ul>
             </div>
-          </a>
+            <div class="stepMedia">
+              <div class="float stepShot" style="background-image:
+                radial-gradient(700px 480px at 60% 20%, rgba(108,43,217,.18), transparent 58%),
+                radial-gradient(650px 520px at 30% 55%, rgba(0,0,0,.10), transparent 58%),
+                linear-gradient(180deg, #f6f6f8 0%, #ffffff 70%),
+                url('/how-it-works/step-1.jpg');"
+                role="img" aria-label="Step 1 image placeholder"></div>
+            </div>
+          </div>
 
-          <a class="tile two" href="/how-it-works/" aria-label="LiveTime tile">
-            <div class="tileText">
-              <div>
-                <div class="tileKicker">LiveTime</div>
-                <div class="tileTitle">Proof where it belongs.</div>
-                <div class="tileSub">Photos, files, and updates inside each step — not buried in long threads.</div>
-              </div>
-              <div class="tileCta">
-                See the flow
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
-              </div>
+          <!-- Step 2 -->
+          <div class="stepRow reverse">
+            <div class="stepText">
+              <div class="stepNum"><span class="pill">Step 2</span> Checklist</div>
+              <div class="stepTitle">Define what “done” means.</div>
+              <p class="stepSub">
+                Add checklist items for materials, key information, and goals.
+                This becomes the shared definition of completion.
+              </p>
+              <ul class="bullets">
+                <li>3–7 items is the sweet spot.</li>
+                <li>End with a clear “finish line” goal.</li>
+              </ul>
             </div>
-          </a>
+            <div class="stepMedia">
+              <div class="float stepShot" style="background-image:
+                radial-gradient(720px 520px at 70% 22%, rgba(0,0,0,.10), transparent 58%),
+                radial-gradient(680px 540px at 25% 55%, rgba(108,43,217,.16), transparent 58%),
+                linear-gradient(180deg, #f6f6f8 0%, #ffffff 70%),
+                url('/how-it-works/step-2.jpg');"
+                role="img" aria-label="Step 2 image placeholder"></div>
+            </div>
+          </div>
 
-          <a class="tile three" href="/info/" aria-label="Community tile">
-            <div class="tileText">
-              <div>
-                <div class="tileKicker">Momentum</div>
-                <div class="tileTitle">Fast, real, and human.</div>
-                <div class="tileSub">Connect, collaborate, exchange, and move forward — without friction.</div>
-              </div>
-              <div class="tileCta">
-                Learn more
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
-              </div>
+          <!-- Step 3 -->
+          <div class="stepRow">
+            <div class="stepText">
+              <div class="stepNum"><span class="pill">Step 3</span> LiveTime</div>
+              <div class="stepTitle">Start LiveTime.</div>
+              <p class="stepSub">
+                LiveTime is where the work happens. Resume anytime, message in context,
+                and keep progress tied to the FLY.
+              </p>
+              <ul class="bullets">
+                <li>Use Message to keep chat tied to the job.</li>
+                <li>Use Directions when location matters.</li>
+              </ul>
             </div>
-          </a>
+            <div class="stepMedia">
+              <div class="float stepShot" style="background-image:
+                radial-gradient(740px 520px at 60% 22%, rgba(108,43,217,.18), transparent 58%),
+                radial-gradient(650px 520px at 30% 55%, rgba(0,0,0,.10), transparent 58%),
+                linear-gradient(180deg, #f6f6f8 0%, #ffffff 70%),
+                url('/how-it-works/step-3.jpg');"
+                role="img" aria-label="Step 3 image placeholder"></div>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="stepRow reverse">
+            <div class="stepText">
+              <div class="stepNum"><span class="pill">Step 4</span> Proof</div>
+              <div class="stepTitle">Attach proof where it belongs.</div>
+              <p class="stepSub">
+                Add photos, files, and notes inside each checklist item.
+                No scattered media — review stays fast and clean.
+              </p>
+              <ul class="bullets">
+                <li>Put media inside the relevant checklist item thread.</li>
+                <li>Use short notes to explain what changed.</li>
+              </ul>
+            </div>
+            <div class="stepMedia">
+              <div class="float stepShot" style="background-image:
+                radial-gradient(740px 520px at 70% 22%, rgba(0,0,0,.10), transparent 58%),
+                radial-gradient(650px 520px at 25% 55%, rgba(108,43,217,.16), transparent 58%),
+                linear-gradient(180deg, #f6f6f8 0%, #ffffff 70%),
+                url('/how-it-works/step-4.jpg');"
+                role="img" aria-label="Step 4 image placeholder"></div>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="stepRow">
+            <div class="stepText">
+              <div class="stepNum"><span class="pill">Step 5</span> Submit</div>
+              <div class="stepTitle">Submit with confidence.</div>
+              <p class="stepSub">
+                When goals are complete, submit the FLY. The author reviews the LiveTime trail
+                and finalizes the work.
+              </p>
+              <ul class="bullets">
+                <li>Submission is fast because everything is already organized.</li>
+                <li>Questions, if any, stay tied to the job context.</li>
+              </ul>
+            </div>
+            <div class="stepMedia">
+              <div class="float stepShot" style="background-image:
+                radial-gradient(740px 520px at 60% 22%, rgba(108,43,217,.18), transparent 58%),
+                radial-gradient(650px 520px at 30% 55%, rgba(0,0,0,.10), transparent 58%),
+                linear-gradient(180deg, #f6f6f8 0%, #ffffff 70%),
+                url('/how-it-works/step-5.jpg');"
+                role="img" aria-label="Step 5 image placeholder"></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== Split: big statement + floating screenshot ===== -->
-    <section class="section" aria-label="Designed to feel effortless">
+    <!-- ===== ROLES ===== -->
+    <section class="section" aria-label="Roles">
       <div class="wrap">
-        <div class="split">
+        <div class="sectionHeader">
           <div>
-            <h2 class="bigTitle">Designed to feel effortless.</h2>
-            <p class="bigSub">
-              FLY is built to keep work organized without feeling heavy.
-              Clear steps. Clean media. Simple submission. Everything stays in the right place.
-            </p>
+            <h2 class="sectionTitle">Two roles, one workflow.</h2>
+            <p class="sectionNote">Whether you’re the author or performer, the flow stays simple.</p>
+          </div>
+        </div>
 
-            <div class="miniGrid" aria-label="Highlights">
-              <div class="mini">
-                <h3>Organized by default</h3>
-                <p>Checklist items become threads — so proof and progress stay attached to the right step.</p>
-              </div>
-              <div class="mini">
-                <h3>LiveTime momentum</h3>
-                <p>Start, resume, message, and move. The flow stays fast and readable.</p>
-              </div>
-              <div class="mini">
-                <h3>A polished finish</h3>
-                <p>Submit with confidence — because everything is already organized for review.</p>
-              </div>
-            </div>
+        <div class="roles">
+          <div>
+            <h3 class="roleTitle">If you’re the Author</h3>
+            <p class="roleP">
+              Create the FLY, define the checklist, and review the LiveTime trail on submission.
+              Approve when it’s complete — everything is already organized for you.
+            </p>
+            <ul class="bullets">
+              <li>Create and clarify expectations.</li>
+              <li>Message in context when needed.</li>
+              <li>Review proof by checklist item.</li>
+              <li>Finalize smoothly.</li>
+            </ul>
           </div>
 
-          <div class="floatShot" role="img" aria-label="App screenshot placeholder"></div>
+          <div>
+            <h3 class="roleTitle">If you’re the Performer</h3>
+            <p class="roleP">
+              Start LiveTime when you’re ready, post proof inside each step, and submit when complete.
+              The job stays clean and easy to review.
+            </p>
+            <ul class="bullets">
+              <li>Work step-by-step.</li>
+              <li>Attach proof where it belongs.</li>
+              <li>Submit when goals are done.</li>
+              <li>Keep messaging tied to the FLY.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="float wideShot" style="margin-top:34px; background-image:
+          radial-gradient(900px 520px at 55% 20%, rgba(108,43,217,.16), transparent 60%),
+          radial-gradient(900px 620px at 25% 55%, rgba(0,0,0,.08), transparent 58%),
+          linear-gradient(180deg, #f6f6f8 0%, #ffffff 70%),
+          url('/how-it-works/roles.jpg');"
+          role="img" aria-label="Roles image placeholder"></div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section" aria-label="FAQ">
+      <div class="wrap">
+        <div class="sectionHeader">
+          <div>
+            <h2 class="sectionTitle">FAQ</h2>
+            <p class="sectionNote">Short answers — designed to be clear.</p>
+          </div>
+        </div>
+
+        <details>
+          <summary>
+            What is LiveTime?
+            <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+          </summary>
+          <div class="faqA">
+            LiveTime is the work space for a FLY — where progress, proof, and messages stay tied to the checklist.
+            It keeps everything organized and easy to review.
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            Why attach proof inside checklist items?
+            <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+          </summary>
+          <div class="faqA">
+            Because it eliminates “where is that photo/file?” Proof stays with the step it belongs to,
+            so review becomes fast and obvious.
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            Can I message inside a FLY?
+            <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+          </summary>
+          <div class="faqA">
+            Yes. Messaging stays tied to the job so you don’t lose context or mix conversations.
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            What happens after Submit?
+            <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+          </summary>
+          <div class="faqA">
+            The author reviews the LiveTime trail and finalizes the FLY. If questions come up, they stay tied to the same context.
+          </div>
+        </details>
+
+        <div style="margin-top:28px; display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="btn btnPrimary" href={appStoreUrl} aria-label="Get the app">Get the app</a>
+          <a class="btn" href={"mailto:" + contactEmail} aria-label="Email support">Email support</a>
         </div>
       </div>
     </section>
@@ -610,7 +697,7 @@ const appStoreUrl = "#";
     <footer class="wrap footer" aria-label="Footer">
       <div>© 2026 {siteName}</div>
       <div class="links">
-        <a href="/how-it-works/">How it works</a>
+        <a href="/">Home</a>
         <a href="/info/">Contact</a>
         <a href="/terms/">Terms</a>
         <a href="/privacy/">Privacy</a>
