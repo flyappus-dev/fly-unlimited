@@ -19,24 +19,14 @@ const appStoreUrl = "#";
         --muted:rgba(11,12,16,.62);
         --hair:rgba(11,12,16,.10);
 
-        /* Accent */
-        --main:#6C2BD9;
-        --mainSoft: rgba(108,43,217,.14);
-
-        /* Layout */
         --max:1120px;
 
-        /* ✅ Responsive side padding (wider content on mobile) */
+        /* ✅ Wider on mobile, consistent everywhere */
         --pad: clamp(14px, 4.2vw, 18px);
 
-        /* Apple-ish rounding + shadows */
-        --rXL: 34px;
-        --rL: 28px;
-        --rM: 22px;
-
-        --shadowHero: 0 30px 90px rgba(0,0,0,.16);
-        --shadowTile: 0 26px 70px rgba(0,0,0,.12);
-        --shadowFloat: 0 22px 60px rgba(0,0,0,.14);
+        /* ✅ Subtle rounding only */
+        --rXL: 32px;
+        --rL: 26px;
 
         --ease: cubic-bezier(.2,.8,.2,1);
       }
@@ -53,18 +43,17 @@ const appStoreUrl = "#";
       }
       a{ color:inherit; text-decoration:none; }
       a:focus-visible{
-        outline: 3px solid rgba(108,43,217,.35);
+        outline: 3px solid rgba(0,0,0,.18);
         outline-offset: 3px;
         border-radius: 12px;
       }
 
-      /* ===== Top nav (Apple-clean) ===== */
+      /* ===== Top nav (clean, white) ===== */
       .topbar{
         position: sticky;
         top: 0;
         z-index: 50;
-        backdrop-filter: saturate(180%) blur(14px);
-        background: rgba(255,255,255,.78);
+        background: rgba(255,255,255,.92);
         border-bottom: 1px solid rgba(0,0,0,.06);
       }
       .topbarInner{
@@ -99,15 +88,15 @@ const appStoreUrl = "#";
         display:grid;
         place-items:center;
         border-radius: 999px;
-        color: rgba(11,12,16,.70);
-        transition: background .18s var(--ease), color .18s var(--ease), transform .18s var(--ease);
+        color: rgba(11,12,16,.72);
+        transition: background .18s var(--ease), color .18s var(--ease);
       }
       .navBtn:hover{
         background: rgba(0,0,0,.05);
         color: rgba(11,12,16,.92);
       }
       .navBtn.active{
-        background: rgba(0,0,0,.10);
+        background: rgba(0,0,0,.08);
         color: rgba(11,12,16,.96);
       }
       .navBtn svg{
@@ -126,34 +115,31 @@ const appStoreUrl = "#";
         padding: 0 var(--pad);
       }
 
-      /* ===== Full-bleed Hero ===== */
+      /* ===== HERO: white background + your image ===== */
       .hero{
         min-height: 92vh;
         display:grid;
-        align-items:end;
-        position: relative;
-        overflow:hidden;
-
-        background:
-          radial-gradient(900px 420px at 15% 20%, rgba(108,43,217,.18), transparent 55%),
-          radial-gradient(700px 380px at 85% 35%, rgba(0,0,0,.07), transparent 50%),
-          linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(250,250,252,1) 70%, rgba(255,255,255,1) 100%),
-          url("/hero.jpg");
-        background-size: cover;
-        background-position: center;
-      }
-      .hero::after{
-        content:"";
-        position:absolute;
-        inset:0;
-        background: linear-gradient(180deg, rgba(255,255,255,.35) 0%, rgba(255,255,255,.74) 55%, rgba(255,255,255,1) 100%);
-        pointer-events:none;
+        align-items:center;
+        background: #fff;
       }
 
       .heroInner{
-        position: relative;
-        z-index: 2;
-        padding: 92px 0 62px;
+        padding: 68px 0 40px;
+      }
+
+      .heroGrid{
+        display:grid;
+        gap: 18px;
+        align-items:center;
+      }
+
+      /* Desktop: image right, text left */
+      @media (min-width: 980px){
+        .heroGrid{
+          grid-template-columns: 1.05fr .95fr;
+          gap: 28px;
+        }
+        .heroInner{ padding: 84px 0 56px; }
       }
 
       .heroKicker{
@@ -162,18 +148,17 @@ const appStoreUrl = "#";
         gap:10px;
         padding: 10px 14px;
         border-radius: 999px;
-        background: rgba(255,255,255,.72);
-        border: 1px solid rgba(0,0,0,.08);
+        background: #fff;
+        border: 1px solid rgba(0,0,0,.10);
         color: rgba(11,12,16,.78);
         font-size: 13px;
         font-weight: 700;
         letter-spacing: .2px;
-        backdrop-filter: blur(10px);
       }
       .dot{
-        width:9px;height:9px;border-radius:999px;
-        background: var(--main);
-        box-shadow: 0 0 0 7px var(--mainSoft);
+        width:10px;height:10px;border-radius:999px;
+        background: rgba(108,43,217,1);
+        /* ✅ no glow */
       }
 
       h1{
@@ -184,10 +169,10 @@ const appStoreUrl = "#";
       }
       .heroSub{
         margin: 0;
-        max-width: 62ch;
+        max-width: 60ch;
         font-size: clamp(16px, 1.65vw, 20px);
         color: rgba(11,12,16,.68);
-        line-height: 1.35;
+        line-height: 1.38;
       }
 
       .ctaRow{
@@ -206,28 +191,25 @@ const appStoreUrl = "#";
         height: 44px;
         padding: 0 16px;
         border-radius: 999px;
-        border: 1px solid rgba(0,0,0,.10);
-        background: rgba(255,255,255,.84);
+        border: 1px solid rgba(0,0,0,.12);
+        background: #fff;
         color: rgba(11,12,16,.92);
-        font-weight: 750;
+        font-weight: 760;
         font-size: 14px;
         letter-spacing: .1px;
-        transition: transform .18s var(--ease), background .18s var(--ease), box-shadow .18s var(--ease);
-        backdrop-filter: blur(10px);
+        transition: transform .18s var(--ease), background .18s var(--ease);
       }
       .btn:hover{
         transform: translateY(-1px);
-        box-shadow: 0 16px 40px rgba(0,0,0,.10);
-        background: rgba(255,255,255,.92);
+        background: rgba(0,0,0,.02);
       }
 
       .btnPrimary{
         border-color: transparent;
-        background: var(--text);
+        background: #0b0c10;
         color: #fff;
-        box-shadow: 0 18px 48px rgba(0,0,0,.18);
       }
-      .btnPrimary:hover{ background: #000; }
+      .btnPrimary:hover{ background:#000; }
 
       .btn svg{
         width:16px;height:16px;
@@ -238,9 +220,25 @@ const appStoreUrl = "#";
         stroke-linejoin:round;
       }
 
-      /* ===== “Join the Network” floating tiles ===== */
+      /* ✅ Hero image (no gray, no shadow, no overlay) */
+      .heroImage{
+        width: 100%;
+        max-width: 980px;
+        margin: 0 auto;
+        border-radius: var(--rXL);
+        overflow:hidden;
+        background: #fff;
+      }
+      .heroImage img{
+        width:100%;
+        height:auto;
+        display:block;
+      }
+
+      /* ===== Section ===== */
       .section{
-        padding: 78px 0;
+        padding: 66px 0;
+        background:#fff;
       }
 
       .sectionHeader{
@@ -248,7 +246,7 @@ const appStoreUrl = "#";
         align-items:flex-end;
         justify-content:space-between;
         gap: 14px;
-        margin-bottom: 18px;
+        margin-bottom: 16px;
       }
       .sectionTitle{
         margin:0;
@@ -264,6 +262,7 @@ const appStoreUrl = "#";
         max-width: 60ch;
       }
 
+      /* ===== Tiles: keep them white too ===== */
       .tiles{
         display:flex;
         gap: 16px;
@@ -285,32 +284,9 @@ const appStoreUrl = "#";
         overflow:hidden;
         scroll-snap-align: start;
 
-        box-shadow: var(--shadowTile);
-        transform: translateZ(0);
-        transition: transform .28s var(--ease);
-        background:
-          radial-gradient(800px 420px at 20% 15%, rgba(108,43,217,.22), transparent 60%),
-          radial-gradient(760px 520px at 75% 40%, rgba(0,0,0,.10), transparent 55%),
-          linear-gradient(180deg, #f6f6f8 0%, #ffffff 70%),
-          url("/landing/tile-1.jpg");
-        background-size: cover;
-        background-position: center;
-      }
-      .tile:hover{ transform: translateY(-3px); }
-
-      .tile.two{
-        background-image:
-          radial-gradient(700px 360px at 15% 20%, rgba(0,0,0,.10), transparent 60%),
-          radial-gradient(800px 500px at 75% 45%, rgba(108,43,217,.18), transparent 58%),
-          linear-gradient(180deg, #f6f6f8 0%, #ffffff 70%),
-          url("/landing/tile-2.jpg");
-      }
-      .tile.three{
-        background-image:
-          radial-gradient(760px 440px at 20% 18%, rgba(108,43,217,.20), transparent 60%),
-          radial-gradient(740px 520px at 80% 40%, rgba(0,0,0,.10), transparent 56%),
-          linear-gradient(180deg, #f6f6f8 0%, #ffffff 70%),
-          url("/landing/tile-3.jpg");
+        /* ✅ no gradients, no shadows */
+        background: #fff;
+        border: 1px solid rgba(0,0,0,.08);
       }
 
       .tileText{
@@ -320,12 +296,12 @@ const appStoreUrl = "#";
         display:flex;
         flex-direction:column;
         justify-content:space-between;
-        background: linear-gradient(180deg, rgba(255,255,255,.35) 0%, rgba(255,255,255,.12) 36%, rgba(255,255,255,.78) 100%);
+        background: transparent; /* ✅ no overlay wash */
       }
       .tileKicker{
         font-size: 13px;
-        font-weight: 750;
-        color: rgba(11,12,16,.72);
+        font-weight: 780;
+        color: rgba(11,12,16,.66);
         letter-spacing: .15px;
       }
       .tileTitle{
@@ -360,8 +336,8 @@ const appStoreUrl = "#";
       /* ===== Split ===== */
       .split{
         display:grid;
-        gap: 26px;
-        align-items:center;
+        gap: 22px;
+        align-items:start;
       }
       @media (min-width: 980px){
         .split{ grid-template-columns: 1.1fr .9fr; }
@@ -385,14 +361,8 @@ const appStoreUrl = "#";
         width: 100%;
         aspect-ratio: 4 / 5;
         border-radius: var(--rXL);
-        box-shadow: var(--shadowFloat);
-        background:
-          radial-gradient(700px 480px at 60% 20%, rgba(108,43,217,.18), transparent 58%),
-          radial-gradient(650px 520px at 30% 55%, rgba(0,0,0,.10), transparent 58%),
-          linear-gradient(180deg, #f6f6f8 0%, #ffffff 70%),
-          url("/landing/shot-1.jpg");
-        background-size: cover;
-        background-position: center;
+        background: #fff;              /* ✅ pure white */
+        border: 1px solid rgba(0,0,0,.08);
       }
 
       .miniGrid{
@@ -429,6 +399,7 @@ const appStoreUrl = "#";
         justify-content:space-between;
         gap: 14px;
         flex-wrap: wrap;
+        background:#fff;
       }
       .links{
         display:flex;
@@ -440,8 +411,8 @@ const appStoreUrl = "#";
 
       /* ✅ Mobile tune */
       @media (max-width: 560px){
-        .hero{ min-height: 86vh; align-items:center; } /* less dead space */
-        .heroInner{ padding: 66px 0 48px; }
+        .hero{ min-height: 86vh; }
+        .heroInner{ padding: 52px 0 34px; }
         .tile{ height: 460px; border-radius: 30px; }
         .tileText{ padding: 22px; }
       }
@@ -482,31 +453,40 @@ const appStoreUrl = "#";
 
     <section class="hero" aria-label="Hero">
       <div class="wrap heroInner">
-        <div class="heroKicker">
-          <span class="dot" aria-hidden="true"></span>
-          LiveTime collaboration, beautifully simple.
-        </div>
+        <div class="heroGrid">
+          <div>
+            <div class="heroKicker">
+              <span class="dot" aria-hidden="true"></span>
+              LiveTime collaboration, beautifully simple.
+            </div>
 
-        <h1>It's Time to FLY. <br/>No Limits.</h1>
-        <p class="heroSub">
-          Its hard to find what you need, when you need it. Let's change that. 
-        </p>
+            <h1>It's Time to FLY.<br/>No Limits.</h1>
+            <p class="heroSub">
+              Its hard to find what you need, when you need it. Let's change that.
+            </p>
 
-        <div class="ctaRow" aria-label="Primary actions">
-          <a class="btn btnPrimary" href={appStoreUrl} aria-label="App Store link">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 7l-5 5 5 5"/><path d="M9 12h12"/></svg>
-            Get the app
-          </a>
+            <div class="ctaRow" aria-label="Primary actions">
+              <a class="btn btnPrimary" href={appStoreUrl} aria-label="App Store link">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 7l-5 5 5 5"/><path d="M9 12h12"/></svg>
+                Get the app
+              </a>
 
-          <a class="btn" href="/how-it-works/" aria-label="How it works">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 10-14h-7z"/></svg>
-            How it works
-          </a>
+              <a class="btn" href="/how-it-works/" aria-label="How it works">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 10-14h-7z"/></svg>
+                How it works
+              </a>
 
-          <a class="btn" href={"mailto:" + contactEmail} aria-label="Contact">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
-            Contact
-          </a>
+              <a class="btn" href={"mailto:" + contactEmail} aria-label="Contact">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+                Contact
+              </a>
+            </div>
+          </div>
+
+          <!-- ✅ Your uploaded image -->
+          <div class="heroImage" aria-label="Landing hero image">
+            <img src="/landin-hero.png" alt="FLY landing hero" />
+          </div>
         </div>
       </div>
     </section>
@@ -535,7 +515,7 @@ const appStoreUrl = "#";
             </div>
           </a>
 
-          <a class="tile two" href="/how-it-works/" aria-label="LiveTime tile">
+          <a class="tile" href="/how-it-works/" aria-label="LiveTime tile">
             <div class="tileText">
               <div>
                 <div class="tileKicker">LiveTime</div>
@@ -549,7 +529,7 @@ const appStoreUrl = "#";
             </div>
           </a>
 
-          <a class="tile three" href="/info/" aria-label="Momentum tile">
+          <a class="tile" href="/info/" aria-label="Momentum tile">
             <div class="tileText">
               <div>
                 <div class="tileKicker">Momentum</div>
