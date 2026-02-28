@@ -28,6 +28,9 @@ const appStoreUrl = "#";
 
         --rXL: 28px;
         --ease: cubic-bezier(.2,.8,.2,1);
+
+        /* Approx sticky bar height so hero = “one page” */
+        --topbarH: 64px;
       }
 
       *{ box-sizing:border-box; }
@@ -104,28 +107,34 @@ const appStoreUrl = "#";
         padding: 0 var(--pad);
       }
 
-      /* ===== HERO: pure white, image ABOVE title ===== */
+      /* ===== HERO: “one page” / centered ===== */
       .hero{
         background: #fff;
-        min-height: 84vh;
+        min-height: calc(100svh - var(--topbarH));
+        min-height: calc(100vh - var(--topbarH));
         display:flex;
         align-items:center;
+        overflow:hidden; /* ✅ prevents next section “creeping” */
       }
 
       .heroInner{
-        padding: 34px 0 28px;
         width: 100%;
+        padding: 28px 0 34px;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
       }
 
       /* ✅ No border/line around the hero image */
       .heroArt{
         width: 100%;
         max-width: 980px;
-        margin: 0 auto 18px;
+        margin: 0 auto 30px; /* ✅ more whitespace below photo */
         border-radius: var(--rXL);
         overflow: hidden;
         background: #fff;
-        border: none; /* ✅ removed container line */
+        border: none;
       }
       .heroArt img{
         width: 100%;
@@ -148,10 +157,10 @@ const appStoreUrl = "#";
       }
       .dot{
         width:9px;height:9px;border-radius:999px;
-        background: var(--main); /* ✅ purple dot */
+        background: var(--main);
       }
 
-      /* ✅ One-line headline (with safe sizing on mobile) */
+      /* ✅ One-line headline */
       h1{
         margin: 16px 0 10px;
         font-size: clamp(28px, 6.3vw, 60px);
@@ -162,7 +171,7 @@ const appStoreUrl = "#";
 
       .heroSub{
         margin: 0;
-        max-width: 60ch;
+        max-width: 54ch;
         font-size: clamp(16px, 1.65vw, 20px);
         color: rgba(11,12,16,.68);
         line-height: 1.38;
@@ -174,6 +183,7 @@ const appStoreUrl = "#";
         gap: 12px;
         flex-wrap: wrap;
         align-items:center;
+        justify-content:center;
       }
 
       .btn{
@@ -382,15 +392,12 @@ const appStoreUrl = "#";
       .links a{ color: rgba(11,12,16,.62); }
       .links a:hover{ color: rgba(11,12,16,.90); }
 
-      /* ✅ Mobile tune: keep it clean + never edge-to-edge */
+      /* ✅ Mobile tune */
       @media (max-width: 560px){
-        .hero{ min-height: 78vh; }
-        .heroInner{ padding: 28px 0 22px; }
-
         /* ensure the one-line headline fits small phones */
         h1{ font-size: clamp(26px, 7vw, 34px); letter-spacing: -1px; }
-
         .tile{ height: 360px; }
+        .heroArt{ margin-bottom: 28px; }
       }
     </style>
   </head>
@@ -430,7 +437,7 @@ const appStoreUrl = "#";
     <section class="hero" aria-label="Hero">
       <div class="wrap heroInner">
 
-        <!-- ✅ IMAGE ALWAYS ABOVE TITLE (no border line) -->
+        <!-- ✅ IMAGE ABOVE + extra whitespace -->
         <div class="heroArt" aria-label="Landing hero image">
           <img
             src="landin-hero.png"
@@ -441,19 +448,19 @@ const appStoreUrl = "#";
           />
         </div>
 
+        <!-- ✅ Centered hero copy -->
         <div class="heroKicker">
           <span class="dot" aria-hidden="true"></span>
           LiveTime collaboration, beautifully simple.
         </div>
 
-        <!-- ✅ one line -->
         <h1>It's Time to FLY. No Limits.</h1>
 
-        <!-- ✅ beneath headline -->
         <p class="heroSub">
           Its hard to find what you need, when you need it. Let's change that.
         </p>
 
+        <!-- ✅ Only 2 buttons -->
         <div class="ctaRow" aria-label="Primary actions">
           <a class="btn btnPrimary" href={appStoreUrl} aria-label="App Store link">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 7l-5 5 5 5"/><path d="M9 12h12"/></svg>
@@ -464,15 +471,11 @@ const appStoreUrl = "#";
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 10-14h-7z"/></svg>
             How it works
           </a>
-
-          <a class="btn" href={"mailto:" + contactEmail} aria-label="Contact">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
-            Contact
-          </a>
         </div>
       </div>
     </section>
 
+    <!-- ✅ Everything below remains the same -->
     <section class="section" aria-label="Hey, what do you need">
       <div class="wrap">
         <div class="sectionHeader">
