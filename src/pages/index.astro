@@ -160,7 +160,7 @@ const appStoreUrl = "#";
         background: var(--main);
       }
 
-      /* ✅ One-line headline */
+      /* ✅ One-line headline (kept for future use) */
       h1{
         margin: 16px 0 10px;
         font-size: clamp(28px, 6.3vw, 60px);
@@ -178,7 +178,7 @@ const appStoreUrl = "#";
       }
 
       .ctaRow{
-        margin-top: 18px;
+        margin-top: 14px; /* ✅ sits cleanly right under the kicker */
         display:flex;
         gap: 12px;
         flex-wrap: wrap;
@@ -454,13 +454,7 @@ const appStoreUrl = "#";
           LiveTime collaboration, beautifully simple.
         </div>
 
-        <h1>It's Time to FLY. No Limits.</h1>
-
-        <p class="heroSub">
-          Its hard to find what you need, when you need it. Let's change that.
-        </p>
-
-        <!-- ✅ Only 2 buttons -->
+        <!-- ✅ Buttons moved directly under the kicker -->
         <div class="ctaRow" aria-label="Primary actions">
           <a class="btn btnPrimary" href={appStoreUrl} aria-label="App Store link">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 7l-5 5 5 5"/><path d="M9 12h12"/></svg>
@@ -475,16 +469,9 @@ const appStoreUrl = "#";
       </div>
     </section>
 
-    <!-- ✅ Everything below remains the same -->
-    <section class="section" aria-label="Hey, what do you need">
+    <!-- ✅ Everything below remains the same (minus the removed header text) -->
+    <section class="section" aria-label="Explore">
       <div class="wrap">
-        <div class="sectionHeader">
-          <div>
-            <h2 class="sectionTitle">Hey, what do you need?</h2>
-            <p class="sectionNote">Join the Network and get what you need fast.</p>
-          </div>
-        </div>
-
         <div class="tiles" aria-label="Feature tiles">
           <a class="tile" href="/how-it-works/" aria-label="Clarity tile">
             <div class="tileText">
