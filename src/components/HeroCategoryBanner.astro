@@ -1,0 +1,329 @@
+---
+import { categoryMeta } from "../data/categoryMeta";
+import { bannerVariants } from "../data/bannerVariants";
+
+const initialVariant = bannerVariants[0];
+const initialAccentColor = categoryMeta[initialVariant.accent].color;
+---
+
+<div class="heroBanner" id="heroCategoryBanner">
+  <div class="heroBanner__card">
+    <div class="heroBanner__copy">
+      <div class="heroBanner__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2.8l1.7 5.8 5.5 1.7-5.5 1.7-1.7 5.8-1.7-5.8-5.5-1.7 5.5-1.7L12 2.8z"></path>
+        </svg>
+      </div>
+
+      <div class="heroBanner__text">
+        <h1 class="heroBanner__title" data-banner-title>{initialVariant.title}</h1>
+        <p class="heroBanner__subtitle" data-banner-subtitle>{initialVariant.subtitle}</p>
+      </div>
+
+      <a
+        class="heroBanner__cta"
+        data-banner-cta
+        href="/how-it-works/"
+        style={`--cta-color:${initialAccentColor};`}
+      >
+        <span>{initialVariant.cta}</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 18l6-6-6-6"></path>
+        </svg>
+      </a>
+    </div>
+
+    <div class="heroBanner__stack" data-banner-stack aria-hidden="true">
+      {initialVariant.rows.map((row, rowIndex) => (
+        <div class="heroBanner__row">
+          {row.map((key, colIndex) => (
+            <div
+              class="heroBanner__cube"
+              style={`--cube-color:${categoryMeta[key].color}; --delay:${rowIndex * 70 + colIndex * 24}ms;`}
+            >
+              <img src={categoryMeta[key].icon} alt="" loading="eager" decoding="async" />
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<script
+  type="application/json"
+  id="hero-banner-data"
+  set:html={JSON.stringify({ variants: bannerVariants, meta: categoryMeta })}
+/>
+
+<script is:inline>
+  (() => {
+    const root = document.getElementById("heroCategoryBanner");
+    const dataEl = document.getElementById("hero-banner-data");
+    if (!root || !dataEl) return;
+
+    const payload = JSON.parse(dataEl.textContent || "{}");
+    const variants = payload.variants || [];
+    const meta = payload.meta || {};
+
+    const titleEl = root.querySelector("[data-banner-title]");
+    const subtitleEl = root.querySelector("[data-banner-subtitle]");
+    const ctaEl = root.querySelector("[data-banner-cta]");
+    const stackEl = root.querySelector("[data-banner-stack]");
+
+    if (!titleEl || !subtitleEl || !ctaEl || !stackEl || !variants.length) return;
+
+    let index = Math.floor(Math.random() * variants.length);
+
+    function cubeMarkup(key, delay) {
+      const item = meta[key];
+      if (!item) return "";
+      return `
+        <div class="heroBanner__cube" style="--cube-color:${item.color}; --delay:${delay}ms;">
+          <img src="${item.icon}" alt="" loading="eager" decoding="async" />
+        </div>
+      `;
+    }
+
+    function rowsMarkup(rows) {
+      return rows
+        .map((row, rowIndex) => {
+          const cubes = row
+            .map((key, colIndex) => cubeMarkup(key, rowIndex * 70 + colIndex * 24))
+            .join("");
+          return `<div class="heroBanner__row">${cubes}</div>`;
+        })
+        .join("");
+    }
+
+    function render(nextIndex) {
+      const variant = variants[nextIndex];
+      if (!variant) return;
+
+      titleEl.textContent = variant.title;
+      subtitleEl.textContent = variant.subtitle;
+      ctaEl.style.setProperty("--cta-color", meta[variant.accent]?.color || "#6C2BD9");
+
+      stackEl.innerHTML = rowsMarkup(variant.rows);
+    }
+
+    render(index);
+
+    if (variants.length > 1) {
+      window.setInterval(() => {
+        index = (index + 1) % variants.length;
+        render(index);
+      }, 4800);
+    }
+  })();
+</script>
+
+<style>
+  .heroBanner {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto 30px;
+  }
+
+  .heroBanner__card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) auto;
+    align-items: end;
+    gap: clamp(20px, 4vw, 36px);
+    min-height: clamp(260px, 34vw, 360px);
+    padding: clamp(22px, 4vw, 34px);
+    border-radius: 28px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: #fff;
+    overflow: hidden;
+  }
+
+  .heroBanner__copy {
+    display: grid;
+    grid-template-columns: 54px minmax(0, 1fr);
+    grid-template-rows: auto 1fr auto;
+    column-gap: 16px;
+    row-gap: 12px;
+    align-self: stretch;
+  }
+
+  .heroBanner__icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: rgba(0, 0, 0, 0.045);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .heroBanner__icon svg {
+    width: 18px;
+    height: 18px;
+    fill: rgba(11, 12, 16, 0.82);
+  }
+
+  .heroBanner__text {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    min-width: 0;
+  }
+
+  .heroBanner__title {
+    margin: 0;
+    font-size: clamp(30px, 4vw, 58px);
+    line-height: 1.02;
+    letter-spacing: -1.2px;
+  }
+
+  .heroBanner__subtitle {
+    margin: 12px 0 0;
+    max-width: 32ch;
+    color: rgba(11, 12, 16, 0.66);
+    font-size: clamp(16px, 1.7vw, 20px);
+    line-height: 1.34;
+  }
+
+  .heroBanner__cta {
+    grid-column: 2;
+    grid-row: 3;
+    align-self: end;
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 0 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #fff;
+    color: var(--cta-color, #6C2BD9);
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.1px;
+  }
+
+  .heroBanner__cta svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .heroBanner__stack {
+    align-self: end;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+
+  .heroBanner__row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 4px;
+  }
+
+  .heroBanner__cube {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: var(--cube-color);
+    display: grid;
+    place-items: center;
+    flex: 0 0 56px;
+    animation: heroBannerDrop 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    animation-delay: var(--delay, 0ms);
+  }
+
+  .heroBanner__cube img {
+    width: 48%;
+    height: 48%;
+    display: block;
+  }
+
+  @keyframes heroBannerDrop {
+    from {
+      opacity: 0;
+      transform: translateY(-12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 860px) {
+    .heroBanner__card {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .heroBanner__stack {
+      width: 100%;
+      align-items: flex-end;
+    }
+
+    .heroBanner__title {
+      font-size: clamp(26px, 6vw, 40px);
+      letter-spacing: -0.9px;
+    }
+
+    .heroBanner__subtitle {
+      max-width: 28ch;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .heroBanner {
+      margin-bottom: 28px;
+    }
+
+    .heroBanner__card {
+      padding: 22px;
+      min-height: 280px;
+    }
+
+    .heroBanner__copy {
+      grid-template-columns: 52px minmax(0, 1fr);
+      column-gap: 14px;
+    }
+
+    .heroBanner__icon {
+      width: 52px;
+      height: 52px;
+    }
+
+    .heroBanner__title {
+      font-size: 28px;
+      line-height: 1.04;
+      white-space: normal;
+    }
+
+    .heroBanner__subtitle {
+      margin-top: 10px;
+      max-width: 24ch;
+      font-size: 15px;
+    }
+
+    .heroBanner__cube {
+      width: 40px;
+      height: 40px;
+      flex-basis: 40px;
+      border-radius: 12px;
+    }
+
+    .heroBanner__row {
+      gap: 4px;
+    }
+
+    .heroBanner__stack {
+      gap: 4px;
+    }
+  }
+</style>
