@@ -184,7 +184,7 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
-    gap: clamp(18px, 3vw, 36px);
+    gap: clamp(20px, 3vw, 38px);
     min-height: clamp(248px, 30vw, 352px);
     padding: clamp(8px, 1.2vw, 14px) clamp(16px, 2.6vw, 30px);
     background: #fff;
@@ -218,15 +218,15 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
 
   .heroBanner__text {
     min-width: 0;
-    max-width: 34rem;
+    max-width: 36rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
 
   .heroBanner__headlineRow {
-    display: block;
     width: 100%;
+    display: block;
   }
 
   .heroBanner__title {
@@ -261,7 +261,7 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
   }
 
   .heroBanner__logo {
-    width: clamp(92px, 8vw, 124px);
+    width: clamp(118px, 10vw, 164px);
     height: auto;
     display: block;
     object-fit: contain;
@@ -303,36 +303,48 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
     user-select: none;
   }
 
+  /* Full block / logo variant */
   .heroBanner__card[data-stack-style="fullBlock"] {
     grid-template-columns: minmax(0, 1fr) auto;
     gap: clamp(18px, 2.4vw, 28px);
   }
 
   .heroBanner__card[data-stack-style="fullBlock"] .heroBanner__copy {
-    align-self: start;
+    align-self: center;
+  }
+
+  .heroBanner__card[data-stack-style="fullBlock"] .heroBanner__text {
+    max-width: 42rem;
   }
 
   .heroBanner__card[data-stack-style="fullBlock"] .heroBanner__headlineRow {
     display: block;
-    max-width: 29rem;
+    max-width: 34rem;
   }
 
   .heroBanner__card[data-stack-style="fullBlock"][data-has-logo="true"] .heroBanner__headlineRow {
-    display: grid;
-    grid-template-columns: minmax(0, 11.2ch) auto;
-    align-items: end;
-    column-gap: 14px;
-    max-width: 32rem;
+    display: flex;
+    align-items: flex-end;
+    gap: 18px;
+    flex-wrap: nowrap;
+    max-width: 40rem;
+    overflow: visible;
   }
 
   .heroBanner__card[data-stack-style="fullBlock"][data-has-logo="true"] .heroBanner__title {
-    max-width: 11.2ch;
+    max-width: 7.6ch;
+    flex: 0 1 auto;
+    text-wrap: balance;
   }
 
   .heroBanner__card[data-stack-style="fullBlock"][data-has-logo="true"] .heroBanner__logoWrap {
-    margin: 0 0 0.25rem;
-    align-self: end;
-    justify-self: start;
+    margin: 0 0 0.5rem;
+    flex: 0 0 auto;
+    align-self: flex-end;
+  }
+
+  .heroBanner__card[data-stack-style="fullBlock"][data-has-logo="true"] .heroBanner__logo {
+    width: clamp(132px, 11vw, 176px);
   }
 
   .heroBanner__card[data-stack-style="fullBlock"] .heroBanner__stack {
@@ -345,6 +357,7 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
     justify-content: flex-start;
   }
 
+  /* Playful rows */
   .heroBanner__card[data-stack-style="playfulRows"] {
     grid-template-columns: minmax(0, 0.96fr) auto;
     gap: clamp(18px, 2.8vw, 32px);
@@ -382,6 +395,7 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
     transform: translateX(7px);
   }
 
+  /* Left rise */
   .heroBanner__card[data-stack-style="leftRise"] {
     grid-template-columns: auto minmax(0, 1fr);
     gap: clamp(16px, 2.4vw, 26px);
@@ -445,6 +459,15 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
       height: 56px;
       flex-basis: 56px;
       border-radius: 17px;
+    }
+
+    .heroBanner__card[data-stack-style="fullBlock"][data-has-logo="true"] .heroBanner__headlineRow {
+      max-width: 36rem;
+      gap: 14px;
+    }
+
+    .heroBanner__card[data-stack-style="fullBlock"][data-has-logo="true"] .heroBanner__title {
+      max-width: 7.1ch;
     }
 
     .heroBanner__card[data-stack-style="fullBlock"] .heroBanner__stack {
@@ -518,8 +541,10 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
     }
 
     .heroBanner__card[data-stack-style="fullBlock"][data-has-logo="true"] .heroBanner__headlineRow {
-      grid-template-columns: 1fr;
-      row-gap: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
       max-width: 100%;
     }
 
@@ -530,6 +555,10 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
 
     .heroBanner__card[data-stack-style="fullBlock"][data-has-logo="true"] .heroBanner__logoWrap {
       margin: 0;
+    }
+
+    .heroBanner__card[data-stack-style="fullBlock"][data-has-logo="true"] .heroBanner__logo {
+      width: 132px;
     }
 
     .heroBanner__title {
@@ -574,7 +603,7 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
     }
 
     .heroBanner__logo {
-      width: 94px;
+      width: 110px;
     }
 
     .heroBanner__stack {
