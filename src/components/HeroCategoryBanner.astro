@@ -118,11 +118,11 @@ const initialAccentColor = categoryMeta[initialVariant.accent].color;
   })();
 </script>
 
-<style>
+<style is:global>
   .heroBanner {
     width: 100%;
     max-width: 980px;
-    margin: 0 auto 30px;
+    margin: 0 auto;
   }
 
   .heroBanner__card {
@@ -220,7 +220,7 @@ const initialAccentColor = categoryMeta[initialVariant.accent].color;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 4px;
+    gap: 2px;
   }
 
   .heroBanner__row {
@@ -280,10 +280,6 @@ const initialAccentColor = categoryMeta[initialVariant.accent].color;
   }
 
   @media (max-width: 560px) {
-    .heroBanner {
-      margin-bottom: 28px;
-    }
-
     .heroBanner__card {
       padding: 22px;
       min-height: 280px;
