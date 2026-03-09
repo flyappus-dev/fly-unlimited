@@ -3,7 +3,6 @@ import { categoryMeta } from "../data/categoryMeta";
 import { bannerVariants } from "../data/bannerVariants";
 
 const initialVariant = bannerVariants[0];
-const initialAccentColor = categoryMeta[initialVariant.accent].color;
 ---
 
 <div class="heroBanner" id="heroCategoryBanner">
@@ -19,18 +18,6 @@ const initialAccentColor = categoryMeta[initialVariant.accent].color;
         <h1 class="heroBanner__title" data-banner-title>{initialVariant.title}</h1>
         <p class="heroBanner__subtitle" data-banner-subtitle>{initialVariant.subtitle}</p>
       </div>
-
-      <a
-        class="heroBanner__cta"
-        data-banner-cta
-        href="/how-it-works/"
-        style={`--cta-color:${initialAccentColor};`}
-      >
-        <span>{initialVariant.cta}</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M9 18l6-6-6-6"></path>
-        </svg>
-      </a>
     </div>
 
     <div class="heroBanner__stack" data-banner-stack aria-hidden="true">
@@ -39,7 +26,7 @@ const initialAccentColor = categoryMeta[initialVariant.accent].color;
           {row.map((key, colIndex) => (
             <div
               class="heroBanner__cube"
-              style={`--cube-color:${categoryMeta[key].color}; --delay:${rowIndex * 70 + colIndex * 24}ms;`}
+              style={`--cube-color:${categoryMeta[key].color}; --delay:${rowIndex * 95 + colIndex * 40}ms;`}
             >
               <img src={categoryMeta[key].icon} alt="" loading="eager" decoding="async" />
             </div>
@@ -68,10 +55,9 @@ const initialAccentColor = categoryMeta[initialVariant.accent].color;
 
     const titleEl = root.querySelector("[data-banner-title]");
     const subtitleEl = root.querySelector("[data-banner-subtitle]");
-    const ctaEl = root.querySelector("[data-banner-cta]");
     const stackEl = root.querySelector("[data-banner-stack]");
 
-    if (!titleEl || !subtitleEl || !ctaEl || !stackEl || !variants.length) return;
+    if (!titleEl || !subtitleEl || !stackEl || !variants.length) return;
 
     let index = Math.floor(Math.random() * variants.length);
 
@@ -89,7 +75,7 @@ const initialAccentColor = categoryMeta[initialVariant.accent].color;
       return rows
         .map((row, rowIndex) => {
           const cubes = row
-            .map((key, colIndex) => cubeMarkup(key, rowIndex * 70 + colIndex * 24))
+            .map((key, colIndex) => cubeMarkup(key, rowIndex * 95 + colIndex * 40))
             .join("");
           return `<div class="heroBanner__row">${cubes}</div>`;
         })
@@ -102,8 +88,6 @@ const initialAccentColor = categoryMeta[initialVariant.accent].color;
 
       titleEl.textContent = variant.title;
       subtitleEl.textContent = variant.subtitle;
-      ctaEl.style.setProperty("--cta-color", meta[variant.accent]?.color || "#6C2BD9");
-
       stackEl.innerHTML = rowsMarkup(variant.rows);
     }
 
@@ -113,7 +97,7 @@ const initialAccentColor = categoryMeta[initialVariant.accent].color;
       window.setInterval(() => {
         index = (index + 1) % variants.length;
         render(index);
-      }, 4800);
+      }, 6800);
     }
   })();
 </script>
@@ -123,28 +107,25 @@ const initialAccentColor = categoryMeta[initialVariant.accent].color;
     width: 100%;
     max-width: 980px;
     margin: 0 auto;
+    background: #fff;
   }
 
   .heroBanner__card {
     display: grid;
-    grid-template-columns: minmax(0, 1.05fr) auto;
+    grid-template-columns: minmax(0, 1fr) auto;
     align-items: end;
-    gap: clamp(20px, 4vw, 36px);
-    min-height: clamp(260px, 34vw, 360px);
-    padding: clamp(22px, 4vw, 34px);
-    border-radius: 28px;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    gap: clamp(28px, 5vw, 60px);
+    min-height: clamp(260px, 34vw, 368px);
+    padding: clamp(8px, 1vw, 12px) 0;
     background: #fff;
-    overflow: hidden;
   }
 
   .heroBanner__copy {
     display: grid;
     grid-template-columns: 54px minmax(0, 1fr);
-    grid-template-rows: auto 1fr auto;
-    column-gap: 16px;
-    row-gap: 12px;
-    align-self: stretch;
+    column-gap: 18px;
+    align-self: start;
+    min-width: 0;
   }
 
   .heroBanner__icon {
@@ -155,8 +136,7 @@ const initialAccentColor = categoryMeta[initialVariant.accent].color;
     place-items: center;
     background: rgba(0, 0, 0, 0.045);
     border: 1px solid rgba(0, 0, 0, 0.05);
-    grid-column: 1;
-    grid-row: 1;
+    margin-top: 4px;
   }
 
   .heroBanner__icon svg {
@@ -166,53 +146,25 @@ const initialAccentColor = categoryMeta[initialVariant.accent].color;
   }
 
   .heroBanner__text {
-    grid-column: 2;
-    grid-row: 1 / span 2;
     min-width: 0;
+    max-width: 34rem;
   }
 
   .heroBanner__title {
     margin: 0;
-    font-size: clamp(30px, 4vw, 58px);
-    line-height: 1.02;
-    letter-spacing: -1.2px;
+    font-size: clamp(34px, 4.8vw, 72px);
+    line-height: 0.98;
+    letter-spacing: -1.5px;
+    text-wrap: balance;
   }
 
   .heroBanner__subtitle {
-    margin: 12px 0 0;
-    max-width: 32ch;
+    margin: 14px 0 0;
+    max-width: 26ch;
     color: rgba(11, 12, 16, 0.66);
-    font-size: clamp(16px, 1.7vw, 20px);
-    line-height: 1.34;
-  }
-
-  .heroBanner__cta {
-    grid-column: 2;
-    grid-row: 3;
-    align-self: end;
-    justify-self: start;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    min-height: 44px;
-    padding: 0 16px;
-    border-radius: 999px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    background: #fff;
-    color: var(--cta-color, #6C2BD9);
-    font-size: 15px;
-    font-weight: 800;
-    letter-spacing: 0.1px;
-  }
-
-  .heroBanner__cta svg {
-    width: 16px;
-    height: 16px;
-    stroke: currentColor;
-    stroke-width: 2.2;
-    fill: none;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+    font-size: clamp(17px, 1.8vw, 22px);
+    line-height: 1.3;
+    text-wrap: pretty;
   }
 
   .heroBanner__stack {
@@ -220,48 +172,67 @@ const initialAccentColor = categoryMeta[initialVariant.accent].color;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 2px;
+    gap: 4px;
+    padding-right: 2px;
+    padding-bottom: 4px;
   }
 
   .heroBanner__row {
     display: flex;
     justify-content: flex-end;
-    gap: 4px;
+    gap: 5px;
   }
 
   .heroBanner__cube {
-    width: 56px;
-    height: 56px;
-    border-radius: 16px;
+    width: 59px;
+    height: 59px;
+    border-radius: 17px;
     background: var(--cube-color);
     display: grid;
     place-items: center;
-    flex: 0 0 56px;
-    animation: heroBannerDrop 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    flex: 0 0 59px;
+    animation: heroBannerDrop 640ms cubic-bezier(0.2, 0.82, 0.2, 1) both;
     animation-delay: var(--delay, 0ms);
+    will-change: transform, opacity;
   }
 
   .heroBanner__cube img {
-    width: 48%;
-    height: 48%;
+    width: 50.5%;
+    height: 50.5%;
     display: block;
+    pointer-events: none;
+    user-select: none;
   }
 
   @keyframes heroBannerDrop {
-    from {
+    0% {
       opacity: 0;
-      transform: translateY(-12px);
+      transform: translate3d(0, -16px, 0) rotate(-4deg);
     }
-    to {
+    55% {
       opacity: 1;
-      transform: translateY(0);
+      transform: translate3d(0, 3px, 0) rotate(2deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) rotate(0deg);
     }
   }
 
   @media (max-width: 860px) {
     .heroBanner__card {
       grid-template-columns: 1fr;
-      gap: 20px;
+      align-items: start;
+      gap: 28px;
+      min-height: auto;
+    }
+
+    .heroBanner__copy {
+      width: 100%;
+    }
+
+    .heroBanner__text {
+      max-width: 100%;
     }
 
     .heroBanner__stack {
@@ -270,19 +241,20 @@ const initialAccentColor = categoryMeta[initialVariant.accent].color;
     }
 
     .heroBanner__title {
-      font-size: clamp(26px, 6vw, 40px);
-      letter-spacing: -0.9px;
+      font-size: clamp(30px, 7vw, 48px);
+      letter-spacing: -1px;
     }
 
     .heroBanner__subtitle {
       max-width: 28ch;
+      font-size: clamp(16px, 2.4vw, 19px);
     }
   }
 
   @media (max-width: 560px) {
     .heroBanner__card {
-      padding: 22px;
-      min-height: 280px;
+      padding: 6px 0;
+      gap: 22px;
     }
 
     .heroBanner__copy {
@@ -293,25 +265,32 @@ const initialAccentColor = categoryMeta[initialVariant.accent].color;
     .heroBanner__icon {
       width: 52px;
       height: 52px;
+      margin-top: 2px;
     }
 
     .heroBanner__title {
-      font-size: 28px;
-      line-height: 1.04;
+      font-size: 29px;
+      line-height: 1.01;
       white-space: normal;
     }
 
     .heroBanner__subtitle {
       margin-top: 10px;
-      max-width: 24ch;
+      max-width: 22ch;
       font-size: 15px;
+      line-height: 1.34;
     }
 
     .heroBanner__cube {
-      width: 40px;
-      height: 40px;
-      flex-basis: 40px;
-      border-radius: 12px;
+      width: 42px;
+      height: 42px;
+      flex-basis: 42px;
+      border-radius: 13px;
+    }
+
+    .heroBanner__cube img {
+      width: 50.5%;
+      height: 50.5%;
     }
 
     .heroBanner__row {
@@ -320,6 +299,8 @@ const initialAccentColor = categoryMeta[initialVariant.accent].color;
 
     .heroBanner__stack {
       gap: 4px;
+      padding-right: 0;
+      padding-bottom: 0;
     }
   }
 </style>
