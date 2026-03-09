@@ -10,18 +10,6 @@ export type BannerVariant = {
 
 export const bannerVariants: BannerVariant[] = [
   {
-    title: "New to FLY?",
-    subtitle: "See how LiveTime works — create, track, submit.",
-    cta: "How it works",
-    accent: "technology",
-    rows: [
-      ["collabs"],
-      ["science", "technology"],
-      ["business", "photo", "media"],
-      ["journalism", "writing", "education", "arts"],
-    ],
-  },
-  {
     title: "What do you need?",
     subtitle: "Pick a category and find the right kind of help.",
     cta: "How it works",
@@ -34,15 +22,15 @@ export const bannerVariants: BannerVariant[] = [
     ],
   },
   {
-    title: "Looking for something specific?",
-    subtitle: "Browse categories and narrow in on exactly what you need.",
+    title: "It’s Time to FLY",
+    subtitle: "Move fast, explore categories, and make things happen.",
     cta: "How it works",
-    accent: "collabs",
+    accent: "technology",
     rows: [
-      ["science"],
-      ["legal", "journalism"],
-      ["business", "technology", "education"],
-      ["media", "photo", "collabs", "writing"],
+      ["technology"],
+      ["science", "collabs"],
+      ["business", "photo", "media"],
+      ["journalism", "writing", "education", "arts"],
     ],
   },
   {
@@ -55,6 +43,18 @@ export const bannerVariants: BannerVariant[] = [
       ["arts", "media"],
       ["music", "business", "collabs"],
       ["events", "education", "journalism", "gaming"],
+    ],
+  },
+  {
+    title: "Looking for something specific?",
+    subtitle: "Browse categories and narrow in on exactly what you need.",
+    cta: "How it works",
+    accent: "collabs",
+    rows: [
+      ["science"],
+      ["legal", "journalism"],
+      ["business", "technology", "education"],
+      ["media", "photo", "collabs", "writing"],
     ],
   },
 ];
