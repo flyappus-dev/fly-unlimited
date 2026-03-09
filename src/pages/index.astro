@@ -1,4 +1,6 @@
 ---
+import HeroCategoryBanner from "../components/HeroCategoryBanner.astro";
+
 const siteName = "FLY Unlimited";
 const contactEmail = "hello@fly-unlimited.com"; // change if needed
 const appStoreUrl = "#";
@@ -126,20 +128,11 @@ const appStoreUrl = "#";
         text-align:center;
       }
 
-      /* ✅ No border/line around the hero image */
-      .heroArt{
+      /* ✅ Replaces the old hero PNG block */
+      .heroBannerWrap{
         width: 100%;
         max-width: 980px;
-        margin: 0 auto 30px; /* ✅ more whitespace below photo */
-        border-radius: var(--rXL);
-        overflow: hidden;
-        background: #fff;
-        border: none;
-      }
-      .heroArt img{
-        width: 100%;
-        height: auto;
-        display: block;
+        margin: 0 auto 30px; /* ✅ same spacing the PNG had */
       }
 
       .heroKicker{
@@ -397,7 +390,7 @@ const appStoreUrl = "#";
         /* ensure the one-line headline fits small phones */
         h1{ font-size: clamp(26px, 7vw, 34px); letter-spacing: -1px; }
         .tile{ height: 360px; }
-        .heroArt{ margin-bottom: 28px; }
+        .heroBannerWrap{ margin-bottom: 28px; }
       }
     </style>
   </head>
@@ -437,15 +430,9 @@ const appStoreUrl = "#";
     <section class="hero" aria-label="Hero">
       <div class="wrap heroInner">
 
-        <!-- ✅ IMAGE ABOVE + extra whitespace -->
-        <div class="heroArt" aria-label="Landing hero image">
-          <img
-            src="landin-hero.png"
-            alt="FLY landing hero"
-            loading="eager"
-            decoding="async"
-            onerror="this.onerror=null; this.src='landing-hero.png';"
-          />
+        <!-- ✅ Banner replaces the old PNG hero image -->
+        <div class="heroBannerWrap" aria-label="Landing hero banner">
+          <HeroCategoryBanner />
         </div>
 
         <!-- ✅ Centered hero copy -->
@@ -469,7 +456,7 @@ const appStoreUrl = "#";
       </div>
     </section>
 
-    <!-- ✅ Everything below remains the same (minus the removed header text) -->
+    <!-- ✅ Everything below remains the same -->
     <section class="section" aria-label="Explore">
       <div class="wrap">
         <div class="tiles" aria-label="Feature tiles">
