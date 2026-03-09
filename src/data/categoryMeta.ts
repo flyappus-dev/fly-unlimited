@@ -48,7 +48,7 @@ export const categoryMeta: Record<CategoryKey, CategoryMeta> = {
     color: "#33B864",
   },
   education: {
-    label: "Education",
+    label: "Education + Tutoring",
     icon: "/category-icons/Education.svg",
     color: "#00C3FF",
   },
@@ -68,7 +68,7 @@ export const categoryMeta: Record<CategoryKey, CategoryMeta> = {
     color: "#ED0E0E",
   },
   industrial: {
-    label: "Industrial",
+    label: "Engineering + Architecture",
     icon: "/category-icons/Industrial.svg",
     color: "#6E7F80",
   },
@@ -78,17 +78,17 @@ export const categoryMeta: Record<CategoryKey, CategoryMeta> = {
     color: "#16A085",
   },
   legal: {
-    label: "Legal",
+    label: "Legal Services",
     icon: "/category-icons/Legal.svg",
     color: "#8D3C3C",
   },
   mechanics: {
-    label: "Mechanics",
+    label: "Mechanic",
     icon: "/category-icons/Mechanics.svg",
     color: "#868D07",
   },
   media: {
-    label: "Media",
+    label: "Media + Entertainment",
     icon: "/category-icons/Media.svg",
     color: "#FF005B",
   },
@@ -98,17 +98,17 @@ export const categoryMeta: Record<CategoryKey, CategoryMeta> = {
     color: "#6600FF",
   },
   pets: {
-    label: "Pets",
+    label: "For Pets",
     icon: "/category-icons/Pets.svg",
     color: "#20C997",
   },
   photo: {
-    label: "Photo",
+    label: "Video + Photography",
     icon: "/category-icons/Photo.svg",
     color: "#9B59B6",
   },
   rides: {
-    label: "Rides",
+    label: "Rides + Transportation",
     icon: "/category-icons/Rides.svg",
     color: "#000000",
   },
@@ -118,12 +118,12 @@ export const categoryMeta: Record<CategoryKey, CategoryMeta> = {
     color: "#2D27FF",
   },
   technology: {
-    label: "Technology",
+    label: "Tech",
     icon: "/category-icons/Technology.svg",
     color: "#6000E0",
   },
   writing: {
-    label: "Writing",
+    label: "Writing + Literature",
     icon: "/category-icons/Writing.svg",
     color: "#F5BC02",
   },
