@@ -7,7 +7,11 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
 ---
 
 <div class="heroBanner" id="heroCategoryBanner">
-  <div class="heroBanner__card" data-stack-style={initialVariant.stackStyle}>
+  <div
+    class="heroBanner__card"
+    data-stack-style={initialVariant.stackStyle}
+    data-has-logo={initialHasLogo ? "true" : "false"}
+  >
     <div class="heroBanner__copy">
       <div class="heroBanner__icon" aria-hidden="true">
         <svg viewBox="0 0 24 24">
@@ -16,7 +20,29 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
       </div>
 
       <div class="heroBanner__text">
-        <h1 class="heroBanner__title" data-banner-title>{initialVariant.title}</h1>
+        <div class="heroBanner__headlineRow">
+          <h1 class="heroBanner__title" data-banner-title>{initialVariant.title}</h1>
+
+          <div
+            class:list={[
+              "heroBanner__logoWrap",
+              !initialHasLogo && "is-hidden",
+            ]}
+            data-banner-logo-wrap
+          >
+            {initialVariant.logoAsset && (
+              <img
+                class="heroBanner__logo"
+                data-banner-logo
+                src={initialVariant.logoAsset}
+                alt={initialVariant.logoAlt ?? "FLY logo"}
+                loading="eager"
+                decoding="async"
+              />
+            )}
+          </div>
+        </div>
+
         <p
           class:list={[
             "heroBanner__subtitle",
@@ -26,25 +52,6 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
         >
           {initialVariant.subtitle}
         </p>
-
-        <div
-          class:list={[
-            "heroBanner__logoWrap",
-            !initialHasLogo && "is-hidden",
-          ]}
-          data-banner-logo-wrap
-        >
-          {initialVariant.logoAsset && (
-            <img
-              class="heroBanner__logo"
-              data-banner-logo
-              src={initialVariant.logoAsset}
-              alt={initialVariant.logoAlt ?? "FLY logo"}
-              loading="eager"
-              decoding="async"
-            />
-          )}
-        </div>
       </div>
     </div>
 
@@ -114,6 +121,7 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
 
     function renderLogo(variant) {
       const hasLogo = Boolean(variant.logoAsset);
+      cardEl.setAttribute("data-has-logo", hasLogo ? "true" : "false");
 
       if (!hasLogo) {
         logoWrapEl.classList.add("is-hidden");
@@ -159,7 +167,7 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
       window.setInterval(() => {
         index = (index + 1) % variants.length;
         render(index);
-      }, 7600);
+      }, 7800);
     }
   })();
 </script>
@@ -176,9 +184,9 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
-    gap: clamp(24px, 4.8vw, 68px);
-    min-height: clamp(280px, 36vw, 410px);
-    padding: clamp(10px, 1.2vw, 16px) clamp(10px, 2.4vw, 28px);
+    gap: clamp(18px, 3vw, 36px);
+    min-height: clamp(248px, 30vw, 352px);
+    padding: clamp(8px, 1.2vw, 14px) clamp(16px, 2.6vw, 30px);
     background: #fff;
   }
 
@@ -186,8 +194,8 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
     display: grid;
     grid-template-columns: 56px minmax(0, 1fr);
     column-gap: 18px;
-    align-self: start;
     min-width: 0;
+    align-self: center;
   }
 
   .heroBanner__icon {
@@ -210,26 +218,31 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
 
   .heroBanner__text {
     min-width: 0;
-    max-width: 38rem;
+    max-width: 34rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
 
+  .heroBanner__headlineRow {
+    display: block;
+    width: 100%;
+  }
+
   .heroBanner__title {
     margin: 0;
-    font-size: clamp(34px, 4.9vw, 72px);
-    line-height: 0.98;
+    font-size: clamp(34px, 4.8vw, 70px);
+    line-height: 0.96;
     letter-spacing: -1.5px;
     text-wrap: balance;
   }
 
   .heroBanner__subtitle {
-    margin: 12px 0 0;
-    max-width: 28ch;
+    margin: 10px 0 0;
+    max-width: 24ch;
     color: rgba(11, 12, 16, 0.66);
-    font-size: clamp(17px, 1.8vw, 22px);
-    line-height: 1.26;
+    font-size: clamp(17px, 1.75vw, 22px);
+    line-height: 1.25;
     text-wrap: pretty;
   }
 
@@ -238,7 +251,7 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
   }
 
   .heroBanner__logoWrap {
-    margin-top: 18px;
+    margin-top: 14px;
     display: flex;
     align-items: center;
   }
@@ -248,7 +261,7 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
   }
 
   .heroBanner__logo {
-    width: clamp(90px, 9vw, 138px);
+    width: clamp(92px, 8vw, 124px);
     height: auto;
     display: block;
     object-fit: contain;
@@ -256,11 +269,12 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
 
   .heroBanner__stack {
     align-self: center;
+    width: fit-content;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     gap: 6px;
-    max-width: min(100%, 430px);
-    padding: 4px 14px 6px 14px;
+    padding: 2px 8px;
   }
 
   .heroBanner__row {
@@ -269,34 +283,62 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
   }
 
   .heroBanner__cube {
-    width: 62px;
-    height: 62px;
+    width: 60px;
+    height: 60px;
     border-radius: 18px;
     background: var(--cube-color);
     display: grid;
     place-items: center;
-    flex: 0 0 62px;
+    flex: 0 0 60px;
     animation: heroBannerDrop 700ms cubic-bezier(0.2, 0.82, 0.2, 1) both;
     animation-delay: var(--delay, 0ms);
     will-change: transform, opacity;
   }
 
   .heroBanner__cube img {
-    width: 56%;
-    height: 56%;
+    width: 58%;
+    height: 58%;
     display: block;
     pointer-events: none;
     user-select: none;
   }
 
   .heroBanner__card[data-stack-style="fullBlock"] {
-    grid-template-columns: minmax(0, 0.9fr) auto;
-    align-items: center;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: clamp(18px, 2.4vw, 28px);
+  }
+
+  .heroBanner__card[data-stack-style="fullBlock"] .heroBanner__copy {
+    align-self: start;
+  }
+
+  .heroBanner__card[data-stack-style="fullBlock"] .heroBanner__headlineRow {
+    display: block;
+    max-width: 29rem;
+  }
+
+  .heroBanner__card[data-stack-style="fullBlock"][data-has-logo="true"] .heroBanner__headlineRow {
+    display: grid;
+    grid-template-columns: minmax(0, 11.2ch) auto;
+    align-items: end;
+    column-gap: 14px;
+    max-width: 32rem;
+  }
+
+  .heroBanner__card[data-stack-style="fullBlock"][data-has-logo="true"] .heroBanner__title {
+    max-width: 11.2ch;
+  }
+
+  .heroBanner__card[data-stack-style="fullBlock"][data-has-logo="true"] .heroBanner__logoWrap {
+    margin: 0 0 0.25rem;
+    align-self: end;
+    justify-self: start;
   }
 
   .heroBanner__card[data-stack-style="fullBlock"] .heroBanner__stack {
-    align-items: flex-start;
     justify-self: end;
+    align-items: flex-start;
+    max-width: 332px;
   }
 
   .heroBanner__card[data-stack-style="fullBlock"] .heroBanner__row {
@@ -304,7 +346,8 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
   }
 
   .heroBanner__card[data-stack-style="playfulRows"] {
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 0.96fr) auto;
+    gap: clamp(18px, 2.8vw, 32px);
   }
 
   .heroBanner__card[data-stack-style="playfulRows"] .heroBanner__copy {
@@ -314,16 +357,17 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
   .heroBanner__card[data-stack-style="playfulRows"] .heroBanner__text {
     align-items: center;
     text-align: center;
-    max-width: 31rem;
+    max-width: 30rem;
   }
 
   .heroBanner__card[data-stack-style="playfulRows"] .heroBanner__subtitle {
-    max-width: 24ch;
+    max-width: 23ch;
   }
 
   .heroBanner__card[data-stack-style="playfulRows"] .heroBanner__stack {
-    align-items: center;
     justify-self: end;
+    align-items: center;
+    max-width: 300px;
   }
 
   .heroBanner__card[data-stack-style="playfulRows"] .heroBanner__row {
@@ -331,36 +375,46 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
   }
 
   .heroBanner__card[data-stack-style="playfulRows"] .heroBanner__row:nth-child(odd) {
-    transform: translateX(-10px);
+    transform: translateX(-9px);
   }
 
   .heroBanner__card[data-stack-style="playfulRows"] .heroBanner__row:nth-child(even) {
-    transform: translateX(8px);
+    transform: translateX(7px);
   }
 
   .heroBanner__card[data-stack-style="leftRise"] {
     grid-template-columns: auto minmax(0, 1fr);
-  }
-
-  .heroBanner__card[data-stack-style="leftRise"] .heroBanner__copy {
-    order: 2;
-    justify-self: end;
-  }
-
-  .heroBanner__card[data-stack-style="leftRise"] .heroBanner__text {
-    max-width: 34rem;
+    gap: clamp(16px, 2.4vw, 26px);
   }
 
   .heroBanner__card[data-stack-style="leftRise"] .heroBanner__stack {
     order: 1;
-    align-items: flex-start;
     justify-self: start;
-    padding-left: 18px;
-    padding-right: 6px;
+    align-items: flex-start;
+    max-width: 336px;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .heroBanner__card[data-stack-style="leftRise"] .heroBanner__row {
     justify-content: flex-start;
+  }
+
+  .heroBanner__card[data-stack-style="leftRise"] .heroBanner__copy {
+    order: 2;
+    justify-self: start;
+  }
+
+  .heroBanner__card[data-stack-style="leftRise"] .heroBanner__text {
+    max-width: 28rem;
+  }
+
+  .heroBanner__card[data-stack-style="leftRise"] .heroBanner__title {
+    max-width: 9.2ch;
+  }
+
+  .heroBanner__card[data-stack-style="leftRise"] .heroBanner__subtitle {
+    max-width: 21ch;
   }
 
   @keyframes heroBannerDrop {
@@ -380,22 +434,29 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
 
   @media (max-width: 980px) {
     .heroBanner__card {
-      gap: clamp(20px, 4vw, 36px);
-      padding-left: clamp(14px, 3vw, 24px);
-      padding-right: clamp(14px, 3vw, 24px);
-    }
-
-    .heroBanner__stack {
-      max-width: min(100%, 360px);
-      padding-left: 10px;
-      padding-right: 10px;
+      gap: clamp(16px, 2.8vw, 26px);
+      padding-left: clamp(14px, 3vw, 22px);
+      padding-right: clamp(14px, 3vw, 22px);
+      min-height: clamp(236px, 28vw, 320px);
     }
 
     .heroBanner__cube {
-      width: 58px;
-      height: 58px;
-      flex-basis: 58px;
+      width: 56px;
+      height: 56px;
+      flex-basis: 56px;
       border-radius: 17px;
+    }
+
+    .heroBanner__card[data-stack-style="fullBlock"] .heroBanner__stack {
+      max-width: 304px;
+    }
+
+    .heroBanner__card[data-stack-style="playfulRows"] .heroBanner__stack {
+      max-width: 276px;
+    }
+
+    .heroBanner__card[data-stack-style="leftRise"] .heroBanner__stack {
+      max-width: 300px;
     }
   }
 
@@ -406,7 +467,7 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
     .heroBanner__card[data-stack-style="leftRise"] {
       grid-template-columns: 1fr;
       align-items: start;
-      gap: 26px;
+      gap: 24px;
       min-height: auto;
       padding-left: clamp(14px, 5vw, 24px);
       padding-right: clamp(14px, 5vw, 24px);
@@ -428,8 +489,9 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
     }
 
     .heroBanner__subtitle,
-    .heroBanner__card[data-stack-style="playfulRows"] .heroBanner__subtitle {
-      max-width: 26ch;
+    .heroBanner__card[data-stack-style="playfulRows"] .heroBanner__subtitle,
+    .heroBanner__card[data-stack-style="leftRise"] .heroBanner__subtitle {
+      max-width: 25ch;
     }
 
     .heroBanner__stack,
@@ -452,11 +514,22 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
       justify-content: center;
       width: 100%;
       flex-wrap: wrap;
+      transform: none;
     }
 
-    .heroBanner__card[data-stack-style="playfulRows"] .heroBanner__row:nth-child(odd),
-    .heroBanner__card[data-stack-style="playfulRows"] .heroBanner__row:nth-child(even) {
-      transform: none;
+    .heroBanner__card[data-stack-style="fullBlock"][data-has-logo="true"] .heroBanner__headlineRow {
+      grid-template-columns: 1fr;
+      row-gap: 12px;
+      max-width: 100%;
+    }
+
+    .heroBanner__card[data-stack-style="fullBlock"][data-has-logo="true"] .heroBanner__title,
+    .heroBanner__card[data-stack-style="leftRise"] .heroBanner__title {
+      max-width: 100%;
+    }
+
+    .heroBanner__card[data-stack-style="fullBlock"][data-has-logo="true"] .heroBanner__logoWrap {
+      margin: 0;
     }
 
     .heroBanner__title {
@@ -473,7 +546,7 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
     .heroBanner__card {
       padding-top: 6px;
       padding-bottom: 6px;
-      gap: 22px;
+      gap: 20px;
     }
 
     .heroBanner__copy {
@@ -501,13 +574,12 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
     }
 
     .heroBanner__logo {
-      width: 96px;
+      width: 94px;
     }
 
-    .heroBanner__stack,
-    .heroBanner__card[data-stack-style="leftRise"] .heroBanner__stack {
-      padding-left: 18px;
-      padding-right: 18px;
+    .heroBanner__stack {
+      padding-left: 14px;
+      padding-right: 14px;
       gap: 5px;
     }
 
@@ -523,8 +595,8 @@ const initialHasLogo = Boolean(initialVariant.logoAsset);
     }
 
     .heroBanner__cube img {
-      width: 58%;
-      height: 58%;
+      width: 60%;
+      height: 60%;
     }
   }
 </style>
