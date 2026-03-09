@@ -40,11 +40,9 @@ export const bannerVariants: BannerVariant[] = [
     accent: "business",
     stackStyle: "playfulRows",
     rows: [
-      ["technology"],
-      ["science", "collabs"],
-      ["business", "photo", "media"],
-      ["events", "education", "arts"],
-      ["music", "legal", "journalism", "deliveries"],
+      ["technology", "collabs"],
+      ["science", "photo", "media"],
+      ["deliveries", "education", "arts", "events"],
     ],
   },
   {
