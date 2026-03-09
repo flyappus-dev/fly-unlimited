@@ -76,25 +76,38 @@ const appStoreUrl = "#";
         min-height:44px;
       }
       .mascot{
-        width:26px;height:26px;
+        width:26px;
+        height:26px;
         border-radius:10px;
         object-fit:contain;
         display:block;
       }
 
-      .nav{ display:flex; align-items:center; gap: 10px; }
+      .nav{
+        display:flex;
+        align-items:center;
+        gap: 10px;
+      }
       .navBtn{
-        width:42px;height:42px;
+        width:42px;
+        height:42px;
         display:grid;
         place-items:center;
         border-radius: 999px;
         color: rgba(11,12,16,.72);
         transition: background .18s var(--ease), color .18s var(--ease);
       }
-      .navBtn:hover{ background: rgba(0,0,0,.05); color: rgba(11,12,16,.92); }
-      .navBtn.active{ background: rgba(0,0,0,.08); color: rgba(11,12,16,.96); }
+      .navBtn:hover{
+        background: rgba(0,0,0,.05);
+        color: rgba(11,12,16,.92);
+      }
+      .navBtn.active{
+        background: rgba(0,0,0,.08);
+        color: rgba(11,12,16,.96);
+      }
       .navBtn svg{
-        width:18px;height:18px;
+        width:18px;
+        height:18px;
         stroke: currentColor;
         stroke-width:2.2;
         fill:none;
@@ -109,30 +122,29 @@ const appStoreUrl = "#";
         padding: 0 var(--pad);
       }
 
-      /* ===== HERO: “one page” / centered ===== */
+      /* ===== HERO ===== */
       .hero{
         background: #fff;
         min-height: calc(100svh - var(--topbarH));
         min-height: calc(100vh - var(--topbarH));
         display:flex;
         align-items:center;
-        overflow:hidden; /* ✅ prevents next section “creeping” */
+        overflow:hidden;
       }
 
       .heroInner{
         width: 100%;
-        padding: 28px 0 34px;
+        padding: 34px 0 42px;
         display:flex;
         flex-direction:column;
         align-items:center;
         text-align:center;
       }
 
-      /* ✅ Replaces the old hero PNG block */
       .heroBannerWrap{
         width: 100%;
         max-width: 980px;
-        margin: 0 auto 30px; /* ✅ same spacing the PNG had */
+        margin: 0 auto 22px;
       }
 
       .heroKicker{
@@ -149,29 +161,14 @@ const appStoreUrl = "#";
         letter-spacing: .2px;
       }
       .dot{
-        width:9px;height:9px;border-radius:999px;
+        width:9px;
+        height:9px;
+        border-radius:999px;
         background: var(--main);
       }
 
-      /* ✅ One-line headline (kept for future use) */
-      h1{
-        margin: 16px 0 10px;
-        font-size: clamp(28px, 6.3vw, 60px);
-        letter-spacing: -1.2px;
-        line-height: 1.02;
-        white-space: nowrap;
-      }
-
-      .heroSub{
-        margin: 0;
-        max-width: 54ch;
-        font-size: clamp(16px, 1.65vw, 20px);
-        color: rgba(11,12,16,.68);
-        line-height: 1.38;
-      }
-
       .ctaRow{
-        margin-top: 14px; /* ✅ sits cleanly right under the kicker */
+        margin-top: 14px;
         display:flex;
         gap: 12px;
         flex-wrap: wrap;
@@ -208,7 +205,8 @@ const appStoreUrl = "#";
       .btnPrimary:hover{ background:#000; }
 
       .btn svg{
-        width:16px;height:16px;
+        width:16px;
+        height:16px;
         stroke: currentColor;
         stroke-width:2.2;
         fill:none;
@@ -304,7 +302,8 @@ const appStoreUrl = "#";
         color: rgba(11,12,16,.86);
       }
       .tileCta svg{
-        width:16px;height:16px;
+        width:16px;
+        height:16px;
         stroke: currentColor;
         stroke-width:2.2;
         fill:none;
@@ -387,10 +386,9 @@ const appStoreUrl = "#";
 
       /* ✅ Mobile tune */
       @media (max-width: 560px){
-        /* ensure the one-line headline fits small phones */
-        h1{ font-size: clamp(26px, 7vw, 34px); letter-spacing: -1px; }
         .tile{ height: 360px; }
-        .heroBannerWrap{ margin-bottom: 28px; }
+        .heroBannerWrap{ margin-bottom: 20px; }
+        .heroInner{ padding: 26px 0 34px; }
       }
     </style>
   </head>
@@ -429,34 +427,34 @@ const appStoreUrl = "#";
 
     <section class="hero" aria-label="Hero">
       <div class="wrap heroInner">
-
-        <!-- ✅ Banner replaces the old PNG hero image -->
         <div class="heroBannerWrap" aria-label="Landing hero banner">
           <HeroCategoryBanner />
         </div>
 
-        <!-- ✅ Centered hero copy -->
         <div class="heroKicker">
           <span class="dot" aria-hidden="true"></span>
           LiveTime collaboration, beautifully simple.
         </div>
 
-        <!-- ✅ Buttons moved directly under the kicker -->
         <div class="ctaRow" aria-label="Primary actions">
           <a class="btn btnPrimary" href={appStoreUrl} aria-label="App Store link">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 7l-5 5 5 5"/><path d="M9 12h12"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14 7l-5 5 5 5"/>
+              <path d="M9 12h12"/>
+            </svg>
             Get the app
           </a>
 
           <a class="btn" href="/how-it-works/" aria-label="How it works">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 10-14h-7z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M13 2 4 14h7l-1 8 10-14h-7z"/>
+            </svg>
             How it works
           </a>
         </div>
       </div>
     </section>
 
-    <!-- ✅ Everything below remains the same -->
     <section class="section" aria-label="Explore">
       <div class="wrap">
         <div class="tiles" aria-label="Feature tiles">
