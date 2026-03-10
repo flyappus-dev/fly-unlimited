@@ -82,30 +82,49 @@ const adminEmail = "name.lastname@yourdomain.com";
         min-height:44px;
       }
       .mascot{
-        width:26px;height:26px;
+        width:26px;
+        height:26px;
         border-radius:10px;
         object-fit:contain;
         display:block;
       }
 
-      .nav{ display:flex; align-items:center; gap:10px; }
+      .nav{
+        display:flex;
+        align-items:center;
+        gap:10px;
+      }
       .navBtn{
-        width:42px;height:42px;
+        width:42px;
+        height:42px;
         display:grid;
         place-items:center;
         border-radius:999px;
         color: rgba(11,12,16,.70);
         transition: background .18s var(--ease), color .18s var(--ease);
       }
-      .navBtn:hover{ background: rgba(0,0,0,.05); color: rgba(11,12,16,.92); }
-      .navBtn.active{ background: rgba(0,0,0,.10); color: rgba(11,12,16,.96); }
+      .navBtn:hover{
+        background: rgba(0,0,0,.05);
+        color: rgba(11,12,16,.92);
+      }
+      .navBtn.active{
+        background: rgba(0,0,0,.10);
+        color: rgba(11,12,16,.96);
+      }
       .navBtn svg{
-        width:18px;height:18px;
+        width:18px;
+        height:18px;
         stroke: currentColor;
         stroke-width:2.2;
         fill:none;
         stroke-linecap:round;
         stroke-linejoin:round;
+      }
+      .navIcon{
+        width:18px;
+        height:18px;
+        display:block;
+        object-fit:contain;
       }
 
       /* ===== Layout ===== */
@@ -142,7 +161,9 @@ const adminEmail = "name.lastname@yourdomain.com";
         backdrop-filter: blur(10px);
       }
       .dot{
-        width:9px;height:9px;border-radius:999px;
+        width:9px;
+        height:9px;
+        border-radius:999px;
         background: var(--main);
         box-shadow: 0 0 0 7px var(--mainSoft);
       }
@@ -197,7 +218,8 @@ const adminEmail = "name.lastname@yourdomain.com";
       }
       .btnPrimary:hover{ background:#000; }
       .btn svg{
-        width:16px;height:16px;
+        width:16px;
+        height:16px;
         stroke: currentColor;
         stroke-width:2.2;
         fill:none;
@@ -221,7 +243,7 @@ const adminEmail = "name.lastname@yourdomain.com";
       }
       .float.heroShot{ aspect-ratio: 16 / 9; margin-top: 26px; }
 
-      /* ===== Content blocks (Apple hairline style, no cards) ===== */
+      /* ===== Content blocks ===== */
       .grid{
         display:grid;
         gap: 34px;
@@ -311,16 +333,11 @@ const adminEmail = "name.lastname@yourdomain.com";
 
         <nav class="nav" aria-label="Navigation">
           <a class="navBtn" href="/" aria-label="Home" title="Home">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M3 10.5 12 3l9 7.5" />
-              <path d="M5.5 9.8V21h13V9.8" />
-            </svg>
+            <img class="navIcon" src="/flyhome.svg" alt="" aria-hidden="true" />
           </a>
 
           <a class="navBtn" href="/how-it-works/" aria-label="How it works" title="How it works">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M13 2 4 14h7l-1 8 10-14h-7z" />
-            </svg>
+            <img class="navIcon" src="/flyinactive.svg" alt="" aria-hidden="true" />
           </a>
 
           <a class="navBtn active" href="/info/" aria-label="Info" title="Info">
@@ -334,7 +351,6 @@ const adminEmail = "name.lastname@yourdomain.com";
       </div>
     </header>
 
-    <!-- ===== HERO ===== -->
     <section class="hero" aria-label="Info hero">
       <div class="wrap">
         <div class="kicker"><span class="dot" aria-hidden="true"></span>Info</div>
@@ -356,16 +372,13 @@ const adminEmail = "name.lastname@yourdomain.com";
           </a>
         </div>
 
-        <!-- Floating image placeholder -->
         <div class="float heroShot" role="img" aria-label="Info hero image placeholder"></div>
       </div>
     </section>
 
-    <!-- ===== CONTENT ===== -->
     <section class="section" aria-label="Info content">
       <div class="wrap">
         <div class="grid">
-          <!-- Left: Contact -->
           <div>
             <h2 class="blockTitle">Contact</h2>
             <p class="blockSub">
@@ -400,7 +413,6 @@ const adminEmail = "name.lastname@yourdomain.com";
             </div>
           </div>
 
-          <!-- Right: Legal / links -->
           <div>
             <h2 class="blockTitle">Basics</h2>
             <p class="blockSub">
