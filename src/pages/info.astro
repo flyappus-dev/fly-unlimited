@@ -1,11 +1,6 @@
 ---
 const siteName = "FLY Unlimited";
-
-// ✅ Put the email you want public here (recommended: hello@ / contact@ / support@)
 const publicEmail = "contact@fly-unlimited.com";
-
-// Optional: your personal/admin email (not shown publicly unless you want it)
-const adminEmail = "name.lastname@yourdomain.com";
 ---
 
 <!doctype html>
@@ -22,20 +17,12 @@ const adminEmail = "name.lastname@yourdomain.com";
         --text:#0b0c10;
         --muted:rgba(11,12,16,.62);
         --hair:rgba(11,12,16,.10);
-
-        --main:#6C2BD9;
-        --mainSoft: rgba(108,43,217,.14);
-
+        --hairStrong:rgba(11,12,16,.14);
         --max:1120px;
-
-        --rXL: 34px;
-        --rL: 28px;
-        --rM: 22px;
-
-        --shadowFloat: 0 22px 60px rgba(0,0,0,.14);
-        --shadowSoft: 0 18px 46px rgba(0,0,0,.10);
-
-        --ease: cubic-bezier(.2,.8,.2,1);
+        --rXL:34px;
+        --rL:28px;
+        --rM:22px;
+        --ease:cubic-bezier(.2,.8,.2,1);
       }
 
       *{ box-sizing:border-box; }
@@ -52,7 +39,7 @@ const adminEmail = "name.lastname@yourdomain.com";
       a{ color:inherit; text-decoration:none; }
       a:hover{ opacity:.96; }
       a:focus-visible{
-        outline: 3px solid rgba(108,43,217,.35);
+        outline: 3px solid rgba(0,0,0,.16);
         outline-offset: 3px;
         border-radius: 12px;
       }
@@ -62,8 +49,7 @@ const adminEmail = "name.lastname@yourdomain.com";
         position: sticky;
         top: 0;
         z-index: 50;
-        backdrop-filter: saturate(180%) blur(14px);
-        background: rgba(255,255,255,.78);
+        background: rgba(255,255,255,.96);
         border-bottom: 1px solid rgba(0,0,0,.06);
       }
       .topbarInner{
@@ -73,7 +59,7 @@ const adminEmail = "name.lastname@yourdomain.com";
         display:flex;
         align-items:center;
         justify-content:space-between;
-        gap: 14px;
+        gap:14px;
       }
       .brand{
         display:flex;
@@ -108,7 +94,7 @@ const adminEmail = "name.lastname@yourdomain.com";
         color: rgba(11,12,16,.92);
       }
       .navBtn.active{
-        background: rgba(0,0,0,.10);
+        background: rgba(0,0,0,.08);
         color: rgba(11,12,16,.96);
       }
       .navBtn svg{
@@ -133,60 +119,58 @@ const adminEmail = "name.lastname@yourdomain.com";
         margin: 0 auto;
         padding: 0 18px;
       }
-      .section{ padding: 84px 0; }
-      @media (max-width: 700px){
-        .section{ padding: 66px 0; }
-      }
 
       /* ===== Hero ===== */
       .hero{
-        padding: 86px 0 58px;
-        background:
-          radial-gradient(900px 420px at 18% 18%, rgba(108,43,217,.16), transparent 58%),
-          radial-gradient(780px 420px at 82% 26%, rgba(0,0,0,.06), transparent 55%),
-          linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(250,250,252,1) 70%, rgba(255,255,255,1) 100%);
+        padding: 84px 0 54px;
+        background:#fff;
+        border-bottom: 1px solid rgba(0,0,0,.05);
       }
+
+      .heroInner{
+        max-width: 860px;
+      }
+
       .kicker{
         display:inline-flex;
         align-items:center;
         gap:10px;
-        padding: 10px 14px;
+        padding: 9px 13px;
         border-radius: 999px;
-        background: rgba(255,255,255,.72);
-        border: 1px solid rgba(0,0,0,.08);
+        background: #fff;
+        border: 1px solid rgba(0,0,0,.10);
         color: rgba(11,12,16,.78);
         font-size: 13px;
         font-weight: 700;
         letter-spacing: .2px;
-        backdrop-filter: blur(10px);
       }
       .dot{
-        width:9px;
-        height:9px;
+        width:8px;
+        height:8px;
         border-radius:999px;
-        background: var(--main);
-        box-shadow: 0 0 0 7px var(--mainSoft);
+        background: rgba(11,12,16,.88);
       }
 
       h1{
-        margin: 18px 0 10px;
-        font-size: clamp(34px, 5.0vw, 66px);
-        letter-spacing: -1.4px;
+        margin: 18px 0 12px;
+        font-size: clamp(34px, 5vw, 62px);
+        letter-spacing: -1.3px;
         line-height: 1.02;
+        max-width: 10ch;
       }
       .sub{
         margin: 0;
-        max-width: 70ch;
+        max-width: 58ch;
         font-size: clamp(16px, 1.55vw, 20px);
         color: rgba(11,12,16,.68);
-        line-height: 1.45;
+        line-height: 1.5;
       }
 
       .ctaRow{
-        margin-top: 18px;
+        margin-top: 22px;
         display:flex;
-        gap: 12px;
-        flex-wrap: wrap;
+        gap:12px;
+        flex-wrap:wrap;
         align-items:center;
       }
       .btn{
@@ -194,27 +178,26 @@ const adminEmail = "name.lastname@yourdomain.com";
         align-items:center;
         justify-content:center;
         gap:10px;
-        height: 44px;
+        height:44px;
         padding: 0 16px;
-        border-radius: 999px;
-        border: 1px solid rgba(0,0,0,.10);
-        background: rgba(255,255,255,.90);
+        border-radius:999px;
+        border:1px solid rgba(0,0,0,.12);
+        background:#fff;
         color: rgba(11,12,16,.92);
-        font-weight: 760;
-        font-size: 14px;
-        letter-spacing: .1px;
-        transition: transform .18s var(--ease), background .18s var(--ease), box-shadow .18s var(--ease);
+        font-weight:760;
+        font-size:14px;
+        letter-spacing:.1px;
+        transition: transform .18s var(--ease), background .18s var(--ease), border-color .18s var(--ease);
       }
       .btn:hover{
         transform: translateY(-1px);
-        box-shadow: 0 16px 40px rgba(0,0,0,.10);
-        background: rgba(255,255,255,.96);
+        background: rgba(0,0,0,.02);
+        border-color: rgba(0,0,0,.16);
       }
       .btnPrimary{
         border-color: transparent;
-        background: var(--text);
-        color: #fff;
-        box-shadow: 0 18px 48px rgba(0,0,0,.18);
+        background:#0b0c10;
+        color:#fff;
       }
       .btnPrimary:hover{ background:#000; }
       .btn svg{
@@ -227,79 +210,66 @@ const adminEmail = "name.lastname@yourdomain.com";
         stroke-linejoin:round;
       }
 
-      /* ===== Floating hero image ===== */
-      .float{
-        width: 100%;
-        border-radius: var(--rXL);
-        box-shadow: var(--shadowFloat);
-        background:
-          radial-gradient(700px 480px at 60% 20%, rgba(108,43,217,.18), transparent 58%),
-          radial-gradient(650px 520px at 30% 55%, rgba(0,0,0,.10), transparent 58%),
-          linear-gradient(180deg, #f6f6f8 0%, #ffffff 70%),
-          url("/info/hero.jpg");
-        background-size: cover;
-        background-position: center;
+      .heroImage{
+        width:100%;
+        aspect-ratio: 16 / 9;
+        margin-top: 34px;
+        border-radius: 30px;
+        border: 1px solid rgba(0,0,0,.08);
+        background: #f7f7f7 url("/info/hero.jpg") center / cover no-repeat;
         overflow:hidden;
       }
-      .float.heroShot{ aspect-ratio: 16 / 9; margin-top: 26px; }
 
-      /* ===== Content blocks ===== */
-      .grid{
+      /* ===== Simple content ===== */
+      .section{
+        padding: 72px 0 84px;
+        background:#fff;
+      }
+
+      .contentGrid{
         display:grid;
-        gap: 34px;
-        margin-top: 38px;
+        gap:22px;
       }
-      @media (min-width: 980px){
-        .grid{ grid-template-columns: 1.05fr .95fr; }
+      @media (min-width: 900px){
+        .contentGrid{
+          grid-template-columns: repeat(3, minmax(0,1fr));
+        }
       }
 
-      .blockTitle{
-        margin: 0;
-        font-size: 18px;
-        letter-spacing: -.3px;
+      .card{
+        border: 1px solid rgba(0,0,0,.08);
+        border-radius: var(--rM);
+        padding: 22px;
+        background:#fff;
       }
-      .blockSub{
-        margin: 10px 0 0;
+      .cardTitle{
+        margin:0;
+        font-size:18px;
+        letter-spacing:-.3px;
+      }
+      .cardText{
+        margin:10px 0 0;
         color: rgba(11,12,16,.68);
-        font-size: 15.5px;
-        line-height: 1.55;
-        max-width: 70ch;
+        font-size:15.5px;
+        line-height:1.6;
       }
-
-      .rows{
-        margin-top: 18px;
-        border-top: 1px solid rgba(0,0,0,.10);
+      .inlineLink{
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        margin-top:14px;
+        font-size:14px;
+        font-weight:700;
+        color: rgba(11,12,16,.84);
       }
-      .row{
-        padding: 14px 0;
-        border-bottom: 1px solid rgba(0,0,0,.10);
-        display:flex;
-        align-items:flex-start;
-        justify-content:space-between;
-        gap: 16px;
-        flex-wrap: wrap;
-      }
-      .rowLabel{
-        color: rgba(11,12,16,.62);
-        font-weight: 760;
-        font-size: 13px;
-        letter-spacing: .12px;
-      }
-      .rowValue{
-        font-size: 15px;
-        color: rgba(11,12,16,.92);
-        font-weight: 650;
-      }
-      .rowValue a{
-        text-decoration: underline;
-        text-underline-offset: 3px;
-      }
-      .rowHint{
-        margin-top: 8px;
-        color: rgba(11,12,16,.60);
-        font-size: 13.8px;
-        line-height: 1.55;
-        max-width: 72ch;
+      .inlineLink svg{
+        width:15px;
+        height:15px;
+        stroke: currentColor;
+        stroke-width:2.2;
+        fill:none;
+        stroke-linecap:round;
+        stroke-linejoin:round;
       }
 
       /* ===== Footer ===== */
@@ -311,16 +281,39 @@ const adminEmail = "name.lastname@yourdomain.com";
         display:flex;
         align-items:center;
         justify-content:space-between;
-        gap: 14px;
-        flex-wrap: wrap;
+        gap:14px;
+        flex-wrap:wrap;
       }
       .links{
         display:flex;
-        gap: 14px;
-        flex-wrap: wrap;
+        gap:14px;
+        flex-wrap:wrap;
       }
       .links a{ color: rgba(11,12,16,.62); }
       .links a:hover{ color: rgba(11,12,16,.90); }
+
+      @media (max-width: 820px){
+        .hero{
+          padding: 68px 0 46px;
+        }
+        .heroImage{
+          margin-top: 28px;
+        }
+      }
+
+      @media (max-width: 560px){
+        .topbarInner,
+        .wrap{
+          padding-left:16px;
+          padding-right:16px;
+        }
+        h1{
+          max-width:none;
+        }
+        .card{
+          padding:18px;
+        }
+      }
     </style>
   </head>
 
@@ -352,110 +345,78 @@ const adminEmail = "name.lastname@yourdomain.com";
     </header>
 
     <section class="hero" aria-label="Info hero">
-      <div class="wrap">
+      <div class="wrap heroInner">
         <div class="kicker"><span class="dot" aria-hidden="true"></span>Info</div>
 
-        <h1>Contact & updates.</h1>
+        <h1>Simple, clear, and easy to reach.</h1>
         <p class="sub">
-          A clean point of contact for support, enrollment, partnerships, and product updates.
+          FLY keeps things light. Reach out for support, questions, partnerships, or early access.
         </p>
 
         <div class="ctaRow" aria-label="Primary actions">
-          <a class="btn btnPrimary" href={`mailto:${publicEmail}`} aria-label="Email public contact">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
-            Email {publicEmail}
+          <a class="btn btnPrimary" href={`mailto:${publicEmail}`} aria-label="Contact">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 6h16v12H4z"/>
+              <path d="m4 7 8 6 8-6"/>
+            </svg>
+            Contact
           </a>
 
           <a class="btn" href="/how-it-works/" aria-label="How it works">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 10-14h-7z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M13 2 4 14h7l-1 8 10-14h-7z"/>
+            </svg>
             How it works
           </a>
         </div>
 
-        <div class="float heroShot" role="img" aria-label="Info hero image placeholder"></div>
+        <div class="heroImage" role="img" aria-label="Info hero image placeholder"></div>
       </div>
     </section>
 
     <section class="section" aria-label="Info content">
       <div class="wrap">
-        <div class="grid">
-          <div>
-            <h2 class="blockTitle">Contact</h2>
-            <p class="blockSub">
-              Use the email below for anything: questions, early access, support, or partnerships.
-              We keep it simple.
+        <div class="contentGrid">
+          <div class="card">
+            <h2 class="cardTitle">Contact</h2>
+            <p class="cardText">
+              Questions, support, partnerships, or anything else. Keep it simple and send us a message.
             </p>
-
-            <div class="rows" aria-label="Contact rows">
-              <div class="row">
-                <div>
-                  <div class="rowLabel">Public email</div>
-                  <div class="rowHint">This is the best way to reach FLY Unlimited.</div>
-                </div>
-                <div class="rowValue"><a href={`mailto:${publicEmail}`}>{publicEmail}</a></div>
-              </div>
-
-              <div class="row">
-                <div>
-                  <div class="rowLabel">Status</div>
-                  <div class="rowHint">We’re actively building. Launch updates will be shared as we get closer.</div>
-                </div>
-                <div class="rowValue">In development • Coming soon</div>
-              </div>
-
-              <div class="row">
-                <div>
-                  <div class="rowLabel">Response time</div>
-                  <div class="rowHint">We reply as fast as possible — usually within 24–48 hours.</div>
-                </div>
-                <div class="rowValue">Fast</div>
-              </div>
-            </div>
+            <a class="inlineLink" href={`mailto:${publicEmail}`} aria-label="Contact FLY">
+              Contact
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14"/>
+                <path d="m13 6 6 6-6 6"/>
+              </svg>
+            </a>
           </div>
 
-          <div>
-            <h2 class="blockTitle">Basics</h2>
-            <p class="blockSub">
-              Everything you need in one place — privacy, terms, and where to learn how it works.
+          <div class="card">
+            <h2 class="cardTitle">How it works</h2>
+            <p class="cardText">
+              See the LiveTime flow from start to finish and understand how FLY stays organized.
             </p>
+            <a class="inlineLink" href="/how-it-works/" aria-label="View how it works">
+              View page
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14"/>
+                <path d="m13 6 6 6-6 6"/>
+              </svg>
+            </a>
+          </div>
 
-            <div class="rows" aria-label="Basics rows">
-              <div class="row">
-                <div>
-                  <div class="rowLabel">How it works</div>
-                  <div class="rowHint">The full LiveTime flow, step by step.</div>
-                </div>
-                <div class="rowValue"><a href="/how-it-works/">View</a></div>
-              </div>
-
-              <div class="row">
-                <div>
-                  <div class="rowLabel">Privacy</div>
-                  <div class="rowHint">How we handle data and user information.</div>
-                </div>
-                <div class="rowValue"><a href="/privacy/">Privacy</a></div>
-              </div>
-
-              <div class="row">
-                <div>
-                  <div class="rowLabel">Terms</div>
-                  <div class="rowHint">Product usage and platform rules.</div>
-                </div>
-                <div class="rowValue"><a href="/terms/">Terms</a></div>
-              </div>
-            </div>
-
-            <!-- If you ever want to show admin email, uncomment:
-            <div class="rows" style="margin-top:18px;">
-              <div class="row">
-                <div>
-                  <div class="rowLabel">Admin</div>
-                  <div class="rowHint">Private / internal use.</div>
-                </div>
-                <div class="rowValue"><a href={`mailto:${adminEmail}`}>{adminEmail}</a></div>
-              </div>
-            </div>
-            -->
+          <div class="card">
+            <h2 class="cardTitle">Privacy</h2>
+            <p class="cardText">
+              Read the basics on how information is handled across the platform.
+            </p>
+            <a class="inlineLink" href="/privacy/" aria-label="View privacy page">
+              View page
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14"/>
+                <path d="m13 6 6 6-6 6"/>
+              </svg>
+            </a>
           </div>
         </div>
       </div>
@@ -468,7 +429,7 @@ const adminEmail = "name.lastname@yourdomain.com";
         <a href="/how-it-works/">How it works</a>
         <a href="/terms/">Terms</a>
         <a href="/privacy/">Privacy</a>
-        <a href={`mailto:${publicEmail}`}>{publicEmail}</a>
+        <a href={`mailto:${publicEmail}`}>Contact</a>
       </div>
     </footer>
   </body>
