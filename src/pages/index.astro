@@ -114,6 +114,12 @@ const appStoreUrl = "#";
         stroke-linecap:round;
         stroke-linejoin:round;
       }
+      .navIcon{
+        width:18px;
+        height:18px;
+        display:block;
+        object-fit:contain;
+      }
 
       /* ===== Layout ===== */
       .wrap{
@@ -402,16 +408,11 @@ const appStoreUrl = "#";
 
         <nav class="nav" aria-label="Navigation">
           <a class="navBtn active" href="/" aria-label="Home" title="Home">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M3 10.5 12 3l9 7.5" />
-              <path d="M5.5 9.8V21h13V9.8" />
-            </svg>
+            <img class="navIcon" src="/flyhomeactive.svg" alt="" aria-hidden="true" />
           </a>
 
           <a class="navBtn" href="/how-it-works/" aria-label="How it works" title="How it works">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M13 2 4 14h7l-1 8 10-14h-7z" />
-            </svg>
+            <img class="navIcon" src="/flyinactive.svg" alt="" aria-hidden="true" />
           </a>
 
           <a class="navBtn" href="/info/" aria-label="Info" title="Info">
