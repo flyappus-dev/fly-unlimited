@@ -269,6 +269,35 @@ const appStoreUrl = "#";
         scroll-snap-align: start;
         background: #fff;
         border: 1px solid rgba(0,0,0,.08);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        isolation: isolate;
+      }
+
+      .tiles .tile:nth-child(1){
+        background-image: url("/webimageone.png");
+      }
+      .tiles .tile:nth-child(2){
+        background-image: url("/webimagetwo.png");
+      }
+      .tiles .tile:nth-child(3){
+        background-image: url("/webimageone.png");
+      }
+
+      .tile::after{
+        content:"";
+        position:absolute;
+        inset:0;
+        z-index:0;
+        background:
+          linear-gradient(
+            180deg,
+            rgba(255,255,255,.26) 0%,
+            rgba(255,255,255,.12) 28%,
+            rgba(255,255,255,.80) 72%,
+            rgba(255,255,255,.92) 100%
+          );
       }
 
       .tileText{
@@ -278,6 +307,7 @@ const appStoreUrl = "#";
         display:flex;
         flex-direction:column;
         justify-content:space-between;
+        z-index:1;
       }
       .tileKicker{
         font-size: 13px;
@@ -344,6 +374,10 @@ const appStoreUrl = "#";
         border-radius: var(--rXL);
         background: #fff;
         border: 1px solid rgba(0,0,0,.08);
+        background-image: url("/webimagetwo.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
       }
 
       .miniGrid{
