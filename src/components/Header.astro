@@ -1,85 +1,606 @@
 ---
-import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
+import { categoryMeta } from "../data/categoryMeta";
+import { bannerVariants } from "../data/bannerVariants";
+
+const initialVariant = bannerVariants[0];
+const initialHasLogo = Boolean(initialVariant.logoAsset);
+
+function getMaxColumns(rows = []) {
+  return rows.reduce((max, row) => Math.max(max, row.length), 0) || 1;
+}
+
+const initialMaxColumns = getMaxColumns(initialVariant.rows);
 ---
 
-<header>
-	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/blog">Blog</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
-		</div>
-		<div class="social-links">
-			<a href="https://m.webtoo.ls/@astro" target="_blank">
-				<span class="sr-only">Follow Astro on Mastodon</span>
-				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32"
-					><path
-						fill="currentColor"
-						d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603.348-1.778.32-4.339.32-4.339 0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091.083 3.394.626 6.74 3.78 7.57 1.454.383 2.703.463 3.709.408 1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a3.614 3.614 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522c0-.859.22-1.541.66-2.046.456-.505 1.052-.764 1.793-.764.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983.74 0 1.336.259 1.791.764.442.505.661 1.187.661 2.046v4.203z"
-					></path></svg
-				>
-			</a>
-			<a href="https://twitter.com/astrodotbuild" target="_blank">
-				<span class="sr-only">Follow Astro on Twitter</span>
-				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32"
-					><path
-						fill="currentColor"
-						d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
-					></path></svg
-				>
-			</a>
-			<a href="https://github.com/withastro/astro" target="_blank">
-				<span class="sr-only">Go to Astro's GitHub repo</span>
-				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32"
-					><path
-						fill="currentColor"
-						d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-					></path></svg
-				>
-			</a>
-		</div>
-	</nav>
-</header>
-<style>
-	header {
-		margin: 0;
-		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
-	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
-	}
+<div class="heroBanner" id="heroCategoryBanner">
+  <div
+    class="heroBanner__card"
+    data-stack-style={initialVariant.stackStyle}
+    data-has-logo={initialHasLogo ? "true" : "false"}
+  >
+    <div class="heroBanner__copy">
+      <div class="heroBanner__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2.8l1.7 5.8 5.5 1.7-5.5 1.7-1.7 5.8-1.7-5.8-5.5-1.7 5.5-1.7L12 2.8z"></path>
+        </svg>
+      </div>
 
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-	}
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-	nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
-		border-bottom: 4px solid transparent;
-		text-decoration: none;
-	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-	}
-	.social-links,
-	.social-links a {
-		display: flex;
-	}
-	@media (max-width: 720px) {
-		.social-links {
-			display: none;
-		}
-	}
+      <div class="heroBanner__text">
+        <div class="heroBanner__headlineRow">
+          <h1 class="heroBanner__title" data-banner-title>{initialVariant.title}</h1>
+
+          <div
+            class:list={[
+              "heroBanner__logoWrap",
+              !initialHasLogo && "is-hidden",
+            ]}
+            data-banner-logo-wrap
+          >
+            {initialVariant.logoAsset && (
+              <img
+                class="heroBanner__logo"
+                data-banner-logo
+                src={initialVariant.logoAsset}
+                alt={initialVariant.logoAlt ?? "FLY logo"}
+                loading="eager"
+                decoding="async"
+              />
+            )}
+          </div>
+        </div>
+
+        <p
+          class:list={[
+            "heroBanner__subtitle",
+            !initialVariant.subtitle && "is-hidden",
+          ]}
+          data-banner-subtitle
+        >
+          {initialVariant.subtitle}
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="heroBanner__stack"
+      data-banner-stack
+      aria-hidden="true"
+      style={`--max-columns:${initialMaxColumns};`}
+    >
+      {initialVariant.rows.map((row, rowIndex) => (
+        <div
+          class="heroBanner__row"
+          style={`--row-count:${row.length};`}
+        >
+          {row.map((key, colIndex) => (
+            <div
+              class="heroBanner__cube"
+              style={`--cube-color:${categoryMeta[key].color}; --delay:${rowIndex * 110 + colIndex * 46}ms;`}
+            >
+              <img src={categoryMeta[key].icon} alt="" loading="eager" decoding="async" />
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<script
+  type="application/json"
+  id="hero-banner-data"
+  set:html={JSON.stringify({ variants: bannerVariants, meta: categoryMeta })}
+/>
+
+<script is:inline>
+  (() => {
+    const root = document.getElementById("heroCategoryBanner");
+    const dataEl = document.getElementById("hero-banner-data");
+    if (!root || !dataEl) return;
+
+    const payload = JSON.parse(dataEl.textContent || "{}");
+    const variants = payload.variants || [];
+    const meta = payload.meta || {};
+
+    const cardEl = root.querySelector(".heroBanner__card");
+    const titleEl = root.querySelector("[data-banner-title]");
+    const subtitleEl = root.querySelector("[data-banner-subtitle]");
+    const logoWrapEl = root.querySelector("[data-banner-logo-wrap]");
+    const stackEl = root.querySelector("[data-banner-stack]");
+
+    if (!cardEl || !titleEl || !subtitleEl || !logoWrapEl || !stackEl || !variants.length) return;
+
+    let index = Math.floor(Math.random() * variants.length);
+
+    function getMaxColumns(rows = []) {
+      return rows.reduce((max, row) => Math.max(max, row.length), 0) || 1;
+    }
+
+    function cubeMarkup(key, delay) {
+      const item = meta[key];
+      if (!item) return "";
+      return `
+        <div class="heroBanner__cube" style="--cube-color:${item.color}; --delay:${delay}ms;">
+          <img src="${item.icon}" alt="" loading="eager" decoding="async" />
+        </div>
+      `;
+    }
+
+    function rowsMarkup(rows) {
+      return rows
+        .map((row, rowIndex) => {
+          const cubes = row
+            .map((key, colIndex) => cubeMarkup(key, rowIndex * 110 + colIndex * 46))
+            .join("");
+
+          return `<div class="heroBanner__row" style="--row-count:${row.length};">${cubes}</div>`;
+        })
+        .join("");
+    }
+
+    function renderLogo(variant) {
+      const hasLogo = Boolean(variant.logoAsset);
+      cardEl.setAttribute("data-has-logo", hasLogo ? "true" : "false");
+
+      if (!hasLogo) {
+        logoWrapEl.classList.add("is-hidden");
+        logoWrapEl.innerHTML = "";
+        return;
+      }
+
+      logoWrapEl.classList.remove("is-hidden");
+      logoWrapEl.innerHTML = `
+        <img
+          class="heroBanner__logo"
+          src="${variant.logoAsset}"
+          alt="${variant.logoAlt || "FLY logo"}"
+          loading="eager"
+          decoding="async"
+        />
+      `;
+    }
+
+    function render(nextIndex) {
+      const variant = variants[nextIndex];
+      if (!variant) return;
+
+      const rows = variant.rows || [];
+      const maxColumns = getMaxColumns(rows);
+
+      cardEl.setAttribute("data-stack-style", variant.stackStyle || "playfulRows");
+
+      titleEl.textContent = variant.title || "";
+
+      if (variant.subtitle && variant.subtitle.trim()) {
+        subtitleEl.textContent = variant.subtitle;
+        subtitleEl.classList.remove("is-hidden");
+      } else {
+        subtitleEl.textContent = "";
+        subtitleEl.classList.add("is-hidden");
+      }
+
+      renderLogo(variant);
+
+      stackEl.style.setProperty("--max-columns", String(maxColumns));
+      stackEl.innerHTML = rowsMarkup(rows);
+    }
+
+    render(index);
+
+    if (variants.length > 1) {
+      window.setInterval(() => {
+        index = (index + 1) % variants.length;
+        render(index);
+      }, 7800);
+    }
+  })();
+</script>
+
+<style is:global>
+  .heroBanner {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+    background: #fff;
+  }
+
+  .heroBanner__card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: clamp(20px, 3vw, 38px);
+    min-height: clamp(248px, 30vw, 352px);
+    padding: clamp(8px, 1.2vw, 14px) clamp(16px, 2.6vw, 30px);
+    background: #fff;
+  }
+
+  .heroBanner__copy {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr);
+    column-gap: 18px;
+    min-width: 0;
+    align-self: center;
+  }
+
+  .heroBanner__icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: rgba(0, 0, 0, 0.045);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    margin-top: 4px;
+    flex: 0 0 auto;
+  }
+
+  .heroBanner__icon svg {
+    width: 18px;
+    height: 18px;
+    fill: rgba(11, 12, 16, 0.82);
+  }
+
+  .heroBanner__text {
+    min-width: 0;
+    max-width: 36rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .heroBanner__headlineRow {
+    width: 100%;
+    display: block;
+  }
+
+  .heroBanner__title {
+    margin: 0;
+    font-size: clamp(34px, 4.8vw, 70px);
+    line-height: 0.96;
+    letter-spacing: -1.5px;
+    text-wrap: balance;
+  }
+
+  .heroBanner__subtitle {
+    margin: 10px 0 0;
+    max-width: 24ch;
+    color: rgba(11, 12, 16, 0.66);
+    font-size: clamp(17px, 1.75vw, 22px);
+    line-height: 1.25;
+    text-wrap: pretty;
+  }
+
+  .heroBanner__subtitle.is-hidden {
+    display: none;
+  }
+
+  .heroBanner__logoWrap {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+  }
+
+  .heroBanner__logoWrap.is-hidden {
+    display: none;
+  }
+
+  .heroBanner__logo {
+    width: clamp(118px, 10vw, 164px);
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  .heroBanner__stack {
+    --cube-size: 60px;
+    --cube-gap: 6px;
+    --max-columns: 4;
+    align-self: center;
+    justify-self: end;
+    width: calc(
+      (var(--max-columns) * var(--cube-size)) +
+      ((var(--max-columns) - 1) * var(--cube-gap))
+    );
+    max-width: 100%;
+    display: grid;
+    gap: var(--cube-gap);
+    justify-items: center;
+    padding: 2px 0;
+  }
+
+  .heroBanner__row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: var(--cube-gap);
+  }
+
+  .heroBanner__cube {
+    width: var(--cube-size);
+    height: var(--cube-size);
+    border-radius: 18px;
+    background: var(--cube-color);
+    display: grid;
+    place-items: center;
+    flex: 0 0 var(--cube-size);
+    animation: heroBannerDrop 700ms cubic-bezier(0.2, 0.82, 0.2, 1) both;
+    animation-delay: var(--delay, 0ms);
+    will-change: transform, opacity;
+  }
+
+  .heroBanner__cube img {
+    width: 58%;
+    height: 58%;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Full block / logo variant */
+  .heroBanner__card[data-stack-style="fullBlock"] {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: clamp(18px, 2.4vw, 28px);
+  }
+
+  .heroBanner__card[data-stack-style="fullBlock"] .heroBanner__copy {
+    align-self: center;
+  }
+
+  .heroBanner__card[data-stack-style="fullBlock"] .heroBanner__text {
+    max-width: 42rem;
+  }
+
+  .heroBanner__card[data-stack-style="fullBlock"] .heroBanner__headlineRow {
+    display: block;
+    max-width: 34rem;
+  }
+
+  .heroBanner__card[data-stack-style="fullBlock"][data-has-logo="true"] .heroBanner__headlineRow {
+    display: flex;
+    align-items: flex-end;
+    gap: 18px;
+    flex-wrap: nowrap;
+    max-width: 40rem;
+    overflow: visible;
+  }
+
+  .heroBanner__card[data-stack-style="fullBlock"][data-has-logo="true"] .heroBanner__title {
+    max-width: 7.6ch;
+    flex: 0 1 auto;
+    text-wrap: balance;
+  }
+
+  .heroBanner__card[data-stack-style="fullBlock"][data-has-logo="true"] .heroBanner__logoWrap {
+    margin: 0 0 0.5rem;
+    flex: 0 0 auto;
+    align-self: flex-end;
+  }
+
+  .heroBanner__card[data-stack-style="fullBlock"][data-has-logo="true"] .heroBanner__logo {
+    width: clamp(132px, 11vw, 176px);
+  }
+
+  /* Playful rows */
+  .heroBanner__card[data-stack-style="playfulRows"] {
+    grid-template-columns: minmax(0, 0.96fr) auto;
+    gap: clamp(18px, 2.8vw, 32px);
+  }
+
+  .heroBanner__card[data-stack-style="playfulRows"] .heroBanner__copy {
+    justify-self: center;
+  }
+
+  .heroBanner__card[data-stack-style="playfulRows"] .heroBanner__text {
+    align-items: center;
+    text-align: center;
+    max-width: 30rem;
+  }
+
+  .heroBanner__card[data-stack-style="playfulRows"] .heroBanner__subtitle {
+    max-width: 23ch;
+  }
+
+  .heroBanner__card[data-stack-style="playfulRows"] .heroBanner__stack {
+    justify-self: end;
+  }
+
+  /* Left rise */
+  .heroBanner__card[data-stack-style="leftRise"] {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: clamp(16px, 2.4vw, 26px);
+  }
+
+  .heroBanner__card[data-stack-style="leftRise"] .heroBanner__stack {
+    order: 1;
+    justify-self: start;
+  }
+
+  .heroBanner__card[data-stack-style="leftRise"] .heroBanner__copy {
+    order: 2;
+    justify-self: start;
+  }
+
+  .heroBanner__card[data-stack-style="leftRise"] .heroBanner__text {
+    max-width: 28rem;
+  }
+
+  .heroBanner__card[data-stack-style="leftRise"] .heroBanner__title {
+    max-width: 9.2ch;
+  }
+
+  .heroBanner__card[data-stack-style="leftRise"] .heroBanner__subtitle {
+    max-width: 21ch;
+  }
+
+  @keyframes heroBannerDrop {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, -18px, 0) rotate(-5deg);
+    }
+    55% {
+      opacity: 1;
+      transform: translate3d(0, 4px, 0) rotate(2deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+  }
+
+  @media (max-width: 980px) {
+    .heroBanner__card {
+      gap: clamp(16px, 2.8vw, 26px);
+      padding-left: clamp(14px, 3vw, 22px);
+      padding-right: clamp(14px, 3vw, 22px);
+      min-height: clamp(236px, 28vw, 320px);
+    }
+
+    .heroBanner__stack {
+      --cube-size: 56px;
+      width: calc(
+        (var(--max-columns) * var(--cube-size)) +
+        ((var(--max-columns) - 1) * var(--cube-gap))
+      );
+    }
+
+    .heroBanner__cube {
+      border-radius: 17px;
+    }
+
+    .heroBanner__card[data-stack-style="fullBlock"][data-has-logo="true"] .heroBanner__headlineRow {
+      max-width: 36rem;
+      gap: 14px;
+    }
+
+    .heroBanner__card[data-stack-style="fullBlock"][data-has-logo="true"] .heroBanner__title {
+      max-width: 7.1ch;
+    }
+  }
+
+  @media (max-width: 860px) {
+    .heroBanner__card,
+    .heroBanner__card[data-stack-style="fullBlock"],
+    .heroBanner__card[data-stack-style="playfulRows"],
+    .heroBanner__card[data-stack-style="leftRise"] {
+      grid-template-columns: 1fr;
+      align-items: start;
+      gap: 24px;
+      min-height: auto;
+      padding-left: clamp(14px, 5vw, 24px);
+      padding-right: clamp(14px, 5vw, 24px);
+    }
+
+    .heroBanner__copy,
+    .heroBanner__card[data-stack-style="leftRise"] .heroBanner__copy {
+      order: 1;
+      width: 100%;
+      justify-self: stretch;
+    }
+
+    .heroBanner__text,
+    .heroBanner__card[data-stack-style="playfulRows"] .heroBanner__text,
+    .heroBanner__card[data-stack-style="leftRise"] .heroBanner__text {
+      max-width: 100%;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .heroBanner__subtitle,
+    .heroBanner__card[data-stack-style="playfulRows"] .heroBanner__subtitle,
+    .heroBanner__card[data-stack-style="leftRise"] .heroBanner__subtitle {
+      max-width: 25ch;
+    }
+
+    .heroBanner__stack,
+    .heroBanner__card[data-stack-style="fullBlock"] .heroBanner__stack,
+    .heroBanner__card[data-stack-style="playfulRows"] .heroBanner__stack,
+    .heroBanner__card[data-stack-style="leftRise"] .heroBanner__stack {
+      order: 2;
+      justify-self: center;
+    }
+
+    .heroBanner__card[data-stack-style="fullBlock"][data-has-logo="true"] .heroBanner__headlineRow {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      max-width: 100%;
+    }
+
+    .heroBanner__card[data-stack-style="fullBlock"][data-has-logo="true"] .heroBanner__title,
+    .heroBanner__card[data-stack-style="leftRise"] .heroBanner__title {
+      max-width: 100%;
+    }
+
+    .heroBanner__card[data-stack-style="fullBlock"][data-has-logo="true"] .heroBanner__logoWrap {
+      margin: 0;
+    }
+
+    .heroBanner__card[data-stack-style="fullBlock"][data-has-logo="true"] .heroBanner__logo {
+      width: 132px;
+    }
+
+    .heroBanner__title {
+      font-size: clamp(30px, 7vw, 48px);
+      letter-spacing: -1px;
+    }
+
+    .heroBanner__subtitle {
+      font-size: clamp(16px, 2.4vw, 19px);
+    }
+  }
+
+  @media (max-width: 560px) {
+    .heroBanner__card {
+      padding-top: 6px;
+      padding-bottom: 6px;
+      gap: 20px;
+    }
+
+    .heroBanner__copy {
+      grid-template-columns: 52px minmax(0, 1fr);
+      column-gap: 14px;
+    }
+
+    .heroBanner__icon {
+      width: 52px;
+      height: 52px;
+      margin-top: 2px;
+    }
+
+    .heroBanner__title {
+      font-size: 29px;
+      line-height: 1.01;
+      white-space: normal;
+    }
+
+    .heroBanner__subtitle {
+      margin-top: 10px;
+      max-width: 22ch;
+      font-size: 15px;
+      line-height: 1.34;
+    }
+
+    .heroBanner__logo {
+      width: 110px;
+    }
+
+    .heroBanner__stack {
+      --cube-size: 44px;
+      --cube-gap: 5px;
+      width: calc(
+        (var(--max-columns) * var(--cube-size)) +
+        ((var(--max-columns) - 1) * var(--cube-gap))
+      );
+    }
+
+    .heroBanner__cube {
+      border-radius: 13px;
+    }
+
+    .heroBanner__cube img {
+      width: 60%;
+      height: 60%;
+    }
+  }
 </style>
