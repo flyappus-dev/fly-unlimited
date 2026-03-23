@@ -2,253 +2,177 @@
 import { categoryMeta } from "../data/categoryMeta";
 import { bannerVariants } from "../data/bannerVariants";
 
-const { appStoreUrl = "#" } = Astro.props;
-
-const componentId = `home-hero-${Math.random().toString(36).slice(2, 10)}`;
-
-const heroVariant =
-  bannerVariants.find((variant) =>
-    /it.?s time to fly/i.test(`${variant.title ?? ""} ${variant.subtitle ?? ""}`)
-  ) ?? bannerVariants[0];
-
-const heroHasLogo = Boolean(heroVariant.logoAsset);
-
-const slides = [
-  {
-    type: "variant",
-    variant: heroVariant,
-  },
-  {
-    type: "photo",
-    src: "/home-banner-photo-1.png",
-    alt: "Black and white home banner photo 1",
-  },
-  {
-    type: "photo",
-    src: "/home-banner-photo-2.png",
-    alt: "Black and white home banner photo 2",
-  },
-];
+const initialVariant = bannerVariants[0];
+const initialHasLogo = Boolean(initialVariant.logoAsset);
 ---
 
-<div class="homeHeroBanner" id={componentId}>
-  <div class="homeHeroBanner__viewport">
-    {slides.map((slide, slideIndex) => (
-      <article
-        class:list={[
-          "homeHeroBanner__slide",
-          slideIndex === 0 && "is-active",
-        ]}
-        data-slide
-        aria-hidden={slideIndex === 0 ? "false" : "true"}
-      >
-        {slide.type === "variant" ? (
-          <div class="heroBanner">
-            <div
-              class="heroBanner__card"
-              data-stack-style={slide.variant.stackStyle}
-              data-has-logo={heroHasLogo ? "true" : "false"}
-            >
-              <div class="heroBanner__copy">
-                <div class="heroBanner__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M12 2.8l1.7 5.8 5.5 1.7-5.5 1.7-1.7 5.8-1.7-5.8-5.5-1.7 5.5-1.7L12 2.8z"></path>
-                  </svg>
-                </div>
+<div class="heroBanner" id="heroCategoryBanner">
+  <div
+    class="heroBanner__card"
+    data-stack-style={initialVariant.stackStyle}
+    data-has-logo={initialHasLogo ? "true" : "false"}
+  >
+    <div class="heroBanner__copy">
+      <div class="heroBanner__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2.8l1.7 5.8 5.5 1.7-5.5 1.7-1.7 5.8-1.7-5.8-5.5-1.7 5.5-1.7L12 2.8z"></path>
+        </svg>
+      </div>
 
-                <div class="heroBanner__text">
-                  <div class="heroBanner__headlineRow">
-                    <h1 class="heroBanner__title">{slide.variant.title}</h1>
+      <div class="heroBanner__text">
+        <div class="heroBanner__headlineRow">
+          <h1 class="heroBanner__title" data-banner-title>{initialVariant.title}</h1>
 
-                    <div
-                      class:list={[
-                        "heroBanner__logoWrap",
-                        !heroHasLogo && "is-hidden",
-                      ]}
-                    >
-                      {slide.variant.logoAsset && (
-                        <img
-                          class="heroBanner__logo"
-                          src={slide.variant.logoAsset}
-                          alt={slide.variant.logoAlt ?? "FLY logo"}
-                          loading="eager"
-                          decoding="async"
-                        />
-                      )}
-                    </div>
-                  </div>
-
-                  <p
-                    class:list={[
-                      "heroBanner__subtitle",
-                      !slide.variant.subtitle && "is-hidden",
-                    ]}
-                  >
-                    {slide.variant.subtitle}
-                  </p>
-
-                  <div class="heroBanner__actions">
-                    <a class="heroBanner__appBtn" href={appStoreUrl}>
-                      <span class="heroBanner__appBtnIcon" aria-hidden="true">←</span>
-                      <span>Get the app</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="heroBanner__stack" aria-hidden="true">
-                {slide.variant.rows.map((row, rowIndex) => (
-                  <div class="heroBanner__row">
-                    {row.map((key, colIndex) => (
-                      <div
-                        class="heroBanner__cube"
-                        style={`--cube-color:${categoryMeta[key].color}; --delay:${rowIndex * 110 + colIndex * 46}ms;`}
-                      >
-                        <img
-                          src={categoryMeta[key].icon}
-                          alt=""
-                          loading="eager"
-                          decoding="async"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        ) : (
-          <div class="heroBanner heroBanner--photo">
-            <div class="heroBanner__card heroBanner__card--photo">
+          <div
+            class:list={[
+              "heroBanner__logoWrap",
+              !initialHasLogo && "is-hidden",
+            ]}
+            data-banner-logo-wrap
+          >
+            {initialVariant.logoAsset && (
               <img
-                class="heroBanner__photo"
-                src={slide.src}
-                alt={slide.alt}
+                class="heroBanner__logo"
+                data-banner-logo
+                src={initialVariant.logoAsset}
+                alt={initialVariant.logoAlt ?? "FLY logo"}
                 loading="eager"
                 decoding="async"
               />
-
-              <div class="heroBanner__photoShade"></div>
-
-              <div class="heroBanner__photoOverlay">
-                <a class="heroBanner__appBtn heroBanner__appBtn--photo" href={appStoreUrl}>
-                  <span class="heroBanner__appBtnIcon" aria-hidden="true">←</span>
-                  <span>Get the app</span>
-                </a>
-              </div>
-            </div>
+            )}
           </div>
-        )}
-      </article>
-    ))}
-  </div>
+        </div>
 
-  <div class="homeHeroBanner__dots" aria-label="Hero banner navigation">
-    {slides.map((_, index) => (
-      <button
-        type="button"
-        class:list={[
-          "homeHeroBanner__dot",
-          index === 0 && "is-active",
-        ]}
-        data-dot
-        aria-label={`Go to banner ${index + 1}`}
-        aria-pressed={index === 0 ? "true" : "false"}
-      />
-    ))}
+        <p
+          class:list={[
+            "heroBanner__subtitle",
+            !initialVariant.subtitle && "is-hidden",
+          ]}
+          data-banner-subtitle
+        >
+          {initialVariant.subtitle}
+        </p>
+      </div>
+    </div>
+
+    <div class="heroBanner__stack" data-banner-stack aria-hidden="true">
+      {initialVariant.rows.map((row, rowIndex) => (
+        <div class="heroBanner__row">
+          {row.map((key, colIndex) => (
+            <div
+              class="heroBanner__cube"
+              style={`--cube-color:${categoryMeta[key].color}; --delay:${rowIndex * 110 + colIndex * 46}ms;`}
+            >
+              <img src={categoryMeta[key].icon} alt="" loading="eager" decoding="async" />
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
   </div>
 </div>
 
-<script is:inline define:vars={{ componentId }}>
+<script
+  type="application/json"
+  id="hero-banner-data"
+  set:html={JSON.stringify({ variants: bannerVariants, meta: categoryMeta })}
+/>
+
+<script is:inline>
   (() => {
-    const root = document.getElementById(componentId);
-    if (!root) return;
+    const root = document.getElementById("heroCategoryBanner");
+    const dataEl = document.getElementById("hero-banner-data");
+    if (!root || !dataEl) return;
 
-    const slides = Array.from(root.querySelectorAll("[data-slide]"));
-    const dots = Array.from(root.querySelectorAll("[data-dot]"));
+    const payload = JSON.parse(dataEl.textContent || "{}");
+    const variants = payload.variants || [];
+    const meta = payload.meta || {};
 
-    if (!slides.length || slides.length !== dots.length) return;
+    const cardEl = root.querySelector(".heroBanner__card");
+    const titleEl = root.querySelector("[data-banner-title]");
+    const subtitleEl = root.querySelector("[data-banner-subtitle]");
+    const logoWrapEl = root.querySelector("[data-banner-logo-wrap]");
+    const stackEl = root.querySelector("[data-banner-stack]");
 
-    let current = 0;
-    let timer = null;
-    const intervalMs = 7800;
+    if (!cardEl || !titleEl || !subtitleEl || !logoWrapEl || !stackEl || !variants.length) return;
 
-    const showSlide = (nextIndex) => {
-      current = nextIndex;
+    let index = Math.floor(Math.random() * variants.length);
 
-      slides.forEach((slide, index) => {
-        const active = index === current;
-        slide.classList.toggle("is-active", active);
-        slide.setAttribute("aria-hidden", active ? "false" : "true");
-      });
+    function cubeMarkup(key, delay) {
+      const item = meta[key];
+      if (!item) return "";
+      return `
+        <div class="heroBanner__cube" style="--cube-color:${item.color}; --delay:${delay}ms;">
+          <img src="${item.icon}" alt="" loading="eager" decoding="async" />
+        </div>
+      `;
+    }
 
-      dots.forEach((dot, index) => {
-        const active = index === current;
-        dot.classList.toggle("is-active", active);
-        dot.setAttribute("aria-pressed", active ? "true" : "false");
-      });
-    };
+    function rowsMarkup(rows) {
+      return rows
+        .map((row, rowIndex) => {
+          const cubes = row
+            .map((key, colIndex) => cubeMarkup(key, rowIndex * 110 + colIndex * 46))
+            .join("");
+          return `<div class="heroBanner__row">${cubes}</div>`;
+        })
+        .join("");
+    }
 
-    const stop = () => {
-      if (timer) {
-        window.clearInterval(timer);
-        timer = null;
+    function renderLogo(variant) {
+      const hasLogo = Boolean(variant.logoAsset);
+      cardEl.setAttribute("data-has-logo", hasLogo ? "true" : "false");
+
+      if (!hasLogo) {
+        logoWrapEl.classList.add("is-hidden");
+        logoWrapEl.innerHTML = "";
+        return;
       }
-    };
 
-    const start = () => {
-      stop();
-      timer = window.setInterval(() => {
-        showSlide((current + 1) % slides.length);
-      }, intervalMs);
-    };
+      logoWrapEl.classList.remove("is-hidden");
+      logoWrapEl.innerHTML = `
+        <img
+          class="heroBanner__logo"
+          src="${variant.logoAsset}"
+          alt="${variant.logoAlt || "FLY logo"}"
+          loading="eager"
+          decoding="async"
+        />
+      `;
+    }
 
-    dots.forEach((dot, index) => {
-      dot.addEventListener("click", () => {
-        showSlide(index);
-        start();
-      });
-    });
+    function render(nextIndex) {
+      const variant = variants[nextIndex];
+      if (!variant) return;
 
-    root.addEventListener("mouseenter", stop);
-    root.addEventListener("mouseleave", start);
-    root.addEventListener("focusin", stop);
-    root.addEventListener("focusout", start);
+      cardEl.setAttribute("data-stack-style", variant.stackStyle || "playfulRows");
 
-    showSlide(0);
-    start();
+      titleEl.textContent = variant.title || "";
+
+      if (variant.subtitle && variant.subtitle.trim()) {
+        subtitleEl.textContent = variant.subtitle;
+        subtitleEl.classList.remove("is-hidden");
+      } else {
+        subtitleEl.textContent = "";
+        subtitleEl.classList.add("is-hidden");
+      }
+
+      renderLogo(variant);
+      stackEl.innerHTML = rowsMarkup(variant.rows || []);
+    }
+
+    render(index);
+
+    if (variants.length > 1) {
+      window.setInterval(() => {
+        index = (index + 1) % variants.length;
+        render(index);
+      }, 7800);
+    }
   })();
 </script>
 
 <style is:global>
-  .homeHeroBanner {
-    width: 100%;
-    max-width: 980px;
-    margin: 0 auto;
-    position: relative;
-    background: #fff;
-  }
-
-  .homeHeroBanner__viewport {
-    position: relative;
-    min-height: clamp(248px, 30vw, 352px);
-  }
-
-  .homeHeroBanner__slide {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 360ms ease, visibility 360ms ease;
-  }
-
-  .homeHeroBanner__slide.is-active {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
-
   .heroBanner {
     width: 100%;
     max-width: 980px;
@@ -343,40 +267,6 @@ const slides = [
     object-fit: contain;
   }
 
-  .heroBanner__actions {
-    margin-top: 18px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .heroBanner__appBtn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    min-height: 44px;
-    padding: 0 16px;
-    border-radius: 999px;
-    background: #0b0c10;
-    color: #fff;
-    border: 1px solid transparent;
-    font-weight: 760;
-    font-size: 14px;
-    letter-spacing: 0.1px;
-    transition: transform 0.18s ease, background 0.18s ease;
-  }
-
-  .heroBanner__appBtn:hover {
-    transform: translateY(-1px);
-    background: #000;
-  }
-
-  .heroBanner__appBtnIcon {
-    font-size: 16px;
-    line-height: 1;
-  }
-
   .heroBanner__stack {
     align-self: center;
     width: fit-content;
@@ -400,14 +290,9 @@ const slides = [
     display: grid;
     place-items: center;
     flex: 0 0 60px;
-    opacity: 0;
-    transform: translate3d(0, -18px, 0) rotate(-5deg);
-    will-change: transform, opacity;
-  }
-
-  .homeHeroBanner__slide.is-active .heroBanner__cube {
     animation: heroBannerDrop 700ms cubic-bezier(0.2, 0.82, 0.2, 1) both;
     animation-delay: var(--delay, 0ms);
+    will-change: transform, opacity;
   }
 
   .heroBanner__cube img {
@@ -418,6 +303,7 @@ const slides = [
     user-select: none;
   }
 
+  /* Full block / logo variant */
   .heroBanner__card[data-stack-style="fullBlock"] {
     grid-template-columns: minmax(0, 1fr) auto;
     gap: clamp(18px, 2.4vw, 28px);
@@ -471,6 +357,7 @@ const slides = [
     justify-content: flex-start;
   }
 
+  /* Playful rows */
   .heroBanner__card[data-stack-style="playfulRows"] {
     grid-template-columns: minmax(0, 0.96fr) auto;
     gap: clamp(18px, 2.8vw, 32px);
@@ -504,6 +391,7 @@ const slides = [
     transform: translateX(-4px);
   }
 
+  /* Left rise */
   .heroBanner__card[data-stack-style="leftRise"] {
     grid-template-columns: auto minmax(0, 1fr);
     gap: clamp(16px, 2.4vw, 26px);
@@ -537,83 +425,6 @@ const slides = [
 
   .heroBanner__card[data-stack-style="leftRise"] .heroBanner__subtitle {
     max-width: 21ch;
-  }
-
-  .heroBanner__card--photo {
-    position: relative;
-    display: block;
-    min-height: clamp(248px, 30vw, 352px);
-    padding: 0;
-    overflow: hidden;
-    background: #f2f2f2;
-  }
-
-  .heroBanner__photo {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .heroBanner__photoShade {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      180deg,
-      rgba(0,0,0,0.04) 0%,
-      rgba(0,0,0,0.08) 52%,
-      rgba(0,0,0,0.20) 100%
-    );
-  }
-
-  .heroBanner__photoOverlay {
-    position: absolute;
-    left: clamp(16px, 2.6vw, 30px);
-    right: clamp(16px, 2.6vw, 30px);
-    bottom: clamp(16px, 2.2vw, 24px);
-    z-index: 2;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-
-  .heroBanner__appBtn--photo {
-    background: rgba(255, 255, 255, 0.92);
-    color: #0b0c10;
-  }
-
-  .heroBanner__appBtn--photo:hover {
-    background: #fff;
-  }
-
-  .homeHeroBanner__dots {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    padding-top: 16px;
-  }
-
-  .homeHeroBanner__dot {
-    width: 9px;
-    height: 9px;
-    border: 0;
-    border-radius: 999px;
-    background: rgba(11, 12, 16, 0.18);
-    padding: 0;
-    cursor: pointer;
-    transition: transform 0.2s ease, background 0.2s ease, width 0.2s ease;
-  }
-
-  .homeHeroBanner__dot:hover {
-    transform: scale(1.08);
-  }
-
-  .homeHeroBanner__dot.is-active {
-    width: 24px;
-    background: #0b0c10;
   }
 
   @keyframes heroBannerDrop {
@@ -754,10 +565,6 @@ const slides = [
     .heroBanner__subtitle {
       font-size: clamp(16px, 2.4vw, 19px);
     }
-
-    .heroBanner__card--photo {
-      min-height: 360px;
-    }
   }
 
   @media (max-width: 560px) {
@@ -815,18 +622,6 @@ const slides = [
     .heroBanner__cube img {
       width: 60%;
       height: 60%;
-    }
-
-    .heroBanner__photoOverlay {
-      left: 16px;
-      right: 16px;
-      bottom: 16px;
-    }
-
-    .heroBanner__appBtn {
-      min-height: 42px;
-      padding: 0 15px;
-      font-size: 13.5px;
     }
   }
 </style>
