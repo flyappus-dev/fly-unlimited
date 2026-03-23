@@ -193,7 +193,7 @@ const appStoreUrl = "#";
         max-width: 60ch;
       }
 
-      /* ===== Edge-to-edge square feature band ===== */
+      /* ===== Edge-to-edge feature band ===== */
       .featureBand{
         background:#fff;
         padding: clamp(16px, 1.8vw, 24px) 0 0;
@@ -224,8 +224,6 @@ const appStoreUrl = "#";
         background-repeat: no-repeat;
         isolation: isolate;
         width: 100%;
-        aspect-ratio: 1 / 1;
-        min-height: 320px;
       }
 
       .featureGrid .featureTile:nth-child(1){
@@ -308,28 +306,52 @@ const appStoreUrl = "#";
         stroke-linejoin:round;
       }
 
+      /* Desktop: keep them square */
       @media (min-width: 980px){
         .featureGrid{
           grid-template-columns: repeat(3, minmax(0, 1fr));
         }
 
         .featureTile{
-          min-height: 0;
           aspect-ratio: 1 / 1;
+          min-height: 0;
         }
       }
 
+      /* Stacked / tablet-mobile: make them shorter so they don't feel like giant gaps */
       @media (max-width: 979px){
         .featureGrid{
           grid-template-columns: 1fr;
         }
 
         .featureTile{
-          aspect-ratio: 1 / 1;
+          aspect-ratio: 16 / 10;
+          min-height: clamp(240px, 56vw, 420px);
         }
 
         .featureTileTitle{
           max-width: 12ch;
+        }
+      }
+
+      @media (max-width: 560px){
+        .featureTile{
+          aspect-ratio: 6 / 5;
+          min-height: 250px;
+        }
+
+        .featureTileText{
+          padding: 22px;
+        }
+
+        .featureTileTitle{
+          font-size: clamp(24px, 8vw, 34px);
+          max-width: 11ch;
+        }
+
+        .featureTileSub{
+          font-size: 14px;
+          max-width: 24ch;
         }
       }
 
@@ -424,10 +446,6 @@ const appStoreUrl = "#";
       @media (max-width: 560px){
         .section{
           padding: 52px 0;
-        }
-
-        .featureTile{
-          min-height: 280px;
         }
       }
     </style>
