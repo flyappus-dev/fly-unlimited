@@ -235,9 +235,12 @@ const slides = [
 
   .homeHeroBanner__shell {
     width: 100%;
-    max-width: 1560px;
+    max-width: 1480px;
     margin: 0 auto;
-    padding: var(--banner-gap);
+    padding:
+      clamp(20px, 2.2vw, 30px)
+      clamp(22px, 3vw, 38px)
+      clamp(18px, 2vw, 26px);
     min-height: var(--hero-screen-height);
     display: flex;
     flex-direction: column;
@@ -321,13 +324,14 @@ const slides = [
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
-    gap: clamp(22px, 3vw, 42px);
+    gap: clamp(18px, 2.4vw, 34px);
     width: 100%;
     min-height: calc(var(--hero-screen-height) - (var(--banner-gap) * 2));
     padding:
       clamp(88px, 10vw, 128px)
-      clamp(24px, 4vw, 48px)
-      clamp(48px, 5vw, 64px);
+      clamp(28px, 4vw, 58px)
+      clamp(48px, 5vw, 64px)
+      clamp(28px, 4vw, 58px);
     background: #fff;
   }
 
@@ -416,6 +420,8 @@ const slides = [
     flex-direction: column;
     gap: 6px;
     padding: 2px 8px;
+    margin-right: clamp(14px, 2vw, 28px);
+    transform: translateX(-18px);
   }
 
   .homeHeroBanner__row {
@@ -566,6 +572,12 @@ const slides = [
     max-width: 21ch;
   }
 
+  .homeHeroBanner__variantCard[data-stack-style="fullBlock"] .homeHeroBanner__stack,
+  .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__stack,
+  .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__stack {
+    transform: translateX(-22px);
+  }
+
   .homeHeroBanner__photoFrame {
     position: relative;
     overflow: hidden;
@@ -578,6 +590,7 @@ const slides = [
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: 54% center;
     display: block;
   }
 
@@ -636,6 +649,17 @@ const slides = [
   }
 
   @media (max-width: 980px) {
+    .homeHeroBanner__stack {
+      margin-right: 8px;
+      transform: translateX(-10px);
+    }
+
+    .homeHeroBanner__variantCard[data-stack-style="fullBlock"] .homeHeroBanner__stack,
+    .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__stack,
+    .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__stack {
+      transform: translateX(-12px);
+    }
+
     .homeHeroBanner__variantCard {
       gap: clamp(16px, 2.8vw, 26px);
       min-height: calc(var(--hero-screen-height) - (var(--banner-gap) * 2));
@@ -696,6 +720,8 @@ const slides = [
       justify-self: center;
       padding-left: 12px;
       padding-right: 12px;
+      margin-right: 0;
+      transform: none;
     }
 
     .homeHeroBanner__row,
