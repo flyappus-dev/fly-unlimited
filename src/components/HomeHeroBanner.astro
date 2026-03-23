@@ -331,14 +331,14 @@ const slides = [
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
-    gap: clamp(18px, 2.4vw, 34px);
+    gap: clamp(18px, 2vw, 30px);
     width: 100%;
     min-height: var(--hero-screen-height);
     padding:
       clamp(88px, 10vw, 128px)
-      clamp(28px, 4vw, 58px)
-      clamp(88px, 9vw, 112px)
-      clamp(28px, 4vw, 58px);
+      clamp(34px, 4vw, 64px)
+      clamp(116px, 12vw, 150px)
+      clamp(34px, 4vw, 64px);
     background: #fff;
   }
 
@@ -421,14 +421,15 @@ const slides = [
 
   .homeHeroBanner__stack {
     align-self: center;
+    justify-self: center;
     width: fit-content;
-    max-width: 100%;
+    max-width: min(100%, 360px);
     display: flex;
     flex-direction: column;
     gap: 6px;
     padding: 2px 8px;
-    margin-right: clamp(14px, 2vw, 28px);
-    transform: translateX(-18px);
+    margin-right: 0;
+    transform: translateX(-42px);
   }
 
   .homeHeroBanner__row {
@@ -464,7 +465,7 @@ const slides = [
 
   .homeHeroBanner__variantCard[data-stack-style="fullBlock"] {
     grid-template-columns: minmax(0, 1fr) auto;
-    gap: clamp(18px, 2.4vw, 28px);
+    gap: clamp(18px, 2.2vw, 28px);
   }
 
   .homeHeroBanner__variantCard[data-stack-style="fullBlock"] .homeHeroBanner__copy {
@@ -505,10 +506,11 @@ const slides = [
     width: clamp(132px, 11vw, 176px);
   }
 
-  .homeHeroBanner__variantCard[data-stack-style="fullBlock"] .homeHeroBanner__stack {
-    justify-self: end;
-    align-items: flex-start;
-    max-width: 332px;
+  .homeHeroBanner__variantCard[data-stack-style="fullBlock"] .homeHeroBanner__stack,
+  .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__stack,
+  .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__stack {
+    justify-self: center;
+    transform: translateX(-52px);
   }
 
   .homeHeroBanner__variantCard[data-stack-style="fullBlock"] .homeHeroBanner__row {
@@ -535,7 +537,6 @@ const slides = [
   }
 
   .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__stack {
-    justify-self: end;
     align-items: center;
     max-width: 300px;
   }
@@ -551,7 +552,7 @@ const slides = [
 
   .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__stack {
     order: 1;
-    justify-self: start;
+    justify-self: center;
     align-items: flex-start;
     max-width: 336px;
     padding-left: 0;
@@ -577,12 +578,6 @@ const slides = [
 
   .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__subtitle {
     max-width: 21ch;
-  }
-
-  .homeHeroBanner__variantCard[data-stack-style="fullBlock"] .homeHeroBanner__stack,
-  .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__stack,
-  .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__stack {
-    transform: translateX(-22px);
   }
 
   .homeHeroBanner__photoFrame {
@@ -685,21 +680,16 @@ const slides = [
     }
   }
 
-  @media (max-width: 980px) {
+  @media (max-width: 1100px) {
     .homeHeroBanner__stack {
-      margin-right: 8px;
-      transform: translateX(-10px);
+      transform: translateX(-26px);
+      max-width: min(100%, 330px);
     }
 
     .homeHeroBanner__variantCard[data-stack-style="fullBlock"] .homeHeroBanner__stack,
     .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__stack,
     .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__stack {
-      transform: translateX(-12px);
-    }
-
-    .homeHeroBanner__variantCard {
-      gap: clamp(16px, 2.8vw, 26px);
-      min-height: var(--hero-screen-height);
+      transform: translateX(-32px);
     }
 
     .homeHeroBanner__cube {
@@ -717,12 +707,12 @@ const slides = [
     .homeHeroBanner__variantCard[data-stack-style="leftRise"] {
       grid-template-columns: 1fr;
       align-items: start;
-      gap: 24px;
+      gap: 18px;
       min-height: var(--hero-screen-height);
       padding-left: clamp(16px, 5vw, 24px);
       padding-right: clamp(16px, 5vw, 24px);
       padding-top: clamp(84px, 14vw, 118px);
-      padding-bottom: clamp(88px, 12vw, 110px);
+      padding-bottom: clamp(128px, 16vw, 156px);
     }
 
     .homeHeroBanner__copy,
@@ -800,6 +790,10 @@ const slides = [
     .homeHeroBanner__subtitle {
       font-size: clamp(16px, 2.8vw, 20px);
     }
+
+    .homeHeroBanner__dots {
+      bottom: 20px;
+    }
   }
 
   @media (max-width: 560px) {
@@ -809,7 +803,8 @@ const slides = [
     }
 
     .homeHeroBanner__variantCard {
-      gap: 20px;
+      gap: 16px;
+      padding-bottom: 150px;
     }
 
     .homeHeroBanner__copy {
@@ -841,25 +836,26 @@ const slides = [
     }
 
     .homeHeroBanner__stack {
-      padding-left: 14px;
-      padding-right: 14px;
-      gap: 5px;
+      gap: 4px;
+      padding-left: 10px;
+      padding-right: 10px;
+      max-width: 280px;
     }
 
     .homeHeroBanner__row {
-      gap: 5px;
+      gap: 4px;
     }
 
     .homeHeroBanner__cube {
-      width: 44px;
-      height: 44px;
-      flex-basis: 44px;
-      border-radius: 13px;
+      width: 40px;
+      height: 40px;
+      flex-basis: 40px;
+      border-radius: 12px;
     }
 
     .homeHeroBanner__cube img {
-      width: 60%;
-      height: 60%;
+      width: 58%;
+      height: 58%;
     }
 
     .homeHeroBanner__photoBrand {
