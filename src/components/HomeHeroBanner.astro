@@ -20,6 +20,7 @@ const slides = [
     src: "/home-banner-photo-1.png",
     alt: "Black and white home banner photo 1",
     logoSrc: "/logo-alt.png",
+    subtitle: "Time to FLY",
   },
   {
     type: "photo",
@@ -27,6 +28,7 @@ const slides = [
     src: "/home-banner-photo-2.png",
     alt: "Black and white home banner photo 2",
     logoSrc: "/logo-alt.png",
+    subtitle: "Time to FLY",
   },
   {
     type: "variant",
@@ -49,20 +51,6 @@ const slides = [
           data-tone={slide.tone}
           aria-hidden={slideIndex === 0 ? "false" : "true"}
         >
-          <div class="homeHeroBanner__topBar">
-            <a
-              class:list={[
-                "homeHeroBanner__appBtn",
-                slide.type === "photo" && "is-photo",
-              ]}
-              href={appStoreUrl}
-              aria-label="Get the app"
-            >
-              <span class="homeHeroBanner__appBtnIcon" aria-hidden="true">↓</span>
-              <span>Get the app</span>
-            </a>
-          </div>
-
           {slide.type === "variant" ? (
             <div class="homeHeroBanner__variantFrame">
               <div
@@ -107,6 +95,18 @@ const slides = [
                     >
                       {slide.variant.subtitle}
                     </p>
+
+                    <div class="homeHeroBanner__actions">
+                      <a class="homeHeroBanner__actionBtn is-primary" href={appStoreUrl}>
+                        <span aria-hidden="true">←</span>
+                        <span>Get the app</span>
+                      </a>
+
+                      <a class="homeHeroBanner__actionBtn is-secondary" href="/how-it-works/">
+                        <span aria-hidden="true">↯</span>
+                        <span>How it works</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
@@ -142,17 +142,33 @@ const slides = [
               />
               <div class="homeHeroBanner__photoShade"></div>
 
-              {slide.logoSrc && (
-                <div class="homeHeroBanner__photoBrand">
-                  <img
-                    class="homeHeroBanner__photoLogo"
-                    src={slide.logoSrc}
-                    alt="FLY"
-                    loading="eager"
-                    decoding="async"
-                  />
+              <div class="homeHeroBanner__photoOverlay">
+                <div class="homeHeroBanner__photoContent">
+                  {slide.logoSrc && (
+                    <img
+                      class="homeHeroBanner__photoLogo"
+                      src={slide.logoSrc}
+                      alt="FLY"
+                      loading="eager"
+                      decoding="async"
+                    />
+                  )}
+
+                  <p class="homeHeroBanner__photoSubtitle">{slide.subtitle}</p>
+
+                  <div class="homeHeroBanner__actions homeHeroBanner__actions--dark">
+                    <a class="homeHeroBanner__actionBtn is-primary" href={appStoreUrl}>
+                      <span aria-hidden="true">←</span>
+                      <span>Get the app</span>
+                    </a>
+
+                    <a class="homeHeroBanner__actionBtn is-secondary" href="/how-it-works/">
+                      <span aria-hidden="true">↯</span>
+                      <span>How it works</span>
+                    </a>
+                  </div>
                 </div>
-              )}
+              </div>
             </div>
           )}
         </article>
@@ -277,49 +293,6 @@ const slides = [
     pointer-events: auto;
   }
 
-  .homeHeroBanner__topBar {
-    position: absolute;
-    top: clamp(18px, 2.4vw, 30px);
-    left: clamp(18px, 2.4vw, 30px);
-    z-index: 6;
-  }
-
-  .homeHeroBanner__appBtn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    min-height: 44px;
-    padding: 0 16px;
-    border-radius: 999px;
-    background: #0b0c10;
-    color: #fff;
-    border: 1px solid transparent;
-    font-weight: 760;
-    font-size: 14px;
-    letter-spacing: 0.1px;
-    transition: transform 0.18s ease, background 0.18s ease;
-  }
-
-  .homeHeroBanner__appBtn:hover {
-    transform: translateY(-1px);
-    background: #000;
-  }
-
-  .homeHeroBanner__appBtn.is-photo {
-    background: rgba(255, 255, 255, 0.92);
-    color: #0b0c10;
-  }
-
-  .homeHeroBanner__appBtn.is-photo:hover {
-    background: #fff;
-  }
-
-  .homeHeroBanner__appBtnIcon {
-    font-size: 16px;
-    line-height: 1;
-  }
-
   .homeHeroBanner__variantFrame,
   .homeHeroBanner__photoFrame {
     width: 100%;
@@ -327,51 +300,118 @@ const slides = [
     height: 100%;
   }
 
+  .homeHeroBanner__photoFrame {
+    position: relative;
+    overflow: hidden;
+    background: #f2f2f2;
+  }
+
+  .homeHeroBanner__photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+  }
+
+  .homeHeroBanner__photoShade {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.08) 0%,
+        rgba(0, 0, 0, 0.16) 55%,
+        rgba(0, 0, 0, 0.22) 100%
+      );
+  }
+
+  .homeHeroBanner__photoOverlay {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:
+      clamp(80px, 9vw, 120px)
+      clamp(20px, 4vw, 40px)
+      clamp(110px, 12vw, 150px);
+    text-align: center;
+  }
+
+  .homeHeroBanner__photoContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    width: min(92vw, 620px);
+  }
+
+  .homeHeroBanner__photoLogo {
+    display: block;
+    width: clamp(180px, 18vw, 340px);
+    height: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.98;
+  }
+
+  .homeHeroBanner__photoSubtitle {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: clamp(20px, 2vw, 28px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
   .homeHeroBanner__variantCard {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(250px, 360px);
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 460px);
     align-items: center;
-    gap: clamp(18px, 2vw, 28px);
+    gap: clamp(26px, 3vw, 42px);
     width: 100%;
     min-height: var(--hero-screen-height);
     padding:
-      clamp(88px, 10vw, 128px)
-      clamp(34px, 4vw, 64px)
-      clamp(126px, 13vw, 162px)
-      clamp(34px, 4vw, 64px);
-    background: #fff;
+      clamp(92px, 10vw, 132px)
+      clamp(32px, 4vw, 64px)
+      clamp(132px, 14vw, 170px)
+      clamp(32px, 4vw, 64px);
+    background: #f7f7f7;
     overflow: hidden;
   }
 
   .homeHeroBanner__copy {
     display: grid;
-    grid-template-columns: 56px minmax(0, 1fr);
+    grid-template-columns: 84px minmax(0, 1fr);
     column-gap: 18px;
     min-width: 0;
     align-self: center;
   }
 
   .homeHeroBanner__icon {
-    width: 56px;
-    height: 56px;
+    width: 54px;
+    height: 54px;
     border-radius: 999px;
     display: grid;
     place-items: center;
-    background: rgba(0, 0, 0, 0.045);
+    background: rgba(0, 0, 0, 0.035);
     border: 1px solid rgba(0, 0, 0, 0.05);
-    margin-top: 4px;
+    margin-top: 8px;
     flex: 0 0 auto;
   }
 
   .homeHeroBanner__icon svg {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     fill: rgba(11, 12, 16, 0.82);
   }
 
   .homeHeroBanner__text {
     min-width: 0;
-    max-width: 40rem;
+    max-width: 720px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -384,18 +424,19 @@ const slides = [
 
   .homeHeroBanner__title {
     margin: 0;
-    font-size: clamp(40px, 6vw, 88px);
-    line-height: 0.95;
-    letter-spacing: -1.8px;
+    font-size: clamp(54px, 5.6vw, 86px);
+    line-height: 0.96;
+    letter-spacing: -0.055em;
     text-wrap: balance;
+    color: #0b0c10;
   }
 
   .homeHeroBanner__subtitle {
-    margin: 12px 0 0;
+    margin: 18px 0 0;
     max-width: 24ch;
-    color: rgba(11, 12, 16, 0.66);
-    font-size: clamp(18px, 2vw, 24px);
-    line-height: 1.22;
+    color: rgba(11, 12, 16, 0.62);
+    font-size: clamp(18px, 1.9vw, 24px);
+    line-height: 1.28;
     text-wrap: pretty;
   }
 
@@ -420,19 +461,78 @@ const slides = [
     object-fit: contain;
   }
 
+  .homeHeroBanner__actions {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .homeHeroBanner__actionBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 0 22px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 760;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+  }
+
+  .homeHeroBanner__actionBtn:hover {
+    transform: translateY(-1px);
+  }
+
+  .homeHeroBanner__actionBtn.is-primary {
+    background: #0b0c10;
+    color: #fff;
+  }
+
+  .homeHeroBanner__actionBtn.is-primary:hover {
+    background: #000;
+  }
+
+  .homeHeroBanner__actionBtn.is-secondary {
+    background: #fff;
+    color: #0b0c10;
+    border-color: rgba(0, 0, 0, 0.14);
+  }
+
+  .homeHeroBanner__actionBtn.is-secondary:hover {
+    border-color: rgba(0, 0, 0, 0.22);
+    background: #fff;
+  }
+
+  .homeHeroBanner__actions--dark .homeHeroBanner__actionBtn.is-primary {
+    background: #0b0c10;
+    color: #fff;
+  }
+
+  .homeHeroBanner__actions--dark .homeHeroBanner__actionBtn.is-secondary {
+    background: rgba(255, 255, 255, 0.96);
+    color: #0b0c10;
+    border-color: transparent;
+  }
+
   .homeHeroBanner__stack {
-    --cube-size: 56px;
-    --cube-gap: 6px;
-    align-self: start;
-    justify-self: center;
+    --cube-size: 78px;
+    --cube-gap: 12px;
+    align-self: center;
+    justify-self: start;
     width: fit-content;
-    max-width: min(100%, 320px);
+    max-width: min(100%, 420px);
     display: flex;
     flex-direction: column;
     gap: var(--cube-gap);
     padding: 0;
     margin: 0;
-    transform: translate(-88px, -26px);
+    transform: translate(-24px, -24px);
   }
 
   .homeHeroBanner__row {
@@ -443,7 +543,7 @@ const slides = [
   .homeHeroBanner__cube {
     width: var(--cube-size);
     height: var(--cube-size);
-    border-radius: 18px;
+    border-radius: 24px;
     background: var(--cube-color);
     display: grid;
     place-items: center;
@@ -451,6 +551,7 @@ const slides = [
     opacity: 0;
     transform: translate3d(0, -18px, 0) rotate(-5deg);
     will-change: transform, opacity;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
   }
 
   .homeHeroBanner__slide.is-active .homeHeroBanner__cube {
@@ -459,154 +560,35 @@ const slides = [
   }
 
   .homeHeroBanner__cube img {
-    width: 58%;
-    height: 58%;
+    width: 56%;
+    height: 56%;
     display: block;
     pointer-events: none;
     user-select: none;
   }
 
-  .homeHeroBanner__variantCard[data-stack-style="fullBlock"] .homeHeroBanner__copy {
-    align-self: center;
-  }
-
-  .homeHeroBanner__variantCard[data-stack-style="fullBlock"] .homeHeroBanner__text {
-    max-width: 42rem;
-  }
-
-  .homeHeroBanner__variantCard[data-stack-style="fullBlock"] .homeHeroBanner__headlineRow {
-    display: block;
-    max-width: 34rem;
-  }
-
-  .homeHeroBanner__variantCard[data-stack-style="fullBlock"][data-has-logo="true"] .homeHeroBanner__headlineRow {
-    display: flex;
-    align-items: flex-end;
-    gap: 18px;
-    flex-wrap: nowrap;
-    max-width: 40rem;
-    overflow: visible;
-  }
-
-  .homeHeroBanner__variantCard[data-stack-style="fullBlock"][data-has-logo="true"] .homeHeroBanner__title {
-    max-width: 7.6ch;
-    flex: 0 1 auto;
-    text-wrap: balance;
-  }
-
-  .homeHeroBanner__variantCard[data-stack-style="fullBlock"][data-has-logo="true"] .homeHeroBanner__logoWrap {
-    margin: 0 0 0.5rem;
-    flex: 0 0 auto;
-    align-self: flex-end;
-  }
-
-  .homeHeroBanner__variantCard[data-stack-style="fullBlock"][data-has-logo="true"] .homeHeroBanner__logo {
-    width: clamp(132px, 11vw, 176px);
-  }
-
   .homeHeroBanner__variantCard[data-stack-style="fullBlock"] .homeHeroBanner__stack,
   .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__stack,
   .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__stack {
-    transform: translate(-96px, -30px);
-  }
-
-  .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__copy {
-    justify-self: center;
+    transform: translate(-24px, -24px);
   }
 
   .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__text {
-    align-items: center;
-    text-align: center;
     max-width: 30rem;
   }
 
-  .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__subtitle {
-    max-width: 23ch;
-  }
-
-  .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__stack {
-    align-items: center;
-    max-width: 300px;
-  }
-
-  .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__row {
-    justify-content: center;
-  }
-
   .homeHeroBanner__variantCard[data-stack-style="leftRise"] {
-    grid-template-columns: minmax(250px, 360px) minmax(0, 1fr);
-    gap: clamp(16px, 2vw, 26px);
+    grid-template-columns: minmax(360px, 460px) minmax(0, 1fr);
   }
 
   .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__stack {
     order: 1;
-    justify-self: center;
-    align-items: flex-start;
-  }
-
-  .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__row {
-    justify-content: flex-start;
+    justify-self: start;
+    transform: translate(0, -24px);
   }
 
   .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__copy {
     order: 2;
-    justify-self: start;
-  }
-
-  .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__text {
-    max-width: 28rem;
-  }
-
-  .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__title {
-    max-width: 9.2ch;
-  }
-
-  .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__subtitle {
-    max-width: 21ch;
-  }
-
-  .homeHeroBanner__photoFrame {
-    position: relative;
-    overflow: hidden;
-    background: #f2f2f2;
-  }
-
-  .homeHeroBanner__photo {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 54% center;
-    display: block;
-  }
-
-  .homeHeroBanner__photoShade {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      180deg,
-      rgba(0,0,0,0.04) 0%,
-      rgba(0,0,0,0.08) 52%,
-      rgba(0,0,0,0.18) 100%
-    );
-  }
-
-  .homeHeroBanner__photoBrand {
-    position: absolute;
-    left: clamp(34px, 4vw, 58px);
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 3;
-    pointer-events: none;
-  }
-
-  .homeHeroBanner__photoLogo {
-    display: block;
-    width: clamp(170px, 16vw, 320px);
-    height: auto;
-    filter: brightness(0) invert(1);
-    opacity: 0.98;
   }
 
   .homeHeroBanner__dots {
@@ -622,8 +604,8 @@ const slides = [
   }
 
   .homeHeroBanner__dot {
-    width: 9px;
-    height: 9px;
+    width: 10px;
+    height: 10px;
     border: 0;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.55);
@@ -637,11 +619,10 @@ const slides = [
   }
 
   .homeHeroBanner__dot.is-active {
-    width: 24px;
+    width: 26px;
     background: rgba(255, 255, 255, 0.96);
   }
 
-  .homeHeroBanner__slide[data-tone="light"] ~ .homeHeroBanner__dots .homeHeroBanner__dot,
   .homeHeroBanner__viewport:has(.homeHeroBanner__slide.is-active[data-tone="light"]) .homeHeroBanner__dot {
     background: rgba(11, 12, 16, 0.18);
   }
@@ -667,36 +648,57 @@ const slides = [
 
   @media (max-width: 1180px) {
     .homeHeroBanner__variantCard {
-      grid-template-columns: minmax(0, 1fr) minmax(220px, 320px);
-      padding-bottom: clamp(122px, 13vw, 154px);
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+      gap: 22px;
+      padding-bottom: clamp(132px, 14vw, 164px);
+    }
+
+    .homeHeroBanner__copy {
+      grid-template-columns: 72px minmax(0, 1fr);
+    }
+
+    .homeHeroBanner__title {
+      font-size: clamp(48px, 5vw, 74px);
     }
 
     .homeHeroBanner__stack {
-      --cube-size: 52px;
-      transform: translate(-58px, -14px);
-      max-width: min(100%, 290px);
+      --cube-size: 68px;
+      --cube-gap: 10px;
+      max-width: min(100%, 360px);
+      transform: translate(-16px, -16px);
     }
 
     .homeHeroBanner__variantCard[data-stack-style="fullBlock"] .homeHeroBanner__stack,
     .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__stack,
     .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__stack {
-      transform: translate(-66px, -18px);
+      transform: translate(-16px, -16px);
     }
   }
 
   @media (max-width: 860px) {
+    .homeHeroBanner__photoOverlay {
+      padding:
+        84px
+        20px
+        132px;
+    }
+
+    .homeHeroBanner__photoLogo {
+      width: clamp(170px, 34vw, 260px);
+    }
+
     .homeHeroBanner__variantCard,
     .homeHeroBanner__variantCard[data-stack-style="fullBlock"],
     .homeHeroBanner__variantCard[data-stack-style="playfulRows"],
     .homeHeroBanner__variantCard[data-stack-style="leftRise"] {
       grid-template-columns: 1fr;
       align-items: start;
-      gap: 16px;
+      gap: 18px;
       min-height: var(--hero-screen-height);
-      padding-left: clamp(16px, 5vw, 24px);
-      padding-right: clamp(16px, 5vw, 24px);
-      padding-top: clamp(84px, 14vw, 118px);
-      padding-bottom: clamp(136px, 18vw, 170px);
+      padding:
+        clamp(86px, 14vw, 118px)
+        clamp(18px, 5vw, 24px)
+        clamp(150px, 18vw, 186px);
     }
 
     .homeHeroBanner__copy,
@@ -704,6 +706,7 @@ const slides = [
       order: 1;
       width: 100%;
       justify-self: stretch;
+      grid-template-columns: 72px minmax(0, 1fr);
     }
 
     .homeHeroBanner__text,
@@ -714,26 +717,36 @@ const slides = [
       text-align: left;
     }
 
-    .homeHeroBanner__subtitle,
-    .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__subtitle,
-    .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__subtitle {
-      max-width: 25ch;
+    .homeHeroBanner__title {
+      font-size: clamp(34px, 7vw, 56px);
+      letter-spacing: -0.05em;
+      max-width: 9.5ch;
+    }
+
+    .homeHeroBanner__subtitle {
+      max-width: 18ch;
+      font-size: clamp(16px, 2.8vw, 20px);
+      margin-top: 12px;
+    }
+
+    .homeHeroBanner__actions {
+      margin-top: 20px;
     }
 
     .homeHeroBanner__stack,
     .homeHeroBanner__variantCard[data-stack-style="fullBlock"] .homeHeroBanner__stack,
     .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__stack,
     .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__stack {
-      --cube-size: 42px;
-      --cube-gap: 4px;
+      --cube-size: 60px;
+      --cube-gap: 8px;
       order: 2;
       width: fit-content;
-      max-width: min(100%, 240px);
+      max-width: min(100%, 300px);
       align-items: center;
       justify-self: center;
       padding: 0;
-      margin: 8px auto 0;
-      transform: translateY(-10px);
+      margin: 10px auto 0;
+      transform: none;
     }
 
     .homeHeroBanner__row,
@@ -746,110 +759,90 @@ const slides = [
       transform: none;
     }
 
-    .homeHeroBanner__variantCard[data-stack-style="fullBlock"][data-has-logo="true"] .homeHeroBanner__headlineRow {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 12px;
-      max-width: 100%;
-    }
-
-    .homeHeroBanner__variantCard[data-stack-style="fullBlock"][data-has-logo="true"] .homeHeroBanner__title,
-    .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__title {
-      max-width: 100%;
-    }
-
-    .homeHeroBanner__variantCard[data-stack-style="fullBlock"][data-has-logo="true"] .homeHeroBanner__logoWrap {
-      margin: 0;
-    }
-
-    .homeHeroBanner__variantCard[data-stack-style="fullBlock"][data-has-logo="true"] .homeHeroBanner__logo {
-      width: 132px;
-    }
-
-    .homeHeroBanner__title {
-      font-size: clamp(32px, 8vw, 52px);
-      letter-spacing: -1px;
-    }
-
-    .homeHeroBanner__subtitle {
-      font-size: clamp(16px, 2.8vw, 20px);
-    }
-
     .homeHeroBanner__dots {
       bottom: 20px;
     }
   }
 
   @media (max-width: 560px) {
-    .homeHeroBanner__topBar {
-      top: 16px;
-      left: 16px;
+    .homeHeroBanner__photoOverlay {
+      padding:
+        88px
+        18px
+        126px;
+    }
+
+    .homeHeroBanner__photoContent {
+      gap: 14px;
+      width: min(92vw, 360px);
+    }
+
+    .homeHeroBanner__photoLogo {
+      width: clamp(150px, 42vw, 220px);
+    }
+
+    .homeHeroBanner__photoSubtitle {
+      font-size: 18px;
     }
 
     .homeHeroBanner__variantCard {
       gap: 14px;
-      padding-bottom: 150px;
+      padding-bottom: 160px;
     }
 
     .homeHeroBanner__copy {
-      grid-template-columns: 52px minmax(0, 1fr);
+      grid-template-columns: 56px minmax(0, 1fr);
       column-gap: 14px;
     }
 
     .homeHeroBanner__icon {
-      width: 52px;
-      height: 52px;
-      margin-top: 2px;
+      width: 48px;
+      height: 48px;
+      margin-top: 0;
     }
 
     .homeHeroBanner__title {
       font-size: 30px;
-      line-height: 1.01;
-      white-space: normal;
+      line-height: 1.02;
+      max-width: 8.5ch;
     }
 
     .homeHeroBanner__subtitle {
       margin-top: 10px;
-      max-width: 22ch;
+      max-width: 15ch;
       font-size: 15px;
       line-height: 1.34;
     }
 
-    .homeHeroBanner__logo {
-      width: 110px;
+    .homeHeroBanner__actions {
+      gap: 8px;
+      margin-top: 16px;
     }
 
-    .homeHeroBanner__stack {
-      --cube-size: 38px;
-      --cube-gap: 4px;
-      max-width: 220px;
+    .homeHeroBanner__actionBtn {
+      min-height: 42px;
+      padding: 0 16px;
+      font-size: 13.5px;
+      gap: 8px;
+    }
+
+    .homeHeroBanner__stack,
+    .homeHeroBanner__variantCard[data-stack-style="fullBlock"] .homeHeroBanner__stack,
+    .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__stack,
+    .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__stack {
+      --cube-size: 48px;
+      --cube-gap: 6px;
+      max-width: 246px;
       margin-top: 6px;
-      transform: translateY(-6px);
     }
 
     .homeHeroBanner__cube {
-      border-radius: 12px;
+      border-radius: 16px;
     }
 
     .homeHeroBanner__cube img {
-      width: 58%;
-      height: 58%;
-    }
-
-    .homeHeroBanner__photoBrand {
-      left: 24px;
-      top: 56%;
-    }
-
-    .homeHeroBanner__photoLogo {
-      width: clamp(120px, 28vw, 180px);
-    }
-
-    .homeHeroBanner__appBtn {
-      min-height: 42px;
-      padding: 0 15px;
-      font-size: 13.5px;
+      width: 56%;
+      height: 56%;
     }
 
     .homeHeroBanner__dots {
