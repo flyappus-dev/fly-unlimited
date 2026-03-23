@@ -19,19 +19,11 @@ const appStoreUrl = "#";
         --bg:#ffffff;
         --text:#0b0c10;
         --muted:rgba(11,12,16,.62);
-
-        /* ✅ Keep the purple dot */
         --main:#6C2BD9;
-
         --max:1120px;
-
-        /* ✅ More breathing room on phones (prevents edge-to-edge text) */
         --pad: clamp(18px, 5vw, 22px);
-
         --rXL: 28px;
         --ease: cubic-bezier(.2,.8,.2,1);
-
-        /* Approx sticky bar height so hero = “one page” */
         --topbarH: 64px;
       }
 
@@ -133,91 +125,21 @@ const appStoreUrl = "#";
         background: #fff;
         min-height: calc(100svh - var(--topbarH));
         min-height: calc(100vh - var(--topbarH));
-        display:flex;
-        align-items:center;
+        display:block;
         overflow:hidden;
       }
 
       .heroInner{
         width: 100%;
-        padding: 34px 0 42px;
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        text-align:center;
+        max-width: none;
+        padding: 0;
+        display:block;
       }
 
       .heroBannerWrap{
         width: 100%;
-        max-width: 980px;
-        margin: 0 auto 22px;
-      }
-
-      .heroKicker{
-        display:inline-flex;
-        align-items:center;
-        gap:10px;
-        padding: 10px 14px;
-        border-radius: 999px;
-        background: #fff;
-        border: 1px solid rgba(0,0,0,.10);
-        color: rgba(11,12,16,.78);
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: .2px;
-      }
-      .dot{
-        width:9px;
-        height:9px;
-        border-radius:999px;
-        background: var(--main);
-      }
-
-      .ctaRow{
-        margin-top: 14px;
-        display:flex;
-        gap: 12px;
-        flex-wrap: wrap;
-        align-items:center;
-        justify-content:center;
-      }
-
-      .btn{
-        display:inline-flex;
-        align-items:center;
-        justify-content:center;
-        gap:10px;
-        height: 44px;
-        padding: 0 16px;
-        border-radius: 999px;
-        border: 1px solid rgba(0,0,0,.12);
-        background: #fff;
-        color: rgba(11,12,16,.92);
-        font-weight: 760;
-        font-size: 14px;
-        letter-spacing: .1px;
-        transition: transform .18s var(--ease), background .18s var(--ease);
-      }
-      .btn:hover{
-        transform: translateY(-1px);
-        background: rgba(0,0,0,.02);
-      }
-
-      .btnPrimary{
-        border-color: transparent;
-        background: #0b0c10;
-        color: #fff;
-      }
-      .btnPrimary:hover{ background:#000; }
-
-      .btn svg{
-        width:16px;
-        height:16px;
-        stroke: currentColor;
-        stroke-width:2.2;
-        fill:none;
-        stroke-linecap:round;
-        stroke-linejoin:round;
+        max-width: none;
+        margin: 0;
       }
 
       /* ===== Sections: white, minimal ===== */
@@ -424,11 +346,8 @@ const appStoreUrl = "#";
       .links a{ color: rgba(11,12,16,.62); }
       .links a:hover{ color: rgba(11,12,16,.90); }
 
-      /* ✅ Mobile tune */
       @media (max-width: 560px){
         .tile{ height: 360px; }
-        .heroBannerWrap{ margin-bottom: 20px; }
-        .heroInner{ padding: 26px 0 34px; }
       }
     </style>
   </head>
@@ -461,31 +380,9 @@ const appStoreUrl = "#";
     </header>
 
     <section class="hero" aria-label="Hero">
-      <div class="wrap heroInner">
+      <div class="heroInner">
         <div class="heroBannerWrap" aria-label="Landing hero banner">
-          <HomeHeroBanner />
-        </div>
-
-        <div class="heroKicker">
-          <span class="dot" aria-hidden="true"></span>
-          LiveTime collaboration, beautifully simple.
-        </div>
-
-        <div class="ctaRow" aria-label="Primary actions">
-          <a class="btn btnPrimary" href={appStoreUrl} aria-label="App Store link">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M14 7l-5 5 5 5"/>
-              <path d="M9 12h12"/>
-            </svg>
-            Get the app
-          </a>
-
-          <a class="btn" href="/how-it-works/" aria-label="How it works">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M13 2 4 14h7l-1 8 10-14h-7z"/>
-            </svg>
-            How it works
-          </a>
+          <HomeHeroBanner appStoreUrl={appStoreUrl} />
         </div>
       </div>
     </section>
