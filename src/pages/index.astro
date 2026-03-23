@@ -22,14 +22,9 @@ const appStoreUrl = "#";
         --main:#6C2BD9;
 
         --max:1120px;
-        --heroMax: 1600px;
-        --edge: clamp(10px, 1.4vw, 18px);
         --pad: clamp(18px, 5vw, 22px);
 
         --rXL: 28px;
-        --rCard: clamp(18px, 2vw, 26px);
-        --tileGap: clamp(10px, 1.2vw, 16px);
-
         --ease: cubic-bezier(.2,.8,.2,1);
         --topbarH: 64px;
       }
@@ -59,7 +54,6 @@ const appStoreUrl = "#";
       a:focus-visible{
         outline: 3px solid rgba(0,0,0,.18);
         outline-offset: 3px;
-        border-radius: 12px;
       }
 
       /* ===== Top nav: clean white ===== */
@@ -147,13 +141,6 @@ const appStoreUrl = "#";
         padding: 0 var(--pad);
       }
 
-      .edgeWrap{
-        width: 100%;
-        max-width: var(--heroMax);
-        margin: 0 auto;
-        padding: 0 var(--edge);
-      }
-
       /* ===== HERO ===== */
       .hero{
         background: #fff;
@@ -205,40 +192,39 @@ const appStoreUrl = "#";
         max-width: 60ch;
       }
 
-      /* ===== Apple-style feature band ===== */
+      /* ===== Edge-to-edge square feature band ===== */
       .featureBand{
         background:#fff;
-        padding: 10px 0 0;
+        padding: 0;
+        margin: 0;
+      }
+
+      .featureBandWrap{
+        width:100%;
+        margin:0;
+        padding:0;
       }
 
       .featureGrid{
         display:grid;
         grid-template-columns: 1fr;
-        gap: var(--tileGap);
+        gap: 0;
       }
 
       .featureTile{
         position: relative;
         overflow:hidden;
-        border-radius: var(--rCard);
-        border: 1px solid rgba(0,0,0,.08);
-        background-color:#fff;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+        background-color:#f3f3f3;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         isolation: isolate;
-        min-height: 360px;
+        width: 100%;
         aspect-ratio: 1 / 1;
-        transition:
-          transform .28s var(--ease),
-          box-shadow .28s var(--ease),
-          border-color .28s var(--ease);
-      }
-
-      .featureTile:hover{
-        transform: translateY(-2px);
-        box-shadow: 0 18px 40px rgba(0,0,0,.08);
-        border-color: rgba(0,0,0,.12);
+        min-height: 320px;
       }
 
       .featureGrid .featureTile:nth-child(1){
@@ -261,10 +247,10 @@ const appStoreUrl = "#";
         background:
           linear-gradient(
             180deg,
-            rgba(255,255,255,.18) 0%,
-            rgba(255,255,255,.12) 24%,
-            rgba(255,255,255,.72) 68%,
-            rgba(255,255,255,.92) 100%
+            rgba(255,255,255,.14) 0%,
+            rgba(255,255,255,.08) 28%,
+            rgba(255,255,255,.72) 72%,
+            rgba(255,255,255,.90) 100%
           );
       }
 
@@ -272,7 +258,7 @@ const appStoreUrl = "#";
         position:absolute;
         inset:0;
         z-index:1;
-        padding: clamp(22px, 2vw, 28px);
+        padding: clamp(24px, 2vw, 34px);
         display:flex;
         flex-direction:column;
         justify-content:space-between;
@@ -287,10 +273,10 @@ const appStoreUrl = "#";
 
       .featureTileTitle{
         margin: 10px 0 0;
-        font-size: clamp(28px, 2.3vw, 38px);
+        font-size: clamp(28px, 2.4vw, 40px);
         letter-spacing: -.9px;
         line-height: 1.02;
-        max-width: 12ch;
+        max-width: 11ch;
       }
 
       .featureTileSub{
@@ -298,7 +284,7 @@ const appStoreUrl = "#";
         color: rgba(11,12,16,.70);
         font-size: 15px;
         line-height: 1.4;
-        max-width: 32ch;
+        max-width: 30ch;
       }
 
       .featureTileCta{
@@ -321,27 +307,28 @@ const appStoreUrl = "#";
         stroke-linejoin:round;
       }
 
-      @media (min-width: 760px){
+      @media (min-width: 980px){
         .featureGrid{
-          grid-template-columns: repeat(2, minmax(0,1fr));
+          grid-template-columns: repeat(3, minmax(0, 1fr));
         }
 
-        .featureGrid .featureTile:nth-child(3){
-          grid-column: 1 / -1;
-          aspect-ratio: 2.08 / 1;
-          min-height: 340px;
+        .featureTile{
+          min-height: 0;
+          aspect-ratio: 1 / 1;
         }
       }
 
-      @media (min-width: 1080px){
+      @media (max-width: 979px){
         .featureGrid{
-          grid-template-columns: repeat(3, minmax(0,1fr));
+          grid-template-columns: 1fr;
         }
 
-        .featureGrid .featureTile:nth-child(3){
-          grid-column: auto;
+        .featureTile{
           aspect-ratio: 1 / 1;
-          min-height: 360px;
+        }
+
+        .featureTileTitle{
+          max-width: 12ch;
         }
       }
 
@@ -433,28 +420,13 @@ const appStoreUrl = "#";
       .links a{ color: rgba(11,12,16,.62); }
       .links a:hover{ color: rgba(11,12,16,.90); }
 
-      @media (max-width: 759px){
-        .featureBand{
-          padding-top: 8px;
-        }
-
-        .featureTile{
-          aspect-ratio: 5 / 4;
-          min-height: 320px;
-        }
-
-        .featureTileTitle{
-          max-width: 14ch;
-        }
-      }
-
       @media (max-width: 560px){
         .section{
           padding: 52px 0;
         }
 
         .featureTile{
-          min-height: 300px;
+          min-height: 280px;
         }
       }
     </style>
@@ -496,7 +468,7 @@ const appStoreUrl = "#";
     </section>
 
     <section class="featureBand" aria-label="Explore">
-      <div class="edgeWrap">
+      <div class="featureBandWrap">
         <div class="featureGrid" aria-label="Feature tiles">
           <a class="featureTile" href="/how-it-works/" aria-label="Clarity tile">
             <div class="featureTileText">
@@ -511,7 +483,7 @@ const appStoreUrl = "#";
               <div class="featureTileCta">
                 Explore how it works
                 <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M9 18l6-6-6-6"/>
+                  <path d="M9 18l6-6-6-6" />
                 </svg>
               </div>
             </div>
@@ -530,7 +502,7 @@ const appStoreUrl = "#";
               <div class="featureTileCta">
                 See the flow
                 <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M9 18l6-6-6-6"/>
+                  <path d="M9 18l6-6-6-6" />
                 </svg>
               </div>
             </div>
@@ -549,7 +521,7 @@ const appStoreUrl = "#";
               <div class="featureTileCta">
                 Learn more
                 <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M9 18l6-6-6-6"/>
+                  <path d="M9 18l6-6-6-6" />
                 </svg>
               </div>
             </div>
