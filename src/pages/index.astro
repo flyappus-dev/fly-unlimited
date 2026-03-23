@@ -23,6 +23,7 @@ const appStoreUrl = "#";
 
         --max:1120px;
         --pad: clamp(18px, 5vw, 22px);
+        --featureGap: clamp(4px, 0.45vw, 8px);
 
         --rXL: 28px;
         --ease: cubic-bezier(.2,.8,.2,1);
@@ -208,7 +209,7 @@ const appStoreUrl = "#";
       .featureGrid{
         display:grid;
         grid-template-columns: 1fr;
-        gap: 0;
+        gap: var(--featureGap);
       }
 
       .featureTile{
