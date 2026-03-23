@@ -157,21 +157,21 @@ const slides = [
           )}
         </article>
       ))}
-    </div>
 
-    <div class="homeHeroBanner__dots" aria-label="Hero banner navigation">
-      {slides.map((_, index) => (
-        <button
-          type="button"
-          class:list={[
-            "homeHeroBanner__dot",
-            index === 0 && "is-active",
-          ]}
-          data-dot
-          aria-label={`Go to banner ${index + 1}`}
-          aria-pressed={index === 0 ? "true" : "false"}
-        />
-      ))}
+      <div class="homeHeroBanner__dots" aria-label="Hero banner navigation">
+        {slides.map((_, index) => (
+          <button
+            type="button"
+            class:list={[
+              "homeHeroBanner__dot",
+              index === 0 && "is-active",
+            ]}
+            data-dot
+            aria-label={`Go to banner ${index + 1}`}
+            aria-pressed={index === 0 ? "true" : "false"}
+          />
+        ))}
+      </div>
     </div>
   </div>
 </section>
@@ -240,7 +240,6 @@ const slides = [
 <style is:global>
   .homeHeroBanner {
     --hero-screen-height: calc(100svh - var(--topbarH, 64px));
-    --banner-gap: clamp(20px, 2vw, 28px);
     position: relative;
     width: 100%;
     min-height: var(--hero-screen-height);
@@ -249,22 +248,16 @@ const slides = [
 
   .homeHeroBanner__shell {
     width: 100%;
-    max-width: 1480px;
-    margin: 0 auto;
-    padding:
-      clamp(20px, 2.2vw, 30px)
-      clamp(22px, 3vw, 38px)
-      clamp(18px, 2vw, 26px);
+    max-width: none;
+    margin: 0;
+    padding: 0;
     min-height: var(--hero-screen-height);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
   }
 
   .homeHeroBanner__viewport {
     position: relative;
     width: 100%;
-    min-height: calc(var(--hero-screen-height) - (var(--banner-gap) * 2));
+    min-height: var(--hero-screen-height);
     overflow: hidden;
     background: #fff;
   }
@@ -288,7 +281,7 @@ const slides = [
     position: absolute;
     top: clamp(18px, 2.4vw, 30px);
     left: clamp(18px, 2.4vw, 30px);
-    z-index: 5;
+    z-index: 6;
   }
 
   .homeHeroBanner__appBtn {
@@ -330,7 +323,7 @@ const slides = [
   .homeHeroBanner__variantFrame,
   .homeHeroBanner__photoFrame {
     width: 100%;
-    min-height: calc(var(--hero-screen-height) - (var(--banner-gap) * 2));
+    min-height: var(--hero-screen-height);
     height: 100%;
   }
 
@@ -340,11 +333,11 @@ const slides = [
     align-items: center;
     gap: clamp(18px, 2.4vw, 34px);
     width: 100%;
-    min-height: calc(var(--hero-screen-height) - (var(--banner-gap) * 2));
+    min-height: var(--hero-screen-height);
     padding:
       clamp(88px, 10vw, 128px)
       clamp(28px, 4vw, 58px)
-      clamp(48px, 5vw, 64px)
+      clamp(88px, 9vw, 112px)
       clamp(28px, 4vw, 58px);
     background: #fff;
   }
@@ -637,11 +630,15 @@ const slides = [
   }
 
   .homeHeroBanner__dots {
+    position: absolute;
+    left: 50%;
+    bottom: clamp(18px, 2.2vw, 28px);
+    z-index: 6;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    padding-top: 14px;
+    transform: translateX(-50%);
   }
 
   .homeHeroBanner__dot {
@@ -649,7 +646,7 @@ const slides = [
     height: 9px;
     border: 0;
     border-radius: 999px;
-    background: rgba(11, 12, 16, 0.18);
+    background: rgba(255, 255, 255, 0.55);
     padding: 0;
     cursor: pointer;
     transition: transform 0.2s ease, background 0.2s ease, width 0.2s ease;
@@ -661,6 +658,15 @@ const slides = [
 
   .homeHeroBanner__dot.is-active {
     width: 24px;
+    background: rgba(255, 255, 255, 0.96);
+  }
+
+  .homeHeroBanner__slide[data-tone="light"] ~ .homeHeroBanner__dots .homeHeroBanner__dot,
+  .homeHeroBanner__viewport:has(.homeHeroBanner__slide.is-active[data-tone="light"]) .homeHeroBanner__dot {
+    background: rgba(11, 12, 16, 0.18);
+  }
+
+  .homeHeroBanner__viewport:has(.homeHeroBanner__slide.is-active[data-tone="light"]) .homeHeroBanner__dot.is-active {
     background: #0b0c10;
   }
 
@@ -693,7 +699,7 @@ const slides = [
 
     .homeHeroBanner__variantCard {
       gap: clamp(16px, 2.8vw, 26px);
-      min-height: calc(var(--hero-screen-height) - (var(--banner-gap) * 2));
+      min-height: var(--hero-screen-height);
     }
 
     .homeHeroBanner__cube {
@@ -712,11 +718,11 @@ const slides = [
       grid-template-columns: 1fr;
       align-items: start;
       gap: 24px;
-      min-height: calc(var(--hero-screen-height) - (var(--banner-gap) * 2));
+      min-height: var(--hero-screen-height);
       padding-left: clamp(16px, 5vw, 24px);
       padding-right: clamp(16px, 5vw, 24px);
       padding-top: clamp(84px, 14vw, 118px);
-      padding-bottom: clamp(54px, 8vw, 76px);
+      padding-bottom: clamp(88px, 12vw, 110px);
     }
 
     .homeHeroBanner__copy,
@@ -797,10 +803,6 @@ const slides = [
   }
 
   @media (max-width: 560px) {
-    .homeHeroBanner {
-      --banner-gap: 14px;
-    }
-
     .homeHeroBanner__topBar {
       top: 16px;
       left: 16px;
@@ -873,6 +875,10 @@ const slides = [
       min-height: 42px;
       padding: 0 15px;
       font-size: 13.5px;
+    }
+
+    .homeHeroBanner__dots {
+      bottom: 16px;
     }
   }
 </style>
