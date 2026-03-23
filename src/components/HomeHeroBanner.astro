@@ -389,7 +389,7 @@ const slides = [
     column-gap: 18px;
     min-width: 0;
     align-self: center;
-    transform: translateY(-34px);
+    transform: translateY(-74px);
   }
 
   .homeHeroBanner__icon {
@@ -544,7 +544,7 @@ const slides = [
   .homeHeroBanner__cube {
     width: var(--cube-size);
     height: var(--cube-size);
-    border-radius: 24px;
+    border-radius: clamp(14px, calc(var(--cube-size) * 0.31), 24px);
     background: var(--cube-color);
     display: grid;
     place-items: center;
@@ -657,7 +657,7 @@ const slides = [
 
     .homeHeroBanner__copy {
       grid-template-columns: 72px minmax(0, 1fr);
-      transform: translateY(-20px);
+      transform: translateY(-48px);
     }
 
     .homeHeroBanner__title {
@@ -851,15 +851,6 @@ const slides = [
       max-width: 224px;
       margin-top: 2px;
       transform: translateY(-84px);
-    }
-
-    .homeHeroBanner__cube {
-      border-radius: 15px;
-    }
-
-    .homeHeroBanner__cube img {
-      width: 56%;
-      height: 56%;
     }
 
     .homeHeroBanner__dots {
