@@ -1,60 +1,94 @@
 ---
+const { appStoreUrl = "#", howItWorksUrl = "/how-it-works/" } = Astro.props;
+
 const componentId = `home-hero-${Math.random().toString(36).slice(2, 10)}`;
 
 const slides = [
   {
     type: "message",
+    tone: "light",
     eyebrow: "FLY Unlimited",
     title: "It’s Time to FLY",
-    subtitle: "Clean collaboration, beautiful presentation, and a homepage hero that feels premium.",
+    subtitle: "LiveTime collaboration, beautifully simple.",
   },
   {
     type: "image",
+    tone: "dark",
+    eyebrow: "FLY Unlimited",
     src: "/home-banner-photo-1.png",
-    alt: "Home banner photo 1",
+    alt: "Editorial home banner photo 1",
+    objectPosition: "center center",
   },
   {
     type: "image",
+    tone: "dark",
+    eyebrow: "FLY Unlimited",
     src: "/home-banner-photo-2.png",
-    alt: "Home banner photo 2",
+    alt: "Editorial home banner photo 2",
+    objectPosition: "center center",
   },
 ];
 ---
 
 <section class="homeHeroBanner" id={componentId} aria-label="Home hero banner">
   <div class="heroShell">
-    <div class="heroViewport" data-viewport>
+    <div class="heroViewport">
       {slides.map((slide, index) => (
         <article
           class={`heroSlide ${index === 0 ? "is-active" : ""}`}
           data-slide
+          data-tone={slide.tone}
           aria-hidden={index === 0 ? "false" : "true"}
         >
           {slide.type === "message" ? (
-            <div class="messageSlide">
-              <div class="messageOverlay"></div>
-
-              <div class="messageContent">
-                <div class="eyebrowPill">
-                  <span class="eyebrowDot"></span>
-                  <span>{slide.eyebrow}</span>
-                </div>
-
-                <h1>{slide.title}</h1>
-                <p>{slide.subtitle}</p>
+            <div class="messageStage">
+              <div class="messageSplit">
+                <div class="messagePanel messagePanelLeft"></div>
+                <div class="messagePanel messagePanelRight"></div>
               </div>
+
+              <div class="messageGlow messageGlowOne"></div>
+              <div class="messageGlow messageGlowTwo"></div>
+              <div class="messageWordmark" aria-hidden="true">FLY</div>
             </div>
           ) : (
-            <div class="imageSlide">
-              <img src={slide.src} alt={slide.alt} loading="eager" decoding="async" />
+            <div class="imageStage">
+              <img
+                src={slide.src}
+                alt={slide.alt}
+                loading="eager"
+                decoding="async"
+                style={`object-position:${slide.objectPosition};`}
+              />
               <div class="imageShade"></div>
-
-              <div class="imageBadge">
-                <span class="eyebrowDot"></span>
-                <span>FLY Unlimited</span>
-              </div>
             </div>
           )}
+
+          <div class={`slideInner ${slide.type === "message" ? "is-message" : "is-image"}`}>
+            <div class="slideEyebrow">
+              <span class="eyebrowDot"></span>
+              <span>{slide.eyebrow}</span>
+            </div>
+
+            {slide.type === "message" ? (
+              <>
+                <h1 class="slideTitle">{slide.title}</h1>
+                <p class="slideSubtitle">{slide.subtitle}</p>
+              </>
+            ) : null}
+
+            <div class="slideActions">
+              <a class="slideBtn slideBtnPrimary" href={appStoreUrl}>
+                <span class="btnIcon" aria-hidden="true">←</span>
+                <span>Get the app</span>
+              </a>
+
+              <a class="slideBtn slideBtnSecondary" href={howItWorksUrl}>
+                <span class="btnIcon" aria-hidden="true">↯</span>
+                <span>How it works</span>
+              </a>
+            </div>
+          </div>
         </article>
       ))}
     </div>
@@ -103,18 +137,18 @@ const slides = [
       });
     };
 
-    const start = () => {
-      stop();
-      timer = window.setInterval(() => {
-        showSlide((current + 1) % slides.length);
-      }, intervalMs);
-    };
-
     const stop = () => {
       if (timer) {
         window.clearInterval(timer);
         timer = null;
       }
+    };
+
+    const start = () => {
+      stop();
+      timer = window.setInterval(() => {
+        showSlide((current + 1) % slides.length);
+      }, intervalMs);
     };
 
     dots.forEach((dot, index) => {
@@ -141,21 +175,16 @@ const slides = [
 
   .heroShell {
     width: 100%;
-    max-width: 980px;
     margin: 0 auto;
   }
 
   .heroViewport {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
-    min-height: 360px;
-    border-radius: 30px;
+    min-height: clamp(460px, 62vw, 720px);
+    border-radius: 0;
     overflow: hidden;
-    background: #f3f3f3;
-    box-shadow:
-      0 16px 40px rgba(0, 0, 0, 0.08),
-      0 2px 10px rgba(0, 0, 0, 0.04);
+    background: #f4f4f4;
   }
 
   .heroSlide {
@@ -164,70 +193,194 @@ const slides = [
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transform: scale(1.01);
     transition:
-      opacity 0.55s ease,
-      transform 0.75s ease,
-      visibility 0.55s ease;
+      opacity 0.7s ease,
+      visibility 0.7s ease;
   }
 
   .heroSlide.is-active {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+  }
+
+  .messageStage,
+  .imageStage {
+    position: absolute;
+    inset: 0;
+  }
+
+  .imageStage img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transform: scale(1.06);
+    transition: transform 7.8s ease;
+  }
+
+  .heroSlide.is-active .imageStage img {
     transform: scale(1);
   }
 
-  .messageSlide,
-  .imageSlide {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-
-  .messageSlide {
-    background:
-      radial-gradient(circle at 20% 20%, rgba(108, 43, 217, 0.18), transparent 28%),
-      radial-gradient(circle at 85% 25%, rgba(0, 0, 0, 0.08), transparent 24%),
-      linear-gradient(180deg, #ffffff 0%, #f6f6f8 100%);
-  }
-
-  .messageOverlay {
+  .imageShade {
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(135deg, rgba(255, 255, 255, 0.3), transparent 45%),
-      linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.02));
+      linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.18)),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.34), rgba(0, 0, 0, 0.04) 44%);
     pointer-events: none;
   }
 
-  .messageContent {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    padding: clamp(24px, 4vw, 42px);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
-    text-align: left;
+  .messageStage {
+    background: #f3f3f3;
   }
 
-  .eyebrowPill,
-  .imageBadge {
+  .messageSplit {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .messagePanel {
+    position: relative;
+  }
+
+  .messagePanelLeft {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 245, 247, 0.96));
+  }
+
+  .messagePanelRight {
+    background:
+      linear-gradient(180deg, rgba(250, 250, 251, 0.98), rgba(242, 242, 244, 0.98));
+  }
+
+  .messageGlow {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(70px);
+    opacity: 0.32;
+    pointer-events: none;
+  }
+
+  .messageGlowOne {
+    width: 280px;
+    height: 280px;
+    left: 5%;
+    top: 8%;
+    background: rgba(108, 43, 217, 0.28);
+  }
+
+  .messageGlowTwo {
+    width: 240px;
+    height: 240px;
+    right: 12%;
+    bottom: 8%;
+    background: rgba(0, 0, 0, 0.08);
+  }
+
+  .messageWordmark {
+    position: absolute;
+    right: -2%;
+    bottom: -8%;
+    font-size: clamp(140px, 30vw, 420px);
+    line-height: 0.82;
+    letter-spacing: -0.08em;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.94);
+    transform: translateY(28px) scale(1.02);
+    opacity: 0;
+    transition:
+      transform 1s cubic-bezier(.2,.8,.2,1),
+      opacity 1s ease;
+    user-select: none;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .heroSlide.is-active .messageWordmark {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  .slideInner {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: clamp(22px, 3vw, 34px);
+  }
+
+  .slideInner.is-message {
+    max-width: min(58%, 700px);
+  }
+
+  .slideInner.is-image {
+    max-width: 520px;
+  }
+
+  .slideEyebrow,
+  .slideTitle,
+  .slideSubtitle,
+  .slideActions {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.9s cubic-bezier(.2,.8,.2,1);
+  }
+
+  .heroSlide.is-active .slideEyebrow {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.08s;
+  }
+
+  .heroSlide.is-active .slideTitle {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.18s;
+  }
+
+  .heroSlide.is-active .slideSubtitle {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.28s;
+  }
+
+  .heroSlide.is-active .slideActions {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.36s;
+  }
+
+  .slideEyebrow {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 14px;
+    padding: 11px 15px;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.92);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    color: rgba(11, 12, 16, 0.82);
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.2px;
     backdrop-filter: blur(10px);
+  }
+
+  .heroSlide[data-tone="light"] .slideEyebrow {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    color: rgba(11, 12, 16, 0.82);
+  }
+
+  .heroSlide[data-tone="dark"] .slideEyebrow {
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.26);
+    color: rgba(255, 255, 255, 0.96);
   }
 
   .eyebrowDot {
@@ -238,53 +391,109 @@ const slides = [
     flex: 0 0 auto;
   }
 
-  .messageContent h1 {
+  .slideTitle {
     margin: 18px 0 10px;
-    max-width: 8.5ch;
-    font-size: clamp(40px, 7vw, 78px);
-    line-height: 0.95;
-    letter-spacing: -0.05em;
+    font-size: clamp(46px, 8vw, 92px);
+    line-height: 0.9;
+    letter-spacing: -0.065em;
     font-weight: 800;
     color: #0b0c10;
+    max-width: 8.5ch;
   }
 
-  .messageContent p {
+  .slideSubtitle {
     margin: 0;
-    max-width: 38rem;
-    font-size: clamp(14px, 2vw, 18px);
+    font-size: clamp(15px, 2vw, 19px);
     line-height: 1.45;
-    color: rgba(11, 12, 16, 0.64);
+    max-width: 34rem;
+    color: rgba(11, 12, 16, 0.62);
   }
 
-  .imageSlide img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
+  .slideActions {
+    margin-top: 18px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
   }
 
-  .imageShade {
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.2)),
-      linear-gradient(0deg, rgba(0, 0, 0, 0.34), rgba(0, 0, 0, 0.02) 45%);
-    pointer-events: none;
+  .slideBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 0 20px;
+    border-radius: 999px;
+    font-weight: 760;
+    font-size: 15px;
+    letter-spacing: 0.1px;
+    transition:
+      transform 0.18s ease,
+      background 0.18s ease,
+      border-color 0.18s ease,
+      color 0.18s ease;
   }
 
-  .imageBadge {
-    position: absolute;
-    left: clamp(18px, 3vw, 26px);
-    bottom: clamp(18px, 3vw, 26px);
-    z-index: 1;
+  .slideBtn:hover {
+    transform: translateY(-1px);
+  }
+
+  .btnIcon {
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .heroSlide[data-tone="light"] .slideBtnPrimary {
+    background: #0b0c10;
+    color: #ffffff;
+    border: 1px solid transparent;
+  }
+
+  .heroSlide[data-tone="light"] .slideBtnPrimary:hover {
+    background: #000000;
+  }
+
+  .heroSlide[data-tone="light"] .slideBtnSecondary {
+    background: rgba(255, 255, 255, 0.88);
+    color: #0b0c10;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  .heroSlide[data-tone="light"] .slideBtnSecondary:hover {
+    background: rgba(255, 255, 255, 1);
+  }
+
+  .heroSlide[data-tone="dark"] .slideBtnPrimary {
+    background: #ffffff;
+    color: #0b0c10;
+    border: 1px solid transparent;
+  }
+
+  .heroSlide[data-tone="dark"] .slideBtnPrimary:hover {
+    background: rgba(255, 255, 255, 0.92);
+  }
+
+  .heroSlide[data-tone="dark"] .slideBtnSecondary {
+    background: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    backdrop-filter: blur(10px);
+  }
+
+  .heroSlide[data-tone="dark"] .slideBtnSecondary:hover {
+    background: rgba(255, 255, 255, 0.18);
   }
 
   .heroDots {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 18px;
+    z-index: 3;
     display: flex;
-    justify-content: center;
     align-items: center;
     gap: 10px;
-    padding-top: 16px;
   }
 
   .heroDot {
@@ -292,47 +501,117 @@ const slides = [
     height: 9px;
     border: 0;
     border-radius: 999px;
-    background: rgba(11, 12, 16, 0.18);
     padding: 0;
     cursor: pointer;
+    background: rgba(255, 255, 255, 0.42);
     transition:
-      transform 0.2s ease,
+      width 0.2s ease,
       background 0.2s ease,
-      width 0.2s ease;
-  }
-
-  .heroDot.is-active {
-    width: 24px;
-    background: #0b0c10;
+      transform 0.2s ease;
   }
 
   .heroDot:hover {
     transform: scale(1.08);
   }
 
+  .heroDot.is-active {
+    width: 24px;
+    background: rgba(255, 255, 255, 0.94);
+  }
+
+  @media (max-width: 920px) {
+    .heroViewport {
+      min-height: clamp(420px, 72vw, 620px);
+    }
+
+    .slideInner.is-message {
+      max-width: 78%;
+    }
+
+    .messageWordmark {
+      right: -10%;
+      bottom: -2%;
+    }
+  }
+
   @media (max-width: 720px) {
     .heroViewport {
-      aspect-ratio: 4 / 5;
-      min-height: 420px;
+      min-height: 78svh;
       border-radius: 24px;
     }
 
-    .messageContent {
-      justify-content: flex-end;
-      padding: 22px;
+    .messageSplit {
+      grid-template-columns: 1fr;
     }
 
-    .messageContent h1 {
-      max-width: 10ch;
+    .messagePanelRight {
+      display: none;
+    }
+
+    .slideInner.is-message,
+    .slideInner.is-image {
+      max-width: 100%;
+    }
+
+    .slideTitle {
+      max-width: 9ch;
+      font-size: clamp(42px, 14vw, 68px);
+    }
+
+    .slideSubtitle {
+      max-width: 30rem;
+    }
+
+    .slideActions {
+      width: 100%;
+      gap: 10px;
+    }
+
+    .slideBtn {
+      min-height: 50px;
+      padding: 0 18px;
+      font-size: 14px;
+    }
+
+    .messageWordmark {
+      right: -18%;
+      bottom: -1%;
+      font-size: clamp(120px, 34vw, 220px);
     }
 
     .heroDots {
-      padding-top: 14px;
+      bottom: 14px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .heroViewport {
+      min-height: 74svh;
+      border-radius: 22px;
+    }
+
+    .slideInner {
+      padding: 20px;
+    }
+
+    .slideActions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .slideBtn {
+      width: 100%;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .heroSlide,
+    .imageStage img,
+    .messageWordmark,
+    .slideEyebrow,
+    .slideTitle,
+    .slideSubtitle,
+    .slideActions,
     .heroDot {
       transition: none;
     }
