@@ -375,9 +375,9 @@ const slides = [
     width: 100%;
     min-height: var(--hero-screen-height);
     padding:
-      clamp(78px, 8vw, 110px)
+      clamp(64px, 7vw, 92px)
       clamp(32px, 4vw, 64px)
-      clamp(108px, 11vw, 136px)
+      clamp(132px, 12vw, 162px)
       clamp(32px, 4vw, 64px);
     background: #f7f7f7;
     overflow: hidden;
@@ -389,7 +389,7 @@ const slides = [
     column-gap: 18px;
     min-width: 0;
     align-self: center;
-    transform: translateY(-18px);
+    transform: translateY(-34px);
   }
 
   .homeHeroBanner__icon {
@@ -533,7 +533,7 @@ const slides = [
     gap: var(--cube-gap);
     padding: 0;
     margin: 0;
-    transform: translate(-24px, -56px);
+    transform: translate(-24px, -118px);
   }
 
   .homeHeroBanner__row {
@@ -571,7 +571,7 @@ const slides = [
   .homeHeroBanner__variantCard[data-stack-style="fullBlock"] .homeHeroBanner__stack,
   .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__stack,
   .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__stack {
-    transform: translate(-24px, -56px);
+    transform: translate(-24px, -118px);
   }
 
   .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__text {
@@ -585,7 +585,7 @@ const slides = [
   .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__stack {
     order: 1;
     justify-self: start;
-    transform: translate(0, -56px);
+    transform: translate(0, -118px);
   }
 
   .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__copy {
@@ -651,12 +651,13 @@ const slides = [
     .homeHeroBanner__variantCard {
       grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
       gap: 22px;
-      padding-bottom: clamp(118px, 12vw, 146px);
+      padding-top: clamp(58px, 6vw, 84px);
+      padding-bottom: clamp(126px, 12vw, 152px);
     }
 
     .homeHeroBanner__copy {
       grid-template-columns: 72px minmax(0, 1fr);
-      transform: translateY(-10px);
+      transform: translateY(-20px);
     }
 
     .homeHeroBanner__title {
@@ -667,13 +668,13 @@ const slides = [
       --cube-size: 68px;
       --cube-gap: 10px;
       max-width: min(100%, 360px);
-      transform: translate(-16px, -36px);
+      transform: translate(-16px, -84px);
     }
 
     .homeHeroBanner__variantCard[data-stack-style="fullBlock"] .homeHeroBanner__stack,
     .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__stack,
     .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__stack {
-      transform: translate(-16px, -36px);
+      transform: translate(-16px, -84px);
     }
   }
 
@@ -695,35 +696,41 @@ const slides = [
     .homeHeroBanner__variantCard[data-stack-style="leftRise"] {
       grid-template-columns: 1fr;
       align-items: start;
-      gap: 10px;
+      gap: 8px;
       min-height: var(--hero-screen-height);
       padding:
-        clamp(74px, 10vw, 96px)
+        clamp(56px, 8vw, 74px)
         clamp(18px, 5vw, 24px)
-        clamp(132px, 15vw, 156px);
+        clamp(148px, 17vw, 180px);
     }
 
     .homeHeroBanner__copy,
     .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__copy {
       order: 1;
       width: 100%;
-      justify-self: stretch;
-      grid-template-columns: 60px minmax(0, 1fr);
+      justify-self: center;
+      justify-items: center;
+      grid-template-columns: 1fr;
+      row-gap: 14px;
       transform: translateY(0);
+    }
+
+    .homeHeroBanner__icon {
+      margin-top: 0;
     }
 
     .homeHeroBanner__text,
     .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__text,
     .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__text {
       max-width: 100%;
-      align-items: flex-start;
-      text-align: left;
+      align-items: center;
+      text-align: center;
     }
 
     .homeHeroBanner__title {
       font-size: clamp(34px, 7vw, 56px);
       letter-spacing: -0.05em;
-      max-width: 9.5ch;
+      max-width: none;
     }
 
     .homeHeroBanner__subtitle {
@@ -734,22 +741,23 @@ const slides = [
 
     .homeHeroBanner__actions {
       margin-top: 20px;
+      justify-content: center;
     }
 
     .homeHeroBanner__stack,
     .homeHeroBanner__variantCard[data-stack-style="fullBlock"] .homeHeroBanner__stack,
     .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__stack,
     .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__stack {
-      --cube-size: 56px;
+      --cube-size: 54px;
       --cube-gap: 8px;
       order: 2;
       width: fit-content;
-      max-width: min(100%, 284px);
+      max-width: min(100%, 272px);
       align-items: center;
       justify-self: center;
       padding: 0;
-      margin: 28px auto 0;
-      transform: translateY(-8px);
+      margin: 10px auto 0;
+      transform: translateY(-54px);
     }
 
     .homeHeroBanner__row,
@@ -789,27 +797,25 @@ const slides = [
     }
 
     .homeHeroBanner__variantCard {
-      gap: 8px;
+      gap: 6px;
       padding:
-        68px
+        52px
         16px
-        128px;
+        146px;
     }
 
     .homeHeroBanner__copy {
-      grid-template-columns: 50px minmax(0, 1fr);
-      column-gap: 12px;
+      row-gap: 12px;
     }
 
     .homeHeroBanner__icon {
       width: 44px;
       height: 44px;
-      margin-top: 0;
     }
 
     .homeHeroBanner__title {
-      font-size: 27px;
-      line-height: 1.03;
+      font-size: 25px;
+      line-height: 1.02;
       max-width: none;
       white-space: nowrap;
       letter-spacing: -0.045em;
@@ -817,7 +823,7 @@ const slides = [
 
     .homeHeroBanner__subtitle {
       margin-top: 10px;
-      max-width: 12ch;
+      max-width: 15ch;
       font-size: 15px;
       line-height: 1.34;
     }
@@ -840,15 +846,15 @@ const slides = [
     .homeHeroBanner__variantCard[data-stack-style="fullBlock"] .homeHeroBanner__stack,
     .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__stack,
     .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__stack {
-      --cube-size: 46px;
+      --cube-size: 44px;
       --cube-gap: 6px;
-      max-width: 236px;
-      margin-top: 34px;
-      transform: translateY(-20px);
+      max-width: 224px;
+      margin-top: 2px;
+      transform: translateY(-84px);
     }
 
     .homeHeroBanner__cube {
-      border-radius: 16px;
+      border-radius: 15px;
     }
 
     .homeHeroBanner__cube img {
