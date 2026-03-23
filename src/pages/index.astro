@@ -20,9 +20,16 @@ const appStoreUrl = "#";
         --text:#0b0c10;
         --muted:rgba(11,12,16,.62);
         --main:#6C2BD9;
+
         --max:1120px;
+        --heroMax: 1600px;
+        --edge: clamp(10px, 1.4vw, 18px);
         --pad: clamp(18px, 5vw, 22px);
+
         --rXL: 28px;
+        --rCard: clamp(18px, 2vw, 26px);
+        --tileGap: clamp(10px, 1.2vw, 16px);
+
         --ease: cubic-bezier(.2,.8,.2,1);
         --topbarH: 64px;
       }
@@ -44,7 +51,11 @@ const appStoreUrl = "#";
         text-rendering: optimizeLegibility;
       }
 
-      a{ color:inherit; text-decoration:none; }
+      a{
+        color:inherit;
+        text-decoration:none;
+      }
+
       a:focus-visible{
         outline: 3px solid rgba(0,0,0,.18);
         outline-offset: 3px;
@@ -58,6 +69,7 @@ const appStoreUrl = "#";
         z-index: 50;
         background: rgba(255,255,255,.96);
         border-bottom: 1px solid rgba(0,0,0,.06);
+        backdrop-filter: saturate(180%) blur(16px);
       }
 
       .topbarInner{
@@ -135,6 +147,13 @@ const appStoreUrl = "#";
         padding: 0 var(--pad);
       }
 
+      .edgeWrap{
+        width: 100%;
+        max-width: var(--heroMax);
+        margin: 0 auto;
+        padding: 0 var(--edge);
+      }
+
       /* ===== HERO ===== */
       .hero{
         background: #fff;
@@ -157,9 +176,9 @@ const appStoreUrl = "#";
         margin:0;
       }
 
-      /* ===== Sections ===== */
+      /* ===== Shared sections ===== */
       .section{
-        padding: 54px 0;
+        padding: 60px 0;
         background:#fff;
       }
 
@@ -186,54 +205,55 @@ const appStoreUrl = "#";
         max-width: 60ch;
       }
 
-      .tiles{
-        display:flex;
-        gap: 16px;
-        overflow-x: auto;
-        padding-bottom: 6px;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
+      /* ===== Apple-style feature band ===== */
+      .featureBand{
+        background:#fff;
+        padding: 10px 0 0;
       }
 
-      .tiles::-webkit-scrollbar{ height: 10px; }
-      .tiles::-webkit-scrollbar-thumb{
-        background: rgba(0,0,0,.08);
-        border-radius: 999px;
-      }
-      .tiles::-webkit-scrollbar-track{
-        background: rgba(0,0,0,.02);
-        border-radius: 999px;
+      .featureGrid{
+        display:grid;
+        grid-template-columns: 1fr;
+        gap: var(--tileGap);
       }
 
-      .tile{
-        flex: 0 0 auto;
-        width: min(520px, 88vw);
-        height: 400px;
-        border-radius: var(--rXL);
+      .featureTile{
         position: relative;
         overflow:hidden;
-        scroll-snap-align: start;
-        background: #fff;
+        border-radius: var(--rCard);
         border: 1px solid rgba(0,0,0,.08);
+        background-color:#fff;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         isolation: isolate;
+        min-height: 360px;
+        aspect-ratio: 1 / 1;
+        transition:
+          transform .28s var(--ease),
+          box-shadow .28s var(--ease),
+          border-color .28s var(--ease);
       }
 
-      .tiles .tile:nth-child(1){
+      .featureTile:hover{
+        transform: translateY(-2px);
+        box-shadow: 0 18px 40px rgba(0,0,0,.08);
+        border-color: rgba(0,0,0,.12);
+      }
+
+      .featureGrid .featureTile:nth-child(1){
         background-image: url("/webimageone.png");
       }
 
-      .tiles .tile:nth-child(2){
+      .featureGrid .featureTile:nth-child(2){
         background-image: url("/webimagetwo.png");
       }
 
-      .tiles .tile:nth-child(3){
+      .featureGrid .featureTile:nth-child(3){
         background-image: url("/webimageone.png");
       }
 
-      .tile::after{
+      .featureTile::after{
         content:"";
         position:absolute;
         inset:0;
@@ -241,63 +261,91 @@ const appStoreUrl = "#";
         background:
           linear-gradient(
             180deg,
-            rgba(255,255,255,.26) 0%,
-            rgba(255,255,255,.12) 28%,
-            rgba(255,255,255,.80) 72%,
+            rgba(255,255,255,.18) 0%,
+            rgba(255,255,255,.12) 24%,
+            rgba(255,255,255,.72) 68%,
             rgba(255,255,255,.92) 100%
           );
       }
 
-      .tileText{
+      .featureTileText{
         position:absolute;
-        inset: 0;
-        padding: 24px;
+        inset:0;
+        z-index:1;
+        padding: clamp(22px, 2vw, 28px);
         display:flex;
         flex-direction:column;
         justify-content:space-between;
-        z-index:1;
       }
 
-      .tileKicker{
+      .featureTileKicker{
         font-size: 13px;
         font-weight: 780;
-        color: rgba(11,12,16,.66);
+        color: rgba(11,12,16,.64);
         letter-spacing: .15px;
       }
 
-      .tileTitle{
-        margin: 8px 0 0;
-        font-size: 28px;
-        letter-spacing: -0.7px;
-        line-height: 1.05;
-      }
-
-      .tileSub{
+      .featureTileTitle{
         margin: 10px 0 0;
-        color: rgba(11,12,16,.68);
-        font-size: 15px;
-        line-height: 1.35;
-        max-width: 44ch;
+        font-size: clamp(28px, 2.3vw, 38px);
+        letter-spacing: -.9px;
+        line-height: 1.02;
+        max-width: 12ch;
       }
 
-      .tileCta{
+      .featureTileSub{
+        margin: 12px 0 0;
+        color: rgba(11,12,16,.70);
+        font-size: 15px;
+        line-height: 1.4;
+        max-width: 32ch;
+      }
+
+      .featureTileCta{
         display:inline-flex;
         align-items:center;
         gap:10px;
         font-weight: 800;
         font-size: 14px;
         letter-spacing: .1px;
-        color: rgba(11,12,16,.86);
+        color: rgba(11,12,16,.88);
       }
 
-      .tileCta svg{
+      .featureTileCta svg{
         width:16px;
         height:16px;
         stroke: currentColor;
         stroke-width:2.2;
         fill:none;
+        stroke-linecap:round;
+        stroke-linejoin:round;
       }
 
+      @media (min-width: 760px){
+        .featureGrid{
+          grid-template-columns: repeat(2, minmax(0,1fr));
+        }
+
+        .featureGrid .featureTile:nth-child(3){
+          grid-column: 1 / -1;
+          aspect-ratio: 2.08 / 1;
+          min-height: 340px;
+        }
+      }
+
+      @media (min-width: 1080px){
+        .featureGrid{
+          grid-template-columns: repeat(3, minmax(0,1fr));
+        }
+
+        .featureGrid .featureTile:nth-child(3){
+          grid-column: auto;
+          aspect-ratio: 1 / 1;
+          min-height: 360px;
+        }
+      }
+
+      /* ===== Secondary split section ===== */
       .split{
         display:grid;
         gap: 22px;
@@ -385,8 +433,29 @@ const appStoreUrl = "#";
       .links a{ color: rgba(11,12,16,.62); }
       .links a:hover{ color: rgba(11,12,16,.90); }
 
+      @media (max-width: 759px){
+        .featureBand{
+          padding-top: 8px;
+        }
+
+        .featureTile{
+          aspect-ratio: 5 / 4;
+          min-height: 320px;
+        }
+
+        .featureTileTitle{
+          max-width: 14ch;
+        }
+      }
+
       @media (max-width: 560px){
-        .tile{ height: 360px; }
+        .section{
+          padding: 52px 0;
+        }
+
+        .featureTile{
+          min-height: 300px;
+        }
       }
     </style>
   </head>
@@ -426,47 +495,62 @@ const appStoreUrl = "#";
       </div>
     </section>
 
-    <section class="section" aria-label="Explore">
-      <div class="wrap">
-        <div class="tiles" aria-label="Feature tiles">
-          <a class="tile" href="/how-it-works/" aria-label="Clarity tile">
-            <div class="tileText">
+    <section class="featureBand" aria-label="Explore">
+      <div class="edgeWrap">
+        <div class="featureGrid" aria-label="Feature tiles">
+          <a class="featureTile" href="/how-it-works/" aria-label="Clarity tile">
+            <div class="featureTileText">
               <div>
-                <div class="tileKicker">Clarity</div>
-                <div class="tileTitle">A checklist that stays clean.</div>
-                <div class="tileSub">Materials, info, and goals — so everyone knows what “done” means.</div>
+                <div class="featureTileKicker">Clarity</div>
+                <div class="featureTileTitle">A checklist that stays clean.</div>
+                <div class="featureTileSub">
+                  Materials, info, and goals — so everyone knows what “done” means.
+                </div>
               </div>
-              <div class="tileCta">
+
+              <div class="featureTileCta">
                 Explore how it works
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M9 18l6-6-6-6"/>
+                </svg>
               </div>
             </div>
           </a>
 
-          <a class="tile" href="/how-it-works/" aria-label="LiveTime tile">
-            <div class="tileText">
+          <a class="featureTile" href="/how-it-works/" aria-label="LiveTime tile">
+            <div class="featureTileText">
               <div>
-                <div class="tileKicker">LiveTime</div>
-                <div class="tileTitle">Proof where it belongs.</div>
-                <div class="tileSub">Photos, files, and updates inside each step — not buried in long threads.</div>
+                <div class="featureTileKicker">LiveTime</div>
+                <div class="featureTileTitle">Proof where it belongs.</div>
+                <div class="featureTileSub">
+                  Photos, files, and updates inside each step — not buried in long threads.
+                </div>
               </div>
-              <div class="tileCta">
+
+              <div class="featureTileCta">
                 See the flow
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M9 18l6-6-6-6"/>
+                </svg>
               </div>
             </div>
           </a>
 
-          <a class="tile" href="/info/" aria-label="Momentum tile">
-            <div class="tileText">
+          <a class="featureTile" href="/info/" aria-label="Momentum tile">
+            <div class="featureTileText">
               <div>
-                <div class="tileKicker">Momentum</div>
-                <div class="tileTitle">Fast, real, and human.</div>
-                <div class="tileSub">Connect, collaborate, exchange, and move forward — without friction.</div>
+                <div class="featureTileKicker">Momentum</div>
+                <div class="featureTileTitle">Fast, real, and human.</div>
+                <div class="featureTileSub">
+                  Connect, collaborate, exchange, and move forward — without friction.
+                </div>
               </div>
-              <div class="tileCta">
+
+              <div class="featureTileCta">
                 Learn more
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M9 18l6-6-6-6"/>
+                </svg>
               </div>
             </div>
           </a>
