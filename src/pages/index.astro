@@ -28,7 +28,14 @@ const appStoreUrl = "#";
       }
 
       *{ box-sizing:border-box; }
-      html,body{ margin:0; padding:0; background: var(--bg); }
+
+      html,body{
+        margin:0;
+        padding:0;
+        background: var(--bg);
+        overflow-x:hidden;
+      }
+
       body{
         font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
         color: var(--text);
@@ -52,6 +59,7 @@ const appStoreUrl = "#";
         background: rgba(255,255,255,.96);
         border-bottom: 1px solid rgba(0,0,0,.06);
       }
+
       .topbarInner{
         max-width: var(--max);
         margin: 0 auto;
@@ -61,12 +69,14 @@ const appStoreUrl = "#";
         justify-content:space-between;
         gap: 14px;
       }
+
       .brand{
         display:flex;
         align-items:center;
         gap:10px;
         min-height:44px;
       }
+
       .mascot{
         width:26px;
         height:26px;
@@ -80,6 +90,7 @@ const appStoreUrl = "#";
         align-items:center;
         gap: 10px;
       }
+
       .navBtn{
         width:42px;
         height:42px;
@@ -89,14 +100,17 @@ const appStoreUrl = "#";
         color: rgba(11,12,16,.72);
         transition: background .18s var(--ease), color .18s var(--ease);
       }
+
       .navBtn:hover{
         background: rgba(0,0,0,.05);
         color: rgba(11,12,16,.92);
       }
+
       .navBtn.active{
         background: rgba(0,0,0,.08);
         color: rgba(11,12,16,.96);
       }
+
       .navBtn svg{
         width:18px;
         height:18px;
@@ -106,6 +120,7 @@ const appStoreUrl = "#";
         stroke-linecap:round;
         stroke-linejoin:round;
       }
+
       .navIcon{
         width:18px;
         height:18px;
@@ -130,19 +145,19 @@ const appStoreUrl = "#";
       }
 
       .heroInner{
-        width: 100%;
-        max-width: none;
-        padding: 0;
+        width:100%;
+        max-width:none;
+        padding:0;
         display:block;
       }
 
       .heroBannerWrap{
-        width: 100%;
-        max-width: none;
-        margin: 0;
+        width:100%;
+        max-width:none;
+        margin:0;
       }
 
-      /* ===== Sections: white, minimal ===== */
+      /* ===== Sections ===== */
       .section{
         padding: 54px 0;
         background:#fff;
@@ -155,12 +170,14 @@ const appStoreUrl = "#";
         gap: 14px;
         margin-bottom: 16px;
       }
+
       .sectionTitle{
         margin:0;
         font-size: clamp(22px, 2.2vw, 30px);
         letter-spacing:-.6px;
         line-height:1.08;
       }
+
       .sectionNote{
         margin:0;
         color: var(--muted);
@@ -177,9 +194,16 @@ const appStoreUrl = "#";
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
       }
+
       .tiles::-webkit-scrollbar{ height: 10px; }
-      .tiles::-webkit-scrollbar-thumb{ background: rgba(0,0,0,.08); border-radius: 999px; }
-      .tiles::-webkit-scrollbar-track{ background: rgba(0,0,0,.02); border-radius: 999px; }
+      .tiles::-webkit-scrollbar-thumb{
+        background: rgba(0,0,0,.08);
+        border-radius: 999px;
+      }
+      .tiles::-webkit-scrollbar-track{
+        background: rgba(0,0,0,.02);
+        border-radius: 999px;
+      }
 
       .tile{
         flex: 0 0 auto;
@@ -200,9 +224,11 @@ const appStoreUrl = "#";
       .tiles .tile:nth-child(1){
         background-image: url("/webimageone.png");
       }
+
       .tiles .tile:nth-child(2){
         background-image: url("/webimagetwo.png");
       }
+
       .tiles .tile:nth-child(3){
         background-image: url("/webimageone.png");
       }
@@ -231,18 +257,21 @@ const appStoreUrl = "#";
         justify-content:space-between;
         z-index:1;
       }
+
       .tileKicker{
         font-size: 13px;
         font-weight: 780;
         color: rgba(11,12,16,.66);
         letter-spacing: .15px;
       }
+
       .tileTitle{
         margin: 8px 0 0;
         font-size: 28px;
         letter-spacing: -0.7px;
         line-height: 1.05;
       }
+
       .tileSub{
         margin: 10px 0 0;
         color: rgba(11,12,16,.68);
@@ -250,6 +279,7 @@ const appStoreUrl = "#";
         line-height: 1.35;
         max-width: 44ch;
       }
+
       .tileCta{
         display:inline-flex;
         align-items:center;
@@ -259,6 +289,7 @@ const appStoreUrl = "#";
         letter-spacing: .1px;
         color: rgba(11,12,16,.86);
       }
+
       .tileCta svg{
         width:16px;
         height:16px;
@@ -272,6 +303,7 @@ const appStoreUrl = "#";
         gap: 22px;
         align-items:start;
       }
+
       @media (min-width: 980px){
         .split{ grid-template-columns: 1.1fr .9fr; }
       }
@@ -282,6 +314,7 @@ const appStoreUrl = "#";
         letter-spacing: -1px;
         line-height: 1.05;
       }
+
       .bigSub{
         margin: 12px 0 0;
         color: rgba(11,12,16,.68);
@@ -307,17 +340,21 @@ const appStoreUrl = "#";
         gap: 18px;
         margin-top: 18px;
       }
+
       @media (min-width: 900px){
         .miniGrid{ grid-template-columns: repeat(3, minmax(0,1fr)); }
       }
+
       .mini{
         padding: 10px 2px;
       }
+
       .mini h3{
         margin: 0;
         font-size: 15px;
         letter-spacing: -.2px;
       }
+
       .mini p{
         margin: 10px 0 0;
         color: var(--muted);
@@ -338,11 +375,13 @@ const appStoreUrl = "#";
         flex-wrap: wrap;
         background:#fff;
       }
+
       .links{
         display:flex;
         gap: 14px;
         flex-wrap: wrap;
       }
+
       .links a{ color: rgba(11,12,16,.62); }
       .links a:hover{ color: rgba(11,12,16,.90); }
 
