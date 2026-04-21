@@ -1,4 +1,4 @@
----
+ ---
 import { categoryMeta } from "../data/categoryMeta";
 import { bannerVariants } from "../data/bannerVariants";
 
@@ -99,7 +99,7 @@ const slides = [
                     <div class="homeHeroBanner__actions">
                       <a class="homeHeroBanner__actionBtn is-primary" href={appStoreUrl}>
                         <span aria-hidden="true">←</span>
-                        <span>Download Now</span>
+                        <span>Download</span>
                       </a>
 
                       <a class="homeHeroBanner__actionBtn is-secondary" href="/how-it-works/">
@@ -159,7 +159,7 @@ const slides = [
                   <div class="homeHeroBanner__actions homeHeroBanner__actions--dark">
                     <a class="homeHeroBanner__actionBtn is-primary" href={appStoreUrl}>
                       <span aria-hidden="true">←</span>
-                      <span>Download Now</span>
+                      <span>Download</span>
                     </a>
 
                     <a class="homeHeroBanner__actionBtn is-secondary" href="/how-it-works/">
@@ -691,20 +691,14 @@ const slides = [
     .homeHeroBanner__variantCard[data-stack-style="playfulRows"] {
       width: min(100%, 1260px);
       margin: 0 auto;
-      min-height: var(--hero-screen-height);
       grid-template-columns: minmax(540px, 640px) minmax(320px, 400px);
       justify-content: center;
-      align-items: start;
       column-gap: clamp(44px, 5vw, 76px);
-      padding-top: clamp(36px, 4vw, 56px);
-      padding-bottom: clamp(88px, 9vw, 118px);
     }
 
     .homeHeroBanner__copy {
       width: min(100%, 700px);
       justify-self: center;
-      align-self: start;
-      transform: translateY(0);
     }
 
     .homeHeroBanner__text {
@@ -714,33 +708,25 @@ const slides = [
     .homeHeroBanner__stack,
     .homeHeroBanner__variantCard[data-stack-style="fullBlock"] .homeHeroBanner__stack,
     .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__stack {
-      align-self: start;
       justify-self: center;
-      transform: translate(0, 6px);
+      transform: translate(0, -104px);
     }
 
     .homeHeroBanner__variantCard[data-stack-style="leftRise"] {
       width: min(100%, 1260px);
       margin: 0 auto;
-      min-height: var(--hero-screen-height);
       grid-template-columns: minmax(320px, 400px) minmax(540px, 640px);
       justify-content: center;
-      align-items: start;
       column-gap: clamp(44px, 5vw, 76px);
-      padding-top: clamp(36px, 4vw, 56px);
-      padding-bottom: clamp(88px, 9vw, 118px);
     }
 
     .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__stack {
       justify-self: center;
-      align-self: start;
-      transform: translate(0, 6px);
+      transform: translate(0, -104px);
     }
 
     .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__copy {
       justify-self: center;
-      align-self: start;
-      transform: translateY(0);
     }
   }
 
