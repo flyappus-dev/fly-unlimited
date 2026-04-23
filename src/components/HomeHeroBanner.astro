@@ -1,8 +1,10 @@
- ---
+---
 import { categoryMeta } from "../data/categoryMeta";
 import { bannerVariants } from "../data/bannerVariants";
 
-const { appStoreUrl = "#" } = Astro.props;
+const {
+  appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880",
+} = Astro.props;
 
 const componentId = `home-hero-${Math.random().toString(36).slice(2, 10)}`;
 
