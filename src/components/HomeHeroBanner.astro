@@ -30,6 +30,9 @@ const slides = [
     alt: "Black and white home banner photo 1",
     logoSrc: "/logo-alt.png",
     subtitle: "Time to FLY",
+    focusDesktop: "50% 50%",
+    focusTablet: "72% 50%",
+    focusMobile: "84% 50%",
   },
   {
     type: "photo",
@@ -38,6 +41,9 @@ const slides = [
     alt: "Black and white home banner photo 2",
     logoSrc: "/logo-alt.png",
     subtitle: "Time to FLY",
+    focusDesktop: "50% 50%",
+    focusTablet: "50% 50%",
+    focusMobile: "50% 50%",
   },
   {
     type: "variant",
@@ -146,7 +152,10 @@ const slides = [
               </div>
             </div>
           ) : (
-            <div class="homeHeroBanner__photoFrame">
+            <div
+              class="homeHeroBanner__photoFrame"
+              style={`--photo-focus-desktop:${slide.focusDesktop ?? "50% 50%"}; --photo-focus-tablet:${slide.focusTablet ?? slide.focusDesktop ?? "50% 50%"}; --photo-focus-mobile:${slide.focusMobile ?? slide.focusTablet ?? slide.focusDesktop ?? "50% 50%"};`}
+            >
               <img
                 class="homeHeroBanner__photo"
                 src={slide.src}
@@ -331,7 +340,7 @@ const slides = [
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center center;
+    object-position: var(--photo-focus-desktop, 50% 50%);
     display: block;
   }
 
@@ -750,6 +759,10 @@ const slides = [
   }
 
   @media (max-width: 860px) {
+    .homeHeroBanner__photo {
+      object-position: var(--photo-focus-tablet, var(--photo-focus-desktop, 50% 50%));
+    }
+
     .homeHeroBanner__photoOverlay {
       padding:
         84px
@@ -847,6 +860,13 @@ const slides = [
   }
 
   @media (max-width: 560px) {
+    .homeHeroBanner__photo {
+      object-position: var(
+        --photo-focus-mobile,
+        var(--photo-focus-tablet, var(--photo-focus-desktop, 50% 50%))
+      );
+    }
+
     .homeHeroBanner__photoOverlay {
       padding:
         88px
