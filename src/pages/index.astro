@@ -1,951 +1,472 @@
 ---
-import { categoryMeta } from "../data/categoryMeta";
-import { bannerVariants } from "../data/bannerVariants";
+import HomeHeroBanner from "../components/HomeHeroBanner.astro";
 
-const DEFAULT_APP_STORE_URL = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
-
-const { appStoreUrl } = Astro.props;
-
-const resolvedAppStoreUrl =
-  typeof appStoreUrl === "string" &&
-  appStoreUrl.trim().length > 0 &&
-  appStoreUrl.trim() !== "#"
-    ? appStoreUrl.trim()
-    : DEFAULT_APP_STORE_URL;
-
-const componentId = `home-hero-${Math.random().toString(36).slice(2, 10)}`;
-
-const heroVariant =
-  bannerVariants.find((variant) =>
-    /it.?s time to fly/i.test(`${variant.title ?? ""} ${variant.subtitle ?? ""}`)
-  ) ?? bannerVariants[0];
-
-const heroHasLogo = Boolean(heroVariant.logoAsset);
-
-const slides = [
-  {
-    type: "photo",
-    tone: "dark",
-    src: "/home-banner-photo-1.png",
-    alt: "Black and white home banner photo 1",
-    logoSrc: "/logo-alt.png",
-    subtitle: "Time to FLY",
-    focusDesktop: "50% 50%",
-    focusTablet: "72% 50%",
-    focusMobile: "84% 50%",
-  },
-  {
-    type: "photo",
-    tone: "dark",
-    src: "/home-banner-photo-3.png",
-    alt: "Black and white home banner photo 2",
-    logoSrc: "/logo-alt.png",
-    subtitle: "Time to FLY",
-    focusDesktop: "50% 50%",
-    focusTablet: "50% 50%",
-    focusMobile: "50% 50%",
-  },
-  {
-    type: "variant",
-    tone: "light",
-    variant: heroVariant,
-  },
-];
+const siteName = "FLY Unlimited";
+const contactEmail = "hello@fly-unlimited.com";
+const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
 ---
 
-<section class="homeHeroBanner" id={componentId} aria-label="Home hero banner">
-  <div class="homeHeroBanner__shell">
-    <div class="homeHeroBanner__viewport">
-      {slides.map((slide, slideIndex) => (
-        <article
-          class:list={[
-            "homeHeroBanner__slide",
-            slideIndex === 0 && "is-active",
-          ]}
-          data-slide
-          data-tone={slide.tone}
-          aria-hidden={slideIndex === 0 ? "false" : "true"}
-        >
-          {slide.type === "variant" ? (
-            <div class="homeHeroBanner__variantFrame">
-              <div
-                class="homeHeroBanner__variantCard"
-                data-stack-style={slide.variant.stackStyle}
-                data-has-logo={heroHasLogo ? "true" : "false"}
-              >
-                <div class="homeHeroBanner__copy">
-                  <div class="homeHeroBanner__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24">
-                      <path d="M12 2.8l1.7 5.8 5.5 1.7-5.5 1.7-1.7 5.8-1.7-5.8-5.5-1.7 5.5-1.7L12 2.8z"></path>
-                    </svg>
-                  </div>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{siteName}</title>
+    <meta name="description" content="It's Time to FLY." />
 
-                  <div class="homeHeroBanner__text">
-                    <div class="homeHeroBanner__headlineRow">
-                      <h1 class="homeHeroBanner__title">{slide.variant.title}</h1>
+    <style>
+      :root{
+        --bg:#ffffff;
+        --text:#0b0c10;
+        --muted:rgba(11,12,16,.62);
+        --main:#6C2BD9;
 
-                      <div
-                        class:list={[
-                          "homeHeroBanner__logoWrap",
-                          !heroHasLogo && "is-hidden",
-                        ]}
-                      >
-                        {slide.variant.logoAsset && (
-                          <img
-                            class="homeHeroBanner__logo"
-                            src={slide.variant.logoAsset}
-                            alt={slide.variant.logoAlt ?? "FLY logo"}
-                            loading="eager"
-                            decoding="async"
-                          />
-                        )}
-                      </div>
-                    </div>
+        --max:1120px;
+        --pad: clamp(18px, 5vw, 22px);
+        --featureGap: clamp(4px, 0.45vw, 8px);
 
-                    <p
-                      class:list={[
-                        "homeHeroBanner__subtitle",
-                        !slide.variant.subtitle && "is-hidden",
-                      ]}
-                    >
-                      {slide.variant.subtitle}
-                    </p>
-
-                    <div class="homeHeroBanner__actions">
-                      <a
-                        class="homeHeroBanner__actionBtn is-primary"
-                        href={resolvedAppStoreUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <span aria-hidden="true">←</span>
-                        <span>Download</span>
-                      </a>
-
-                      <a class="homeHeroBanner__actionBtn is-secondary" href="/how-it-works/">
-                        <span aria-hidden="true">↯</span>
-                        <span>Learn More</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="homeHeroBanner__stack" aria-hidden="true">
-                  {slide.variant.rows.map((row, rowIndex) => (
-                    <div class="homeHeroBanner__row">
-                      {row.map((key, colIndex) => (
-                        <div
-                          class="homeHeroBanner__cube"
-                          style={`--cube-color:${categoryMeta[key].color}; --delay:${rowIndex * 110 + colIndex * 46}ms;`}
-                        >
-                          <img
-                            src={categoryMeta[key].icon}
-                            alt=""
-                            loading="eager"
-                            decoding="async"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div
-              class="homeHeroBanner__photoFrame"
-              style={`--photo-focus-desktop:${slide.focusDesktop ?? "50% 50%"}; --photo-focus-tablet:${slide.focusTablet ?? slide.focusDesktop ?? "50% 50%"}; --photo-focus-mobile:${slide.focusMobile ?? slide.focusTablet ?? slide.focusDesktop ?? "50% 50%"};`}
-            >
-              <img
-                class="homeHeroBanner__photo"
-                src={slide.src}
-                alt={slide.alt}
-                loading="eager"
-                decoding="async"
-              />
-              <div class="homeHeroBanner__photoShade"></div>
-
-              <div class="homeHeroBanner__photoOverlay">
-                <div class="homeHeroBanner__photoContent">
-                  {slide.logoSrc && (
-                    <img
-                      class="homeHeroBanner__photoLogo"
-                      src={slide.logoSrc}
-                      alt="FLY"
-                      loading="eager"
-                      decoding="async"
-                    />
-                  )}
-
-                  <p class="homeHeroBanner__photoSubtitle">{slide.subtitle}</p>
-
-                  <div class="homeHeroBanner__actions homeHeroBanner__actions--dark">
-                    <a
-                      class="homeHeroBanner__actionBtn is-primary"
-                      href={resolvedAppStoreUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <span aria-hidden="true">←</span>
-                      <span>Download</span>
-                    </a>
-
-                    <a class="homeHeroBanner__actionBtn is-secondary" href="/how-it-works/">
-                      <span aria-hidden="true">↯</span>
-                      <span>Learn More</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-        </article>
-      ))}
-
-      <div class="homeHeroBanner__dots" aria-label="Hero banner navigation">
-        {slides.map((_, index) => (
-          <button
-            type="button"
-            class:list={[
-              "homeHeroBanner__dot",
-              index === 0 && "is-active",
-            ]}
-            data-dot
-            aria-label={`Go to banner ${index + 1}`}
-            aria-pressed={index === 0 ? "true" : "false"}
-          />
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
-
-<script is:inline define:vars={{ componentId }}>
-  (() => {
-    const root = document.getElementById(componentId);
-    if (!root) return;
-
-    const slides = Array.from(root.querySelectorAll("[data-slide]"));
-    const dots = Array.from(root.querySelectorAll("[data-dot]"));
-
-    if (!slides.length || slides.length !== dots.length) return;
-
-    let current = 0;
-    let timer = null;
-    const intervalMs = 7800;
-
-    const showSlide = (nextIndex) => {
-      current = nextIndex;
-
-      slides.forEach((slide, index) => {
-        const active = index === current;
-        slide.classList.toggle("is-active", active);
-        slide.setAttribute("aria-hidden", active ? "false" : "true");
-      });
-
-      dots.forEach((dot, index) => {
-        const active = index === current;
-        dot.classList.toggle("is-active", active);
-        dot.setAttribute("aria-pressed", active ? "true" : "false");
-      });
-    };
-
-    const stop = () => {
-      if (timer) {
-        window.clearInterval(timer);
-        timer = null;
+        --ease: cubic-bezier(.2,.8,.2,1);
+        --topbarH: 64px;
       }
-    };
-
-    const start = () => {
-      stop();
-      timer = window.setInterval(() => {
-        showSlide((current + 1) % slides.length);
-      }, intervalMs);
-    };
-
-    dots.forEach((dot, index) => {
-      dot.addEventListener("click", () => {
-        showSlide(index);
-        start();
-      });
-    });
-
-    root.addEventListener("mouseenter", stop);
-    root.addEventListener("mouseleave", start);
-    root.addEventListener("focusin", stop);
-    root.addEventListener("focusout", start);
-
-    showSlide(0);
-    start();
-  })();
-</script>
-
-<style is:global>
-  .homeHeroBanner {
-    --hero-screen-height: calc(100svh - var(--topbarH, 64px));
-    position: relative;
-    width: 100%;
-    min-height: var(--hero-screen-height);
-    background: #fff;
-  }
-
-  .homeHeroBanner__shell {
-    width: 100%;
-    max-width: none;
-    margin: 0;
-    padding: 0;
-    min-height: var(--hero-screen-height);
-  }
-
-  .homeHeroBanner__viewport {
-    position: relative;
-    width: 100%;
-    min-height: var(--hero-screen-height);
-    overflow: hidden;
-    background: #fff;
-  }
-
-  .homeHeroBanner__slide {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 360ms ease, visibility 360ms ease;
-  }
-
-  .homeHeroBanner__slide.is-active {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
-
-  .homeHeroBanner__variantFrame,
-  .homeHeroBanner__photoFrame {
-    width: 100%;
-    min-height: var(--hero-screen-height);
-    height: 100%;
-  }
-
-  .homeHeroBanner__photoFrame {
-    position: relative;
-    overflow: hidden;
-    background: #f2f2f2;
-  }
-
-  .homeHeroBanner__photo {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: var(--photo-focus-desktop, 50% 50%);
-    display: block;
-  }
-
-  .homeHeroBanner__photoShade {
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.08) 0%,
-        rgba(0, 0, 0, 0.16) 55%,
-        rgba(0, 0, 0, 0.22) 100%
-      );
-  }
-
-  .homeHeroBanner__photoOverlay {
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding:
-      clamp(80px, 9vw, 120px)
-      clamp(20px, 4vw, 40px)
-      clamp(110px, 12vw, 150px);
-    text-align: center;
-  }
-
-  .homeHeroBanner__photoContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    width: min(92vw, 620px);
-  }
-
-  .homeHeroBanner__photoLogo {
-    display: block;
-    width: clamp(180px, 18vw, 340px);
-    height: auto;
-    filter: brightness(0) invert(1);
-    opacity: 0.98;
-  }
-
-  .homeHeroBanner__photoSubtitle {
-    margin: 0;
-    color: rgba(255, 255, 255, 0.92);
-    font-size: clamp(20px, 2vw, 28px);
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-  }
-
-  .homeHeroBanner__variantCard {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(360px, 460px);
-    align-items: center;
-    gap: clamp(26px, 3vw, 42px);
-    width: 100%;
-    min-height: var(--hero-screen-height);
-    padding:
-      clamp(64px, 7vw, 92px)
-      clamp(32px, 4vw, 64px)
-      clamp(132px, 12vw, 162px)
-      clamp(32px, 4vw, 64px);
-    background: #f7f7f7;
-    overflow: hidden;
-  }
-
-  .homeHeroBanner__copy {
-    display: grid;
-    grid-template-columns: 84px minmax(0, 1fr);
-    column-gap: 18px;
-    min-width: 0;
-    align-self: center;
-    transform: translateY(-74px);
-  }
-
-  .homeHeroBanner__icon {
-    width: 54px;
-    height: 54px;
-    border-radius: 999px;
-    display: grid;
-    place-items: center;
-    background: rgba(0, 0, 0, 0.035);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    margin-top: 8px;
-    flex: 0 0 auto;
-  }
-
-  .homeHeroBanner__icon svg {
-    width: 16px;
-    height: 16px;
-    fill: rgba(11, 12, 16, 0.82);
-  }
-
-  .homeHeroBanner__text {
-    min-width: 0;
-    max-width: 720px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .homeHeroBanner__headlineRow {
-    width: 100%;
-    display: block;
-  }
-
-  .homeHeroBanner__title {
-    margin: 0;
-    font-size: clamp(54px, 5.6vw, 86px);
-    line-height: 0.96;
-    letter-spacing: -0.055em;
-    text-wrap: balance;
-    color: #0b0c10;
-  }
-
-  .homeHeroBanner__subtitle {
-    margin: 18px 0 0;
-    max-width: 24ch;
-    color: rgba(11, 12, 16, 0.62);
-    font-size: clamp(18px, 1.9vw, 24px);
-    line-height: 1.28;
-    text-wrap: pretty;
-  }
-
-  .homeHeroBanner__subtitle.is-hidden {
-    display: none;
-  }
-
-  .homeHeroBanner__logoWrap {
-    margin-top: 14px;
-    display: flex;
-    align-items: center;
-  }
-
-  .homeHeroBanner__logoWrap.is-hidden {
-    display: none;
-  }
-
-  .homeHeroBanner__logo {
-    width: clamp(118px, 10vw, 164px);
-    height: auto;
-    display: block;
-    object-fit: contain;
-  }
-
-  .homeHeroBanner__actions {
-    margin-top: 24px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  .homeHeroBanner__actionBtn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    min-height: 48px;
-    padding: 0 22px;
-    border-radius: 999px;
-    font-size: 15px;
-    font-weight: 760;
-    letter-spacing: 0.01em;
-    text-decoration: none;
-    border: 1px solid transparent;
-    transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
-  }
-
-  .homeHeroBanner__actionBtn:hover {
-    transform: translateY(-1px);
-  }
-
-  .homeHeroBanner__actionBtn.is-primary {
-    background: #0b0c10;
-    color: #fff;
-  }
-
-  .homeHeroBanner__actionBtn.is-primary:hover {
-    background: #000;
-  }
-
-  .homeHeroBanner__actionBtn.is-secondary {
-    background: #fff;
-    color: #0b0c10;
-    border-color: rgba(0, 0, 0, 0.14);
-  }
-
-  .homeHeroBanner__actionBtn.is-secondary:hover {
-    border-color: rgba(0, 0, 0, 0.22);
-    background: #fff;
-  }
-
-  .homeHeroBanner__actions--dark .homeHeroBanner__actionBtn.is-primary {
-    background: #0b0c10;
-    color: #fff;
-  }
-
-  .homeHeroBanner__actions--dark .homeHeroBanner__actionBtn.is-secondary {
-    background: rgba(255, 255, 255, 0.96);
-    color: #0b0c10;
-    border-color: transparent;
-  }
-
-  .homeHeroBanner__stack {
-    --cube-size: 78px;
-    --cube-gap: 12px;
-    align-self: center;
-    justify-self: start;
-    width: fit-content;
-    max-width: min(100%, 420px);
-    display: flex;
-    flex-direction: column;
-    gap: var(--cube-gap);
-    padding: 0;
-    margin: 0;
-    transform: translate(-24px, -118px);
-  }
-
-  .homeHeroBanner__row {
-    display: flex;
-    gap: var(--cube-gap);
-  }
-
-  .homeHeroBanner__cube {
-    width: var(--cube-size);
-    height: var(--cube-size);
-    border-radius: clamp(14px, calc(var(--cube-size) * 0.31), 24px);
-    background: var(--cube-color);
-    display: grid;
-    place-items: center;
-    flex: 0 0 var(--cube-size);
-    opacity: 0;
-    transform: translate3d(0, -18px, 0) rotate(-5deg);
-    will-change: transform, opacity;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
-  }
-
-  .homeHeroBanner__slide.is-active .homeHeroBanner__cube {
-    animation: homeHeroBannerDrop 700ms cubic-bezier(0.2, 0.82, 0.2, 1) both;
-    animation-delay: var(--delay, 0ms);
-  }
-
-  .homeHeroBanner__cube img {
-    width: 56%;
-    height: 56%;
-    display: block;
-    pointer-events: none;
-    user-select: none;
-  }
-
-  .homeHeroBanner__variantCard[data-stack-style="fullBlock"] .homeHeroBanner__stack,
-  .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__stack,
-  .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__stack {
-    transform: translate(-24px, -118px);
-  }
-
-  .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__text {
-    max-width: 30rem;
-  }
-
-  .homeHeroBanner__variantCard[data-stack-style="leftRise"] {
-    grid-template-columns: minmax(360px, 460px) minmax(0, 1fr);
-  }
-
-  .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__stack {
-    order: 1;
-    justify-self: start;
-    transform: translate(0, -118px);
-  }
-
-  .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__copy {
-    order: 2;
-  }
-
-  .homeHeroBanner__dots {
-    position: absolute;
-    left: 50%;
-    bottom: clamp(18px, 2.2vw, 28px);
-    z-index: 6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    transform: translateX(-50%);
-  }
-
-  .homeHeroBanner__dot {
-    width: 10px;
-    height: 10px;
-    border: 0;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.55);
-    padding: 0;
-    cursor: pointer;
-    transition: transform 0.2s ease, background 0.2s ease, width 0.2s ease;
-  }
-
-  .homeHeroBanner__dot:hover {
-    transform: scale(1.08);
-  }
-
-  .homeHeroBanner__dot.is-active {
-    width: 26px;
-    background: rgba(255, 255, 255, 0.96);
-  }
-
-  .homeHeroBanner__viewport:has(.homeHeroBanner__slide.is-active[data-tone="light"]) .homeHeroBanner__dot {
-    background: rgba(11, 12, 16, 0.18);
-  }
-
-  .homeHeroBanner__viewport:has(.homeHeroBanner__slide.is-active[data-tone="light"]) .homeHeroBanner__dot.is-active {
-    background: #0b0c10;
-  }
-
-  @keyframes homeHeroBannerDrop {
-    0% {
-      opacity: 0;
-      transform: translate3d(0, -18px, 0) rotate(-5deg);
-    }
-    55% {
-      opacity: 1;
-      transform: translate3d(0, 4px, 0) rotate(2deg);
-    }
-    100% {
-      opacity: 1;
-      transform: translate3d(0, 0, 0) rotate(0deg);
-    }
-  }
-
-  @media (max-width: 1180px) {
-    .homeHeroBanner__variantCard {
-      grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
-      gap: 22px;
-      padding-top: clamp(58px, 6vw, 84px);
-      padding-bottom: clamp(126px, 12vw, 152px);
-    }
-
-    .homeHeroBanner__copy {
-      grid-template-columns: 72px minmax(0, 1fr);
-      transform: translateY(-48px);
-    }
-
-    .homeHeroBanner__title {
-      font-size: clamp(48px, 5vw, 74px);
-    }
-
-    .homeHeroBanner__stack {
-      --cube-size: 68px;
-      --cube-gap: 10px;
-      max-width: min(100%, 360px);
-      transform: translate(-16px, -84px);
-    }
-
-    .homeHeroBanner__variantCard[data-stack-style="fullBlock"] .homeHeroBanner__stack,
-    .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__stack,
-    .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__stack {
-      transform: translate(-16px, -84px);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .homeHeroBanner__variantFrame {
-      display: flex;
-      align-items: stretch;
-      justify-content: center;
-      padding-inline: clamp(20px, 2.6vw, 36px);
-    }
-
-    .homeHeroBanner__variantCard,
-    .homeHeroBanner__variantCard[data-stack-style="fullBlock"],
-    .homeHeroBanner__variantCard[data-stack-style="playfulRows"] {
-      width: min(100%, 1260px);
-      margin: 0 auto;
-      grid-template-columns: minmax(540px, 640px) minmax(320px, 400px);
-      justify-content: center;
-      column-gap: clamp(44px, 5vw, 76px);
-    }
-
-    .homeHeroBanner__copy {
-      width: min(100%, 700px);
-      justify-self: center;
-    }
-
-    .homeHeroBanner__text {
-      max-width: 640px;
-    }
-
-    .homeHeroBanner__stack,
-    .homeHeroBanner__variantCard[data-stack-style="fullBlock"] .homeHeroBanner__stack,
-    .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__stack {
-      justify-self: center;
-      transform: translate(0, -104px);
-    }
-
-    .homeHeroBanner__variantCard[data-stack-style="leftRise"] {
-      width: min(100%, 1260px);
-      margin: 0 auto;
-      grid-template-columns: minmax(320px, 400px) minmax(540px, 640px);
-      justify-content: center;
-      column-gap: clamp(44px, 5vw, 76px);
-    }
-
-    .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__stack {
-      justify-self: center;
-      transform: translate(0, -104px);
-    }
-
-    .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__copy {
-      justify-self: center;
-    }
-  }
-
-  @media (max-width: 860px) {
-    .homeHeroBanner__photo {
-      object-position: var(--photo-focus-tablet, var(--photo-focus-desktop, 50% 50%));
-    }
-
-    .homeHeroBanner__photoOverlay {
-      padding:
-        84px
-        20px
-        132px;
-    }
-
-    .homeHeroBanner__photoLogo {
-      width: clamp(170px, 34vw, 260px);
-    }
-
-    .homeHeroBanner__variantCard,
-    .homeHeroBanner__variantCard[data-stack-style="fullBlock"],
-    .homeHeroBanner__variantCard[data-stack-style="playfulRows"],
-    .homeHeroBanner__variantCard[data-stack-style="leftRise"] {
-      grid-template-columns: 1fr;
-      align-items: start;
-      gap: 8px;
-      min-height: var(--hero-screen-height);
-      padding:
-        clamp(56px, 8vw, 74px)
-        clamp(18px, 5vw, 24px)
-        clamp(148px, 17vw, 180px);
-    }
-
-    .homeHeroBanner__copy,
-    .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__copy {
-      order: 1;
-      width: 100%;
-      justify-self: center;
-      justify-items: center;
-      grid-template-columns: 1fr;
-      row-gap: 14px;
-      transform: translateY(0);
-    }
-
-    .homeHeroBanner__icon {
-      margin-top: 0;
-    }
-
-    .homeHeroBanner__text,
-    .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__text,
-    .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__text {
-      max-width: 100%;
-      align-items: center;
-      text-align: center;
-    }
-
-    .homeHeroBanner__title {
-      font-size: clamp(34px, 7vw, 56px);
-      letter-spacing: -0.05em;
-      max-width: none;
-    }
-
-    .homeHeroBanner__subtitle {
-      max-width: 18ch;
-      font-size: clamp(16px, 2.8vw, 20px);
-      margin-top: 12px;
-    }
-
-    .homeHeroBanner__actions {
-      margin-top: 20px;
-      justify-content: center;
-    }
-
-    .homeHeroBanner__stack,
-    .homeHeroBanner__variantCard[data-stack-style="fullBlock"] .homeHeroBanner__stack,
-    .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__stack,
-    .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__stack {
-      --cube-size: 54px;
-      --cube-gap: 8px;
-      order: 2;
-      width: fit-content;
-      max-width: min(100%, 272px);
-      align-items: center;
-      justify-self: center;
-      padding: 0;
-      margin: 10px auto 0;
-      transform: translateY(-54px);
-    }
-
-    .homeHeroBanner__row,
-    .homeHeroBanner__variantCard[data-stack-style="fullBlock"] .homeHeroBanner__row,
-    .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__row,
-    .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__row {
-      justify-content: center;
-      width: auto;
-      flex-wrap: nowrap;
-      transform: none;
-    }
-
-    .homeHeroBanner__dots {
-      bottom: 20px;
-    }
-  }
-
-  @media (max-width: 560px) {
-    .homeHeroBanner__photo {
-      object-position: var(
-        --photo-focus-mobile,
-        var(--photo-focus-tablet, var(--photo-focus-desktop, 50% 50%))
-      );
-    }
-
-    .homeHeroBanner__photoOverlay {
-      padding:
-        88px
-        18px
-        126px;
-    }
-
-    .homeHeroBanner__photoContent {
-      gap: 14px;
-      width: min(92vw, 360px);
-    }
-
-    .homeHeroBanner__photoLogo {
-      width: clamp(150px, 42vw, 220px);
-    }
-
-    .homeHeroBanner__photoSubtitle {
-      font-size: 18px;
-    }
-
-    .homeHeroBanner__variantCard {
-      gap: 6px;
-      padding:
-        52px
-        16px
-        146px;
-    }
-
-    .homeHeroBanner__copy {
-      row-gap: 12px;
-    }
-
-    .homeHeroBanner__icon {
-      width: 44px;
-      height: 44px;
-    }
-
-    .homeHeroBanner__title {
-      font-size: 25px;
-      line-height: 1.02;
-      max-width: none;
-      white-space: nowrap;
-      letter-spacing: -0.045em;
-    }
-
-    .homeHeroBanner__subtitle {
-      margin-top: 10px;
-      max-width: 15ch;
-      font-size: 15px;
-      line-height: 1.34;
-    }
-
-    .homeHeroBanner__actions {
-      gap: 8px;
-      margin-top: 16px;
-      flex-wrap: nowrap;
-    }
-
-    .homeHeroBanner__actionBtn {
-      min-height: 42px;
-      padding: 0 16px;
-      font-size: 13.5px;
-      gap: 8px;
-      white-space: nowrap;
-    }
-
-    .homeHeroBanner__stack,
-    .homeHeroBanner__variantCard[data-stack-style="fullBlock"] .homeHeroBanner__stack,
-    .homeHeroBanner__variantCard[data-stack-style="playfulRows"] .homeHeroBanner__stack,
-    .homeHeroBanner__variantCard[data-stack-style="leftRise"] .homeHeroBanner__stack {
-      --cube-size: 44px;
-      --cube-gap: 6px;
-      max-width: 224px;
-      margin-top: 2px;
-      transform: translateY(-84px);
-    }
-
-    .homeHeroBanner__dots {
-      bottom: 16px;
-    }
-  }
-</style>
+
+      *{ box-sizing:border-box; }
+
+      html,body{
+        margin:0;
+        padding:0;
+        background: var(--bg);
+        overflow-x:hidden;
+      }
+
+      body{
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+        color: var(--text);
+        line-height: 1.25;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      a{
+        color:inherit;
+        text-decoration:none;
+      }
+
+      a:focus-visible{
+        outline: 3px solid rgba(0,0,0,.18);
+        outline-offset: 3px;
+      }
+
+      /* ===== Top nav: clean white ===== */
+      .topbar{
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(255,255,255,.96);
+        border-bottom: 1px solid rgba(0,0,0,.06);
+        backdrop-filter: saturate(180%) blur(16px);
+      }
+
+      .topbarInner{
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 10px var(--pad);
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap: 14px;
+      }
+
+      .brand{
+        display:flex;
+        align-items:center;
+        gap:10px;
+        min-height:44px;
+      }
+
+      .mascot{
+        width:26px;
+        height:26px;
+        border-radius:10px;
+        object-fit:contain;
+        display:block;
+      }
+
+      .nav{
+        display:flex;
+        align-items:center;
+        gap: 10px;
+      }
+
+      .navBtn{
+        width:42px;
+        height:42px;
+        display:grid;
+        place-items:center;
+        border-radius: 999px;
+        color: rgba(11,12,16,.72);
+        transition: background .18s var(--ease), color .18s var(--ease);
+      }
+
+      .navBtn:hover{
+        background: rgba(0,0,0,.05);
+        color: rgba(11,12,16,.92);
+      }
+
+      .navBtn.active{
+        background: rgba(0,0,0,.08);
+        color: rgba(11,12,16,.96);
+      }
+
+      .navBtn svg{
+        width:18px;
+        height:18px;
+        stroke: currentColor;
+        stroke-width:2.2;
+        fill:none;
+        stroke-linecap:round;
+        stroke-linejoin:round;
+      }
+
+      .navIcon{
+        width:18px;
+        height:18px;
+        display:block;
+        object-fit:contain;
+      }
+
+      /* ===== Layout ===== */
+      .wrap{
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 var(--pad);
+      }
+
+      /* ===== HERO ===== */
+      .hero{
+        background: #fff;
+        min-height: calc(100svh - var(--topbarH));
+        min-height: calc(100vh - var(--topbarH));
+        display:block;
+        overflow:hidden;
+      }
+
+      .heroInner{
+        width:100%;
+        max-width:none;
+        padding:0;
+        display:block;
+      }
+
+      .heroBannerWrap{
+        width:100%;
+        max-width:none;
+        margin:0;
+      }
+
+      /* ===== Edge-to-edge feature band ===== */
+      .featureBand{
+        background:#fff;
+        padding: clamp(6px, 0.8vw, 10px) 0 0;
+        margin: 0;
+      }
+
+      .featureBandWrap{
+        width:100%;
+        margin:0;
+        padding:0;
+      }
+
+      .featureGrid{
+        display:grid;
+        grid-template-columns: 1fr;
+        gap: var(--featureGap);
+      }
+
+      .featureTile{
+        position: relative;
+        overflow:hidden;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+        background-color:#f3f3f3;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        isolation: isolate;
+        width: 100%;
+      }
+
+      .featureGrid .featureTile:nth-child(1){
+        background-image: url("/webimageone.png");
+      }
+
+      .featureGrid .featureTile:nth-child(2){
+        background-image: url("/webimagetwo.png");
+      }
+
+      .featureGrid .featureTile:nth-child(3){
+        background-image: url("/webimagethree.png");
+      }
+
+      .featureTile::after{
+        content:"";
+        position:absolute;
+        inset:0;
+        z-index:0;
+        background: linear-gradient(
+          180deg,
+          rgba(0,0,0,0.02) 0%,
+          rgba(0,0,0,0.08) 46%,
+          rgba(0,0,0,0.42) 100%
+        );
+      }
+
+      .featureTileText{
+        position:absolute;
+        inset:0;
+        z-index:1;
+        padding: clamp(20px, 2vw, 28px);
+        display:flex;
+        flex-direction:column;
+        justify-content:flex-end;
+        align-items:flex-start;
+        gap: 12px;
+      }
+
+      .featureTileKicker{
+        font-size: 11px;
+        font-weight: 760;
+        color: rgba(255,255,255,.82);
+        letter-spacing: .14em;
+        text-transform: uppercase;
+      }
+
+      .featureTileTitle{
+        margin: 8px 0 0;
+        font-size: clamp(24px, 2vw, 34px);
+        font-weight: 700;
+        letter-spacing: -.04em;
+        line-height: 1.02;
+        max-width: 10ch;
+        color: #fff;
+        text-shadow: 0 1px 10px rgba(0,0,0,.18);
+      }
+
+      .featureTileSub{
+        margin: 10px 0 0;
+        color: rgba(255,255,255,.88);
+        font-size: 14px;
+        line-height: 1.42;
+        max-width: 24ch;
+        text-shadow: 0 1px 8px rgba(0,0,0,.18);
+      }
+
+      .featureTileCta{
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: .01em;
+        color: rgba(255,255,255,.96);
+        text-shadow: 0 1px 8px rgba(0,0,0,.18);
+      }
+
+      .featureTileCta svg{
+        width:15px;
+        height:15px;
+        stroke: currentColor;
+        stroke-width:2.2;
+        fill:none;
+        stroke-linecap:round;
+        stroke-linejoin:round;
+      }
+
+      /* Desktop: keep them square */
+      @media (min-width: 980px){
+        .featureGrid{
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .featureTile{
+          aspect-ratio: 1 / 1;
+          min-height: 0;
+        }
+      }
+
+      /* Tablet / mobile */
+      @media (max-width: 979px){
+        .featureGrid{
+          grid-template-columns: 1fr;
+        }
+
+        .featureTile{
+          aspect-ratio: 16 / 10;
+          min-height: clamp(240px, 56vw, 420px);
+        }
+
+        .featureTileTitle{
+          max-width: 11ch;
+        }
+      }
+
+      @media (max-width: 560px){
+        .featureTile{
+          aspect-ratio: 6 / 5;
+          min-height: 250px;
+        }
+
+        .featureTileText{
+          padding: 20px;
+          gap: 10px;
+        }
+
+        .featureTileTitle{
+          font-size: clamp(22px, 7vw, 30px);
+          max-width: 10ch;
+        }
+
+        .featureTileSub{
+          font-size: 13px;
+          max-width: 22ch;
+        }
+
+        .featureTileCta{
+          font-size: 12.5px;
+        }
+      }
+
+      .footer{
+        border-top: 1px solid rgba(0,0,0,.08);
+        padding: 22px 0 40px;
+        color: rgba(11,12,16,.62);
+        font-size: 13px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap: 14px;
+        flex-wrap: wrap;
+        background:#fff;
+      }
+
+      .links{
+        display:flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .links a{ color: rgba(11,12,16,.62); }
+      .links a:hover{ color: rgba(11,12,16,.90); }
+    </style>
+  </head>
+
+  <body>
+    <header class="topbar">
+      <div class="topbarInner">
+        <a class="brand" href="/" aria-label="FLY Unlimited">
+          <img class="mascot" src="/logo-alt.png" alt="FLY mascot" />
+        </a>
+
+        <nav class="nav" aria-label="Navigation">
+          <a class="navBtn active" href="/" aria-label="Home" title="Home">
+            <img class="navIcon" src="/flyhomeactive.svg" alt="" aria-hidden="true" />
+          </a>
+
+          <a class="navBtn" href="/how-it-works/" aria-label="How it works" title="How it works">
+            <img class="navIcon" src="/flyinactive.svg" alt="" aria-hidden="true" />
+          </a>
+
+          <a class="navBtn" href="/info/" aria-label="Info" title="Info">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 10.6v6" />
+              <path d="M12 7.4h.01" />
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero" aria-label="Hero">
+      <div class="heroInner">
+        <div class="heroBannerWrap" aria-label="Landing hero banner">
+          <HomeHeroBanner appStoreUrl={appStoreUrl} />
+        </div>
+      </div>
+    </section>
+
+    <section class="featureBand" aria-label="Explore">
+      <div class="featureBandWrap">
+        <div class="featureGrid" aria-label="Feature tiles">
+          <a class="featureTile" href="/how-it-works/" aria-label="Clarity tile">
+            <div class="featureTileText">
+              <div>
+                <div class="featureTileKicker">Clarity</div>
+                <div class="featureTileTitle">With you, wherever.</div>
+                <div class="featureTileSub">
+                  As you move, so should your network.
+                </div>
+              </div>
+
+              <div class="featureTileCta">
+                Explore how it works
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </div>
+            </div>
+          </a>
+
+          <a class="featureTile" href="/how-it-works/" aria-label="LiveTime tile">
+            <div class="featureTileText">
+              <div>
+                <div class="featureTileKicker">LiveTime</div>
+                <div class="featureTileTitle">Collabs. Easy.</div>
+                <div class="featureTileSub">
+                  Nothing like teamwork, when you want to go far.
+                </div>
+              </div>
+
+              <div class="featureTileCta">
+                See the flow
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </div>
+            </div>
+          </a>
+
+          <a class="featureTile" href="/info/" aria-label="Momentum tile">
+            <div class="featureTileText">
+              <div>
+                <div class="featureTileKicker">Momentum</div>
+                <div class="featureTileTitle">Now, not later.</div>
+                <div class="featureTileSub">
+                  Connect and move forward. Then move forward again.
+                </div>
+              </div>
+
+              <div class="featureTileCta">
+                Learn more
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="wrap footer" aria-label="Footer">
+      <div>© 2026 {siteName}</div>
+      <div class="links">
+        <a href="/how-it-works/">How it works</a>
+        <a href="/info/">Contact</a>
+        <a href="/terms/">Terms</a>
+        <a href="/privacy/">Privacy</a>
+        <a href={"mailto:" + contactEmail}>hello@fly-unlimited.com</a>
+      </div>
+    </footer>
+  </body>
+</html>
