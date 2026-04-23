@@ -2,9 +2,16 @@
 import { categoryMeta } from "../data/categoryMeta";
 import { bannerVariants } from "../data/bannerVariants";
 
-const {
-  appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880",
-} = Astro.props;
+const DEFAULT_APP_STORE_URL = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
+
+const { appStoreUrl } = Astro.props;
+
+const resolvedAppStoreUrl =
+  typeof appStoreUrl === "string" &&
+  appStoreUrl.trim().length > 0 &&
+  appStoreUrl.trim() !== "#"
+    ? appStoreUrl.trim()
+    : DEFAULT_APP_STORE_URL;
 
 const componentId = `home-hero-${Math.random().toString(36).slice(2, 10)}`;
 
@@ -99,7 +106,12 @@ const slides = [
                     </p>
 
                     <div class="homeHeroBanner__actions">
-                      <a class="homeHeroBanner__actionBtn is-primary" href={appStoreUrl}>
+                      <a
+                        class="homeHeroBanner__actionBtn is-primary"
+                        href={resolvedAppStoreUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <span aria-hidden="true">←</span>
                         <span>Download</span>
                       </a>
@@ -159,7 +171,12 @@ const slides = [
                   <p class="homeHeroBanner__photoSubtitle">{slide.subtitle}</p>
 
                   <div class="homeHeroBanner__actions homeHeroBanner__actions--dark">
-                    <a class="homeHeroBanner__actionBtn is-primary" href={appStoreUrl}>
+                    <a
+                      class="homeHeroBanner__actionBtn is-primary"
+                      href={resolvedAppStoreUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <span aria-hidden="true">←</span>
                       <span>Download</span>
                     </a>
