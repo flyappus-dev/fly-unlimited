@@ -1,6 +1,7 @@
 ---
 const siteName = "FLY Unlimited";
-const publicEmail = "contact@fly-unlimited.com";
+const contactEmail = "hello@fly-unlimited.com";
+const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
 ---
 
 <!doctype html>
@@ -9,70 +10,98 @@ const publicEmail = "contact@fly-unlimited.com";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Info • {siteName}</title>
-    <meta name="description" content="Contact and basic information for FLY Unlimited." />
+    <meta
+      name="description"
+      content="Learn about FLY Unlimited, a personal network and marketplace built around real-life opportunities."
+    />
 
     <style>
       :root{
-        --bg:#ffffff;
-        --text:#0b0c10;
-        --muted:rgba(11,12,16,.62);
-        --hair:rgba(11,12,16,.10);
-        --hairStrong:rgba(11,12,16,.14);
-        --max:1120px;
-        --rXL:34px;
-        --rL:28px;
-        --rM:22px;
+        --black:#090909;
+        --white:#fff;
+        --text:#111;
+        --muted:#6e6e73;
+        --hair:#dedee2;
+        --panel:#f5f5f7;
+        --yellow:#f2d35c;
+        --max:1180px;
+        --pad:clamp(20px,4vw,48px);
+        --nav-h:64px;
+        --safe-top:env(safe-area-inset-top,0px);
+        --safe-bottom:env(safe-area-inset-bottom,0px);
         --ease:cubic-bezier(.2,.8,.2,1);
       }
 
-      *{ box-sizing:border-box; }
-      html,body{ margin:0; padding:0; }
+      *{box-sizing:border-box}
+
+      html{
+        scroll-behavior:smooth;
+        scroll-padding-top:calc(var(--nav-h) + var(--safe-top) + 14px);
+        background:#fff;
+      }
+
+      html,body{
+        margin:0;
+        padding:0;
+        background:#fff;
+        color:var(--text);
+      }
+
       body{
-        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-        background: var(--bg);
-        color: var(--text);
-        -webkit-font-smoothing: antialiased;
-        text-rendering: optimizeLegibility;
-        line-height: 1.25;
+        padding-top:calc(var(--nav-h) + var(--safe-top));
+        font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;
+        -webkit-font-smoothing:antialiased;
+        text-rendering:optimizeLegibility;
+        overflow-x:hidden;
       }
 
-      a{ color:inherit; text-decoration:none; }
-      a:hover{ opacity:.96; }
+      a{color:inherit;text-decoration:none}
+
       a:focus-visible{
-        outline: 3px solid rgba(0,0,0,.16);
-        outline-offset: 3px;
-        border-radius: 12px;
+        outline:2px solid currentColor;
+        outline-offset:4px;
       }
 
-      /* ===== Top nav ===== */
-      .topbar{
-        position: sticky;
-        top: 0;
-        z-index: 50;
-        background: rgba(255,255,255,.96);
-        border-bottom: 1px solid rgba(0,0,0,.06);
+      [id]{
+        scroll-margin-top:calc(var(--nav-h) + var(--safe-top) + 18px);
       }
+
+      .topbar{
+        position:fixed;
+        inset:0 0 auto;
+        z-index:100;
+        min-height:calc(var(--nav-h) + var(--safe-top));
+        padding-top:var(--safe-top);
+        background:rgba(9,9,9,.54);
+        border-bottom:1px solid rgba(255,255,255,.08);
+        box-shadow:0 8px 28px rgba(0,0,0,.10);
+        backdrop-filter:blur(18px) saturate(115%);
+        -webkit-backdrop-filter:blur(18px) saturate(115%);
+      }
+
       .topbarInner{
-        max-width: var(--max);
-        margin: 0 auto;
-        padding: 10px 18px;
+        max-width:1120px;
+        min-height:var(--nav-h);
+        margin:0 auto;
+        padding:10px 18px;
         display:flex;
         align-items:center;
         justify-content:space-between;
         gap:14px;
       }
+
       .brand{
+        min-height:44px;
         display:flex;
         align-items:center;
-        gap:10px;
-        min-height:44px;
       }
+
       .mascot{
         width:26px;
         height:26px;
-        border-radius:10px;
-        object-fit:contain;
         display:block;
+        object-fit:contain;
+        filter:brightness(0) invert(1);
       }
 
       .nav{
@@ -80,241 +109,1110 @@ const publicEmail = "contact@fly-unlimited.com";
         align-items:center;
         gap:10px;
       }
+
       .navBtn{
         width:42px;
         height:42px;
         display:grid;
         place-items:center;
         border-radius:999px;
-        color: rgba(11,12,16,.70);
-        transition: background .18s var(--ease), color .18s var(--ease);
+        color:rgba(255,255,255,.92);
+        transition:background .18s var(--ease);
       }
-      .navBtn:hover{
-        background: rgba(0,0,0,.05);
-        color: rgba(11,12,16,.92);
-      }
-      .navBtn.active{
-        background: rgba(0,0,0,.08);
-        color: rgba(11,12,16,.96);
-      }
-      .navBtn svg{
-        width:18px;
-        height:18px;
-        stroke: currentColor;
-        stroke-width:2.2;
-        fill:none;
-        stroke-linecap:round;
-        stroke-linejoin:round;
-      }
+
+      .navBtn:hover{background:rgba(255,255,255,.07)}
+      .navBtn.active{background:rgba(255,255,255,.11)}
+
       .navIcon{
         width:18px;
         height:18px;
         display:block;
         object-fit:contain;
+        filter:brightness(0) invert(1);
       }
 
-      /* ===== Layout ===== */
-      .wrap{
-        max-width: var(--max);
-        margin: 0 auto;
-        padding: 0 18px;
+      .navBtn svg{
+        width:18px;
+        height:18px;
+        stroke:currentColor;
+        stroke-width:2.2;
+        fill:none;
+        stroke-linecap:round;
+        stroke-linejoin:round;
       }
 
-      /* ===== Hero ===== */
+      /* HERO */
       .hero{
-        padding: 84px 0 54px;
-        background:#fff;
-        border-bottom: 1px solid rgba(0,0,0,.05);
+        position:relative;
+        min-height:520px;
+        overflow:hidden;
+        isolation:isolate;
+        background:#69625c;
+      }
+
+      .heroPhoto{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        object-position:center;
+        z-index:-2;
+        filter:saturate(.72) contrast(.98) brightness(.86);
+      }
+
+      .hero::before{
+        content:"";
+        position:absolute;
+        inset:0;
+        z-index:-1;
+        background:linear-gradient(90deg,rgba(0,0,0,.68),rgba(0,0,0,.44) 44%,rgba(0,0,0,.08) 78%);
       }
 
       .heroInner{
-        max-width: 860px;
-      }
-
-      .kicker{
-        display:inline-flex;
-        align-items:center;
-        gap:10px;
-        padding: 9px 13px;
-        border-radius: 999px;
-        background: #fff;
-        border: 1px solid rgba(0,0,0,.10);
-        color: rgba(11,12,16,.78);
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: .2px;
-      }
-      .dot{
-        width:8px;
-        height:8px;
-        border-radius:999px;
-        background: rgba(11,12,16,.88);
-      }
-
-      h1{
-        margin: 18px 0 12px;
-        font-size: clamp(34px, 5vw, 62px);
-        letter-spacing: -1.3px;
-        line-height: 1.02;
-        max-width: 10ch;
-      }
-      .sub{
-        margin: 0;
-        max-width: 58ch;
-        font-size: clamp(16px, 1.55vw, 20px);
-        color: rgba(11,12,16,.68);
-        line-height: 1.5;
-      }
-
-      .ctaRow{
-        margin-top: 22px;
+        width:min(100%,var(--max));
+        min-height:520px;
+        margin:0 auto;
+        padding:66px var(--pad);
         display:flex;
-        gap:12px;
-        flex-wrap:wrap;
-        align-items:center;
+        align-items:flex-end;
       }
-      .btn{
+
+      .heroCopy{
+        max-width:660px;
+      }
+
+      .heroKicker{
+        margin:0 0 12px;
+        color:rgba(255,255,255,.65);
+        font-size:11px;
+        font-weight:700;
+        letter-spacing:.16em;
+        text-transform:uppercase;
+      }
+
+      .heroTitle{
+        margin:0;
+        color:#fff;
+        font-size:clamp(54px,6.2vw,92px);
+        line-height:.91;
+        letter-spacing:-.055em;
+        font-weight:650;
+      }
+
+      .heroLead{
+        margin:18px 0 0;
+        max-width:34rem;
+        color:rgba(255,255,255,.80);
+        font-size:clamp(18px,1.4vw,21px);
+        line-height:1.5;
+      }
+
+      /* ABOUT */
+      .about{
+        padding:76px var(--pad) 84px;
+        background:#fff;
+      }
+
+      .aboutInner{
+        width:min(100%,var(--max));
+        margin:0 auto;
+      }
+
+      .eyebrow{
+        margin:0 0 13px;
+        color:#86868b;
+        font-size:11px;
+        font-weight:700;
+        letter-spacing:.16em;
+        text-transform:uppercase;
+      }
+
+      .aboutGrid{
+        display:grid;
+        grid-template-columns:minmax(0,.62fr) minmax(300px,.38fr);
+        gap:clamp(36px,6vw,80px);
+        align-items:start;
+      }
+
+      .aboutTitle{
+        margin:0;
+        max-width:10ch;
+        font-size:clamp(44px,5vw,72px);
+        line-height:.95;
+        letter-spacing:-.05em;
+        font-weight:650;
+      }
+
+      .aboutText{
+        margin:0;
+        color:var(--muted);
+        font-size:18px;
+        line-height:1.6;
+      }
+
+      .principles{
+        margin-top:48px;
+        display:grid;
+        grid-template-columns:repeat(3,minmax(0,1fr));
+        border-top:1px solid var(--hair);
+        border-bottom:1px solid var(--hair);
+      }
+
+      .principle{
+        min-height:180px;
+        padding:24px 22px;
+        border-right:1px solid var(--hair);
+        display:flex;
+        flex-direction:column;
+        justify-content:flex-end;
+      }
+
+      .principle:last-child{border-right:0}
+
+      .principleNum{
+        margin-bottom:auto;
+        color:#86868b;
+        font-size:12px;
+      }
+
+      .principleTitle{
+        margin:0;
+        font-size:22px;
+        line-height:1.05;
+        letter-spacing:-.03em;
+        font-weight:650;
+      }
+
+      .principleText{
+        margin:8px 0 0;
+        color:var(--muted);
+        font-size:14px;
+        line-height:1.5;
+      }
+
+      /* CONTACT */
+      .contact{
+        background:#0a0a0a;
+        color:#fff;
+        padding:76px var(--pad) 82px;
+      }
+
+      .contactInner{
+        width:min(100%,var(--max));
+        margin:0 auto;
+      }
+
+      .contactGrid{
+        display:grid;
+        grid-template-columns:minmax(0,.62fr) minmax(300px,.38fr);
+        gap:clamp(36px,6vw,80px);
+        align-items:start;
+      }
+
+      .contactTitle{
+        margin:0;
+        max-width:9ch;
+        font-size:clamp(44px,5vw,72px);
+        line-height:.95;
+        letter-spacing:-.05em;
+        font-weight:650;
+      }
+
+      .contactText{
+        margin:0;
+        color:rgba(255,255,255,.62);
+        font-size:17px;
+        line-height:1.55;
+      }
+
+      .contactLink{
+        margin-top:20px;
+        min-height:44px;
+        padding:0 18px;
         display:inline-flex;
         align-items:center;
         justify-content:center;
-        gap:10px;
-        height:44px;
-        padding: 0 16px;
         border-radius:999px;
-        border:1px solid rgba(0,0,0,.12);
         background:#fff;
-        color: rgba(11,12,16,.92);
-        font-weight:760;
+        color:#111;
         font-size:14px;
-        letter-spacing:.1px;
-        transition: transform .18s var(--ease), background .18s var(--ease), border-color .18s var(--ease);
-      }
-      .btn:hover{
-        transform: translateY(-1px);
-        background: rgba(0,0,0,.02);
-        border-color: rgba(0,0,0,.16);
-      }
-      .btnPrimary{
-        border-color: transparent;
-        background:#0b0c10;
-        color:#fff;
-      }
-      .btnPrimary:hover{ background:#000; }
-      .btn svg{
-        width:16px;
-        height:16px;
-        stroke: currentColor;
-        stroke-width:2.2;
-        fill:none;
-        stroke-linecap:round;
-        stroke-linejoin:round;
+        font-weight:600;
       }
 
-      .heroImage{
-        width:100%;
-        aspect-ratio: 16 / 9;
-        margin-top: 34px;
-        border-radius: 30px;
-        border: 1px solid rgba(0,0,0,.08);
-        background: #f7f7f7 url("/webimageone.png") center / cover no-repeat;
-        overflow:hidden;
-      }
-
-      /* ===== Simple content ===== */
-      .section{
-        padding: 72px 0 84px;
+      /* LINKS */
+      .linksSection{
+        padding:68px var(--pad) 76px;
         background:#fff;
       }
 
-      .contentGrid{
-        display:grid;
-        gap:22px;
+      .linksInner{
+        width:min(100%,var(--max));
+        margin:0 auto;
       }
-      @media (min-width: 900px){
-        .contentGrid{
-          grid-template-columns: repeat(3, minmax(0,1fr));
+
+      .linksTitle{
+        margin:0;
+        font-size:clamp(38px,4vw,58px);
+        line-height:.96;
+        letter-spacing:-.045em;
+        font-weight:650;
+      }
+
+      .linksGrid{
+        margin-top:30px;
+        display:grid;
+        grid-template-columns:repeat(4,minmax(0,1fr));
+        border-top:1px solid var(--hair);
+        border-bottom:1px solid var(--hair);
+      }
+
+      .resource{
+        min-height:140px;
+        padding:22px 18px;
+        border-right:1px solid var(--hair);
+        display:flex;
+        flex-direction:column;
+        justify-content:space-between;
+      }
+
+      .resource:last-child{border-right:0}
+
+      .resourceLabel{
+        color:#86868b;
+        font-size:11px;
+      }
+
+      .resourceTitle{
+        margin-top:30px;
+        font-size:16px;
+        font-weight:600;
+      }
+
+      /* FOOTER */
+      .footer{
+        padding:24px var(--pad) calc(38px + var(--safe-bottom));
+        background:#fff;
+        color:#86868b;
+        font-size:12px;
+      }
+
+      .footerInner{
+        width:min(100%,var(--max));
+        margin:0 auto;
+        border-top:1px solid var(--hair);
+        padding-top:22px;
+        display:flex;
+        justify-content:space-between;
+        gap:18px;
+        flex-wrap:wrap;
+      }
+
+      .footerLinks{
+        display:flex;
+        gap:16px;
+        flex-wrap:wrap;
+      }
+
+      @media(max-width:900px){
+        .aboutGrid,
+        .contactGrid{
+          grid-template-columns:1fr;
+          gap:26px;
+        }
+
+        .linksGrid{
+          grid-template-columns:repeat(2,minmax(0,1fr));
+        }
+
+        .resource:nth-child(2){
+          border-right:0;
+        }
+
+        .resource:nth-child(-n+2){
+          border-bottom:1px solid var(--hair);
         }
       }
 
-      .card{
-        border: 1px solid rgba(0,0,0,.08);
-        border-radius: var(--rM);
-        padding: 22px;
-        background:#fff;
-      }
-      .cardTitle{
-        margin:0;
-        font-size:18px;
-        letter-spacing:-.3px;
-      }
-      .cardText{
-        margin:10px 0 0;
-        color: rgba(11,12,16,.68);
-        font-size:15.5px;
-        line-height:1.6;
-      }
-      .inlineLink{
-        display:inline-flex;
-        align-items:center;
-        gap:8px;
-        margin-top:14px;
-        font-size:14px;
-        font-weight:700;
-        color: rgba(11,12,16,.84);
-      }
-      .inlineLink svg{
-        width:15px;
-        height:15px;
-        stroke: currentColor;
-        stroke-width:2.2;
-        fill:none;
-        stroke-linecap:round;
-        stroke-linejoin:round;
+      @media(max-width:720px){
+        .topbar{
+          background:rgba(9,9,9,.62);
+          backdrop-filter:blur(16px) saturate(110%);
+          -webkit-backdrop-filter:blur(16px) saturate(110%);
+        }
+
+        .nav{gap:6px}
+
+        .navBtn{
+          width:40px;
+          height:40px;
+        }
+
+        .hero{
+          min-height:0;
+          display:flex;
+          flex-direction:column;
+          background:#111;
+        }
+
+        .heroPhoto{
+          position:relative;
+          inset:auto;
+          width:100%;
+          height:auto;
+          object-fit:contain;
+          object-position:center;
+          filter:none;
+          order:0;
+          background:#111;
+        }
+
+        .hero::before{display:none}
+
+        .heroInner{
+          order:1;
+          min-height:0;
+          padding:30px 18px 36px;
+          background:#111;
+        }
+
+        .heroTitle{
+          font-size:50px;
+        }
+
+        .heroLead{
+          font-size:16px;
+        }
+
+        .about,
+        .contact,
+        .linksSection{
+          padding-left:18px;
+          padding-right:18px;
+        }
+
+        .about{
+          padding-top:58px;
+          padding-bottom:64px;
+        }
+
+        .aboutTitle,
+        .contactTitle{
+          font-size:44px;
+        }
+
+        .aboutText{
+          font-size:16px;
+        }
+
+        .principles{
+          grid-template-columns:1fr;
+          margin-top:34px;
+        }
+
+        .principle{
+          min-height:auto;
+          padding:22px 0;
+          border-right:0;
+          border-bottom:1px solid var(--hair);
+        }
+
+        .principle:last-child{border-bottom:0}
+
+        .principleNum{
+          margin-bottom:24px;
+        }
+
+        .contact{
+          padding-top:60px;
+          padding-bottom:66px;
+        }
+
+        .contactLink{
+          width:100%;
+        }
+
+        .linksSection{
+          padding-top:58px;
+          padding-bottom:62px;
+        }
+
+        .linksGrid{
+          grid-template-columns:1fr;
+        }
+
+        .resource{
+          min-height:auto;
+          padding:20px 0;
+          border-right:0;
+          border-bottom:1px solid var(--hair);
+        }
+
+        .resource:last-child{border-bottom:0}
+
+        .resourceTitle{
+          margin-top:20px;
+        }
+
+        .footer{
+          padding-left:18px;
+          padding-right:18px;
+        }
       }
 
-      /* ===== Footer ===== */
-      .footer{
-        border-top: 1px solid rgba(0,0,0,.08);
-        padding: 22px 0 40px;
-        color: rgba(11,12,16,.62);
-        font-size: 13px;
+      @media(max-width:390px){
+        .topbarInner{
+          padding-left:14px;
+          padding-right:14px;
+        }
+      }
+
+      @media(prefers-reduced-motion:reduce){
+        *{
+          scroll-behavior:auto !important;
+          animation:none !important;
+          transition:none !important;
+        }
+      }
+
+      /* ===== FLY INFO BANNER RESTORE V2 — EXACT PRE-PHASE10 ===== */
+      .restoredInfoHeroScope{
+        width:100%;
+        display:block;
+        overflow:hidden;
+      }
+
+.restoredInfoHeroScope{
+
+        --black:#090909;
+        --white:#f8f6f1;
+        --paper:#eee9e0;
+        --text:#0b0b0b;
+        --muted:rgba(11,11,11,.62);
+        --hair:rgba(11,11,11,.12);
+        --yellow:#f4d95f;
+        --purple:#b88cf1;
+        --max:1440px;
+        --pad:clamp(20px,4vw,68px);
+        --ease:cubic-bezier(.2,.8,.2,1);
+
+}
+.restoredInfoHeroScope *{
+box-sizing:border-box
+}
+.restoredInfoHeroScope,
+.restoredInfoHeroScope{
+
+        margin:0;
+        padding:0;
+        background:var(--white);
+        color:var(--text);
+
+}
+.restoredInfoHeroScope{
+scroll-behavior:smooth
+}
+.restoredInfoHeroScope{
+
+        font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+        -webkit-font-smoothing:antialiased;
+        text-rendering:optimizeLegibility;
+        overflow-x:hidden;
+
+}
+.restoredInfoHeroScope a{
+color:inherit;text-decoration:none
+}
+.restoredInfoHeroScope a:focus-visible{
+
+        outline:2px solid currentColor;
+        outline-offset:4px;
+
+}
+.restoredInfoHeroScope .display{
+
+        margin:0;
+        font-family:"Arial Narrow","Helvetica Neue Condensed Bold","Arial",sans-serif;
+        font-stretch:condensed;
+        font-weight:900;
+        text-transform:uppercase;
+        letter-spacing:-.06em;
+        line-height:.86;
+
+}
+.restoredInfoHeroScope .topbar{
+
+        position:fixed;
+        top:0;
+        left:0;
+        right:0;
+        z-index:80;
+        background:rgba(9,9,9,.54);
+        border-bottom:1px solid rgba(255,255,255,.08);
+        box-shadow:0 8px 28px rgba(0,0,0,.12);
+        backdrop-filter:blur(18px) saturate(115%);
+        -webkit-backdrop-filter:blur(18px) saturate(115%);
+
+}
+.restoredInfoHeroScope .topbarInner{
+
+        max-width:1120px;
+        margin:0 auto;
+        padding:10px 18px;
         display:flex;
         align-items:center;
         justify-content:space-between;
         gap:14px;
-        flex-wrap:wrap;
-      }
-      .links{
+
+}
+.restoredInfoHeroScope .brand{
+
         display:flex;
-        gap:14px;
+        align-items:center;
+        min-height:44px;
+
+}
+.restoredInfoHeroScope .mascot{
+
+        width:26px;
+        height:26px;
+        display:block;
+        object-fit:contain;
+        filter:brightness(0) invert(1);
+
+}
+.restoredInfoHeroScope .nav{
+
+        display:flex;
+        align-items:center;
+        gap:10px;
+
+}
+.restoredInfoHeroScope .navBtn{
+
+        width:42px;
+        height:42px;
+        display:grid;
+        place-items:center;
+        border-radius:999px;
+        color:rgba(255,255,255,.92);
+        transition:background .18s var(--ease),color .18s var(--ease);
+
+}
+.restoredInfoHeroScope .navBtn:hover{
+
+        background:rgba(255,255,255,.07);
+        color:#fff;
+
+}
+.restoredInfoHeroScope .navBtn.active{
+
+        background:rgba(255,255,255,.11);
+        color:#fff;
+
+}
+.restoredInfoHeroScope .navIcon{
+
+        width:18px;
+        height:18px;
+        display:block;
+        object-fit:contain;
+        filter:brightness(0) invert(1);
+
+}
+.restoredInfoHeroScope .navBtn svg{
+
+        width:18px;
+        height:18px;
+        stroke:currentColor;
+        stroke-width:2.2;
+        fill:none;
+        stroke-linecap:round;
+        stroke-linejoin:round;
+
+}
+.restoredInfoHeroScope .hero{
+
+        position:relative;
+        min-height:clamp(620px,70vw,860px);
+        overflow:hidden;
+        isolation:isolate;
+        background:#766f68;
+
+}
+.restoredInfoHeroScope .heroPhoto{
+
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        object-position:58% center;
+        z-index:-3;
+        filter:saturate(.68) contrast(.96) brightness(.88) sepia(.045);
+
+}
+.restoredInfoHeroScope .hero::before{
+
+        content:"";
+        position:absolute;
+        inset:0;
+        z-index:-2;
+        background:
+          linear-gradient(
+            90deg,
+            rgba(5,5,5,.78) 0%,
+            rgba(5,5,5,.56) 34%,
+            rgba(5,5,5,.21) 62%,
+            rgba(5,5,5,.04) 82%,
+            rgba(5,5,5,0) 100%
+          ),
+          linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.20));
+
+}
+.restoredInfoHeroScope .heroInner{
+
+        width:min(100%,var(--max));
+        min-height:inherit;
+        margin:0 auto;
+        padding:clamp(132px,13vw,180px) var(--pad) clamp(62px,7vw,94px);
+        display:flex;
+        align-items:flex-end;
+
+}
+.restoredInfoHeroScope .heroCopy{
+
+        width:min(100%,760px);
+
+}
+.restoredInfoHeroScope .eyebrow{
+
+        margin:0 0 15px;
+        color:rgba(255,255,255,.62);
+        font-size:11px;
+        font-weight:800;
+        letter-spacing:.18em;
+        text-transform:uppercase;
+
+}
+.restoredInfoHeroScope .heroTitle{
+
+        max-width:7.5ch;
+        color:#f8f1e7;
+        font-size:clamp(64px,8vw,140px);
+
+}
+.restoredInfoHeroScope .heroTitle span{
+
+        color:var(--yellow);
+
+}
+.restoredInfoHeroScope .heroSub{
+
+        margin:24px 0 0;
+        max-width:33rem;
+        color:rgba(255,255,255,.86);
+        font-size:clamp(17px,1.25vw,20px);
+        line-height:1.58;
+
+}
+.restoredInfoHeroScope .heroActions{
+
+        margin-top:28px;
+        display:flex;
+        gap:10px;
         flex-wrap:wrap;
-      }
-      .links a{ color: rgba(11,12,16,.62); }
-      .links a:hover{ color: rgba(11,12,16,.90); }
 
-      @media (max-width: 820px){
-        .hero{
-          padding: 68px 0 46px;
-        }
-        .heroImage{
-          margin-top: 28px;
-        }
-      }
+}
+.restoredInfoHeroScope .pill{
 
-      @media (max-width: 560px){
-        .topbarInner,
-        .wrap{
-          padding-left:16px;
-          padding-right:16px;
-        }
-        h1{
-          max-width:none;
-        }
-        .card{
-          padding:18px;
-        }
-      }
-    </style>
+        min-height:46px;
+        padding:0 18px;
+        border-radius:999px;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        font-size:13px;
+        font-weight:800;
+        transition:transform .18s var(--ease);
+
+}
+.restoredInfoHeroScope .pill:hover{
+transform:translateY(-1px)
+}
+.restoredInfoHeroScope .pillLight{
+
+        background:#fff;
+        color:#111;
+
+}
+.restoredInfoHeroScope .pillGlass{
+
+        color:#fff;
+        border:1px solid rgba(255,255,255,.30);
+        background:rgba(0,0,0,.14);
+        backdrop-filter:blur(10px);
+
+}
+.restoredInfoHeroScope .about{
+
+        padding:clamp(82px,8vw,128px) var(--pad);
+        background:var(--white);
+
+}
+.restoredInfoHeroScope .aboutInner{
+
+        width:min(100%,var(--max));
+        margin:0 auto;
+
+}
+.restoredInfoHeroScope .sectionKicker{
+
+        margin:0 0 15px;
+        color:rgba(11,11,11,.42);
+        font-size:11px;
+        font-weight:800;
+        letter-spacing:.18em;
+        text-transform:uppercase;
+
+}
+.restoredInfoHeroScope .aboutGrid{
+
+        display:grid;
+        grid-template-columns:minmax(0,.67fr) minmax(300px,.33fr);
+        gap:clamp(36px,6vw,92px);
+        align-items:start;
+
+}
+.restoredInfoHeroScope .aboutTitle{
+
+        margin:0;
+        max-width:10ch;
+        font-size:clamp(46px,5.4vw,88px);
+        line-height:.92;
+        letter-spacing:-.052em;
+        font-weight:860;
+
+}
+.restoredInfoHeroScope .aboutBody{
+
+        margin:0;
+        color:var(--muted);
+        font-size:clamp(17px,1.15vw,20px);
+        line-height:1.65;
+
+}
+.restoredInfoHeroScope .principles{
+
+        margin-top:clamp(44px,5vw,68px);
+        display:grid;
+        grid-template-columns:repeat(3,minmax(0,1fr));
+        border-top:1px solid var(--hair);
+        border-bottom:1px solid var(--hair);
+
+}
+.restoredInfoHeroScope .principle{
+
+        min-height:180px;
+        padding:24px 22px 26px;
+        border-right:1px solid var(--hair);
+        display:flex;
+        flex-direction:column;
+        justify-content:space-between;
+
+}
+.restoredInfoHeroScope .principle:last-child{
+border-right:0
+}
+.restoredInfoHeroScope .principleNum{
+
+        font-size:10px;
+        font-weight:800;
+        letter-spacing:.18em;
+        color:rgba(11,11,11,.35);
+
+}
+.restoredInfoHeroScope .principleTitle{
+
+        margin:0;
+        font-size:clamp(23px,2.1vw,34px);
+        line-height:1;
+        letter-spacing:-.045em;
+        font-weight:850;
+
+}
+.restoredInfoHeroScope .principleText{
+
+        margin:10px 0 0;
+        max-width:18rem;
+        color:var(--muted);
+        font-size:14.5px;
+        line-height:1.52;
+
+}
+.restoredInfoHeroScope .contact{
+
+        padding:clamp(82px,8vw,124px) var(--pad);
+        background:#0a0a0a;
+        color:#fff;
+
+}
+.restoredInfoHeroScope .contactInner{
+
+        width:min(100%,var(--max));
+        margin:0 auto;
+
+}
+.restoredInfoHeroScope .contactGrid{
+
+        display:grid;
+        grid-template-columns:minmax(0,.62fr) minmax(320px,.38fr);
+        gap:clamp(36px,6vw,92px);
+        align-items:end;
+
+}
+.restoredInfoHeroScope .contact .sectionKicker{
+
+        color:rgba(255,255,255,.42);
+
+}
+.restoredInfoHeroScope .contactTitle{
+
+        margin:0;
+        max-width:8ch;
+        font-size:clamp(48px,6vw,98px);
+        line-height:.89;
+        letter-spacing:-.055em;
+        font-weight:900;
+
+}
+.restoredInfoHeroScope .contactTitle span{
+color:var(--purple)
+}
+.restoredInfoHeroScope .contactBody{
+
+        margin:0;
+        color:rgba(255,255,255,.62);
+        font-size:clamp(17px,1.15vw,19px);
+        line-height:1.6;
+
+}
+.restoredInfoHeroScope .contactAction{
+
+        margin-top:24px;
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        color:#fff;
+        font-size:13px;
+        font-weight:800;
+
+}
+.restoredInfoHeroScope .contactCards{
+
+        margin-top:clamp(40px,5vw,62px);
+        display:grid;
+        grid-template-columns:repeat(3,minmax(0,1fr));
+        border-top:1px solid rgba(255,255,255,.14);
+        border-bottom:1px solid rgba(255,255,255,.14);
+
+}
+.restoredInfoHeroScope .contactCard{
+
+        min-height:190px;
+        padding:24px 22px;
+        border-right:1px solid rgba(255,255,255,.14);
+        display:flex;
+        flex-direction:column;
+        justify-content:flex-end;
+
+}
+.restoredInfoHeroScope .contactCard:last-child{
+border-right:0
+}
+.restoredInfoHeroScope .contactCardLabel{
+
+        margin:0;
+        font-size:21px;
+        font-weight:850;
+        letter-spacing:-.035em;
+
+}
+.restoredInfoHeroScope .contactCardText{
+
+        margin:10px 0 0;
+        color:rgba(255,255,255,.54);
+        font-size:14px;
+        line-height:1.52;
+
+}
+.restoredInfoHeroScope .contactCardLink{
+
+        margin-top:16px;
+        color:rgba(255,255,255,.90);
+        font-size:13px;
+        font-weight:760;
+
+}
+.restoredInfoHeroScope .essentials{
+
+        padding:clamp(70px,7vw,102px) var(--pad);
+        background:var(--paper);
+
+}
+.restoredInfoHeroScope .essentialsInner{
+
+        width:min(100%,var(--max));
+        margin:0 auto;
+
+}
+.restoredInfoHeroScope .essentialsTitle{
+
+        margin:0;
+        font-size:clamp(34px,3.8vw,58px);
+        letter-spacing:-.045em;
+        line-height:.96;
+        font-weight:850;
+
+}
+.restoredInfoHeroScope .linkRail{
+
+        margin-top:32px;
+        border-top:1px solid var(--hair);
+
+}
+.restoredInfoHeroScope .linkRow{
+
+        min-height:66px;
+        border-bottom:1px solid var(--hair);
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:20px;
+        font-size:15px;
+        font-weight:760;
+
+}
+.restoredInfoHeroScope .linkRow span:last-child{
+
+        color:rgba(11,11,11,.42);
+
+}
+.restoredInfoHeroScope .footer{
+
+        padding:25px var(--pad) 38px;
+        background:#090909;
+        color:rgba(255,255,255,.46);
+        font-size:12px;
+
+}
+.restoredInfoHeroScope .footerInner{
+
+        width:min(100%,var(--max));
+        margin:0 auto;
+        display:flex;
+        justify-content:space-between;
+        gap:20px;
+        flex-wrap:wrap;
+
+}
+.restoredInfoHeroScope .footerLinks{
+
+        display:flex;
+        gap:16px;
+        flex-wrap:wrap;
+
+}
+@media(max-width:900px){
+.restoredInfoHeroScope .aboutGrid,
+.restoredInfoHeroScope .contactGrid{
+
+          grid-template-columns:1fr;
+          gap:22px;
+
+}
+.restoredInfoHeroScope .principles,
+.restoredInfoHeroScope .contactCards{
+
+          grid-template-columns:1fr;
+
+}
+.restoredInfoHeroScope .principle,
+.restoredInfoHeroScope .contactCard{
+
+          min-height:155px;
+          border-right:0;
+          border-bottom:1px solid var(--hair);
+
+}
+.restoredInfoHeroScope .contactCard{
+
+          border-bottom-color:rgba(255,255,255,.14);
+
+}
+}
+@media(max-width:720px){
+.restoredInfoHeroScope{
+--pad:18px
+}
+.restoredInfoHeroScope .topbar{
+
+          background:rgba(9,9,9,.62);
+          backdrop-filter:blur(16px) saturate(110%);
+          -webkit-backdrop-filter:blur(16px) saturate(110%);
+
+}
+.restoredInfoHeroScope .hero{
+
+          min-height:700px;
+
+}
+.restoredInfoHeroScope .heroPhoto{
+
+          object-position:61% center;
+
+}
+.restoredInfoHeroScope .heroInner{
+
+          padding:122px 18px 54px;
+
+}
+.restoredInfoHeroScope .heroTitle{
+
+          font-size:clamp(58px,17vw,86px);
+
+}
+.restoredInfoHeroScope .heroActions{
+
+          width:100%;
+
+}
+.restoredInfoHeroScope .pill{
+
+          flex:1 1 100%;
+
+}
+.restoredInfoHeroScope .about,
+.restoredInfoHeroScope .contact{
+
+          padding:68px 18px 74px;
+
+}
+.restoredInfoHeroScope .essentials{
+
+          padding:62px 18px 74px;
+
+}
+}
+@media(prefers-reduced-motion:reduce){
+.restoredInfoHeroScope{
+scroll-behavior:auto
+}
+.restoredInfoHeroScope *{
+transition:none!important
+}
+}
+</style>
   </head>
 
   <body>
@@ -335,101 +1233,163 @@ const publicEmail = "contact@fly-unlimited.com";
 
           <a class="navBtn active" href="/info/" aria-label="Info" title="Info">
             <svg viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="9" />
-              <path d="M12 10.6v6" />
-              <path d="M12 7.4h.01" />
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="M12 10.6v6"></path>
+              <path d="M12 7.4h.01"></path>
             </svg>
           </a>
         </nav>
       </div>
     </header>
 
-    <section class="hero" aria-label="Info hero">
-      <div class="wrap heroInner">
-        <div class="kicker"><span class="dot" aria-hidden="true"></span>Info</div>
+    <main>
+      <!-- FLY INFO PHASE 10 -->
+      <!-- FLY INFO BANNER RESTORE V2 — EXACT PRE-PHASE10 -->
+      <div class="restoredInfoHeroScope">
+<section class="hero" aria-labelledby="info-hero-title">
+        <img
+          class="heroPhoto"
+          src="/campaign/real-people-opportunities.png"
+          alt=""
+          aria-hidden="true"
+        />
 
-        <h1>Simple, clear, and easy to reach.</h1>
-        <p class="sub">
-          FLY keeps things light. Reach out for support, questions, partnerships, or early access.
-        </p>
+        <div class="heroInner">
+          <div class="heroCopy">
+            <p class="eyebrow">FLY Unlimited</p>
 
-        <div class="ctaRow" aria-label="Primary actions">
-          <a class="btn btnPrimary" href={`mailto:${publicEmail}`} aria-label="Contact">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M4 6h16v12H4z"/>
-              <path d="m4 7 8 6 8-6"/>
-            </svg>
-            Contact
-          </a>
+            <h1 class="display heroTitle" id="info-hero-title">
+              Built for <span>real life.</span>
+            </h1>
 
-          <a class="btn" href="/how-it-works/" aria-label="How it works">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M13 2 4 14h7l-1 8 10-14h-7z"/>
-            </svg>
-            How it works
-          </a>
-        </div>
-
-        <div class="heroImage" role="img" aria-label="Info hero image placeholder"></div>
-      </div>
-    </section>
-
-    <section class="section" aria-label="Info content">
-      <div class="wrap">
-        <div class="contentGrid">
-          <div class="card">
-            <h2 class="cardTitle">Contact</h2>
-            <p class="cardText">
-              Questions, support, partnerships, or anything else. Keep it simple and send us a message.
+            <p class="heroSub">
+              FLY is a social marketplace built around what people need,
+              what they can offer, and the opportunities around them.
             </p>
-            <a class="inlineLink" href={`mailto:${publicEmail}`} aria-label="Contact FLY">
-              Contact
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M5 12h14"/>
-                <path d="m13 6 6 6-6 6"/>
-              </svg>
-            </a>
-          </div>
 
-          <div class="card">
-            <h2 class="cardTitle">How it works</h2>
-            <p class="cardText">
-              See the LiveTime flow from start to finish and understand how FLY stays organized.
-            </p>
-            <a class="inlineLink" href="/how-it-works/" aria-label="View how it works">
-              View page
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M5 12h14"/>
-                <path d="m13 6 6 6-6 6"/>
-              </svg>
-            </a>
-          </div>
+            <div class="heroActions">
+              <a class="pill pillLight" href={appStoreUrl} target="_blank" rel="noopener noreferrer">
+                Download FLY
+              </a>
 
-          <div class="card">
-            <h2 class="cardTitle">Privacy</h2>
-            <p class="cardText">
-              Read the basics on how information is handled across the platform.
-            </p>
-            <a class="inlineLink" href="/privacy/" aria-label="View privacy page">
-              View page
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M5 12h14"/>
-                <path d="m13 6 6 6-6 6"/>
-              </svg>
-            </a>
+              <a class="pill pillGlass" href="#contact">
+                Contact
+              </a>
+            </div>
           </div>
         </div>
+      </section>
       </div>
-    </section>
 
-    <footer class="wrap footer" aria-label="Footer">
-      <div>© 2026 {siteName}</div>
-      <div class="links">
-        <a href="/">Home</a>
-        <a href="/how-it-works/">How it works</a>
-        <a href="/terms/">Terms</a>
-        <a href="/privacy/">Privacy</a>
-        <a href={`mailto:${publicEmail}`}>Contact</a>
+
+      <section class="about" id="about">
+        <div class="aboutInner">
+          <p class="eyebrow">About FLY</p>
+
+          <div class="aboutGrid">
+            <h2 class="aboutTitle">The marketplace starts with the person.</h2>
+
+            <p class="aboutText">
+              FLY is designed around a simple idea: the things you need, the things
+              you can offer, and the opportunities around you should be easier to
+              discover and act on. Instead of separating everyday life across
+              different marketplaces, FLY brings them into one network centered around you.
+            </p>
+          </div>
+
+          <div class="principles">
+            <article class="principle">
+              <span class="principleNum">01</span>
+              <h3 class="principleTitle">Personal first</h3>
+              <p class="principleText">
+                Your needs, offers and connections shape the marketplace around you.
+              </p>
+            </article>
+
+            <article class="principle">
+              <span class="principleNum">02</span>
+              <h3 class="principleTitle">Built for action</h3>
+              <p class="principleText">
+                FLY is designed to move from discovery to coordination and completion.
+              </p>
+            </article>
+
+            <article class="principle">
+              <span class="principleNum">03</span>
+              <h3 class="principleTitle">One network</h3>
+              <p class="principleText">
+                Services, stays, rentals, collabs and opportunities can live together.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div class="contactInner">
+          <p class="eyebrow" style="color:rgba(255,255,255,.45)">Contact</p>
+
+          <div class="contactGrid">
+            <h2 class="contactTitle">Let’s talk.</h2>
+
+            <div>
+              <p class="contactText">
+                Questions about FLY, partnerships, business, press or support?
+                Reach us directly.
+              </p>
+
+              <a class="contactLink" href={`mailto:${contactEmail}`}>
+                {contactEmail}
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="linksSection" aria-labelledby="links-title">
+        <div class="linksInner">
+          <h2 class="linksTitle" id="links-title">Explore FLY</h2>
+
+          <div class="linksGrid">
+            <a class="resource" href="/how-it-works/">
+              <span class="resourceLabel">01</span>
+              <span class="resourceTitle">How FLY works →</span>
+            </a>
+
+            <a
+              class="resource"
+              href={appStoreUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="resourceLabel">02</span>
+              <span class="resourceTitle">Download FLY →</span>
+            </a>
+
+            <a class="resource" href="/terms/">
+              <span class="resourceLabel">03</span>
+              <span class="resourceTitle">Terms →</span>
+            </a>
+
+            <a class="resource" href="/privacy/">
+              <span class="resourceLabel">04</span>
+              <span class="resourceTitle">Privacy →</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footerInner">
+        <div>© 2026 {siteName}</div>
+
+        <div class="footerLinks">
+          <a href="/">Home</a>
+          <a href="/how-it-works/">How it works</a>
+          <a href="/terms/">Terms</a>
+          <a href="/privacy/">Privacy</a>
+        </div>
       </div>
     </footer>
   </body>

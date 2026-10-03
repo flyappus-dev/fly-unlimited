@@ -2,15 +2,6 @@
 const siteName = "FLY Unlimited";
 const contactEmail = "hello@fly-unlimited.com";
 const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
-
-/*
-  PHASE 1.2 — EDITORIAL WEB TRANSLATION
-  These are still temporary existing repo photos.
-  When the clean final campaign photography is ready, only swap these paths.
-*/
-const heroPhoto = "/campaign/hero-center-you.png";
-const askPhoto = "/campaign/need-something-ask.png";
-const marketplacePhoto = "/campaign/marketplace-around-you.png";
 ---
 
 <!doctype html>
@@ -21,61 +12,62 @@ const marketplacePhoto = "/campaign/marketplace-around-you.png";
     <title>How FLY Works • {siteName}</title>
     <meta
       name="description"
-      content="See how FLY helps you ask for what you need, connect with people around you, and move from idea to done."
+      content="See how FLY moves from a real-world ask to connection, coordination, completion, and payment."
     />
 
     <style>
       :root{
+        --white:#fff;
         --black:#090909;
-        --white:#f8f6f1;
-        --cream:#f3eee5;
-        --purple:#b88cf1;
-        --mint:#baf0c3;
-        --yellow:#f4d95f;
-        --coral:#ee8378;
-        --blue:#91b8ec;
-
-        --text:#0b0b0b;
-        --muted:rgba(11,11,11,.62);
-        --hair:rgba(11,11,11,.12);
-        --max:1440px;
-        --pad:clamp(20px,4vw,68px);
+        --text:#111;
+        --muted:#6e6e73;
+        --hair:#d9d9dd;
+        --panel:#f5f5f7;
+        --yellow:#f2d35c;
+        --max:1180px;
+        --pad:clamp(20px,4vw,48px);
         --ease:cubic-bezier(.2,.8,.2,1);
       }
 
       *{box-sizing:border-box}
-      html{scroll-behavior:smooth}
-      html,body{margin:0;padding:0;background:var(--white);color:var(--text)}
+
+      html{
+        scroll-behavior:smooth;
+        background:#fff;
+      }
+
+      html,body{
+        margin:0;
+        padding:0;
+        background:#fff;
+        color:var(--text);
+      }
+
       body{
-        font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+        font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;
         -webkit-font-smoothing:antialiased;
         text-rendering:optimizeLegibility;
         overflow-x:hidden;
       }
 
       a{color:inherit;text-decoration:none}
+
       a:focus-visible{
-        outline:2px solid #111;
+        outline:2px solid currentColor;
         outline-offset:4px;
       }
 
-      .display{
-        margin:0;
-        font-family:"Arial Narrow","Helvetica Neue Condensed Bold","Arial",sans-serif;
-        font-stretch:condensed;
-        font-weight:900;
-        text-transform:uppercase;
-        letter-spacing:-.06em;
-        line-height:.86;
-      }
-
-      /* ===== ORIGINAL FLY ICON NAV — LOCKED ===== */
       .topbar{
-        position:sticky;
+        position:fixed;
         top:0;
-        z-index:50;
-        background:rgba(255,255,255,.96);
-        border-bottom:1px solid rgba(0,0,0,.06);
+        left:0;
+        right:0;
+        z-index:100;
+        background:rgba(9,9,9,.54);
+        border-bottom:1px solid rgba(255,255,255,.08);
+        box-shadow:0 8px 28px rgba(0,0,0,.10);
+        backdrop-filter:blur(18px) saturate(115%);
+        -webkit-backdrop-filter:blur(18px) saturate(115%);
       }
 
       .topbarInner{
@@ -89,18 +81,17 @@ const marketplacePhoto = "/campaign/marketplace-around-you.png";
       }
 
       .brand{
+        min-height:44px;
         display:flex;
         align-items:center;
-        gap:10px;
-        min-height:44px;
       }
 
       .mascot{
         width:26px;
         height:26px;
-        border-radius:10px;
-        object-fit:contain;
         display:block;
+        object-fit:contain;
+        filter:brightness(0) invert(1);
       }
 
       .nav{
@@ -115,1812 +106,8 @@ const marketplacePhoto = "/campaign/marketplace-around-you.png";
         display:grid;
         place-items:center;
         border-radius:999px;
-        color:rgba(11,12,16,.70);
-        transition:background .18s var(--ease),color .18s var(--ease);
-      }
-
-      .navBtn:hover{
-        background:rgba(0,0,0,.05);
-        color:rgba(11,12,16,.92);
-      }
-
-      .navBtn.active{
-        background:rgba(0,0,0,.08);
-        color:rgba(11,12,16,.96);
-      }
-
-      .navIcon{
-        width:18px;
-        height:18px;
-        display:block;
-        object-fit:contain;
-      }
-
-      .navBtn svg{
-        width:18px;
-        height:18px;
-        stroke:currentColor;
-        stroke-width:2.2;
-        fill:none;
-        stroke-linecap:round;
-        stroke-linejoin:round;
-      }
-
-      /* ===== SHARED CAMPAIGN SECTION ===== */
-      .campaign{
-        position:relative;
-        min-height:clamp(560px,63vw,760px);
-        overflow:hidden;
-        isolation:isolate;
-        border-bottom:1px solid rgba(255,255,255,.35);
-        background:#8d8982;
-      }
-
-      .campaign__photo{
-        position:absolute;
-        inset:0;
-        width:100%;
-        height:100%;
-        object-fit:cover;
-        object-position:center;
-        filter:saturate(.62) contrast(.95) brightness(.92) sepia(.07);
-        transform:scale(1.01);
-        z-index:-3;
-      }
-
-      .campaign::before{
-        content:"";
-        position:absolute;
-        inset:0;
-        z-index:-2;
-        pointer-events:none;
-      }
-
-      .campaign__inner{
-        width:min(100%,var(--max));
-        min-height:inherit;
-        margin:0 auto;
-        padding:clamp(58px,6vw,92px) var(--pad);
-        display:grid;
-        grid-template-columns:minmax(0,1fr) minmax(330px,.56fr);
-        gap:clamp(34px,5vw,84px);
-        align-items:center;
-      }
-
-      .campaign__copy{
-        max-width:760px;
-        align-self:center;
-      }
-
-      .campaign__kicker{
-        margin:0 0 18px;
-        font-size:11px;
-        font-weight:800;
-        letter-spacing:.18em;
-        text-transform:uppercase;
-      }
-
-      .campaign__title{
-        font-size:clamp(62px,7.1vw,132px);
-        max-width:8ch;
-        text-shadow:0 2px 26px rgba(0,0,0,.16);
-      }
-
-      .campaign__sub{
-        margin:24px 0 0;
-        max-width:34rem;
-        font-size:clamp(13px,1vw,16px);
-        font-weight:800;
-        letter-spacing:.14em;
-        line-height:1.55;
-        text-transform:uppercase;
-      }
-
-      .campaign__body{
-        margin:22px 0 0;
-        max-width:34rem;
-        font-size:clamp(16px,1.15vw,19px);
-        line-height:1.56;
-      }
-
-      .hero{
-        min-height:clamp(620px,66vw,820px);
-      }
-
-      .hero::before{
-        background:
-          linear-gradient(90deg,rgba(8,8,8,.72) 0%,rgba(8,8,8,.56) 36%,rgba(8,8,8,.16) 70%,rgba(8,8,8,.04) 100%),
-          linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.12));
-      }
-
-      .hero .campaign__inner{
-        grid-template-columns:minmax(0,1fr) minmax(260px,.54fr);
-      }
-
-      .hero .campaign__kicker,
-      .hero .campaign__body{color:rgba(255,255,255,.72)}
-
-      .hero .campaign__title{color:#f6efe4}
-      .hero .campaign__title .accent{color:var(--yellow)}
-      .hero .campaign__sub{color:rgba(255,255,255,.9)}
-
-      .heroActions{
-        margin-top:30px;
-        display:flex;
-        flex-wrap:wrap;
-        gap:10px;
-      }
-
-      .cta{
-        min-height:46px;
-        padding:0 18px;
-        display:inline-flex;
-        align-items:center;
-        justify-content:center;
-        border-radius:999px;
-        border:1px solid rgba(255,255,255,.38);
-        font-size:13px;
-        font-weight:760;
-        transition:transform .18s var(--ease),background .18s var(--ease);
-      }
-
-      .cta:hover{transform:translateY(-1px)}
-      .cta.primary{background:#fff;color:#111;border-color:#fff}
-      .cta.secondary{background:rgba(0,0,0,.14);color:#fff;backdrop-filter:blur(10px)}
-
-      /* ===== PRODUCT PHONE ===== */
-      .productStage{
-        justify-self:end;
-        align-self:end;
-        width:min(100%,360px);
-        padding-top:22px;
-        display:flex;
-        justify-content:flex-end;
-      }
-
-      .phone{
-        width:min(100%,310px);
-        aspect-ratio:9/18.6;
-        border-radius:40px 40px 0 0;
-        border:6px solid #0b0b0b;
-        border-bottom:0;
-        background:#fff;
-        box-shadow:0 28px 60px rgba(0,0,0,.24);
-        overflow:hidden;
-        transform:translateY(70px);
-      }
-
-      .phone__top{
-        height:34px;
-        position:relative;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        border-bottom:1px solid rgba(0,0,0,.06);
-      }
-
-      .phone__island{
-        width:82px;
-        height:20px;
-        border-radius:999px;
-        background:#080808;
-      }
-
-      .phone__bar{
-        padding:14px 14px 10px;
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-      }
-
-      .phone__brand{
-        font-weight:950;
-        font-style:italic;
-        letter-spacing:-.08em;
-        font-size:21px;
-      }
-
-      .phone__icons{
-        display:flex;
-        gap:8px;
-        color:#111;
-      }
-
-      .phone__icons span{
-        width:8px;
-        height:8px;
-        border-radius:999px;
-        border:1.7px solid #111;
-        display:block;
-      }
-
-      .phone__tabs{
-        padding:0 12px 10px;
-        display:flex;
-        gap:5px;
-        overflow:hidden;
-      }
-
-      .phone__tab{
-        flex:0 0 auto;
-        padding:5px 8px;
-        border-radius:999px;
-        font-size:8px;
-        border:1px solid rgba(0,0,0,.08);
-        color:rgba(0,0,0,.6);
-      }
-
-      .phone__tab.active{
-        background:#111;
-        color:#fff;
-      }
-
-      .phone__grid{
-        padding:0 12px 18px;
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:8px;
-      }
-
-      .flyCard{
-        border:1px solid rgba(0,0,0,.08);
-        border-radius:11px;
-        overflow:hidden;
-        background:#fff;
-      }
-
-      .flyCard__media{
-        aspect-ratio:1.15/1;
-        background:
-          linear-gradient(135deg,#cab9a7,#6c6762 58%,#272727);
-      }
-
-      .flyCard:nth-child(2) .flyCard__media{
-        background:linear-gradient(135deg,#aab0a9,#4c5953 60%,#151515);
-      }
-
-      .flyCard:nth-child(3) .flyCard__media{
-        background:linear-gradient(135deg,#d5c1ad,#806955 62%,#34271e);
-      }
-
-      .flyCard:nth-child(4) .flyCard__media{
-        background:linear-gradient(135deg,#b4a9ac,#5d5256 60%,#171717);
-      }
-
-      .flyCard__copy{
-        padding:7px;
-      }
-
-      .flyCard__title{
-        font-size:8px;
-        font-weight:800;
-        line-height:1.2;
-      }
-
-      .flyCard__meta{
-        margin-top:3px;
-        font-size:7px;
-        color:rgba(0,0,0,.48);
-      }
-
-      /* ===== ASK ===== */
-      .ask::before{
-        background:
-          linear-gradient(90deg,rgba(7,7,7,.72) 0%,rgba(7,7,7,.48) 42%,rgba(7,7,7,.11) 71%,rgba(7,7,7,.02) 100%),
-          linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.12));
-      }
-
-      .ask .campaign__title{color:var(--purple);max-width:6.4ch}
-      .ask .campaign__kicker,
-      .ask .campaign__body{color:rgba(255,255,255,.73)}
-      .ask .campaign__sub{color:#ddc8ff}
-
-      /* ===== LOOP ===== */
-      .loop{
-        padding:clamp(86px,9vw,140px) var(--pad);
-        background:var(--white);
-      }
-
-      .loopInner{
-        width:min(100%,var(--max));
-        margin:0 auto;
-      }
-
-      .loopIntro{
-        display:grid;
-        grid-template-columns:minmax(0,.72fr) minmax(300px,.28fr);
-        gap:50px;
-        align-items:end;
-        margin-bottom:50px;
-      }
-
-      .loopKicker{
-        margin:0 0 14px;
-        font-size:11px;
-        font-weight:800;
-        letter-spacing:.18em;
-        text-transform:uppercase;
-        color:rgba(11,11,11,.45);
-      }
-
-      .loopTitle{
-        margin:0;
-        max-width:10ch;
-        font-size:clamp(42px,5vw,82px);
-        line-height:.92;
-        letter-spacing:-.05em;
-        font-weight:850;
-      }
-
-      .loopBody{
-        margin:0;
-        max-width:31rem;
-        color:var(--muted);
-        font-size:17px;
-        line-height:1.55;
-      }
-
-      .loopGrid{
-        display:grid;
-        grid-template-columns:repeat(4,minmax(0,1fr));
-        border-top:1px solid var(--hair);
-        border-bottom:1px solid var(--hair);
-      }
-
-      .loopItem{
-        min-height:260px;
-        padding:26px 22px 28px;
-        border-right:1px solid var(--hair);
-        display:flex;
-        flex-direction:column;
-        justify-content:space-between;
-      }
-
-      .loopItem:last-child{border-right:0}
-
-      .loopNum{
-        font-size:10px;
-        font-weight:800;
-        letter-spacing:.18em;
-        color:rgba(0,0,0,.38);
-      }
-
-      .loopWord{
-        margin:0;
-        font-family:"Arial Narrow","Helvetica Neue Condensed Bold","Arial",sans-serif;
-        font-weight:900;
-        letter-spacing:-.06em;
-        line-height:.85;
-        text-transform:uppercase;
-        font-size:clamp(42px,4.1vw,72px);
-      }
-
-      .loopText{
-        margin:14px 0 0;
-        max-width:17rem;
-        color:var(--muted);
-        font-size:15px;
-        line-height:1.5;
-      }
-
-      .loopItem:nth-child(1) .loopWord{color:#9774d1}
-      .loopItem:nth-child(2) .loopWord{color:#6b9f75}
-      .loopItem:nth-child(3) .loopWord{color:#c6a63d}
-      .loopItem:nth-child(4) .loopWord{color:#d2786f}
-
-      /* ===== MARKETPLACE ===== */
-      .marketplace::before{
-        background:
-          linear-gradient(90deg,rgba(5,8,6,.7) 0%,rgba(5,8,6,.48) 40%,rgba(5,8,6,.11) 70%,rgba(5,8,6,.01) 100%),
-          linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.1));
-      }
-
-      .marketplace .campaign__title{
-        color:var(--mint);
-        max-width:7.3ch;
-      }
-
-      .marketplace .campaign__kicker,
-      .marketplace .campaign__body{color:rgba(255,255,255,.72)}
-      .marketplace .campaign__sub{color:#d5f7dc}
-
-      /* Map mock inside phone */
-      .mapPhone{
-        position:relative;
-      }
-
-      .mapArea{
-        margin:0 12px;
-        height:240px;
-        border-radius:12px;
-        overflow:hidden;
-        position:relative;
-        background:
-          linear-gradient(90deg,transparent 49%,rgba(110,120,115,.18) 50%,transparent 51%),
-          linear-gradient(0deg,transparent 49%,rgba(110,120,115,.18) 50%,transparent 51%),
-          linear-gradient(135deg,#e7ece8,#d9e0da);
-        background-size:48px 48px,48px 48px,100% 100%;
-      }
-
-      .mapRoad{
-        position:absolute;
-        width:150%;
-        height:8px;
-        left:-20%;
-        top:48%;
-        background:#fff;
-        transform:rotate(-22deg);
-        box-shadow:0 0 0 1px rgba(0,0,0,.04);
-      }
-
-      .pin{
-        position:absolute;
-        width:30px;
-        height:30px;
-        border-radius:999px;
-        background:#fff;
-        border:2px solid #fff;
-        box-shadow:0 3px 12px rgba(0,0,0,.18);
-      }
-
-      .pin::after{
-        content:"";
-        position:absolute;
-        inset:5px;
-        border-radius:999px;
-        background:#4a514c;
-      }
-
-      .pin.p1{left:20%;top:24%}
-      .pin.p2{right:18%;top:18%}
-      .pin.p3{left:42%;top:52%}
-      .pin.p4{right:23%;bottom:15%}
-
-      .me{
-        position:absolute;
-        left:50%;
-        top:46%;
-        width:22px;
-        height:22px;
-        transform:translate(-50%,-50%);
-        border-radius:999px;
-        background:#4a9cff;
-        border:5px solid rgba(255,255,255,.82);
-        box-shadow:0 0 0 8px rgba(74,156,255,.2);
-      }
-
-      .mapResult{
-        margin:10px 12px 0;
-        padding:10px;
-        border:1px solid rgba(0,0,0,.08);
-        border-radius:12px;
-        display:grid;
-        grid-template-columns:46px 1fr;
-        gap:9px;
-      }
-
-      .mapResult__img{
-        border-radius:8px;
-        background:linear-gradient(135deg,#cbb49e,#66584d);
-      }
-
-      .mapResult__title{
-        font-size:9px;
-        font-weight:800;
-      }
-
-      .mapResult__meta{
-        margin-top:4px;
-        font-size:7px;
-        color:rgba(0,0,0,.5);
-      }
-
-
-      /* ===== PHASE 1.3 — CORE FEATURE CHAPTERS ===== */
-      .opportunity::before{
-        background:
-          linear-gradient(90deg,rgba(7,7,7,.72) 0%,rgba(7,7,7,.47) 43%,rgba(7,7,7,.13) 72%,rgba(7,7,7,.02) 100%),
-          linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.12));
-      }
-
-      .opportunity .campaign__title{
-        color:var(--coral);
-        max-width:7.6ch;
-      }
-
-      .opportunity .campaign__kicker,
-      .opportunity .campaign__body{
-        color:rgba(255,255,255,.74);
-      }
-
-      .opportunity .campaign__sub{
-        color:#ffd3cf;
-      }
-
-      .featurePanel{
-        width:min(100%,350px);
-        justify-self:end;
-        align-self:center;
-        background:rgba(255,255,255,.96);
-        color:#111;
-        border-radius:22px;
-        border:1px solid rgba(255,255,255,.55);
-        box-shadow:0 24px 60px rgba(0,0,0,.22);
-        overflow:hidden;
-        backdrop-filter:blur(12px);
-      }
-
-      .featurePanel__head{
-        padding:14px 16px 12px;
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        gap:14px;
-        border-bottom:1px solid rgba(0,0,0,.07);
-      }
-
-      .featurePanel__title{
-        font-size:12px;
-        font-weight:850;
-        letter-spacing:-.02em;
-      }
-
-      .featurePanel__meta{
-        font-size:9px;
-        color:rgba(0,0,0,.48);
-      }
-
-      .messageThread{
-        padding:14px;
-        display:grid;
-        gap:10px;
-      }
-
-      .messageRow{
-        display:flex;
-        gap:9px;
-        align-items:flex-end;
-      }
-
-      .messageRow.me{
-        justify-content:flex-end;
-      }
-
-      .avatarDot{
-        width:28px;
-        height:28px;
-        border-radius:999px;
-        flex:0 0 28px;
-        background:linear-gradient(135deg,#d2b39c,#6d5548);
-      }
-
-      .bubble{
-        max-width:78%;
-        padding:9px 11px;
-        border-radius:14px 14px 14px 4px;
-        background:#f2f2f2;
-        font-size:9px;
-        line-height:1.4;
-      }
-
-      .messageRow.me .bubble{
-        background:#c9a5ef;
-        border-radius:14px 14px 4px 14px;
-      }
-
-      .attachmentThumb{
-        width:100%;
-        height:72px;
-        border-radius:10px;
-        margin-top:7px;
-        background:linear-gradient(135deg,#b7a89f,#5a4f49 58%,#1d1d1d);
-      }
-
-      .livetime::before{
-        background:
-          linear-gradient(90deg,rgba(5,5,5,.76) 0%,rgba(5,5,5,.5) 44%,rgba(5,5,5,.12) 74%,rgba(5,5,5,.02) 100%),
-          linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.12));
-      }
-
-      .livetime .campaign__title{
-        color:var(--yellow);
-        max-width:6.4ch;
-      }
-
-      .livetime .campaign__kicker,
-      .livetime .campaign__body{
-        color:rgba(255,255,255,.74);
-      }
-
-      .livetime .campaign__sub{
-        color:#fff0a9;
-      }
-
-      .liveSteps{
-        padding:14px 16px 16px;
-        display:grid;
-        gap:14px;
-      }
-
-      .liveStep{
-        display:grid;
-        grid-template-columns:28px minmax(0,1fr);
-        gap:10px;
-        align-items:center;
-      }
-
-      .liveStep__icon{
-        width:28px;
-        height:28px;
-        border-radius:999px;
-        border:1px solid rgba(0,0,0,.12);
-        display:grid;
-        place-items:center;
-        font-size:10px;
-        font-weight:900;
-      }
-
-      .liveStep.done .liveStep__icon{
-        background:#dff3e3;
-        border-color:#8fc79c;
-      }
-
-      .liveStep.active .liveStep__icon{
-        background:#edf3ff;
-        border-color:#93afe1;
-      }
-
-      .liveStep__label{
-        font-size:10px;
-        font-weight:800;
-      }
-
-      .liveStep__sub{
-        margin-top:2px;
-        font-size:8px;
-        color:rgba(0,0,0,.46);
-      }
-
-      .liveButton{
-        margin:4px 16px 16px;
-        min-height:40px;
-        border-radius:10px;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        background:#111;
-        color:#fff;
-        font-size:10px;
-        font-weight:850;
-      }
-
-      .payment::before{
-        background:
-          linear-gradient(90deg,rgba(7,7,7,.7) 0%,rgba(7,7,7,.45) 43%,rgba(7,7,7,.11) 72%,rgba(7,7,7,.02) 100%),
-          linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.12));
-      }
-
-      .payment .campaign__title{
-        color:var(--coral);
-        max-width:6.3ch;
-      }
-
-      .payment .campaign__kicker,
-      .payment .campaign__body{
-        color:rgba(255,255,255,.74);
-      }
-
-      .payment .campaign__sub{
-        color:#ffd6d1;
-      }
-
-      .payBody{
-        padding:14px 16px 18px;
-      }
-
-      .payTabs{
-        display:flex;
-        gap:6px;
-        flex-wrap:wrap;
-      }
-
-      .payTab{
-        padding:6px 9px;
-        border-radius:999px;
-        background:#f1f1f1;
-        font-size:8px;
-        font-weight:750;
-      }
-
-      .payTab.active{
-        background:#111;
-        color:#fff;
-      }
-
-      .payAmount{
-        margin-top:22px;
-        font-size:44px;
-        line-height:1;
-        font-weight:900;
-        letter-spacing:-.055em;
-      }
-
-      .payUnit{
-        margin-left:5px;
-        font-size:11px;
-        font-weight:650;
-        color:rgba(0,0,0,.48);
-        letter-spacing:0;
-      }
-
-      .earlyPay{
-        margin-top:18px;
-        padding-top:14px;
-        border-top:1px solid rgba(0,0,0,.08);
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        gap:16px;
-      }
-
-      .earlyPay__title{
-        font-size:10px;
-        font-weight:850;
-      }
-
-      .earlyPay__sub{
-        margin-top:3px;
-        font-size:8px;
-        color:rgba(0,0,0,.47);
-      }
-
-      .toggle{
-        width:38px;
-        height:22px;
-        padding:3px;
-        border-radius:999px;
-        background:#c9a5ef;
-        display:flex;
-        justify-content:flex-end;
-      }
-
-      .toggle::after{
-        content:"";
-        width:16px;
-        height:16px;
-        border-radius:999px;
-        background:#fff;
-        box-shadow:0 1px 4px rgba(0,0,0,.18);
-      }
-
-      .closing{
-        min-height:clamp(540px,58vw,760px);
-        position:relative;
-        overflow:hidden;
-        display:grid;
-        place-items:center;
-        isolation:isolate;
-        background:#26221f;
-      }
-
-      .closing__photo{
-        position:absolute;
-        inset:0;
-        width:100%;
-        height:100%;
-        object-fit:cover;
-        object-position:center;
-        filter:saturate(.58) contrast(.95) brightness(.72) sepia(.05);
-        z-index:-2;
-      }
-
-      .closing::after{
-        content:"";
-        position:absolute;
-        inset:0;
-        background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.38));
-        z-index:-1;
-      }
-
-      .closing__content{
-        text-align:center;
-        padding:60px 20px;
-        color:#fff;
-      }
-
-      .closing__logo{
-        width:clamp(160px,18vw,300px);
-        height:auto;
-        display:block;
-        margin:0 auto;
-        border-radius:0;
-      }
-
-      .closing__tag{
-        margin:18px 0 0;
-        font-size:clamp(24px,2.4vw,38px);
-        font-weight:450;
-        letter-spacing:-.03em;
-      }
-
-      .closing__cta{
-        margin-top:28px;
-        min-height:46px;
-        padding:0 18px;
-        display:inline-flex;
-        align-items:center;
-        justify-content:center;
-        border-radius:999px;
-        background:#fff;
-        color:#111;
-        font-size:13px;
-        font-weight:800;
-      }
-
-      @media(max-width:720px){
-        .featurePanel{
-          width:270px;
-          justify-self:center;
-        }
-
-        .opportunity .campaign__inner,
-        .livetime .campaign__inner,
-        .payment .campaign__inner{
-          padding-bottom:0;
-        }
-
-        .opportunity .campaign__copy,
-        .livetime .campaign__copy,
-        .payment .campaign__copy{
-          padding-bottom:26px;
-        }
-
-        .closing{
-          min-height:680px;
-        }
-      }
-
-
-
-      /* ===== PHASE 1.4 — PURE CAMPAIGN / NO APP GRAPHICS ===== */
-      .productStage,
-      .featurePanel{
-        display:none !important;
-      }
-
-      .campaign__inner{
-        grid-template-columns:minmax(0,760px) minmax(0,1fr);
-      }
-
-      .hero .campaign__inner{
-        grid-template-columns:minmax(0,760px) minmax(0,1fr);
-      }
-
-      .benefits,
-      .uses{
-        padding:clamp(88px,9vw,144px) var(--pad);
-        background:var(--white);
-      }
-
-      .uses{
-        background:#f0ece4;
-      }
-
-      .benefits__inner,
-      .uses__inner{
-        width:min(100%,var(--max));
-        margin:0 auto;
-      }
-
-      .sectionEyebrow{
-        margin:0 0 16px;
-        font-size:11px;
-        font-weight:800;
-        letter-spacing:.18em;
-        text-transform:uppercase;
-        color:rgba(11,11,11,.46);
-      }
-
-      .sectionHeadline{
-        margin:0;
-        max-width:10ch;
-        font-size:clamp(44px,5.2vw,86px);
-        line-height:.92;
-        letter-spacing:-.052em;
-        font-weight:850;
-      }
-
-      .sectionIntro{
-        margin:24px 0 0;
-        max-width:44rem;
-        color:var(--muted);
-        font-size:clamp(17px,1.15vw,19px);
-        line-height:1.6;
-      }
-
-      .benefitGrid{
-        margin-top:clamp(46px,6vw,78px);
-        display:grid;
-        grid-template-columns:repeat(4,minmax(0,1fr));
-        border-top:1px solid var(--hair);
-        border-bottom:1px solid var(--hair);
-      }
-
-      .benefit{
-        min-height:270px;
-        padding:26px 24px 30px;
-        border-right:1px solid var(--hair);
-        display:flex;
-        flex-direction:column;
-        justify-content:space-between;
-      }
-
-      .benefit:last-child{
-        border-right:0;
-      }
-
-      .benefitNum{
-        font-size:10px;
-        font-weight:800;
-        letter-spacing:.18em;
-        color:rgba(0,0,0,.38);
-      }
-
-      .benefitTitle{
-        margin:0;
-        font-size:clamp(24px,2.25vw,36px);
-        line-height:1;
-        letter-spacing:-.045em;
-        font-weight:850;
-      }
-
-      .benefitText{
-        margin:14px 0 0;
-        max-width:17rem;
-        color:var(--muted);
-        font-size:15px;
-        line-height:1.55;
-      }
-
-      .usesGrid{
-        margin-top:clamp(42px,5vw,68px);
-        display:grid;
-        grid-template-columns:repeat(3,minmax(0,1fr));
-        gap:1px;
-        background:rgba(11,11,11,.11);
-        border:1px solid rgba(11,11,11,.11);
-      }
-
-      .use{
-        min-height:190px;
-        padding:26px;
-        background:#f0ece4;
-        display:flex;
-        flex-direction:column;
-        justify-content:space-between;
-      }
-
-      .useType{
-        font-size:10px;
-        font-weight:800;
-        letter-spacing:.17em;
-        text-transform:uppercase;
-        color:rgba(11,11,11,.42);
-      }
-
-      .useText{
-        margin:30px 0 0;
-        font-size:clamp(22px,2vw,30px);
-        line-height:1.08;
-        letter-spacing:-.035em;
-        font-weight:760;
-        max-width:14ch;
-      }
-
-      .usesNote{
-        margin:28px 0 0;
-        max-width:42rem;
-        color:var(--muted);
-        font-size:15px;
-        line-height:1.6;
-      }
-
-      @media(max-width:1000px){
-        .campaign__inner,
-        .hero .campaign__inner{
-          grid-template-columns:minmax(0,720px) minmax(0,1fr);
-        }
-
-        .benefitGrid{
-          grid-template-columns:repeat(2,minmax(0,1fr));
-        }
-
-        .benefit:nth-child(2){
-          border-right:0;
-        }
-
-        .benefit:nth-child(-n+2){
-          border-bottom:1px solid var(--hair);
-        }
-
-        .usesGrid{
-          grid-template-columns:repeat(2,minmax(0,1fr));
-        }
-      }
-
-      @media(max-width:720px){
-        .campaign__inner,
-        .hero .campaign__inner{
-          grid-template-columns:1fr;
-        }
-
-        .benefits,
-        .uses{
-          padding:72px 18px 82px;
-        }
-
-        .benefitGrid,
-        .usesGrid{
-          grid-template-columns:1fr;
-        }
-
-        .benefit{
-          min-height:220px;
-          border-right:0;
-          border-bottom:1px solid var(--hair);
-          padding:22px 0 24px;
-        }
-
-        .benefit:nth-child(-n+2){
-          border-bottom:1px solid var(--hair);
-        }
-
-        .use{
-          min-height:160px;
-          padding:22px;
-        }
-      }
-
-
-
-      /* ===== PHASE 1.5 — PRACTICAL HOW-TO + FAQ ===== */
-      .guide{
-        padding:clamp(88px,9vw,144px) var(--pad);
-        background:#fff;
-      }
-
-      .guide__inner,
-      .faq__inner{
-        width:min(100%,var(--max));
-        margin:0 auto;
-      }
-
-      .guide__intro{
-        display:grid;
-        grid-template-columns:minmax(0,.7fr) minmax(300px,.3fr);
-        gap:48px;
-        align-items:end;
-        margin-bottom:clamp(44px,6vw,72px);
-      }
-
-      .guide__eyebrow,
-      .faq__eyebrow{
-        margin:0 0 16px;
-        font-size:11px;
-        font-weight:800;
-        letter-spacing:.18em;
-        text-transform:uppercase;
-        color:rgba(11,11,11,.46);
-      }
-
-      .guide__title,
-      .faq__title{
-        margin:0;
-        max-width:10ch;
-        font-size:clamp(44px,5.2vw,84px);
-        line-height:.92;
-        letter-spacing:-.052em;
-        font-weight:850;
-      }
-
-      .guide__lead{
-        margin:0;
-        max-width:31rem;
-        color:var(--muted);
-        font-size:clamp(17px,1.15vw,19px);
-        line-height:1.6;
-      }
-
-      .guide__steps{
-        border-top:1px solid var(--hair);
-      }
-
-      .guideStep{
-        display:grid;
-        grid-template-columns:90px minmax(220px,.32fr) minmax(0,.68fr);
-        gap:24px;
-        align-items:start;
-        padding:28px 0 30px;
-        border-bottom:1px solid var(--hair);
-      }
-
-      .guideStep__num{
-        font-size:12px;
-        font-weight:850;
-        letter-spacing:.16em;
-        color:rgba(11,11,11,.4);
-      }
-
-      .guideStep__title{
-        margin:0;
-        font-size:clamp(24px,2.25vw,34px);
-        line-height:1;
-        letter-spacing:-.045em;
-        font-weight:850;
-      }
-
-      .guideStep__text{
-        margin:0;
-        max-width:46rem;
-        color:var(--muted);
-        font-size:16px;
-        line-height:1.62;
-      }
-
-      .guideStep__text strong{
-        color:rgba(11,11,11,.86);
-      }
-
-      .faq{
-        padding:clamp(84px,8vw,132px) var(--pad);
-        background:#f2eee7;
-      }
-
-      .faq__top{
-        margin-bottom:clamp(38px,5vw,62px);
-      }
-
-      .faq__title{
-        max-width:9ch;
-      }
-
-      .faqList{
-        border-top:1px solid rgba(11,11,11,.14);
-      }
-
-      .faqItem{
-        border-bottom:1px solid rgba(11,11,11,.14);
-      }
-
-      .faqItem summary{
-        list-style:none;
-        cursor:pointer;
-        min-height:76px;
-        display:grid;
-        grid-template-columns:minmax(0,1fr) 32px;
-        gap:20px;
-        align-items:center;
-        font-size:clamp(18px,1.5vw,23px);
-        font-weight:780;
-        letter-spacing:-.025em;
-      }
-
-      .faqItem summary::-webkit-details-marker{
-        display:none;
-      }
-
-      .faqPlus{
-        width:28px;
-        height:28px;
-        display:grid;
-        place-items:center;
-        border:1px solid rgba(11,11,11,.18);
-        border-radius:999px;
-        font-size:18px;
-        font-weight:400;
-        transition:transform .18s var(--ease);
-      }
-
-      .faqItem[open] .faqPlus{
-        transform:rotate(45deg);
-      }
-
-      .faqAnswer{
-        margin:0 0 26px;
-        max-width:52rem;
-        color:var(--muted);
-        font-size:16px;
-        line-height:1.65;
-      }
-
-      @media(max-width:900px){
-        .guide__intro{
-          grid-template-columns:1fr;
-          gap:20px;
-        }
-
-        .guideStep{
-          grid-template-columns:68px minmax(0,1fr);
-          gap:18px;
-        }
-
-        .guideStep__text{
-          grid-column:2;
-          margin-top:-4px;
-        }
-      }
-
-      @media(max-width:620px){
-        .guide,
-        .faq{
-          padding-left:18px;
-          padding-right:18px;
-        }
-
-        .guideStep{
-          grid-template-columns:46px minmax(0,1fr);
-          padding:24px 0 26px;
-        }
-
-        .guideStep__num{
-          font-size:11px;
-        }
-
-        .guideStep__title{
-          font-size:26px;
-        }
-
-        .guideStep__text{
-          font-size:15.5px;
-        }
-
-        .faqItem summary{
-          min-height:70px;
-          font-size:18px;
-        }
-      }
-
-
-
-      /* ===== PHASE 1.6 — FLOW POLISH ===== */
-      .guide{
-        background:#fbfaf7;
-      }
-
-      .guide__title{
-        max-width:11ch;
-      }
-
-      .guideStep{
-        padding-top:24px;
-        padding-bottom:26px;
-      }
-
-      .benefits{
-        background:#fff;
-      }
-
-      .uses{
-        background:#f3efe8;
-      }
-
-      .faq{
-        background:#ebe6de;
-      }
-
-      /* Keep campaign chapters cinematic and concise. */
-      .campaign__body{
-        max-width:31rem;
-      }
-
-      .campaign__sub{
-        max-width:34rem;
-      }
-
-      /* No product visuals during brand phase. */
-      .productStage,
-      .featurePanel,
-      .phone,
-      .mapPhone{
-        display:none !important;
-      }
-
-      @media(max-width:720px){
-        .guideStep{
-          padding-top:22px;
-          padding-bottom:24px;
-        }
-      }
-
-
-
-      /* ===== PHASE 1.7 — CAMPAIGN TIGHTEN ===== */
-
-      .campaign{
-        min-height:clamp(500px,54vw,690px);
-      }
-
-      .campaign__inner{
-        padding-top:clamp(52px,5.5vw,82px);
-        padding-bottom:clamp(52px,5.5vw,82px);
-      }
-
-      .campaign__copy{
-        max-width:700px;
-      }
-
-      .campaign__sub{
-        margin-top:22px;
-        max-width:31rem;
-      }
-
-      .hero{
-        min-height:clamp(620px,66vw,820px);
-      }
-
-      .closing__logo{
-        filter:brightness(0) invert(1);
-      }
-
-      @media(max-width:720px){
-        .campaign{
-          min-height:700px;
-        }
-
-        .campaign__inner,
-        .hero .campaign__inner{
-          min-height:700px;
-        }
-
-        .hero{
-          min-height:760px;
-        }
-
-        .hero .campaign__inner{
-          min-height:760px;
-        }
-      }
-
-
-
-      /* ===== PHASE 1.8 — BANNER SYSTEM ===== */
-
-      /*
-        Lock the campaign banners into one repeatable visual system:
-        full-bleed photography, lower-left editorial copy, restrained color,
-        and no product screenshots.
-      */
-
-      .campaign{
-        min-height:clamp(520px,56vw,710px);
-      }
-
-      .campaign__inner{
-        min-height:inherit;
-        display:flex;
-        align-items:flex-end;
-        justify-content:flex-start;
-        padding-top:clamp(52px,6vw,88px);
-        padding-bottom:clamp(54px,6.2vw,92px);
-      }
-
-      .campaign__copy{
-        width:min(100%,760px);
-        max-width:760px;
-      }
-
-      .campaign__kicker{
-        margin-bottom:14px;
-        color:rgba(255,255,255,.62) !important;
-      }
-
-      .campaign__title{
-        max-width:7.4ch;
-        font-size:clamp(58px,7.2vw,128px);
-        line-height:.84;
-        letter-spacing:-.062em;
-        text-shadow:0 2px 24px rgba(0,0,0,.18);
-      }
-
-      .campaign__sub{
-        margin-top:22px;
-        max-width:35rem;
-        font-size:clamp(13px,1.05vw,16px);
-        line-height:1.48;
-        letter-spacing:.15em;
-      }
-
-      .hero .campaign__inner{
-        display:flex;
-        align-items:center;
-      }
-
-      .hero .campaign__copy{
-        padding-top:8px;
-        padding-bottom:8px;
-      }
-
-      .hero .campaign__title{
-        max-width:8ch;
-        font-size:clamp(62px,7.4vw,134px);
-      }
-
-      .hero .campaign__body{
-        margin-top:20px;
-        max-width:31rem;
-      }
-
-      .ask .campaign__title{color:var(--purple)}
-      .marketplace .campaign__title{color:var(--mint)}
-      .opportunity .campaign__title{color:var(--coral)}
-      .livetime .campaign__title{color:var(--blue)}
-      .payment .campaign__title{color:var(--coral)}
-
-      .ask::before,
-      .marketplace::before,
-      .opportunity::before,
-      .livetime::before,
-      .payment::before{
-        background:
-          linear-gradient(
-            90deg,
-            rgba(7,7,7,.70) 0%,
-            rgba(7,7,7,.48) 34%,
-            rgba(7,7,7,.20) 58%,
-            rgba(7,7,7,.05) 78%,
-            rgba(7,7,7,.00) 100%
-          ),
-          linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.10));
-      }
-
-      .closing__sub{
-        margin:10px auto 0;
-        max-width:28rem;
-        color:rgba(255,255,255,.72);
-        font-size:14px;
-        line-height:1.5;
-      }
-
-      .productStage,
-      .featurePanel,
-      .phone,
-      .mapPhone{
-        display:none !important;
-      }
-
-      @media(max-width:720px){
-        .campaign{
-          min-height:680px;
-        }
-
-        .campaign__inner{
-          min-height:680px;
-          padding:52px 18px 48px;
-          align-items:flex-end;
-        }
-
-        .hero{
-          min-height:760px;
-        }
-
-        .hero .campaign__inner{
-          min-height:760px;
-          align-items:flex-end;
-          padding-bottom:58px;
-        }
-
-        .campaign__title,
-        .hero .campaign__title{
-          font-size:clamp(52px,16vw,78px);
-          max-width:7ch;
-        }
-
-        .campaign__sub{
-          margin-top:18px;
-        }
-      }
-
-
-
-      /* ===== PHASE 1.9C — COPY + SPACING LOCK FIX ===== */
-
-      .brandProof{
-        padding:clamp(82px,8vw,128px) var(--pad);
-        background:#f7f5f0;
-      }
-
-      .brandProof__inner{
-        width:min(100%,var(--max));
-        margin:0 auto;
-      }
-
-      .brandProof__top{
-        display:grid;
-        grid-template-columns:minmax(0,.68fr) minmax(300px,.32fr);
-        gap:48px;
-        align-items:end;
-      }
-
-      .brandProof__eyebrow{
-        margin:0 0 14px;
-        font-size:11px;
-        font-weight:800;
-        letter-spacing:.18em;
-        text-transform:uppercase;
-        color:rgba(11,11,11,.44);
-      }
-
-      .brandProof__title{
-        margin:0;
-        max-width:8ch;
-        font-size:clamp(44px,5.1vw,82px);
-        line-height:.92;
-        letter-spacing:-.052em;
-        font-weight:850;
-      }
-
-      .brandProof__intro{
-        margin:0;
-        max-width:31rem;
-        color:var(--muted);
-        font-size:clamp(17px,1.12vw,19px);
-        line-height:1.58;
-      }
-
-      .brandProof__grid{
-        margin-top:clamp(42px,5vw,66px);
-        display:grid;
-        grid-template-columns:repeat(4,minmax(0,1fr));
-        border-top:1px solid var(--hair);
-        border-bottom:1px solid var(--hair);
-      }
-
-      .brandProof__item{
-        min-height:235px;
-        padding:24px 22px 26px;
-        border-right:1px solid var(--hair);
-        display:flex;
-        flex-direction:column;
-        justify-content:space-between;
-      }
-
-      .brandProof__item:last-child{border-right:0}
-
-      .brandProof__num{
-        font-size:10px;
-        font-weight:800;
-        letter-spacing:.18em;
-        color:rgba(11,11,11,.36);
-      }
-
-      .brandProof__itemTitle{
-        margin:0;
-        font-size:clamp(22px,2vw,31px);
-        line-height:1;
-        letter-spacing:-.043em;
-        font-weight:850;
-      }
-
-      .brandProof__text{
-        margin:12px 0 0;
-        max-width:17rem;
-        color:var(--muted);
-        font-size:14.5px;
-        line-height:1.52;
-      }
-
-      .brandProof__examples{
-        padding-top:22px;
-        display:flex;
-        flex-wrap:wrap;
-        gap:8px;
-      }
-
-      .brandProof__examples span{
-        padding:7px 11px;
-        border:1px solid rgba(11,11,11,.13);
-        border-radius:999px;
-        font-size:11px;
-        font-weight:720;
-        letter-spacing:.02em;
-        color:rgba(11,11,11,.62);
-      }
-
-      .faq{
-        padding-top:clamp(68px,6.5vw,102px);
-        padding-bottom:clamp(68px,6.5vw,102px);
-      }
-
-      .faq__top{
-        margin-bottom:clamp(24px,3.5vw,42px);
-      }
-
-      .faqItem summary{
-        min-height:64px;
-      }
-
-      .faqAnswer{
-        margin-bottom:20px;
-        font-size:15.5px;
-        line-height:1.6;
-      }
-
-      @media(max-width:1000px){
-        .brandProof__top{
-          grid-template-columns:1fr;
-          gap:18px;
-        }
-
-        .brandProof__grid{
-          grid-template-columns:repeat(2,minmax(0,1fr));
-        }
-
-        .brandProof__item:nth-child(2){border-right:0}
-        .brandProof__item:nth-child(-n+2){border-bottom:1px solid var(--hair)}
-      }
-
-      @media(max-width:620px){
-        .brandProof{
-          padding:68px 18px 76px;
-        }
-
-        .brandProof__grid{
-          grid-template-columns:1fr;
-        }
-
-        .brandProof__item{
-          min-height:190px;
-          padding:20px 0 22px;
-          border-right:0;
-          border-bottom:1px solid var(--hair);
-        }
-
-        .brandProof__examples{
-          gap:6px;
-        }
-
-        .faq{
-          padding-top:62px;
-          padding-bottom:70px;
-        }
-
-        .faqItem summary{
-          min-height:60px;
-        }
-      }
-
-
-
-      /* ===== PHASE 2.0 — CAMPAIGN PHOTO SLOTS ===== */
-
-      .campaign__photo,
-      .closing__photo{
-        object-position:var(--photo-position, center center);
-      }
-
-      .hero{--photo-position:58% center}
-      .ask{--photo-position:54% center}
-      .marketplace{--photo-position:55% center}
-      .opportunity{--photo-position:57% center}
-      .livetime{--photo-position:58% center}
-      .payment{--photo-position:58% center}
-      .closing{--photo-position:center center}
-
-      @media(max-width:720px){
-        .hero{--photo-position:62% center}
-        .ask{--photo-position:58% center}
-        .marketplace{--photo-position:58% center}
-        .opportunity{--photo-position:60% center}
-        .livetime{--photo-position:61% center}
-        .payment{--photo-position:62% center}
-        .closing{--photo-position:55% center}
-      }
-
-
-
-      /* ===== PHASE 2.1 — CLEAR HEADER + WARM BANNERS ===== */
-
-      /* Float the existing FLY icon navigation directly over the hero. */
-      .topbar{
-        position:fixed;
-        top:0;
-        left:0;
-        right:0;
-        z-index:80;
-        background:
-          linear-gradient(
-            180deg,
-            rgba(5,5,5,.40) 0%,
-            rgba(5,5,5,.16) 58%,
-            rgba(5,5,5,0) 100%
-          );
-        border-bottom:0;
-        box-shadow:none;
-        backdrop-filter:none;
-      }
-
-      .topbarInner{
-        background:transparent;
-      }
-
-      /* Existing logo + icon system stays; only presentation changes over photography. */
-      .mascot{
-        filter:brightness(0) invert(1);
-      }
-
-      .navBtn{
-        color:#fff;
-      }
-
-      .navIcon{
-        filter:brightness(0) invert(1);
-      }
-
-      .navBtn:hover{
-        background:rgba(255,255,255,.12);
-        color:#fff;
-      }
-
-      .navBtn.active{
-        background:rgba(255,255,255,.18);
-        color:#fff;
-      }
-
-      /* Give the floating controls just enough contrast without creating a bar. */
-      .brand,
-      .navBtn{
-        text-shadow:0 1px 12px rgba(0,0,0,.22);
-      }
-
-      /* Header no longer consumes vertical space; hero starts at the very top. */
-      .hero{
-        margin-top:0;
-      }
-
-      @media(max-width:720px){
-        .topbar{
-          background:
-            linear-gradient(
-              180deg,
-              rgba(5,5,5,.46) 0%,
-              rgba(5,5,5,.18) 66%,
-              rgba(5,5,5,0) 100%
-            );
-        }
-      }
-
-
-
-      /* ===== PHASE 2.2 — DARK GLASS HEADER ===== */
-
-      /*
-        Keep the existing FLY logo + icon menu, but anchor them inside
-        one continuous translucent dark navigation surface.
-      */
-      .topbar{
-        position:fixed;
-        top:0;
-        left:0;
-        right:0;
-        z-index:80;
-        background:rgba(9,9,9,.54);
-        border-bottom:1px solid rgba(255,255,255,.08);
-        box-shadow:0 8px 28px rgba(0,0,0,.12);
-        backdrop-filter:blur(18px) saturate(115%);
-        -webkit-backdrop-filter:blur(18px) saturate(115%);
-      }
-
-      .topbarInner{
-        background:transparent;
-      }
-
-      .mascot,
-      .navIcon{
-        filter:brightness(0) invert(1);
-      }
-
-      .navBtn{
         color:rgba(255,255,255,.92);
+        transition:background .18s var(--ease),color .18s var(--ease);
       }
 
       .navBtn:hover{
@@ -1933,34 +120,488 @@ const marketplacePhoto = "/campaign/marketplace-around-you.png";
         color:#fff;
       }
 
-      .brand,
-      .navBtn{
-        text-shadow:none;
+      .navIcon{
+        width:18px;
+        height:18px;
+        display:block;
+        object-fit:contain;
+        filter:brightness(0) invert(1);
       }
 
-      @media(max-width:720px){
-        .topbar{
-          background:rgba(9,9,9,.62);
-          backdrop-filter:blur(16px) saturate(110%);
-          -webkit-backdrop-filter:blur(16px) saturate(110%);
-        }
+      .navBtn svg{
+        width:18px;
+        height:18px;
+        stroke:currentColor;
+        stroke-width:2.2;
+        fill:none;
+        stroke-linecap:round;
+        stroke-linejoin:round;
       }
 
+      .hero{
+        position:relative;
+        min-height:620px;
+        overflow:hidden;
+        isolation:isolate;
+        background:#6c655f;
+      }
 
-      /* ===== FOOTER ===== */
+      .heroPhoto{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        object-position:center;
+        z-index:-3;
+        filter:saturate(.76) contrast(.98) brightness(.88);
+      }
+
+      .hero::before{
+        content:"";
+        position:absolute;
+        inset:0;
+        z-index:-2;
+        background:
+          linear-gradient(90deg,rgba(0,0,0,.67) 0%,rgba(0,0,0,.50) 35%,rgba(0,0,0,.18) 62%,rgba(0,0,0,.03) 100%),
+          linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.14));
+      }
+
+      .heroInner{
+        width:min(100%,var(--max));
+        min-height:620px;
+        margin:0 auto;
+        padding:128px var(--pad) 64px;
+        display:flex;
+        align-items:flex-end;
+      }
+
+      .heroCopy{
+        width:min(100%,620px);
+      }
+
+      .heroEyebrow{
+        margin:0 0 14px;
+        color:rgba(255,255,255,.70);
+        font-size:12px;
+        font-weight:700;
+        letter-spacing:.12em;
+        text-transform:uppercase;
+      }
+
+      .heroTitle{
+        margin:0;
+        color:#fff;
+        font-size:clamp(64px,7vw,108px);
+        line-height:.88;
+        letter-spacing:-.055em;
+        font-weight:700;
+      }
+
+      .heroLead{
+        margin:20px 0 0;
+        color:#fff;
+        font-size:clamp(25px,2.2vw,34px);
+        line-height:1.08;
+        letter-spacing:-.035em;
+        font-weight:500;
+      }
+
+      .heroSub{
+        margin:10px 0 0;
+        color:rgba(255,255,255,.76);
+        font-size:17px;
+        line-height:1.5;
+      }
+
+      .heroCta{
+        margin-top:24px;
+        min-height:44px;
+        padding:0 18px;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        gap:8px;
+        border-radius:999px;
+        background:#fff;
+        color:#111;
+        font-size:14px;
+        font-weight:600;
+      }
+
+      .stepNav{
+        background:#fff;
+        border-bottom:1px solid var(--hair);
+      }
+
+      .stepNavInner{
+        width:min(100%,var(--max));
+        margin:0 auto;
+        padding:0 var(--pad);
+        display:grid;
+        grid-template-columns:repeat(5,minmax(0,1fr));
+      }
+
+      .stepNavItem{
+        min-height:74px;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        position:relative;
+      }
+
+      .stepNavItem:not(:last-child)::after{
+        content:"";
+        position:absolute;
+        right:0;
+        top:22px;
+        bottom:22px;
+        width:1px;
+        background:var(--hair);
+      }
+
+      .stepNavNum{
+        color:#8a8a8e;
+        font-size:12px;
+        line-height:1;
+      }
+
+      .stepNavLabel{
+        margin-top:5px;
+        font-size:14px;
+        font-weight:600;
+      }
+
+      .how{background:#fff}
+
+      .howInner{
+        width:min(100%,var(--max));
+        margin:0 auto;
+        padding:18px var(--pad) 22px;
+      }
+
+      .howRow{
+        display:grid;
+        grid-template-columns:minmax(260px,.42fr) minmax(0,.58fr);
+        gap:clamp(36px,6vw,88px);
+        align-items:center;
+        padding:38px 0;
+        border-bottom:1px solid var(--hair);
+      }
+
+      .howRow:last-child{border-bottom:0}
+
+      .howNum{
+        margin:0 0 8px;
+        color:#8a8a8e;
+        font-size:13px;
+        line-height:1;
+      }
+
+      .howTitle{
+        margin:0;
+        font-size:clamp(28px,2.7vw,42px);
+        line-height:1.03;
+        letter-spacing:-.04em;
+        font-weight:650;
+      }
+
+      .howText{
+        margin:9px 0 0;
+        max-width:33rem;
+        color:var(--muted);
+        font-size:17px;
+        line-height:1.5;
+      }
+
+      .productCard{
+        min-height:210px;
+        border-radius:18px;
+        background:var(--panel);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        padding:30px;
+      }
+
+      .productCardContent{
+        display:grid;
+        justify-items:center;
+        gap:10px;
+      }
+
+      .productIcon{
+        width:44px;
+        height:44px;
+        stroke:#111;
+        stroke-width:1.8;
+        fill:none;
+        stroke-linecap:round;
+        stroke-linejoin:round;
+      }
+
+      .productLabel{
+        color:#3a3a3c;
+        font-size:16px;
+        font-weight:500;
+      }
+
+      .live{
+        position:relative;
+        min-height:310px;
+        overflow:hidden;
+        isolation:isolate;
+        background:#4f4a46;
+      }
+
+      .livePhoto{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        object-position:center;
+        z-index:-2;
+        filter:saturate(.75) contrast(.98) brightness(.83);
+      }
+
+      .live::before{
+        content:"";
+        position:absolute;
+        inset:0;
+        z-index:-1;
+        background:linear-gradient(90deg,rgba(0,0,0,.68),rgba(0,0,0,.38) 48%,rgba(0,0,0,.05) 78%);
+      }
+
+      .liveInner{
+        width:min(100%,var(--max));
+        min-height:310px;
+        margin:0 auto;
+        padding:44px var(--pad);
+        display:flex;
+        align-items:flex-end;
+      }
+
+      .liveCopy{max-width:560px}
+
+      .liveEyebrow{
+        margin:0 0 10px;
+        color:rgba(255,255,255,.68);
+        font-size:11px;
+        font-weight:700;
+        letter-spacing:.16em;
+        text-transform:uppercase;
+      }
+
+      .liveTitle{
+        margin:0;
+        color:#fff;
+        font-size:clamp(42px,4.5vw,68px);
+        line-height:.94;
+        letter-spacing:-.045em;
+        font-weight:650;
+      }
+
+      .liveText{
+        margin:12px 0 0;
+        color:rgba(255,255,255,.78);
+        font-size:17px;
+        line-height:1.5;
+      }
+
+      .why{
+        background:#fff;
+        padding:64px var(--pad) 72px;
+      }
+
+      .whyInner{
+        width:min(100%,var(--max));
+        margin:0 auto;
+      }
+
+      .whyTitle{
+        margin:0;
+        font-size:clamp(46px,5vw,72px);
+        line-height:.95;
+        letter-spacing:-.05em;
+        font-weight:650;
+      }
+
+      .whyGrid{
+        margin-top:34px;
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:50px;
+      }
+
+      .whyCol + .whyCol{
+        border-left:1px solid var(--hair);
+        padding-left:50px;
+      }
+
+      .whyKicker{
+        margin:0 0 22px;
+        font-size:11px;
+        font-weight:700;
+        letter-spacing:.18em;
+        text-transform:uppercase;
+      }
+
+      .benefit{
+        display:grid;
+        grid-template-columns:46px 1fr;
+        gap:16px;
+        align-items:start;
+      }
+
+      .benefit + .benefit{margin-top:22px}
+
+      .benefitIcon{
+        width:46px;
+        height:46px;
+        border-radius:999px;
+        background:#f2f2f2;
+        display:grid;
+        place-items:center;
+      }
+
+      .benefitIcon svg{
+        width:23px;
+        height:23px;
+        stroke:#111;
+        stroke-width:1.9;
+        fill:none;
+        stroke-linecap:round;
+        stroke-linejoin:round;
+      }
+
+      .benefitTitle{
+        margin:2px 0 0;
+        font-size:16px;
+        font-weight:650;
+      }
+
+      .benefitText{
+        margin:4px 0 0;
+        color:var(--muted);
+        font-size:14px;
+        line-height:1.45;
+      }
+
+      .final{
+        background:#fff;
+        padding:0 var(--pad) 28px;
+      }
+
+      .finalInner{
+        width:min(100%,var(--max));
+        min-height:260px;
+        margin:0 auto;
+        position:relative;
+        overflow:hidden;
+        border-radius:18px;
+        isolation:isolate;
+        background:#655d55;
+      }
+
+      .finalPhoto{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        object-position:center;
+        z-index:-2;
+        filter:saturate(.74) contrast(.97) brightness(.86);
+      }
+
+      .finalInner::before{
+        content:"";
+        position:absolute;
+        inset:0;
+        z-index:-1;
+        background:linear-gradient(90deg,rgba(0,0,0,.68),rgba(0,0,0,.34) 53%,rgba(0,0,0,.02) 82%);
+      }
+
+      .finalCopy{
+        min-height:260px;
+        padding:42px 48px;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        max-width:620px;
+      }
+
+      .finalKicker{
+        margin:0 0 8px;
+        color:rgba(255,255,255,.66);
+        font-size:11px;
+        font-weight:700;
+        letter-spacing:.16em;
+        text-transform:uppercase;
+      }
+
+      .finalTitle{
+        margin:0;
+        color:#fff;
+        font-size:clamp(48px,5vw,72px);
+        line-height:.95;
+        letter-spacing:-.05em;
+        font-weight:650;
+      }
+
+      .finalText{
+        margin:10px 0 0;
+        color:rgba(255,255,255,.78);
+        font-size:16px;
+        line-height:1.45;
+      }
+
+      .finalActions{
+        margin-top:20px;
+        display:flex;
+        gap:10px;
+        flex-wrap:wrap;
+      }
+
+      .finalBtn{
+        min-height:42px;
+        padding:0 17px;
+        border-radius:999px;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        font-size:13px;
+        font-weight:600;
+        border:1px solid rgba(255,255,255,.46);
+        color:#fff;
+      }
+
+      .finalBtn.primary{
+        background:#fff;
+        color:#111;
+        border-color:#fff;
+      }
+
       .footer{
-        padding:26px var(--pad) 38px;
-        background:#0a0a0a;
-        color:rgba(255,255,255,.48);
+        padding:24px var(--pad) 38px;
+        background:#fff;
+        color:#86868b;
         font-size:12px;
       }
 
       .footerInner{
         width:min(100%,var(--max));
         margin:0 auto;
+        border-top:1px solid var(--hair);
+        padding-top:22px;
         display:flex;
+        align-items:center;
         justify-content:space-between;
-        gap:20px;
+        gap:18px;
         flex-wrap:wrap;
       }
 
@@ -1970,147 +611,617 @@ const marketplacePhoto = "/campaign/marketplace-around-you.png";
         flex-wrap:wrap;
       }
 
-      @media(max-width:1000px){
-        .campaign{
-          min-height:720px;
+      @media(max-width:900px){
+        .howRow{
+          grid-template-columns:minmax(220px,.42fr) minmax(0,.58fr);
+          gap:32px;
         }
 
-        .campaign__inner,
-        .hero .campaign__inner{
-          grid-template-columns:minmax(0,1fr) minmax(250px,.45fr);
-          gap:28px;
-        }
+        .whyGrid{gap:32px}
 
-        .campaign__title{
-          font-size:clamp(58px,9vw,104px);
-        }
-
-        .productStage{width:290px}
-        .phone{width:260px;transform:translateY(60px)}
-
-        .loopIntro{
-          grid-template-columns:1fr;
-          gap:18px;
-        }
-
-        .loopGrid{
-          grid-template-columns:repeat(2,minmax(0,1fr));
-        }
-
-        .loopItem:nth-child(2){border-right:0}
-        .loopItem:nth-child(-n+2){border-bottom:1px solid var(--hair)}
+        .whyCol + .whyCol{padding-left:32px}
       }
 
       @media(max-width:720px){
         :root{--pad:18px}
 
-        .campaign{
-          min-height:760px;
+        .topbar{
+          background:rgba(9,9,9,.62);
+          backdrop-filter:blur(16px) saturate(110%);
+          -webkit-backdrop-filter:blur(16px) saturate(110%);
         }
 
-        .campaign__photo{
-          object-position:center;
+        .hero,
+        .heroInner{
+          min-height:700px;
         }
 
-        .campaign::before,
-        .hero::before,
-        .ask::before,
-        .marketplace::before{
+        .heroPhoto{object-position:62% center}
+
+        .hero::before{
           background:
-            linear-gradient(180deg,rgba(6,6,6,.18) 0%,rgba(6,6,6,.26) 36%,rgba(6,6,6,.76) 78%,rgba(6,6,6,.86) 100%);
+            linear-gradient(180deg,rgba(0,0,0,.12) 0%,rgba(0,0,0,.20) 37%,rgba(0,0,0,.70) 79%,rgba(0,0,0,.82) 100%);
         }
 
-        .campaign__inner,
-        .hero .campaign__inner{
-          min-height:760px;
-          grid-template-columns:1fr;
-          align-items:end;
-          padding:56px 18px 0;
+        .heroInner{
+          padding:118px 18px 48px;
+          align-items:flex-end;
         }
 
-        .campaign__copy{
-          align-self:end;
-          padding-bottom:36px;
-        }
+        .heroTitle{font-size:clamp(58px,17vw,76px)}
+        .heroLead{font-size:26px}
+        .heroSub{font-size:16px}
+        .heroCta{width:100%}
 
-        .campaign__title{
-          font-size:clamp(54px,16vw,82px);
-          max-width:7.4ch;
-        }
-
-        .campaign__body{
-          font-size:16px;
-        }
-
-        .productStage{
-          width:100%;
-          justify-self:center;
-          justify-content:center;
-          align-self:end;
+        .stepNavInner{
           padding:0;
-          height:315px;
+          grid-template-columns:repeat(5,128px);
+          overflow-x:auto;
+          -webkit-overflow-scrolling:touch;
+          scrollbar-width:none;
         }
 
-        .phone{
-          width:245px;
-          transform:translateY(34px);
-        }
+        .stepNavInner::-webkit-scrollbar{display:none}
 
-        .hero{
-          min-height:760px;
-        }
+        .stepNavItem{min-height:68px}
 
-        .hero .campaign__inner{
-          padding-bottom:48px;
-        }
+        .howInner{padding:0 18px}
 
-        .hero .productStage{display:none}
-
-        .heroActions{
-          width:100%;
-        }
-
-        .cta{
-          flex:1 1 100%;
-        }
-
-        .loop{
-          padding:72px 18px 82px;
-        }
-
-        .loopTitle{
-          font-size:clamp(40px,13vw,62px);
-        }
-
-        .loopBody{font-size:16px}
-
-        .loopGrid{
+        .howRow{
           grid-template-columns:1fr;
-          border-bottom:0;
+          gap:22px;
+          padding:40px 0;
         }
 
-        .loopItem{
-          min-height:220px;
-          border-right:0;
-          border-bottom:1px solid var(--hair);
-          padding:22px 0 24px;
+        .howTitle{font-size:34px}
+        .howText{font-size:16px}
+
+        .productCard{
+          min-height:190px;
+          border-radius:16px;
         }
 
-        .loopWord{
-          font-size:clamp(48px,17vw,68px);
+        .live{min-height:430px}
+
+        .livePhoto{object-position:60% center}
+
+        .live::before{
+          background:linear-gradient(180deg,rgba(0,0,0,.10),rgba(0,0,0,.72) 78%,rgba(0,0,0,.82));
         }
 
-        .footer{
-          padding-left:18px;
-          padding-right:18px;
+        .liveInner{
+          min-height:430px;
+          padding:42px 18px;
         }
+
+        .liveTitle{font-size:50px}
+
+        .why{padding:58px 18px 64px}
+        .whyTitle{font-size:48px}
+
+        .whyGrid{
+          grid-template-columns:1fr;
+          gap:38px;
+        }
+
+        .whyCol + .whyCol{
+          border-left:0;
+          border-top:1px solid var(--hair);
+          padding-left:0;
+          padding-top:34px;
+        }
+
+        .final{padding:0 18px 22px}
+
+        .finalInner{min-height:430px}
+        .finalPhoto{object-position:62% center}
+
+        .finalInner::before{
+          background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.72) 75%,rgba(0,0,0,.82));
+        }
+
+        .finalCopy{
+          min-height:430px;
+          padding:36px 24px;
+          justify-content:flex-end;
+        }
+
+        .finalTitle{font-size:54px}
+
+        .finalBtn{flex:1 1 100%}
+      }
+
+      @media(max-width:390px){
+        .heroTitle{font-size:54px}
+        .heroLead{font-size:23px}
+        .howTitle{font-size:31px}
+        .whyTitle{font-size:44px}
+        .finalTitle{font-size:48px}
       }
 
       @media(prefers-reduced-motion:reduce){
         html{scroll-behavior:auto}
         *{transition:none!important}
       }
-    </style>
+
+
+      /* ===== PHASE 7 — RESPONSIVE / NAV FOUNDATION ===== */
+      :root{ --fly-nav-h:64px; }
+
+      body{
+        padding-top:var(--fly-nav-h) !important;
+      }
+
+      .topbar{
+        min-height:var(--fly-nav-h);
+      }
+
+      @media(max-width:900px){
+        .hero,
+        .live{
+          min-height:0 !important;
+          height:auto !important;
+          display:flex !important;
+          flex-direction:column !important;
+          background:#111 !important;
+        }
+
+        .heroPhoto,
+        .livePhoto{
+          position:relative !important;
+          inset:auto !important;
+          order:0 !important;
+          width:100% !important;
+          height:auto !important;
+          object-fit:contain !important;
+          object-position:center !important;
+          display:block !important;
+          filter:none !important;
+          background:#111 !important;
+        }
+
+        .hero::before,
+        .live::before{
+          display:none !important;
+        }
+
+        .heroInner,
+        .liveInner{
+          order:1 !important;
+          min-height:0 !important;
+          height:auto !important;
+          display:block !important;
+          padding:34px 22px 40px !important;
+          background:#111 !important;
+        }
+
+        .heroCopy,
+        .liveCopy{
+          width:100% !important;
+          max-width:680px !important;
+        }
+
+        .heroTitle,
+        .heroLead,
+        .heroSub,
+        .liveTitle,
+        .liveText,
+        .heroEyebrow,
+        .liveEyebrow{
+          color:#fff !important;
+        }
+
+        .heroSub,
+        .heroEyebrow,
+        .liveText,
+        .liveEyebrow{
+          color:rgba(255,255,255,.72) !important;
+        }
+
+        .finalInner{
+          display:flex !important;
+          flex-direction:column !important;
+          min-height:0 !important;
+          background:#111 !important;
+        }
+
+        .finalPhoto{
+          position:relative !important;
+          inset:auto !important;
+          width:100% !important;
+          height:auto !important;
+          object-fit:contain !important;
+          object-position:center !important;
+          filter:none !important;
+          order:0 !important;
+        }
+
+        .finalInner::before{
+          display:none !important;
+        }
+
+        .finalCopy{
+          order:1 !important;
+          min-height:0 !important;
+          max-width:none !important;
+          padding:30px 28px 34px !important;
+          background:#111 !important;
+        }
+      }
+
+      @media(max-width:720px){
+        .stepNavInner{
+          scroll-snap-type:x mandatory;
+        }
+
+        .stepNavItem{
+          scroll-snap-align:start;
+        }
+
+        .howRow{
+          padding:34px 0 !important;
+        }
+
+        .productCard{
+          min-height:170px !important;
+        }
+      }
+
+      @media(max-width:560px){
+        .heroInner,
+        .liveInner{
+          padding:28px 18px 34px !important;
+        }
+
+        .heroTitle{
+          font-size:clamp(48px,14vw,64px) !important;
+          line-height:.94 !important;
+        }
+
+        .heroLead{
+          font-size:23px !important;
+        }
+
+        .heroCta{
+          width:100% !important;
+        }
+
+        .howTitle{
+          font-size:31px !important;
+        }
+
+        .why{
+          padding-left:18px !important;
+          padding-right:18px !important;
+        }
+
+        .whyTitle{
+          font-size:44px !important;
+        }
+
+        .final{
+          padding-left:18px !important;
+          padding-right:18px !important;
+        }
+
+        .finalCopy{
+          padding:26px 22px 30px !important;
+        }
+
+        .finalTitle{
+          font-size:46px !important;
+        }
+      }
+
+
+
+      /* ===== PHASE 8 — WAYS TO FLY ===== */
+      .ways{
+        padding:72px var(--pad) 82px;
+        background:#fff;
+      }
+
+      .waysInner{
+        width:min(100%,var(--max));
+        margin:0 auto;
+      }
+
+      .waysEyebrow{
+        margin:0 0 12px;
+        color:#86868b;
+        font-size:11px;
+        font-weight:700;
+        letter-spacing:.16em;
+        text-transform:uppercase;
+      }
+
+      .waysTitle{
+        margin:0;
+        max-width:10ch;
+        font-size:clamp(46px,5vw,72px);
+        line-height:.95;
+        letter-spacing:-.05em;
+        font-weight:650;
+      }
+
+      .waysLead{
+        margin:16px 0 0;
+        max-width:46rem;
+        color:var(--muted);
+        font-size:18px;
+        line-height:1.55;
+      }
+
+      .waysGrid{
+        margin-top:36px;
+        display:grid;
+        grid-template-columns:repeat(4,minmax(0,1fr));
+        border-top:1px solid var(--hair);
+        border-bottom:1px solid var(--hair);
+      }
+
+      .wayCard{
+        min-height:210px;
+        padding:24px 22px 26px;
+        border-right:1px solid var(--hair);
+        display:flex;
+        flex-direction:column;
+      }
+
+      .wayCard:last-child{border-right:0}
+
+      .wayIndex{
+        color:#86868b;
+        font-size:12px;
+      }
+
+      .wayCard h3{
+        margin:auto 0 0;
+        font-size:25px;
+        line-height:1;
+        letter-spacing:-.04em;
+        font-weight:650;
+      }
+
+      .wayCard p{
+        margin:10px 0 0;
+        color:var(--muted);
+        font-size:14px;
+        line-height:1.48;
+      }
+
+      @media(max-width:900px){
+        .waysGrid{
+          grid-template-columns:repeat(2,minmax(0,1fr));
+        }
+
+        .wayCard:nth-child(2){border-right:0}
+
+        .wayCard:nth-child(-n+2){
+          border-bottom:1px solid var(--hair);
+        }
+      }
+
+      @media(max-width:560px){
+        .ways{
+          padding:58px 18px 64px;
+        }
+
+        .waysTitle{font-size:44px}
+        .waysLead{font-size:16px}
+
+        .waysGrid{
+          grid-template-columns:1fr;
+          margin-top:30px;
+        }
+
+        .wayCard{
+          min-height:auto;
+          padding:22px 0;
+          border-right:0;
+          border-bottom:1px solid var(--hair);
+        }
+
+        .wayCard:last-child{border-bottom:0}
+
+        .wayCard h3{
+          margin:26px 0 0;
+        }
+      }
+
+
+
+      /* ===== PHASE 9 — PROFESSIONAL COMPANY POLISH ===== */
+      :root{
+        --fly-nav-h:64px;
+        --fly-safe-top:env(safe-area-inset-top, 0px);
+        --fly-safe-bottom:env(safe-area-inset-bottom, 0px);
+      }
+
+      html{
+        scroll-padding-top:calc(var(--fly-nav-h) + var(--fly-safe-top) + 14px);
+      }
+
+      body{
+        padding-top:calc(var(--fly-nav-h) + var(--fly-safe-top)) !important;
+      }
+
+      .topbar{
+        min-height:calc(var(--fly-nav-h) + var(--fly-safe-top));
+        padding-top:var(--fly-safe-top);
+      }
+
+      [id]{
+        scroll-margin-top:calc(var(--fly-nav-h) + var(--fly-safe-top) + 18px);
+      }
+
+      button,
+      a{
+        -webkit-tap-highlight-color:transparent;
+      }
+
+      .navBtn{
+        min-width:42px;
+        min-height:42px;
+      }
+
+      /* Keep the site sharp and restrained on large screens. */
+      main p{
+        text-wrap:pretty;
+      }
+
+      h1,h2,h3{
+        text-wrap:balance;
+      }
+
+      .heroActions a,
+      .heroBtn,
+      .heroCta,
+      .cta,
+      .finalBtn,
+      .closingBtn,
+      .askBannerLink{
+        min-height:44px;
+        transition:
+          transform .18s var(--ease, cubic-bezier(.2,.8,.2,1)),
+          opacity .18s ease,
+          background .18s ease,
+          border-color .18s ease;
+      }
+
+      @media(hover:hover){
+        .heroActions a:hover,
+        .heroBtn:hover,
+        .heroCta:hover,
+        .cta:hover,
+        .finalBtn:hover,
+        .closingBtn:hover,
+        .askBannerLink:hover{
+          transform:translateY(-1px);
+        }
+      }
+
+      /* Better tablet rhythm — do not let desktop compositions feel cramped. */
+      @media(min-width:721px) and (max-width:1100px){
+        :root{
+          --pad:clamp(28px,4vw,44px);
+        }
+
+        .topbarInner{
+          padding-left:24px;
+          padding-right:24px;
+        }
+      }
+
+      /* iPhone / app-webview finishing pass. */
+      @media(max-width:720px){
+        body{
+          padding-top:calc(var(--fly-nav-h) + var(--fly-safe-top)) !important;
+        }
+
+        .topbarInner{
+          min-height:var(--fly-nav-h);
+          padding-left:18px;
+          padding-right:18px;
+        }
+
+        .nav{
+          gap:6px;
+        }
+
+        .navBtn{
+          width:40px;
+          height:40px;
+        }
+
+        .footer{
+          padding-bottom:calc(34px + var(--fly-safe-bottom)) !important;
+        }
+
+        .footerInner{
+          align-items:flex-start !important;
+        }
+
+        .footerLinks{
+          row-gap:10px !important;
+        }
+      }
+
+      @media(max-width:390px){
+        .topbarInner{
+          padding-left:14px;
+          padding-right:14px;
+        }
+      }
+
+      @media(prefers-reduced-motion:reduce){
+        *{
+          scroll-behavior:auto !important;
+          animation:none !important;
+          transition:none !important;
+        }
+      }
+
+
+      /* ===== PHASE 9 — HOW IT WORKS FINISHING ===== */
+      .stepNav{
+        position:relative;
+        z-index:2;
+      }
+
+      .stepNavItem{
+        transition:background .16s ease;
+      }
+
+      @media(hover:hover){
+        .stepNavItem:hover{
+          background:#f7f7f8;
+        }
+      }
+
+      .productCard{
+        border:1px solid rgba(0,0,0,.035);
+        box-shadow:inset 0 1px 0 rgba(255,255,255,.8);
+      }
+
+      .waysGrid,
+      .whyGrid{
+        max-width:100%;
+      }
+
+      .wayCard h3,
+      .benefitTitle{
+        letter-spacing:-.02em;
+      }
+
+      @media(max-width:720px){
+        .stepNav{
+          position:sticky;
+          top:calc(var(--fly-nav-h) + var(--fly-safe-top));
+          z-index:60;
+          box-shadow:0 1px 0 rgba(0,0,0,.08);
+        }
+
+        .stepNavInner{
+          background:rgba(255,255,255,.94);
+          backdrop-filter:blur(14px) saturate(120%);
+          -webkit-backdrop-filter:blur(14px) saturate(120%);
+        }
+
+        .stepNavItem{
+          min-height:62px !important;
+        }
+
+        .stepNavNum{
+          font-size:11px;
+        }
+
+        .stepNavLabel{
+          font-size:13px;
+        }
+      }
+
+</style>
   </head>
 
   <body>
@@ -2131,9 +1242,9 @@ const marketplacePhoto = "/campaign/marketplace-around-you.png";
 
           <a class="navBtn" href="/info/" aria-label="Info" title="Info">
             <svg viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="9" />
-              <path d="M12 10.6v6" />
-              <path d="M12 7.4h.01" />
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="M12 10.6v6"></path>
+              <path d="M12 7.4h.01"></path>
             </svg>
           </a>
         </nav>
@@ -2141,585 +1252,276 @@ const marketplacePhoto = "/campaign/marketplace-around-you.png";
     </header>
 
     <main>
-      <!-- PHASE 2.2 — DARK GLASS HEADER -->
-      <!-- PHASE 2.1 — CLEAR HEADER + WARM BANNERS -->
-      <!-- PHASE 2.0 — CAMPAIGN PHOTO SLOTS -->
-      <!-- PHASE 1.9C — COPY + SPACING LOCK FIX -->
-      <!-- PHASE 1.8 — BANNER SYSTEM -->
-      <!-- PHASE 1.7 — CAMPAIGN TIGHTEN -->
-      <!-- PHASE 1.6 — FLOW POLISH
-           Campaign rhythm: brand → marketplace → people → practical guide
-           → LiveTime → payment → benefits → use cases → FAQ → close.
-           No app screenshots or phone graphics are shown. -->
-<!-- HERO -->
-      <section class="campaign hero" aria-labelledby="hero-title">
-        <img class="campaign__photo" src={heroPhoto} alt="" aria-hidden="true" />
+      <!-- FLY HOW IT WORKS — APPLE-LIKE V1 -->
+      <section class="hero" aria-labelledby="how-title">
+        <img class="heroPhoto" src="/campaign/hero-center-you.png" alt="" aria-hidden="true" />
 
-        <div class="campaign__inner">
-          <div class="campaign__copy">
-            <p class="campaign__kicker">How FLY works</p>
-
-            <h1 class="display campaign__title" id="hero-title">
-              A marketplace where the <span class="accent">center is you.</span>
-            </h1>
-
-            <p class="campaign__sub">Ask. Connect. Repeat.</p>
-
-            <p class="campaign__body">
-              FLY is a social marketplace built around what you need, what you can offer,
-              and the people and opportunities around you.
-            </p>
-
-            <div class="heroActions">
-              <a class="cta primary" href={appStoreUrl} target="_blank" rel="noopener noreferrer">
-                Download FLY
-              </a>
-              <a class="cta secondary" href="#ask">
-                See how it works
-              </a>
-            </div>
-          </div>
-
-          <div></div>
-        </div>
-      </section>
-
-<!-- ASK -->
-      <section class="campaign ask" id="ask" aria-labelledby="ask-title">
-        <img class="campaign__photo" src={askPhoto} alt="" aria-hidden="true" />
-
-        <div class="campaign__inner">
-          <div class="campaign__copy">
-            <p class="campaign__kicker">Start with what you need</p>
-
-            <h2 class="display campaign__title" id="ask-title">
-              Need something? Ask.
-            </h2>
-
-            <p class="campaign__sub">
-              People. Places. Things. Skills. Nearby.
-            </p>
-          </div>
-
-          <div class="productStage" aria-label="FLY marketplace preview">
-            <div class="phone">
-              <div class="phone__top">
-                <div class="phone__island"></div>
-              </div>
-
-              <div class="phone__bar">
-                <div class="phone__brand">FLY</div>
-                <div class="phone__icons" aria-hidden="true"><span></span><span></span></div>
-              </div>
-
-              <div class="phone__tabs">
-                <div class="phone__tab active">All</div>
-                <div class="phone__tab">Live</div>
-                <div class="phone__tab">Action</div>
-                <div class="phone__tab">Open</div>
-                <div class="phone__tab">Active</div>
-              </div>
-
-              <div class="phone__grid">
-                <div class="flyCard">
-                  <div class="flyCard__media"></div>
-                  <div class="flyCard__copy">
-                    <div class="flyCard__title">Photoshoot</div>
-                    <div class="flyCard__meta">$150 · Today</div>
-                  </div>
-                </div>
-
-                <div class="flyCard">
-                  <div class="flyCard__media"></div>
-                  <div class="flyCard__copy">
-                    <div class="flyCard__title">Event setup</div>
-                    <div class="flyCard__meta">$300 · Tomorrow</div>
-                  </div>
-                </div>
-
-                <div class="flyCard">
-                  <div class="flyCard__media"></div>
-                  <div class="flyCard__copy">
-                    <div class="flyCard__title">Apartment stay</div>
-                    <div class="flyCard__meta">$120 · Miami</div>
-                  </div>
-                </div>
-
-                <div class="flyCard">
-                  <div class="flyCard__media"></div>
-                  <div class="flyCard__copy">
-                    <div class="flyCard__title">Graphic design</div>
-                    <div class="flyCard__meta">$80 · Open</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div class="heroInner">
+          <div class="heroCopy">
+            <p class="heroEyebrow">How FLY works</p>
+            <h1 class="heroTitle" id="how-title">How FLY<br />Works</h1>
+            <p class="heroLead">One network. Built around you.</p>
+            <p class="heroSub">Create. Discover. Connect. LiveTime. Complete.</p>
+            <a class="heroCta" href="#create">See how it works <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </section>
 
-<!-- MARKETPLACE -->
-      <section class="campaign marketplace" aria-labelledby="marketplace-title">
-        <img class="campaign__photo" src={marketplacePhoto} alt="" aria-hidden="true" />
-
-        <div class="campaign__inner">
-          <div class="campaign__copy">
-            <p class="campaign__kicker">Discover what is around you</p>
-
-            <h2 class="display campaign__title" id="marketplace-title">
-              There’s a marketplace around you.
-            </h2>
-
-            <p class="campaign__sub">Open it.</p>
-          </div>
-
-          <div class="productStage" aria-label="FLY nearby marketplace preview">
-            <div class="phone mapPhone">
-              <div class="phone__top">
-                <div class="phone__island"></div>
-              </div>
-
-              <div class="phone__bar">
-                <div class="phone__brand">FLY</div>
-                <div class="phone__icons" aria-hidden="true"><span></span><span></span></div>
-              </div>
-
-              <div class="phone__tabs">
-                <div class="phone__tab active">All</div>
-                <div class="phone__tab">Live</div>
-                <div class="phone__tab">Action</div>
-                <div class="phone__tab">Open</div>
-              </div>
-
-              <div class="mapArea">
-                <div class="mapRoad"></div>
-                <div class="pin p1"></div>
-                <div class="pin p2"></div>
-                <div class="pin p3"></div>
-                <div class="pin p4"></div>
-                <div class="me"></div>
-              </div>
-
-              <div class="mapResult">
-                <div class="mapResult__img"></div>
-                <div>
-                  <div class="mapResult__title">Nearby FLY</div>
-                  <div class="mapResult__meta">Open · Around you</div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <section class="stepNav" aria-label="FLY flow">
+        <div class="stepNavInner">
+          <a class="stepNavItem" href="#create"><span class="stepNavNum">01</span><span class="stepNavLabel">Create</span></a>
+          <a class="stepNavItem" href="#discover"><span class="stepNavNum">02</span><span class="stepNavLabel">Discover</span></a>
+          <a class="stepNavItem" href="#connect"><span class="stepNavNum">03</span><span class="stepNavLabel">Connect</span></a>
+          <a class="stepNavItem" href="#livetime"><span class="stepNavNum">04</span><span class="stepNavLabel">LiveTime</span></a>
+          <a class="stepNavItem" href="#complete"><span class="stepNavNum">05</span><span class="stepNavLabel">Complete</span></a>
         </div>
       </section>
 
-<!-- REAL PEOPLE / OPPORTUNITIES -->
-      <section class="campaign opportunity" aria-labelledby="opportunity-title">
-        <img class="campaign__photo" src="/campaign/real-people-opportunities.png" alt="" aria-hidden="true" />
-
-        <div class="campaign__inner">
-          <div class="campaign__copy">
-            <p class="campaign__kicker">People make the marketplace</p>
-
-            <h2 class="display campaign__title" id="opportunity-title">
-              Real people. Real opportunities. Around you.
-            </h2>
-
-            <p class="campaign__sub">
-              Collaborate. Get hired. Grow.
-            </p>
-          </div>
-
-          <div class="featurePanel" aria-label="FLY collaboration preview">
-            <div class="featurePanel__head">
-              <div>
-                <div class="featurePanel__title">Event collaboration</div>
-                <div class="featurePanel__meta">FLY messages</div>
-              </div>
-              <div class="featurePanel__meta">Live</div>
-            </div>
-
-            <div class="messageThread">
-              <div class="messageRow">
-                <div class="avatarDot"></div>
-                <div class="bubble">
-                  I got the approvals and the documents.
-                </div>
-              </div>
-
-              <div class="messageRow me">
-                <div class="bubble">
-                  Great — I got the photos taken.
-                  <div class="attachmentThumb"></div>
-                </div>
-              </div>
-
-              <div class="messageRow">
-                <div class="avatarDot"></div>
-                <div class="bubble">
-                  Perfect. Let’s move it forward.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-<!-- PRACTICAL HOW-TO -->
-      <section class="guide" aria-labelledby="guide-title">
-        <div class="guide__inner">
-          <div class="guide__intro">
+      <section class="how">
+        <div class="howInner">
+          <article class="howRow" id="create">
             <div>
-              <p class="guide__eyebrow">How a FLY moves</p>
-              <h2 class="guide__title" id="guide-title">
-                From an ask to a finished FLY.
-              </h2>
+              <p class="howNum">01</p>
+              <h2 class="howTitle">Create the FLY</h2>
+              <p class="howText">Post what you need, what you offer, or what you want to make happen — from a service or collab to a stay or rental.</p>
             </div>
-
-            <p class="guide__lead">
-              The details can change from one FLY to another, but the basic path stays easy to understand.
-            </p>
-          </div>
-
-          <div class="guide__steps">
-            <article class="guideStep">
-              <div class="guideStep__num">01</div>
-              <h3 class="guideStep__title">Create the FLY.</h3>
-              <p class="guideStep__text">
-                Say what you need, choose the type of FLY, and add the timing, location,
-                payment or context that helps someone understand the opportunity.
-              </p>
-            </article>
-
-            <article class="guideStep">
-              <div class="guideStep__num">02</div>
-              <h3 class="guideStep__title">Make it clear.</h3>
-              <p class="guideStep__text">
-                Add the <strong>goals, materials and important information</strong> that define
-                what needs to happen. Photos and attachments can add context when they are useful.
-              </p>
-            </article>
-
-            <article class="guideStep">
-              <div class="guideStep__num">03</div>
-              <h3 class="guideStep__title">Connect.</h3>
-              <p class="guideStep__text">
-                People can discover the FLY and respond when it fits them. From there,
-                both sides can communicate and decide whether the connection makes sense.
-              </p>
-            </article>
-
-            <article class="guideStep">
-              <div class="guideStep__num">04</div>
-              <h3 class="guideStep__title">Confirm the plan.</h3>
-              <p class="guideStep__text">
-                Before the work starts, make sure the important details are understood:
-                what is happening, when it is happening, where it is happening, and what “done” means.
-              </p>
-            </article>
-
-            <article class="guideStep">
-              <div class="guideStep__num">05</div>
-              <h3 class="guideStep__title">Move into LiveTime.</h3>
-              <p class="guideStep__text">
-                LiveTime is where the FLY moves from agreement to execution. Keep the conversation,
-                directions, progress and updates connected to the FLY while it is happening.
-              </p>
-            </article>
-
-            <article class="guideStep">
-              <div class="guideStep__num">06</div>
-              <h3 class="guideStep__title">Complete the FLY.</h3>
-              <p class="guideStep__text">
-                Finish the goals, add the updates or proof that matter, and close out the FLY.
-                If payment is part of it, the agreed structure stays tied to the work.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-<!-- LIVETIME -->
-      <section class="campaign livetime" aria-labelledby="livetime-title">
-        <img class="campaign__photo" src="/campaign/livetime-yes-to-done.png" alt="" aria-hidden="true" />
-
-        <div class="campaign__inner">
-          <div class="campaign__copy">
-            <p class="campaign__kicker">Once you connect</p>
-
-            <h2 class="display campaign__title" id="livetime-title">
-              From “yes” to done.
-            </h2>
-
-            <p class="campaign__sub">
-              Coordinate it live with LiveTime.
-            </p>
-          </div>
-
-          <div class="featurePanel" aria-label="LiveTime preview">
-            <div class="featurePanel__head">
-              <div>
-                <div class="featurePanel__title">LiveTime</div>
-                <div class="featurePanel__meta">Ready to start</div>
-              </div>
-              <div class="featurePanel__meta">Details</div>
-            </div>
-
-            <div class="liveSteps">
-              <div class="liveStep done">
-                <div class="liveStep__icon">✓</div>
-                <div>
-                  <div class="liveStep__label">Message</div>
-                  <div class="liveStep__sub">Conversation stays with the FLY</div>
-                </div>
-              </div>
-
-              <div class="liveStep done">
-                <div class="liveStep__icon">✓</div>
-                <div>
-                  <div class="liveStep__label">Confirm details</div>
-                  <div class="liveStep__sub">Everyone knows what is happening</div>
-                </div>
-              </div>
-
-              <div class="liveStep active">
-                <div class="liveStep__icon">3</div>
-                <div>
-                  <div class="liveStep__label">Go to LiveTime</div>
-                  <div class="liveStep__sub">Move from agreement to action</div>
-                </div>
-              </div>
-
-              <div class="liveStep">
-                <div class="liveStep__icon">4</div>
-                <div>
-                  <div class="liveStep__label">Start session</div>
-                  <div class="liveStep__sub">Track progress and completion</div>
-                </div>
+            <div class="productCard" aria-label="Reserved Create FLY visual">
+              <div class="productCardContent">
+                <svg class="productIcon" viewBox="0 0 48 48" aria-hidden="true">
+                  <rect x="12" y="8" width="24" height="32" rx="4"></rect>
+                  <path d="M18 17h12M18 23h8"></path>
+                  <circle cx="34" cy="34" r="7"></circle>
+                  <path d="M34 30v8M30 34h8"></path>
+                </svg>
+                <span class="productLabel">Create</span>
               </div>
             </div>
+          </article>
 
-            <div class="liveButton">Start LiveTime</div>
-          </div>
-        </div>
-      </section>
-
-<!-- PAYMENTS -->
-      <section class="campaign payment" aria-labelledby="payment-title">
-        <img class="campaign__photo" src="/campaign/get-paid-your-way.png" alt="" aria-hidden="true" />
-
-        <div class="campaign__inner">
-          <div class="campaign__copy">
-            <p class="campaign__kicker">Built around how the work happens</p>
-
-            <h2 class="display campaign__title" id="payment-title">
-              Get paid your way.
-            </h2>
-
-            <p class="campaign__sub">
-              Hourly. Daily. Weekly. Or when it’s done.
-            </p>
-          </div>
-
-          <div class="featurePanel" aria-label="FLY payment preview">
-            <div class="featurePanel__head">
-              <div>
-                <div class="featurePanel__title">Payment & payout</div>
-                <div class="featurePanel__meta">Choose the structure</div>
-              </div>
-              <div class="featurePanel__meta">FLY</div>
-            </div>
-
-            <div class="payBody">
-              <div class="payTabs">
-                <div class="payTab active">Hourly</div>
-                <div class="payTab">Daily</div>
-                <div class="payTab">Weekly</div>
-                <div class="payTab">Total</div>
-              </div>
-
-              <div class="payAmount">
-                $120<span class="payUnit">/ hour</span>
-              </div>
-
-              <div class="earlyPay">
-                <div>
-                  <div class="earlyPay__title">Early Pay</div>
-                  <div class="earlyPay__sub">Available when eligible</div>
-                </div>
-                <div class="toggle" aria-hidden="true"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      <!-- WHY FLY / REAL LIFE -->
-      <section class="brandProof" aria-labelledby="brand-proof-title">
-        <div class="brandProof__inner">
-          <div class="brandProof__top">
+          <article class="howRow" id="discover">
             <div>
-              <p class="brandProof__eyebrow">Why FLY</p>
-              <h2 class="brandProof__title" id="brand-proof-title">Built for real life.</h2>
+              <p class="howNum">02</p>
+              <h2 class="howTitle">Discover your network</h2>
+              <p class="howText">Explore people, services, stays, rentals, collabs and opportunities around you.</p>
+            </div>
+            <div class="productCard" aria-label="Reserved discovery visual">
+              <div class="productCardContent">
+                <svg class="productIcon" viewBox="0 0 48 48" aria-hidden="true">
+                  <path d="M24 42s12-11.2 12-22A12 12 0 0 0 12 20c0 10.8 12 22 12 22Z"></path>
+                  <circle cx="24" cy="20" r="4"></circle>
+                </svg>
+                <span class="productLabel">Discover</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="howRow" id="connect">
+            <div>
+              <p class="howNum">03</p>
+              <h2 class="howTitle">Connect and confirm</h2>
+              <p class="howText">Message, apply, book, hire or collaborate — then confirm the plan together.</p>
+            </div>
+            <div class="productCard" aria-label="Reserved connection visual">
+              <div class="productCardContent">
+                <svg class="productIcon" viewBox="0 0 48 48" aria-hidden="true">
+                  <path d="M10 11h28a4 4 0 0 1 4 4v17a4 4 0 0 1-4 4H22l-9 7v-7h-3a4 4 0 0 1-4-4V15a4 4 0 0 1 4-4Z"></path>
+                </svg>
+                <span class="productLabel">Connect</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="howRow" id="livetime">
+            <div>
+              <p class="howNum">04</p>
+              <h2 class="howTitle">Move into LiveTime</h2>
+              <p class="howText">When it’s time to move, LiveTime keeps the plan, communication, progress and updates connected while it’s happening.</p>
+            </div>
+            <div class="productCard" aria-label="Reserved LiveTime visual">
+              <div class="productCardContent">
+                <svg class="productIcon" viewBox="0 0 48 48" aria-hidden="true">
+                  <circle cx="24" cy="14" r="6"></circle>
+                  <circle cx="11" cy="20" r="4"></circle>
+                  <circle cx="37" cy="20" r="4"></circle>
+                  <path d="M13 39c0-7 4-12 11-12s11 5 11 12"></path>
+                  <path d="M3 39c0-5 3-9 8-9M45 39c0-5-3-9-8-9"></path>
+                </svg>
+                <span class="productLabel">LiveTime</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="howRow" id="complete">
+            <div>
+              <p class="howNum">05</p>
+              <h2 class="howTitle">Complete the FLY</h2>
+              <p class="howText">Finish the FLY, mark it complete, and handle payment when payment is part of the experience.</p>
+            </div>
+            <div class="productCard" aria-label="Reserved completion and payment visual">
+              <div class="productCardContent">
+                <svg class="productIcon" viewBox="0 0 48 48" aria-hidden="true">
+                  <rect x="7" y="12" width="34" height="24" rx="4"></rect>
+                  <path d="M7 20h34M13 30h10"></path>
+                </svg>
+                <span class="productLabel">Complete</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+
+      <!-- FLY PHASE 8 — WAYS TO FLY -->
+      <section class="ways" aria-labelledby="ways-title">
+        <div class="waysInner">
+          <p class="waysEyebrow">One network. Different ways to use it.</p>
+          <h2 class="waysTitle" id="ways-title">One network. Many ways to FLY.</h2>
+          <p class="waysLead">
+            Services, stays, rentals and collabs live in the same marketplace — centered around you.
+          </p>
+
+          <div class="waysGrid">
+            <article class="wayCard">
+              <span class="wayIndex">01</span>
+              <h3>Services</h3>
+              <p>Find help, offer a skill, or hire someone for what you need.</p>
+            </article>
+
+            <article class="wayCard">
+              <span class="wayIndex">02</span>
+              <h3>Collabs</h3>
+              <p>Build, create, coordinate, and move ideas forward with other people.</p>
+            </article>
+
+            <article class="wayCard">
+              <span class="wayIndex">03</span>
+              <h3>Stays</h3>
+              <p>Discover places to stay through the same network you already use.</p>
+            </article>
+
+            <article class="wayCard">
+              <span class="wayIndex">04</span>
+              <h3>Rentals</h3>
+              <p>Access things you need without turning to a completely different marketplace.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+<section class="live" aria-labelledby="live-title">
+        <img class="livePhoto" src="/campaign/livetime-yes-to-done.png" alt="" aria-hidden="true" />
+        <div class="liveInner">
+          <div class="liveCopy">
+            <p class="liveEyebrow">LiveTime</p>
+            <h2 class="liveTitle" id="live-title">Keeps the FLY moving.</h2>
+            <p class="liveText">LiveTime keeps the plan, communication and progress connected while the FLY is happening.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="why" aria-labelledby="why-title">
+        <div class="whyInner">
+          <h2 class="whyTitle" id="why-title">Built for real life.</h2>
+          <div class="whyGrid">
+            <div class="whyCol">
+              <p class="whyKicker">For people</p>
+
+              <div class="benefit">
+                <div class="benefitIcon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13 2-7 11h6l-1 9 7-12h-6z"></path></svg>
+                </div>
+                <div>
+                  <p class="benefitTitle">Simple</p>
+                  <p class="benefitText">Start with a real need, offer, or idea.</p>
+                </div>
+              </div>
+
+              <div class="benefit">
+                <div class="benefitIcon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 21s7-6.6 7-13a7 7 0 1 0-14 0c0 6.4 7 13 7 13Z"></path>
+                    <circle cx="12" cy="8" r="2"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <p class="benefitTitle">Nearby</p>
+                  <p class="benefitText">Discover people and opportunities around you.</p>
+                </div>
+              </div>
+
+              <div class="benefit">
+                <div class="benefitIcon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4 10-10"></path></svg>
+                </div>
+                <div>
+                  <p class="benefitTitle">Actionable</p>
+                  <p class="benefitText">Move from interest to action.</p>
+                </div>
+              </div>
             </div>
 
-            <p class="brandProof__intro">
-              Ask for what you need. Offer what you have. Find people and opportunities
-              around you. Then move it forward in one place.
-            </p>
-          </div>
+            <div class="whyCol">
+              <p class="whyKicker">For businesses</p>
 
-          <div class="brandProof__grid">
-            <article class="brandProof__item">
-              <div class="brandProof__num">01</div>
-              <div>
-                <h3 class="brandProof__itemTitle">One place to ask.</h3>
-                <p class="brandProof__text">
-                  Start with a real need, service, project, place or opportunity.
-                </p>
+              <div class="benefit">
+                <div class="benefitIcon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="8" r="3"></circle>
+                    <circle cx="5" cy="10" r="2"></circle>
+                    <circle cx="19" cy="10" r="2"></circle>
+                    <path d="M7 20c0-4 2-7 5-7s5 3 5 7M1 20c0-3 1-5 4-5M23 20c0-3-1-5-4-5"></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="benefitTitle">Reach real people</p>
+                  <p class="benefitText">Show up when someone is looking for what you offer.</p>
+                </div>
               </div>
-            </article>
 
-            <article class="brandProof__item">
-              <div class="brandProof__num">02</div>
-              <div>
-                <h3 class="brandProof__itemTitle">Opportunity around you.</h3>
-                <p class="brandProof__text">
-                  Discover people, skills and FLYs you may not have known were there.
-                </p>
+              <div class="benefit">
+                <div class="benefitIcon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                    <path d="M3 10h18M7 15h4"></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="benefitTitle">Coordinate in one place</p>
+                  <p class="benefitText">Keep the people, plan, progress and payment connected in one place.</p>
+                </div>
               </div>
-            </article>
 
-            <article class="brandProof__item">
-              <div class="brandProof__num">03</div>
-              <div>
-                <h3 class="brandProof__itemTitle">Less coordination chaos.</h3>
-                <p class="brandProof__text">
-                  Keep the ask, expectations, communication and progress connected.
-                </p>
+              <div class="benefit">
+                <div class="benefitIcon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                    <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                    <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+                    <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+                  </svg>
+                </div>
+                <div>
+                  <p class="benefitTitle">Built for repeat use</p>
+                  <p class="benefitText">One network built for repeat use across different kinds of opportunities.</p>
+                </div>
               </div>
-            </article>
-
-            <article class="brandProof__item">
-              <div class="brandProof__num">04</div>
-              <div>
-                <h3 class="brandProof__itemTitle">Move it to done.</h3>
-                <p class="brandProof__text">
-                  FLY is designed to help an opportunity move forward, not sit as a listing.
-                </p>
-              </div>
-            </article>
-          </div>
-
-          <div class="brandProof__examples" aria-label="Examples of what you can use FLY for">
-            <span>Photography</span>
-            <span>Event help</span>
-            <span>Collaboration</span>
-            <span>Services</span>
-            <span>Places</span>
-            <span>Projects</span>
+            </div>
           </div>
         </div>
       </section>
 
-
-      <!-- FAQ -->
-      <section class="faq" aria-labelledby="faq-title">
-        <div class="faq__inner">
-          <div class="faq__top">
-            <p class="faq__eyebrow">Questions</p>
-            <h2 class="faq__title" id="faq-title">
-              The simple version.
-            </h2>
+      <section class="final" aria-label="Time to FLY">
+        <div class="finalInner">
+          <img class="finalPhoto" src="/campaign/time-to-fly.png" alt="" aria-hidden="true" />
+          <div class="finalCopy">
+            <p class="finalKicker">Ready to get started?</p>
+            <h2 class="finalTitle">Time to FLY.</h2>
+            <p class="finalText">Open the marketplace around you.</p>
+            <div class="finalActions">
+              <a class="finalBtn primary" href={appStoreUrl} target="_blank" rel="noopener noreferrer">Download FLY</a>
+              <a class="finalBtn" href="/info/">Learn more</a>
+            </div>
           </div>
-
-          <div class="faqList">
-            <details class="faqItem">
-              <summary>
-                <span>Is FLY only for jobs?</span>
-                <span class="faqPlus" aria-hidden="true">+</span>
-              </summary>
-              <p class="faqAnswer">
-                No. Work can be one use case, but FLY is broader than a job board.
-                A FLY can be a need, service, collaboration, place, resource, project or opportunity.
-              </p>
-            </details>
-
-            <details class="faqItem">
-              <summary>
-                <span>Can I both post FLYs and respond to them?</span>
-                <span class="faqPlus" aria-hidden="true">+</span>
-              </summary>
-              <p class="faqAnswer">
-                Yes. The marketplace is built so the same person can ask for something one day
-                and offer a skill, service or solution the next.
-              </p>
-            </details>
-
-            <details class="faqItem">
-              <summary>
-                <span>What is LiveTime?</span>
-                <span class="faqPlus" aria-hidden="true">+</span>
-              </summary>
-              <p class="faqAnswer">
-                LiveTime is the part of FLY that helps connected users coordinate the actual work.
-                It keeps communication and progress tied to the FLY instead of scattering everything across separate threads.
-              </p>
-            </details>
-
-            <details class="faqItem">
-              <summary>
-                <span>Does every FLY have to include payment?</span>
-                <span class="faqPlus" aria-hidden="true">+</span>
-              </summary>
-              <p class="faqAnswer">
-                No. Some FLYs may involve payment and others may not. When payment is part of a FLY,
-                the structure can be defined clearly so both sides understand the arrangement.
-              </p>
-            </details>
-
-            <details class="faqItem">
-              <summary>
-                <span>Do I have to be nearby?</span>
-                <span class="faqPlus" aria-hidden="true">+</span>
-              </summary>
-              <p class="faqAnswer">
-                Not every FLY has to be local, but nearby discovery is an important part of the marketplace.
-                Some opportunities make sense around you; others can happen remotely.
-              </p>
-            </details>
-
-            <details class="faqItem">
-              <summary>
-                <span>What makes FLY different from just messaging someone?</span>
-                <span class="faqPlus" aria-hidden="true">+</span>
-              </summary>
-              <p class="faqAnswer">
-                A message starts a conversation. A FLY gives that conversation structure:
-                the ask, the details, the people involved, the coordination and the finish all stay connected.
-              </p>
-            </details>
-          </div>
-        </div>
-      </section>
-
-<!-- CLOSING -->
-      <section class="closing" aria-label="Time to FLY">
-        <img class="closing__photo" src="/campaign/time-to-fly.png" alt="" aria-hidden="true" />
-
-        <div class="closing__content">
-          <img class="closing__logo" src="/logo-alt.png" alt="FLY" />
-          <p class="closing__tag">Time to FLY</p>
-          <p class="closing__sub">Open the marketplace around you.</p>
-
-          <a
-            class="closing__cta"
-            href={appStoreUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Download FLY
-          </a>
         </div>
       </section>
     </main>
@@ -2732,7 +1534,7 @@ const marketplacePhoto = "/campaign/marketplace-around-you.png";
           <a href="/info/">Info</a>
           <a href="/terms/">Terms</a>
           <a href="/privacy/">Privacy</a>
-          <a href={"mailto:" + contactEmail}>Contact</a>
+          <a href={`mailto:${contactEmail}`}>Contact</a>
         </div>
       </div>
     </footer>

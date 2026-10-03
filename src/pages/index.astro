@@ -1,6 +1,4 @@
 ---
-import HomeHeroBanner from "../components/HomeHeroBanner.astro";
-
 const siteName = "FLY Unlimited";
 const contactEmail = "hello@fly-unlimited.com";
 const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
@@ -12,38 +10,49 @@ const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{siteName}</title>
-    <meta name="description" content="It's Time to FLY." />
+    <meta
+      name="description"
+      content="FLY is a social marketplace built around what you need, what you can offer, and the opportunities around you."
+    />
 
     <style>
       :root{
-        --bg:#ffffff;
-        --text:#0b0c10;
-        --muted:rgba(11,12,16,.62);
-        --main:#6C2BD9;
+        --black:#090909;
+        --white:#f8f6f1;
+        --paper:#f0ece4;
+        --purple:#b88cf1;
+        --mint:#baf0c3;
+        --yellow:#f4d95f;
+        --coral:#ee8378;
+        --blue:#91b8ec;
 
-        --max:1120px;
-        --pad: clamp(18px, 5vw, 22px);
-        --featureGap: clamp(4px, 0.45vw, 8px);
-
-        --ease: cubic-bezier(.2,.8,.2,1);
-        --topbarH: 64px;
+        --text:#0b0b0b;
+        --muted:rgba(11,11,11,.62);
+        --hair:rgba(11,11,11,.12);
+        --max:1440px;
+        --pad:clamp(20px,4vw,68px);
+        --ease:cubic-bezier(.2,.8,.2,1);
       }
 
-      *{ box-sizing:border-box; }
+      *{box-sizing:border-box}
+
+      html{
+        scroll-behavior:smooth;
+        background:var(--black);
+      }
 
       html,body{
         margin:0;
         padding:0;
-        background: var(--bg);
-        overflow-x:hidden;
       }
 
       body{
-        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-        color: var(--text);
-        line-height: 1.25;
-        -webkit-font-smoothing: antialiased;
-        text-rendering: optimizeLegibility;
+        background:var(--white);
+        color:var(--text);
+        font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+        -webkit-font-smoothing:antialiased;
+        text-rendering:optimizeLegibility;
+        overflow-x:hidden;
       }
 
       a{
@@ -52,49 +61,62 @@ const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
       }
 
       a:focus-visible{
-        outline: 3px solid rgba(0,0,0,.18);
-        outline-offset: 3px;
+        outline:2px solid currentColor;
+        outline-offset:4px;
       }
 
-      /* ===== Top nav: clean white ===== */
+      .display{
+        margin:0;
+        font-family:"Arial Narrow","Helvetica Neue Condensed Bold","Arial",sans-serif;
+        font-stretch:condensed;
+        font-weight:900;
+        text-transform:uppercase;
+        letter-spacing:-.062em;
+        line-height:.84;
+      }
+
+      /* ===== FLY NAV — SAME SYSTEM AS HOW IT WORKS ===== */
       .topbar{
-        position: sticky;
-        top: 0;
-        z-index: 50;
-        background: rgba(255,255,255,.96);
-        border-bottom: 1px solid rgba(0,0,0,.06);
-        backdrop-filter: saturate(180%) blur(16px);
+        position:fixed;
+        top:0;
+        left:0;
+        right:0;
+        z-index:80;
+        background:rgba(9,9,9,.54);
+        border-bottom:1px solid rgba(255,255,255,.08);
+        box-shadow:0 8px 28px rgba(0,0,0,.12);
+        backdrop-filter:blur(18px) saturate(115%);
+        -webkit-backdrop-filter:blur(18px) saturate(115%);
       }
 
       .topbarInner{
-        max-width: var(--max);
-        margin: 0 auto;
-        padding: 10px var(--pad);
+        max-width:1120px;
+        margin:0 auto;
+        padding:10px 18px;
         display:flex;
         align-items:center;
         justify-content:space-between;
-        gap: 14px;
+        gap:14px;
       }
 
       .brand{
         display:flex;
         align-items:center;
-        gap:10px;
         min-height:44px;
       }
 
       .mascot{
         width:26px;
         height:26px;
-        border-radius:10px;
-        object-fit:contain;
         display:block;
+        object-fit:contain;
+        filter:brightness(0) invert(1);
       }
 
       .nav{
         display:flex;
         align-items:center;
-        gap: 10px;
+        gap:10px;
       }
 
       .navBtn{
@@ -102,29 +124,19 @@ const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
         height:42px;
         display:grid;
         place-items:center;
-        border-radius: 999px;
-        color: rgba(11,12,16,.72);
-        transition: background .18s var(--ease), color .18s var(--ease);
+        border-radius:999px;
+        color:rgba(255,255,255,.92);
+        transition:background .18s var(--ease),color .18s var(--ease);
       }
 
       .navBtn:hover{
-        background: rgba(0,0,0,.05);
-        color: rgba(11,12,16,.92);
+        background:rgba(255,255,255,.07);
+        color:#fff;
       }
 
       .navBtn.active{
-        background: rgba(0,0,0,.08);
-        color: rgba(11,12,16,.96);
-      }
-
-      .navBtn svg{
-        width:18px;
-        height:18px;
-        stroke: currentColor;
-        stroke-width:2.2;
-        fill:none;
-        stroke-linecap:round;
-        stroke-linejoin:round;
+        background:rgba(255,255,255,.11);
+        color:#fff;
       }
 
       .navIcon{
@@ -132,232 +144,932 @@ const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
         height:18px;
         display:block;
         object-fit:contain;
+        filter:brightness(0) invert(1);
       }
 
-      /* ===== Layout ===== */
-      .wrap{
-        max-width: var(--max);
-        margin: 0 auto;
-        padding: 0 var(--pad);
+      .navBtn svg{
+        width:18px;
+        height:18px;
+        display:block;
+        stroke:currentColor;
+        fill:none;
+        stroke-width:2.2;
+        stroke-linecap:round;
+        stroke-linejoin:round;
       }
 
       /* ===== HERO ===== */
       .hero{
-        background: #fff;
-        min-height: calc(100svh - var(--topbarH));
-        min-height: calc(100vh - var(--topbarH));
-        display:block;
+        position:relative;
+        min-height:100svh;
         overflow:hidden;
+        isolation:isolate;
+        background:#8b8179;
       }
 
-      .heroInner{
+      .heroPhoto{
+        position:absolute;
+        inset:0;
         width:100%;
-        max-width:none;
-        padding:0;
-        display:block;
+        height:100%;
+        object-fit:cover;
+        object-position:58% center;
+        z-index:-3;
+        filter:saturate(.72) contrast(.96) brightness(.91) sepia(.05);
       }
 
-      .heroBannerWrap{
-        width:100%;
-        max-width:none;
-        margin:0;
-      }
-
-      /* ===== Edge-to-edge feature band ===== */
-      .featureBand{
-        background:#fff;
-        padding: clamp(6px, 0.8vw, 10px) 0 0;
-        margin: 0;
-      }
-
-      .featureBandWrap{
-        width:100%;
-        margin:0;
-        padding:0;
-      }
-
-      .featureGrid{
-        display:grid;
-        grid-template-columns: 1fr;
-        gap: var(--featureGap);
-      }
-
-      .featureTile{
-        position: relative;
-        overflow:hidden;
-        border-radius: 0;
-        border: none;
-        box-shadow: none;
-        background-color:#f3f3f3;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        isolation: isolate;
-        width: 100%;
-      }
-
-      .featureGrid .featureTile:nth-child(1){
-        background-image: url("/webimageone.png");
-      }
-
-      .featureGrid .featureTile:nth-child(2){
-        background-image: url("/webimagetwo.png");
-      }
-
-      .featureGrid .featureTile:nth-child(3){
-        background-image: url("/webimagethree.png");
-      }
-
-      .featureTile::after{
+      .hero::before{
         content:"";
         position:absolute;
         inset:0;
-        z-index:0;
-        background: linear-gradient(
-          180deg,
-          rgba(0,0,0,0.02) 0%,
-          rgba(0,0,0,0.08) 46%,
-          rgba(0,0,0,0.42) 100%
-        );
+        z-index:-2;
+        background:
+          linear-gradient(
+            90deg,
+            rgba(6,6,6,.76) 0%,
+            rgba(6,6,6,.54) 34%,
+            rgba(6,6,6,.20) 61%,
+            rgba(6,6,6,.03) 82%,
+            rgba(6,6,6,0) 100%
+          ),
+          linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.16));
       }
 
-      .featureTileText{
-        position:absolute;
-        inset:0;
-        z-index:1;
-        padding: clamp(20px, 2vw, 28px);
+      .heroInner{
+        width:min(100%,var(--max));
+        min-height:100svh;
+        margin:0 auto;
+        padding:clamp(118px,12vw,164px) var(--pad) clamp(70px,7vw,100px);
+        display:flex;
+        align-items:center;
+      }
+
+      .heroCopy{
+        width:min(100%,790px);
+      }
+
+      .eyebrow{
+        margin:0 0 16px;
+        font-size:11px;
+        font-weight:800;
+        letter-spacing:.18em;
+        text-transform:uppercase;
+        color:rgba(255,255,255,.64);
+      }
+
+      .heroTitle{
+        max-width:7.5ch;
+        font-size:clamp(66px,8vw,148px);
+        color:#f8f1e7;
+        text-shadow:0 2px 28px rgba(0,0,0,.18);
+      }
+
+      .heroTitle .accent{
+        color:var(--yellow);
+      }
+
+      .heroSub{
+        margin:24px 0 0;
+        max-width:34rem;
+        color:rgba(255,255,255,.91);
+        font-size:clamp(14px,1.12vw,17px);
+        font-weight:820;
+        line-height:1.5;
+        letter-spacing:.14em;
+        text-transform:uppercase;
+      }
+
+      .heroBody{
+        margin:20px 0 0;
+        max-width:32rem;
+        color:rgba(255,255,255,.72);
+        font-size:clamp(17px,1.18vw,20px);
+        line-height:1.58;
+      }
+
+      .heroActions{
+        margin-top:30px;
+        display:flex;
+        gap:10px;
+        flex-wrap:wrap;
+      }
+
+      .cta{
+        min-height:46px;
+        padding:0 18px;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        border-radius:999px;
+        border:1px solid rgba(255,255,255,.34);
+        font-size:13px;
+        font-weight:780;
+        transition:transform .18s var(--ease),background .18s var(--ease);
+      }
+
+      .cta:hover{
+        transform:translateY(-1px);
+      }
+
+      .cta.primary{
+        background:#fff;
+        color:#111;
+        border-color:#fff;
+      }
+
+      .cta.secondary{
+        background:rgba(0,0,0,.14);
+        color:#fff;
+        backdrop-filter:blur(10px);
+      }
+
+      /* ===== SIMPLE BRAND STATEMENT ===== */
+      .statement{
+        padding:clamp(70px,7vw,106px) var(--pad);
+        background:var(--white);
+      }
+
+      .statementInner{
+        width:min(100%,var(--max));
+        margin:0 auto;
+      }
+
+      .statementTop{
+        display:grid;
+        grid-template-columns:minmax(0,.67fr) minmax(310px,.33fr);
+        gap:52px;
+        align-items:end;
+      }
+
+      .statementKicker{
+        margin:0 0 14px;
+        font-size:11px;
+        font-weight:800;
+        letter-spacing:.18em;
+        text-transform:uppercase;
+        color:rgba(11,11,11,.44);
+      }
+
+      .statementTitle{
+        margin:0;
+        max-width:10ch;
+        font-size:clamp(46px,5.3vw,88px);
+        line-height:.92;
+        letter-spacing:-.052em;
+        font-weight:850;
+      }
+
+      .statementBody{
+        margin:0;
+        max-width:34rem;
+        color:var(--muted);
+        font-size:clamp(17px,1.15vw,20px);
+        line-height:1.6;
+      }
+
+      .statementRail{
+        margin-top:clamp(34px,4vw,52px);
+        display:grid;
+        grid-template-columns:repeat(3,minmax(0,1fr));
+        border-top:1px solid var(--hair);
+        border-bottom:1px solid var(--hair);
+      }
+
+      .statementItem{
+        min-height:160px;
+        padding:24px 22px 26px;
+        border-right:1px solid var(--hair);
         display:flex;
         flex-direction:column;
-        justify-content:flex-end;
-        align-items:flex-start;
-        gap: 12px;
+        justify-content:space-between;
       }
 
-      .featureTileKicker{
-        font-size: 11px;
-        font-weight: 760;
-        color: rgba(255,255,255,.82);
-        letter-spacing: .14em;
-        text-transform: uppercase;
+      .statementItem:last-child{
+        border-right:0;
       }
 
-      .featureTileTitle{
-        margin: 8px 0 0;
-        font-size: clamp(24px, 2vw, 34px);
-        font-weight: 700;
-        letter-spacing: -.04em;
-        line-height: 1.02;
-        max-width: 10ch;
-        color: #fff;
-        text-shadow: 0 1px 10px rgba(0,0,0,.18);
+      .statementNum{
+        font-size:10px;
+        font-weight:800;
+        letter-spacing:.18em;
+        color:rgba(11,11,11,.36);
       }
 
-      .featureTileSub{
-        margin: 10px 0 0;
-        color: rgba(255,255,255,.88);
-        font-size: 14px;
-        line-height: 1.42;
-        max-width: 24ch;
-        text-shadow: 0 1px 8px rgba(0,0,0,.18);
+      .statementWord{
+        margin:0;
+        font-family:"Arial Narrow","Helvetica Neue Condensed Bold","Arial",sans-serif;
+        font-stretch:condensed;
+        font-size:clamp(40px,4vw,70px);
+        line-height:.86;
+        letter-spacing:-.06em;
+        text-transform:uppercase;
+        font-weight:900;
       }
 
-      .featureTileCta{
+      .statementItem:nth-child(1) .statementWord{color:#9674ce}
+      .statementItem:nth-child(2) .statementWord{color:#6d9f77}
+      .statementItem:nth-child(3) .statementWord{color:#c8a53b}
+
+      .statementText{
+        margin:12px 0 0;
+        max-width:18rem;
+        color:var(--muted);
+        font-size:14.5px;
+        line-height:1.52;
+      }
+
+      /* ===== CAMPAIGN CHAPTERS ===== */
+      .campaign{
+        position:relative;
+        min-height:clamp(500px,51vw,650px);
+        overflow:hidden;
+        isolation:isolate;
+        background:#7e776f;
+      }
+
+      .campaignPhoto{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        object-position:var(--photo-position,55% center);
+        z-index:-3;
+        filter:saturate(.7) contrast(.96) brightness(.91) sepia(.045);
+      }
+
+      .campaign::before{
+        content:"";
+        position:absolute;
+        inset:0;
+        z-index:-2;
+        background:
+          linear-gradient(
+            90deg,
+            rgba(7,7,7,.70) 0%,
+            rgba(7,7,7,.47) 34%,
+            rgba(7,7,7,.19) 58%,
+            rgba(7,7,7,.04) 78%,
+            rgba(7,7,7,0) 100%
+          ),
+          linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.11));
+      }
+
+      .campaignInner{
+        width:min(100%,var(--max));
+        min-height:inherit;
+        margin:0 auto;
+        padding:clamp(52px,6vw,88px) var(--pad) clamp(54px,6.2vw,92px);
+        display:flex;
+        align-items:flex-end;
+      }
+
+      .campaignCopy{
+        width:min(100%,760px);
+      }
+
+      .campaignKicker{
+        margin:0 0 14px;
+        color:rgba(255,255,255,.62);
+        font-size:11px;
+        font-weight:800;
+        letter-spacing:.18em;
+        text-transform:uppercase;
+      }
+
+      .campaignTitle{
+        max-width:7.4ch;
+        font-size:clamp(58px,7.2vw,128px);
+        text-shadow:0 2px 24px rgba(0,0,0,.18);
+      }
+
+      .campaignSub{
+        margin:22px 0 0;
+        max-width:35rem;
+        color:rgba(255,255,255,.9);
+        font-size:clamp(13px,1.05vw,16px);
+        line-height:1.48;
+        letter-spacing:.15em;
+        font-weight:820;
+        text-transform:uppercase;
+      }
+
+      .campaignLink{
+        margin-top:24px;
         display:inline-flex;
         align-items:center;
         gap:8px;
-        font-weight: 700;
-        font-size: 13px;
-        letter-spacing: .01em;
-        color: rgba(255,255,255,.96);
-        text-shadow: 0 1px 8px rgba(0,0,0,.18);
+        color:rgba(255,255,255,.86);
+        font-size:13px;
+        font-weight:760;
       }
 
-      .featureTileCta svg{
+      .campaignLink svg{
         width:15px;
         height:15px;
-        stroke: currentColor;
-        stroke-width:2.2;
+        stroke:currentColor;
+        stroke-width:2.1;
         fill:none;
         stroke-linecap:round;
         stroke-linejoin:round;
       }
 
-      /* Desktop: keep them square */
-      @media (min-width: 980px){
-        .featureGrid{
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-        }
+      .ask{--photo-position:54% center}
+      .marketplace{--photo-position:55% center}
+      .livetime{--photo-position:58% center}
 
-        .featureTile{
-          aspect-ratio: 1 / 1;
-          min-height: 0;
-        }
+      .ask .campaignTitle{color:var(--purple)}
+      .marketplace .campaignTitle{color:var(--mint)}
+      .livetime .campaignTitle{color:var(--blue)}
+
+      /* ===== DARK PRODUCT TEASER ===== */
+      .difference{
+        padding:clamp(72px,7vw,108px) var(--pad);
+        background:#0a0a0a;
+        color:#fff;
       }
 
-      /* Tablet / mobile */
-      @media (max-width: 979px){
-        .featureGrid{
-          grid-template-columns: 1fr;
-        }
-
-        .featureTile{
-          aspect-ratio: 16 / 10;
-          min-height: clamp(240px, 56vw, 420px);
-        }
-
-        .featureTileTitle{
-          max-width: 11ch;
-        }
+      .differenceInner{
+        width:min(100%,var(--max));
+        margin:0 auto;
       }
 
-      @media (max-width: 560px){
-        .featureTile{
-          aspect-ratio: 6 / 5;
-          min-height: 250px;
-        }
-
-        .featureTileText{
-          padding: 20px;
-          gap: 10px;
-        }
-
-        .featureTileTitle{
-          font-size: clamp(22px, 7vw, 30px);
-          max-width: 10ch;
-        }
-
-        .featureTileSub{
-          font-size: 13px;
-          max-width: 22ch;
-        }
-
-        .featureTileCta{
-          font-size: 12.5px;
-        }
+      .differenceTop{
+        display:grid;
+        grid-template-columns:minmax(0,.67fr) minmax(310px,.33fr);
+        gap:52px;
+        align-items:end;
       }
 
-      .footer{
-        border-top: 1px solid rgba(0,0,0,.08);
-        padding: 22px 0 40px;
-        color: rgba(11,12,16,.62);
-        font-size: 13px;
+      .differenceKicker{
+        margin:0 0 14px;
+        color:rgba(255,255,255,.46);
+        font-size:11px;
+        font-weight:800;
+        letter-spacing:.18em;
+        text-transform:uppercase;
+      }
+
+      .differenceTitle{
+        margin:0;
+        max-width:9ch;
+        font-size:clamp(46px,5.2vw,86px);
+        line-height:.92;
+        letter-spacing:-.052em;
+        font-weight:850;
+      }
+
+      .differenceBody{
+        margin:0;
+        max-width:34rem;
+        color:rgba(255,255,255,.62);
+        font-size:clamp(17px,1.15vw,19px);
+        line-height:1.6;
+      }
+
+      .differenceRail{
+        margin-top:clamp(42px,5vw,64px);
+        display:grid;
+        grid-template-columns:repeat(3,minmax(0,1fr));
+        border-top:1px solid rgba(255,255,255,.14);
+        border-bottom:1px solid rgba(255,255,255,.14);
+      }
+
+      .differenceItem{
+        min-height:160px;
+        padding:24px 22px 26px;
+        border-right:1px solid rgba(255,255,255,.14);
         display:flex;
+        flex-direction:column;
+        justify-content:flex-end;
+      }
+
+      .differenceItem:last-child{
+        border-right:0;
+      }
+
+      .differenceLabel{
+        margin:0;
+        font-size:clamp(23px,2.2vw,34px);
+        line-height:1;
+        letter-spacing:-.045em;
+        font-weight:850;
+      }
+
+      .differenceText{
+        margin:12px 0 0;
+        max-width:18rem;
+        color:rgba(255,255,255,.55);
+        font-size:14.5px;
+        line-height:1.52;
+      }
+
+      .differenceCta{
+        margin-top:28px;
+        display:inline-flex;
         align-items:center;
-        justify-content:space-between;
-        gap: 14px;
-        flex-wrap: wrap;
+        gap:8px;
+        color:#fff;
+        font-size:13px;
+        font-weight:780;
+      }
+
+      /* ===== CLOSE ===== */
+      .closing{
+        position:relative;
+        min-height:clamp(560px,58vw,760px);
+        overflow:hidden;
+        isolation:isolate;
+        display:grid;
+        place-items:center;
+        background:#29241f;
+      }
+
+      .closingPhoto{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        object-position:center;
+        z-index:-2;
+        filter:saturate(.62) contrast(.96) brightness(.74) sepia(.04);
+      }
+
+      .closing::after{
+        content:"";
+        position:absolute;
+        inset:0;
+        z-index:-1;
+        background:linear-gradient(180deg,rgba(0,0,0,.10),rgba(0,0,0,.42));
+      }
+
+      .closingContent{
+        padding:70px 20px;
+        text-align:center;
+        color:#fff;
+      }
+
+      .closingLogo{
+        width:clamp(150px,18vw,290px);
+        height:auto;
+        margin:0 auto;
+        display:block;
+        filter:brightness(0) invert(1);
+      }
+
+      .closingTitle{
+        margin:18px 0 0;
+        font-size:clamp(27px,2.7vw,42px);
+        font-weight:450;
+        letter-spacing:-.035em;
+      }
+
+      .closingSub{
+        margin:10px auto 0;
+        max-width:28rem;
+        color:rgba(255,255,255,.72);
+        font-size:14px;
+        line-height:1.5;
+      }
+
+      .closingCta{
+        margin-top:28px;
+        min-height:46px;
+        padding:0 18px;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        border-radius:999px;
         background:#fff;
+        color:#111;
+        font-size:13px;
+        font-weight:800;
       }
 
-      .links{
+      /* ===== FOOTER ===== */
+      .footer{
+        padding:25px var(--pad) 38px;
+        background:#090909;
+        color:rgba(255,255,255,.46);
+        font-size:12px;
+      }
+
+      .footerInner{
+        width:min(100%,var(--max));
+        margin:0 auto;
         display:flex;
-        gap: 14px;
-        flex-wrap: wrap;
+        justify-content:space-between;
+        gap:20px;
+        flex-wrap:wrap;
       }
 
-      .links a{ color: rgba(11,12,16,.62); }
-      .links a:hover{ color: rgba(11,12,16,.90); }
-    </style>
+      .footerLinks{
+        display:flex;
+        gap:16px;
+        flex-wrap:wrap;
+      }
+
+      @media(max-width:900px){
+        .statementTop,
+        .differenceTop{
+          grid-template-columns:1fr;
+          gap:20px;
+        }
+
+        .statementRail,
+        .differenceRail{
+          grid-template-columns:1fr;
+        }
+
+        .statementItem,
+        .differenceItem{
+          min-height:170px;
+          border-right:0;
+          border-bottom:1px solid var(--hair);
+        }
+
+        .differenceItem{
+          border-bottom-color:rgba(255,255,255,.14);
+        }
+      }
+
+      @media(max-width:720px){
+        :root{--pad:18px}
+
+        .topbar{
+          background:rgba(9,9,9,.62);
+          backdrop-filter:blur(16px) saturate(110%);
+          -webkit-backdrop-filter:blur(16px) saturate(110%);
+        }
+
+        .heroPhoto{
+          object-position:62% center;
+        }
+
+        .heroInner{
+          padding:116px 18px 58px;
+          align-items:flex-end;
+        }
+
+        .heroTitle{
+          max-width:7ch;
+          font-size:clamp(58px,17vw,86px);
+        }
+
+        .heroBody{
+          font-size:16px;
+        }
+
+        .heroActions{
+          width:100%;
+        }
+
+        .cta{
+          flex:1 1 100%;
+        }
+
+        .statement,
+        .difference{
+          padding:68px 18px 76px;
+        }
+
+        .campaign{
+          min-height:680px;
+        }
+
+        .campaignPhoto{
+          object-position:60% center;
+        }
+
+        .campaignInner{
+          min-height:680px;
+          padding:52px 18px 48px;
+        }
+
+        .campaignTitle{
+          max-width:7ch;
+          font-size:clamp(52px,16vw,78px);
+        }
+
+        .closing{
+          min-height:680px;
+        }
+
+        .closingPhoto{
+          object-position:56% center;
+        }
+
+        .footer{
+          padding-left:18px;
+          padding-right:18px;
+        }
+      }
+
+      @media(prefers-reduced-motion:reduce){
+        html{scroll-behavior:auto}
+        *{transition:none!important}
+      }
+
+
+      /* ===== PHASE 7 — RESPONSIVE / NAV FOUNDATION ===== */
+      :root{ --fly-nav-h:64px; }
+
+      body{
+        padding-top:var(--fly-nav-h) !important;
+      }
+
+      .topbar{
+        min-height:var(--fly-nav-h);
+      }
+
+      .campaign__photo,
+      .heroPhoto,
+      .askBannerPhoto,
+      .livePhoto,
+      .closing__photo,
+      .finalPhoto{
+        transform:none !important;
+      }
+
+      @media(max-width:900px){
+        .campaign,
+        .hero,
+        .askBanner,
+        .liveBanner,
+        .live{
+          min-height:0 !important;
+          height:auto !important;
+          display:flex !important;
+          flex-direction:column !important;
+          background:#111 !important;
+          overflow:hidden !important;
+        }
+
+        .campaign__photo,
+        .heroPhoto,
+        .askBannerPhoto,
+        .liveBannerPhoto,
+        .livePhoto{
+          position:relative !important;
+          inset:auto !important;
+          order:0 !important;
+          width:100% !important;
+          height:auto !important;
+          aspect-ratio:auto !important;
+          object-fit:contain !important;
+          object-position:center !important;
+          display:block !important;
+          filter:none !important;
+          transform:none !important;
+          background:#111 !important;
+        }
+
+        .campaign::before,
+        .hero::before,
+        .askBanner::before,
+        .liveBanner::before,
+        .live::before{
+          display:none !important;
+        }
+
+        .campaign__inner,
+        .heroInner,
+        .askBannerInner,
+        .liveBannerInner,
+        .liveInner{
+          order:1 !important;
+          min-height:0 !important;
+          height:auto !important;
+          padding:34px 22px 40px !important;
+          display:block !important;
+          background:#111 !important;
+        }
+
+        .campaign__copy,
+        .heroCopy,
+        .askBannerCopy,
+        .liveBannerCopy,
+        .liveCopy{
+          width:100% !important;
+          max-width:680px !important;
+          padding:0 !important;
+          margin:0 !important;
+          color:#fff !important;
+        }
+
+        .campaign__body,
+        .campaign__kicker,
+        .heroText,
+        .heroSub,
+        .askBannerText,
+        .liveBannerText,
+        .liveText{
+          color:rgba(255,255,255,.76) !important;
+        }
+
+        .campaign__title,
+        .heroTitle,
+        .askBannerTitle,
+        .liveBannerTitle,
+        .liveTitle{
+          max-width:10ch !important;
+        }
+      }
+
+      @media(max-width:560px){
+        .campaign__inner,
+        .heroInner,
+        .askBannerInner,
+        .liveBannerInner,
+        .liveInner{
+          padding:28px 18px 34px !important;
+        }
+
+        .campaign__title,
+        .heroTitle,
+        .askBannerTitle,
+        .liveBannerTitle,
+        .liveTitle{
+          font-size:clamp(44px,13vw,64px) !important;
+          line-height:.92 !important;
+        }
+
+        .campaign__sub,
+        .campaign__body,
+        .heroText,
+        .heroSub,
+        .askBannerText,
+        .liveText{
+          font-size:16px !important;
+          line-height:1.5 !important;
+        }
+
+        .heroActions{
+          width:100%;
+        }
+
+        .heroActions a,
+        .heroBtn,
+        .heroCta,
+        .askBannerLink{
+          width:100% !important;
+          justify-content:center !important;
+        }
+      }
+
+
+
+      /* ===== PHASE 9 — PROFESSIONAL COMPANY POLISH ===== */
+      :root{
+        --fly-nav-h:64px;
+        --fly-safe-top:env(safe-area-inset-top, 0px);
+        --fly-safe-bottom:env(safe-area-inset-bottom, 0px);
+      }
+
+      html{
+        scroll-padding-top:calc(var(--fly-nav-h) + var(--fly-safe-top) + 14px);
+      }
+
+      body{
+        padding-top:calc(var(--fly-nav-h) + var(--fly-safe-top)) !important;
+      }
+
+      .topbar{
+        min-height:calc(var(--fly-nav-h) + var(--fly-safe-top));
+        padding-top:var(--fly-safe-top);
+      }
+
+      [id]{
+        scroll-margin-top:calc(var(--fly-nav-h) + var(--fly-safe-top) + 18px);
+      }
+
+      button,
+      a{
+        -webkit-tap-highlight-color:transparent;
+      }
+
+      .navBtn{
+        min-width:42px;
+        min-height:42px;
+      }
+
+      /* Keep the site sharp and restrained on large screens. */
+      main p{
+        text-wrap:pretty;
+      }
+
+      h1,h2,h3{
+        text-wrap:balance;
+      }
+
+      .heroActions a,
+      .heroBtn,
+      .heroCta,
+      .cta,
+      .finalBtn,
+      .closingBtn,
+      .askBannerLink{
+        min-height:44px;
+        transition:
+          transform .18s var(--ease, cubic-bezier(.2,.8,.2,1)),
+          opacity .18s ease,
+          background .18s ease,
+          border-color .18s ease;
+      }
+
+      @media(hover:hover){
+        .heroActions a:hover,
+        .heroBtn:hover,
+        .heroCta:hover,
+        .cta:hover,
+        .finalBtn:hover,
+        .closingBtn:hover,
+        .askBannerLink:hover{
+          transform:translateY(-1px);
+        }
+      }
+
+      /* Better tablet rhythm — do not let desktop compositions feel cramped. */
+      @media(min-width:721px) and (max-width:1100px){
+        :root{
+          --pad:clamp(28px,4vw,44px);
+        }
+
+        .topbarInner{
+          padding-left:24px;
+          padding-right:24px;
+        }
+      }
+
+      /* iPhone / app-webview finishing pass. */
+      @media(max-width:720px){
+        body{
+          padding-top:calc(var(--fly-nav-h) + var(--fly-safe-top)) !important;
+        }
+
+        .topbarInner{
+          min-height:var(--fly-nav-h);
+          padding-left:18px;
+          padding-right:18px;
+        }
+
+        .nav{
+          gap:6px;
+        }
+
+        .navBtn{
+          width:40px;
+          height:40px;
+        }
+
+        .footer{
+          padding-bottom:calc(34px + var(--fly-safe-bottom)) !important;
+        }
+
+        .footerInner{
+          align-items:flex-start !important;
+        }
+
+        .footerLinks{
+          row-gap:10px !important;
+        }
+      }
+
+      @media(max-width:390px){
+        .topbarInner{
+          padding-left:14px;
+          padding-right:14px;
+        }
+      }
+
+      @media(prefers-reduced-motion:reduce){
+        *{
+          scroll-behavior:auto !important;
+          animation:none !important;
+          transition:none !important;
+        }
+      }
+
+
+      /* ===== PHASE 9 — HOMEPAGE FINISHING ===== */
+      .loop,
+      .benefits,
+      .brandProof,
+      .guide,
+      .difference,
+      .what{
+        background:#fff !important;
+      }
+
+      @media(max-width:720px){
+        .campaign__copy,
+        .heroCopy{
+          max-width:34rem !important;
+        }
+      }
+
+</style>
   </head>
 
   <body>
@@ -378,94 +1090,204 @@ const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
 
           <a class="navBtn" href="/info/" aria-label="Info" title="Info">
             <svg viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="9" />
-              <path d="M12 10.6v6" />
-              <path d="M12 7.4h.01" />
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="M12 10.6v6"></path>
+              <path d="M12 7.4h.01"></path>
             </svg>
           </a>
         </nav>
       </div>
     </header>
 
-    <section class="hero" aria-label="Hero">
-      <div class="heroInner">
-        <div class="heroBannerWrap" aria-label="Landing hero banner">
-          <HomeHeroBanner appStoreUrl={appStoreUrl} />
+    <main>
+      <!-- FLY HOMEPAGE PHASE 1.1 — TIGHTENED -->
+      <section class="hero" aria-labelledby="hero-title">
+        <img
+          class="heroPhoto"
+          src="/campaign/hero-center-you.png"
+          alt=""
+          aria-hidden="true"
+        />
+
+        <div class="heroInner">
+          <div class="heroCopy">
+            <p class="eyebrow">FLY</p>
+
+            <h1 class="display heroTitle" id="hero-title">
+              Ask. Connect. <span class="accent">Repeat.</span>
+            </h1>
+
+            <p class="heroSub">
+              A marketplace where the center is you.
+            </p>
+
+            <p class="heroBody">
+              Services. Stays. Rentals. Collabs. People. Nearby. FLY turns what you need,
+              what you can offer, and what is around you into something you can act on.
+            </p>
+
+            <div class="heroActions">
+              <a class="cta primary" href={appStoreUrl} target="_blank" rel="noopener noreferrer">
+                Download FLY
+              </a>
+              <a class="cta secondary" href="/how-it-works/">
+                How FLY works
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="featureBand" aria-label="Explore">
-      <div class="featureBandWrap">
-        <div class="featureGrid" aria-label="Feature tiles">
-          <a class="featureTile" href="/how-it-works/" aria-label="Clarity tile">
-            <div class="featureTileText">
-              <div>
-                <div class="featureTileKicker">Clarity</div>
-                <div class="featureTileTitle">With you, wherever.</div>
-                <div class="featureTileSub">
-                  As you move, so should your network.
-                </div>
-              </div>
-
-              <div class="featureTileCta">
-                Explore how it works
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M9 18l6-6-6-6" />
-                </svg>
-              </div>
+      <section class="statement" aria-labelledby="statement-title">
+        <div class="statementInner">
+          <div class="statementTop">
+            <div>
+              <p class="statementKicker">What is FLY?</p>
+              <h2 class="statementTitle" id="statement-title">
+                Your network. Your marketplace.
+              </h2>
             </div>
-          </a>
 
-          <a class="featureTile" href="/how-it-works/" aria-label="LiveTime tile">
-            <div class="featureTileText">
+            <p class="statementBody">
+              Start with what you need or what you can offer. Find the people, skills
+              and opportunities around you — then move it forward.
+            </p>
+          </div>
+
+          <div class="statementRail">
+            <article class="statementItem">
+              <div class="statementNum">01</div>
               <div>
-                <div class="featureTileKicker">LiveTime</div>
-                <div class="featureTileTitle">Collabs. Easy.</div>
-                <div class="featureTileSub">
-                  Nothing like teamwork, when you want to go far.
-                </div>
+                <h3 class="statementWord">Ask.</h3>
+                <p class="statementText">
+                  Put a real need, idea or opportunity into the marketplace.
+                </p>
               </div>
+            </article>
 
-              <div class="featureTileCta">
-                See the flow
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M9 18l6-6-6-6" />
-                </svg>
-              </div>
-            </div>
-          </a>
-
-          <a class="featureTile" href="/info/" aria-label="Momentum tile">
-            <div class="featureTileText">
+            <article class="statementItem">
+              <div class="statementNum">02</div>
               <div>
-                <div class="featureTileKicker">Momentum</div>
-                <div class="featureTileTitle">Now, not later.</div>
-                <div class="featureTileSub">
-                  Connect and move forward. Then move forward again.
-                </div>
+                <h3 class="statementWord">Discover.</h3>
+                <p class="statementText">
+                  Find people, skills and opportunities around you.
+                </p>
               </div>
+            </article>
 
-              <div class="featureTileCta">
-                Learn more
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M9 18l6-6-6-6" />
-                </svg>
+            <article class="statementItem">
+              <div class="statementNum">03</div>
+              <div>
+                <h3 class="statementWord">Do.</h3>
+                <p class="statementText">
+                  Connect, coordinate and move the FLY toward done.
+                </p>
               </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="campaign marketplace" aria-labelledby="marketplace-title">
+        <img
+          class="campaignPhoto"
+          src="/campaign/marketplace-around-you.png"
+          alt=""
+          aria-hidden="true"
+        />
+
+        <div class="campaignInner">
+          <div class="campaignCopy">
+            <p class="campaignKicker">Look around you</p>
+            <h2 class="display campaignTitle" id="marketplace-title">
+              There’s a marketplace around you.
+            </h2>
+            <p class="campaignSub">Open it.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="difference" aria-labelledby="difference-title">
+        <div class="differenceInner">
+          <div class="differenceTop">
+            <div>
+              <p class="differenceKicker">From connection to completion</p>
+              <h2 class="differenceTitle" id="difference-title">
+                From “yes” to done.
+              </h2>
             </div>
+
+            <p class="differenceBody">
+              FLY keeps the opportunity connected while it is happening — from
+              coordination through completion and payment when payment is part of the FLY.
+            </p>
+          </div>
+
+          <div class="differenceRail">
+            <article class="differenceItem">
+              <h3 class="differenceLabel">LiveTime</h3>
+              <p class="differenceText">
+                Keep communication and progress connected to the work while it is happening.
+              </p>
+            </article>
+
+            <article class="differenceItem">
+              <h3 class="differenceLabel">Flexible payment</h3>
+              <p class="differenceText">
+                Hourly, daily, weekly, or based on the completed FLY.
+              </p>
+            </article>
+
+            <article class="differenceItem">
+              <h3 class="differenceLabel">Early Pay</h3>
+              <p class="differenceText">
+                Faster access to eligible earnings when the option is available.
+              </p>
+            </article>
+          </div>
+
+          <a class="differenceCta" href="/how-it-works/">
+            Explore How FLY Works →
           </a>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <footer class="wrap footer" aria-label="Footer">
-      <div>© 2026 {siteName}</div>
-      <div class="links">
-        <a href="/how-it-works/">How it works</a>
-        <a href="/info/">Contact</a>
-        <a href="/terms/">Terms</a>
-        <a href="/privacy/">Privacy</a>
-        <a href={"mailto:" + contactEmail}>hello@fly-unlimited.com</a>
+      <section class="closing" aria-label="Time to FLY">
+        <img
+          class="closingPhoto"
+          src="/campaign/time-to-fly.png"
+          alt=""
+          aria-hidden="true"
+        />
+
+        <div class="closingContent">
+          <img class="closingLogo" src="/logo-alt.png" alt="FLY" />
+          <p class="closingTitle">Time to FLY</p>
+          <p class="closingSub">Open the marketplace around you.</p>
+
+          <a
+            class="closingCta"
+            href={appStoreUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download FLY
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footerInner">
+        <div>© 2026 {siteName}</div>
+
+        <div class="footerLinks">
+          <a href="/how-it-works/">How it works</a>
+          <a href="/info/">Info</a>
+          <a href="/terms/">Terms</a>
+          <a href="/privacy/">Privacy</a>
+          <a href={"mailto:" + contactEmail}>Contact</a>
+        </div>
       </div>
     </footer>
   </body>
