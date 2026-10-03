@@ -33,9 +33,570 @@ const effectiveDate = "April 7, 2026";
       @media (prefers-color-scheme: dark) {
         :root { color-scheme: light; }
       }
-    </style>
+
+      /* ===== FLY LEGAL PHASE 4 — SHARED VISUAL SYSTEM ===== */
+      :root{
+        color-scheme:light;
+        --legal-black:#090909;
+        --legal-paper:#f6f2ea;
+        --legal-white:#fff;
+        --legal-text:#111;
+        --legal-muted:rgba(17,17,17,.62);
+        --legal-hair:rgba(17,17,17,.12);
+        --legal-max:920px;
+        --legal-nav-max:1120px;
+        --legal-ease:cubic-bezier(.2,.8,.2,1);
+      }
+
+      html,body{
+        margin:0;
+        padding:0;
+        background:var(--legal-paper);
+        color:var(--legal-text);
+      }
+
+      body{
+        font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+        -webkit-font-smoothing:antialiased;
+        text-rendering:optimizeLegibility;
+      }
+
+      a{color:inherit}
+
+      .topbar{
+        position:fixed;
+        top:0;
+        left:0;
+        right:0;
+        z-index:80;
+        background:rgba(9,9,9,.88);
+        border-bottom:1px solid rgba(255,255,255,.08);
+        box-shadow:0 8px 28px rgba(0,0,0,.10);
+        backdrop-filter:blur(18px) saturate(115%);
+        -webkit-backdrop-filter:blur(18px) saturate(115%);
+      }
+
+      .topbarInner{
+        max-width:var(--legal-nav-max);
+        margin:0 auto;
+        padding:10px 18px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:14px;
+      }
+
+      .brand{
+        display:flex;
+        align-items:center;
+        min-height:44px;
+        text-decoration:none;
+      }
+
+      .mascot{
+        width:26px;
+        height:26px;
+        display:block;
+        object-fit:contain;
+        filter:brightness(0) invert(1);
+      }
+
+      .nav{
+        display:flex;
+        align-items:center;
+        gap:10px;
+      }
+
+      .navBtn{
+        width:42px;
+        height:42px;
+        display:grid;
+        place-items:center;
+        border-radius:999px;
+        color:rgba(255,255,255,.92);
+        text-decoration:none;
+        transition:background .18s var(--legal-ease),color .18s var(--legal-ease);
+      }
+
+      .navBtn:hover{
+        background:rgba(255,255,255,.07);
+        color:#fff;
+      }
+
+      .navIcon{
+        width:18px;
+        height:18px;
+        display:block;
+        object-fit:contain;
+        filter:brightness(0) invert(1);
+      }
+
+      .navBtn svg{
+        width:18px;
+        height:18px;
+        stroke:currentColor;
+        stroke-width:2.2;
+        fill:none;
+        stroke-linecap:round;
+        stroke-linejoin:round;
+      }
+
+      .wrap{
+        max-width:var(--legal-max);
+        margin:0 auto;
+        padding:132px 24px 74px;
+      }
+
+      h1{
+        margin:0;
+        max-width:14ch;
+        font-size:clamp(40px,5.2vw,68px);
+        line-height:.96;
+        letter-spacing:-.055em;
+        font-weight:860;
+      }
+
+      .meta{
+        margin:24px 0 34px;
+        padding:18px 0;
+        border-top:1px solid var(--legal-hair);
+        border-bottom:1px solid var(--legal-hair);
+        font-size:13px;
+        line-height:1.7;
+        color:var(--legal-muted);
+      }
+
+      .meta strong{color:var(--legal-text)}
+
+      .wrap > p:first-of-type{
+        margin-top:0;
+        font-size:17px;
+        line-height:1.65;
+        color:rgba(17,17,17,.76);
+      }
+
+      h2{
+        margin:42px 0 12px;
+        font-size:clamp(22px,2.1vw,28px);
+        line-height:1.08;
+        letter-spacing:-.035em;
+        font-weight:820;
+      }
+
+      h3{
+        margin:26px 0 8px;
+        font-size:17px;
+        line-height:1.25;
+        letter-spacing:-.015em;
+        font-weight:800;
+      }
+
+      p,li{
+        font-size:15px;
+        line-height:1.72;
+      }
+
+      p{margin:10px 0}
+
+      ul,ol{padding-left:22px}
+
+      li + li{margin-top:6px}
+
+      .wrap a{
+        text-decoration:underline;
+        text-underline-offset:3px;
+        text-decoration-thickness:1px;
+      }
+
+      hr{
+        border:0;
+        border-top:1px solid var(--legal-hair);
+        margin:42px 0 18px;
+      }
+
+      .legalFooter{
+        padding:24px 24px 38px;
+        background:var(--legal-black);
+        color:rgba(255,255,255,.46);
+        font-size:12px;
+      }
+
+      .legalFooterInner{
+        max-width:var(--legal-nav-max);
+        margin:0 auto;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:18px;
+        flex-wrap:wrap;
+      }
+
+      .legalFooterLinks{
+        display:flex;
+        gap:16px;
+        flex-wrap:wrap;
+      }
+
+      .legalFooter a{
+        color:inherit;
+        text-decoration:none;
+      }
+
+      @media(max-width:720px){
+        .topbar{background:rgba(9,9,9,.92)}
+        .wrap{padding:116px 18px 62px}
+        h1{font-size:clamp(38px,12vw,54px)}
+        h2{margin-top:34px}
+        .legalFooter{
+          padding-left:18px;
+          padding-right:18px;
+        }
+      }
+
+      @media(prefers-color-scheme:dark){
+        :root{color-scheme:light}
+      }
+
+
+
+      /* ===== FLY PHASE 11 — LEGAL VISUAL CONSISTENCY ===== */
+      :root{
+        color-scheme:light;
+        --fly-legal-text:#111;
+        --fly-legal-muted:#6e6e73;
+        --fly-legal-hair:#dedee2;
+        --fly-legal-nav:64px;
+        --fly-legal-safe-top:env(safe-area-inset-top,0px);
+        --fly-legal-safe-bottom:env(safe-area-inset-bottom,0px);
+      }
+
+      html{
+        background:#fff !important;
+        scroll-padding-top:calc(var(--fly-legal-nav) + var(--fly-legal-safe-top) + 16px);
+      }
+
+      html,body{
+        background:#fff !important;
+        color:var(--fly-legal-text) !important;
+      }
+
+      body{
+        margin:0 !important;
+        padding-top:calc(var(--fly-legal-nav) + var(--fly-legal-safe-top)) !important;
+        padding-left:0 !important;
+        padding-right:0 !important;
+        font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif !important;
+        -webkit-font-smoothing:antialiased;
+        text-rendering:optimizeLegibility;
+      }
+
+      .topbar{
+        position:fixed !important;
+        inset:0 0 auto !important;
+        z-index:100 !important;
+        min-height:calc(var(--fly-legal-nav) + var(--fly-legal-safe-top)) !important;
+        padding-top:var(--fly-legal-safe-top) !important;
+        background:rgba(9,9,9,.88) !important;
+        border-bottom:1px solid rgba(255,255,255,.08) !important;
+        box-shadow:0 8px 28px rgba(0,0,0,.10) !important;
+        backdrop-filter:blur(18px) saturate(115%) !important;
+        -webkit-backdrop-filter:blur(18px) saturate(115%) !important;
+      }
+
+      .topbarInner{
+        width:min(100%,1120px) !important;
+        min-height:var(--fly-legal-nav) !important;
+        margin:0 auto !important;
+        padding:10px 18px !important;
+        display:flex !important;
+        align-items:center !important;
+        justify-content:space-between !important;
+        gap:14px !important;
+      }
+
+      .brand{
+        min-height:44px !important;
+        display:flex !important;
+        align-items:center !important;
+        text-decoration:none !important;
+      }
+
+      .mascot{
+        width:26px !important;
+        height:26px !important;
+        display:block !important;
+        object-fit:contain !important;
+        border-radius:0 !important;
+        filter:brightness(0) invert(1) !important;
+      }
+
+      .nav{
+        display:flex !important;
+        align-items:center !important;
+        gap:10px !important;
+      }
+
+      .navBtn{
+        width:42px !important;
+        height:42px !important;
+        display:grid !important;
+        place-items:center !important;
+        border-radius:999px !important;
+        color:rgba(255,255,255,.92) !important;
+        text-decoration:none !important;
+      }
+
+      .navBtn:hover{
+        background:rgba(255,255,255,.07) !important;
+        color:#fff !important;
+      }
+
+      .navBtn.active{
+        background:rgba(255,255,255,.11) !important;
+        color:#fff !important;
+      }
+
+      .navIcon{
+        width:18px !important;
+        height:18px !important;
+        display:block !important;
+        object-fit:contain !important;
+        filter:brightness(0) invert(1) !important;
+      }
+
+      .navBtn svg{
+        width:18px !important;
+        height:18px !important;
+        stroke:currentColor !important;
+        stroke-width:2.2 !important;
+        fill:none !important;
+        stroke-linecap:round !important;
+        stroke-linejoin:round !important;
+      }
+
+      .wrap{
+        width:min(calc(100% - 40px),920px) !important;
+        max-width:920px !important;
+        margin:0 auto !important;
+        padding:clamp(48px,6vw,76px) 0 clamp(70px,8vw,104px) !important;
+      }
+
+      h1{
+        margin:0 0 14px !important;
+        max-width:15ch;
+        font-size:clamp(36px,4.2vw,58px) !important;
+        line-height:.98 !important;
+        letter-spacing:-.045em !important;
+        font-weight:650 !important;
+      }
+
+      h2{
+        margin:42px 0 12px !important;
+        font-size:clamp(22px,2.1vw,28px) !important;
+        line-height:1.12 !important;
+        letter-spacing:-.025em !important;
+        font-weight:650 !important;
+      }
+
+      h3{
+        margin:27px 0 9px !important;
+        font-size:17px !important;
+        line-height:1.3 !important;
+        letter-spacing:-.012em !important;
+        font-weight:650 !important;
+      }
+
+      p,
+      li{
+        font-size:15.5px !important;
+        line-height:1.68 !important;
+      }
+
+      p{
+        margin-top:0;
+        margin-bottom:16px;
+      }
+
+      ul,
+      ol{
+        padding-left:22px !important;
+        margin-top:10px;
+        margin-bottom:20px;
+      }
+
+      li + li{
+        margin-top:7px;
+      }
+
+      .meta{
+        margin:0 0 30px !important;
+        padding:18px 0 22px !important;
+        border-bottom:1px solid var(--fly-legal-hair);
+        color:var(--fly-legal-muted) !important;
+        opacity:1 !important;
+        font-size:13px !important;
+        line-height:1.55;
+      }
+
+      a{
+        color:inherit !important;
+        text-decoration:underline !important;
+        text-decoration-thickness:1px;
+        text-underline-offset:3px;
+      }
+
+      hr{
+        margin:40px 0 20px !important;
+        border:0 !important;
+        border-top:1px solid var(--fly-legal-hair) !important;
+      }
+
+      .footer{
+        width:min(calc(100% - 40px),920px) !important;
+        max-width:920px !important;
+        margin:0 auto !important;
+        padding:0 0 calc(40px + var(--fly-legal-safe-bottom)) !important;
+        border-top:1px solid var(--fly-legal-hair);
+        color:var(--fly-legal-muted) !important;
+        font-size:12px !important;
+        display:flex !important;
+        align-items:flex-start !important;
+        justify-content:space-between !important;
+        gap:18px !important;
+        flex-wrap:wrap !important;
+      }
+
+      .footer > *{
+        padding-top:20px;
+      }
+
+      .links,
+      .footerLinks{
+        display:flex !important;
+        gap:16px !important;
+        row-gap:10px !important;
+        flex-wrap:wrap !important;
+      }
+
+      .links a,
+      .footerLinks a{
+        color:var(--fly-legal-muted) !important;
+        text-decoration:none !important;
+      }
+
+      .links a:hover,
+      .footerLinks a:hover{
+        color:#111 !important;
+      }
+
+      @media(max-width:720px){
+        .topbar{
+          background:rgba(9,9,9,.92) !important;
+          backdrop-filter:blur(16px) saturate(110%) !important;
+          -webkit-backdrop-filter:blur(16px) saturate(110%) !important;
+        }
+
+        .topbarInner{
+          padding-left:18px !important;
+          padding-right:18px !important;
+        }
+
+        .nav{
+          gap:6px !important;
+        }
+
+        .navBtn{
+          width:40px !important;
+          height:40px !important;
+        }
+
+        .wrap{
+          width:calc(100% - 36px) !important;
+          padding-top:42px !important;
+          padding-bottom:64px !important;
+        }
+
+        h1{
+          font-size:38px !important;
+        }
+
+        h2{
+          margin-top:36px !important;
+          font-size:23px !important;
+        }
+
+        p,
+        li{
+          font-size:15px !important;
+          line-height:1.65 !important;
+        }
+
+        .meta{
+          margin-bottom:26px !important;
+        }
+
+        .footer{
+          width:calc(100% - 36px) !important;
+        }
+      }
+
+      @media(max-width:390px){
+        .topbarInner{
+          padding-left:14px !important;
+          padding-right:14px !important;
+        }
+
+        .wrap,
+        .footer{
+          width:calc(100% - 28px) !important;
+        }
+
+        h1{
+          font-size:34px !important;
+        }
+      }
+
+      @media(prefers-reduced-motion:reduce){
+        *{
+          animation:none !important;
+          transition:none !important;
+          scroll-behavior:auto !important;
+        }
+      }
+
+      @media(prefers-color-scheme:dark){
+        :root{color-scheme:light}
+      }
+
+</style>
   </head>
   <body>
+    <header class="topbar">
+      <div class="topbarInner">
+        <a class="brand" href="/" aria-label="FLY Unlimited">
+          <img class="mascot" src="/logo-alt.png" alt="FLY mascot" />
+        </a>
+
+        <nav class="nav" aria-label="Navigation">
+          <a class="navBtn" href="/" aria-label="Home" title="Home">
+            <img class="navIcon" src="/flyhome.svg" alt="" aria-hidden="true" />
+          </a>
+
+          <a class="navBtn" href="/how-it-works/" aria-label="How it works" title="How it works">
+            <img class="navIcon" src="/flyinactive.svg" alt="" aria-hidden="true" />
+          </a>
+
+          <a class="navBtn" href="/info/" aria-label="Info" title="Info">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="M12 10.6v6"></path>
+              <path d="M12 7.4h.01"></path>
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </header>
+
     <div class="wrap">
       <h1>{title}</h1>
 
@@ -200,5 +761,19 @@ const effectiveDate = "April 7, 2026";
       <hr />
       <p style="font-size:13px;opacity:.75;margin:0;">© 2026 FLY Unlimited, LLC</p>
     </div>
+
+    <footer class="legalFooter" aria-label="Footer">
+      <div class="legalFooterInner">
+        <div>© 2026 FLY Unlimited, LLC</div>
+        <div class="legalFooterLinks">
+          <a href="/">Home</a>
+          <a href="/how-it-works/">How it works</a>
+          <a href="/info/">Info</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="mailto:contact@fly-unlimited.com">Contact</a>
+        </div>
+      </div>
+    </footer>
+
   </body>
 </html>
