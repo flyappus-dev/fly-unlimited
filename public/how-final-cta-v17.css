@@ -1,0 +1,113 @@
+
+/* FLY How It Works — Final CTA V17
+   New responsive closing pattern: no card, no image, no competing banner. */
+
+.finalV17{
+  background:#fff;
+  padding:0 24px 20px;
+}
+
+.finalV17 *{
+  box-sizing:border-box;
+}
+
+.finalV17__inner{
+  width:min(100%,1180px);
+  margin:0 auto;
+  padding:34px 0 36px;
+  border-top:1px solid #dedee2;
+  border-bottom:1px solid #dedee2;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:32px;
+  align-items:center;
+}
+
+.finalV17__copy{
+  min-width:0;
+}
+
+.finalV17__eyebrow{
+  margin:0 0 8px;
+  color:#8a8a8f;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.finalV17__title{
+  margin:0;
+  color:#0a0a0a;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
+  font-size:clamp(30px,2.8vw,42px);
+  line-height:1;
+  letter-spacing:-.045em;
+  font-weight:700;
+}
+
+.finalV17__text{
+  margin:8px 0 0;
+  color:#77777c;
+  font-size:15px;
+  line-height:1.45;
+}
+
+.finalV17__download{
+  min-height:48px;
+  padding:0 20px;
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  background:#111;
+  color:#fff;
+  font-size:14px;
+  font-weight:650;
+  white-space:nowrap;
+  transition:transform .16s ease, background .16s ease;
+}
+
+.finalV17__download:hover{
+  background:#000;
+  transform:translateY(-1px);
+}
+
+.finalV17__arrow{
+  font-size:16px;
+  line-height:1;
+}
+
+@media(max-width:720px){
+  .finalV17{
+    padding:0 18px 18px;
+  }
+
+  .finalV17__inner{
+    padding:28px 0 30px;
+    grid-template-columns:1fr;
+    gap:20px;
+    align-items:start;
+  }
+
+  .finalV17__title{
+    font-size:34px;
+  }
+
+  .finalV17__text{
+    max-width:28rem;
+    font-size:14px;
+  }
+
+  .finalV17__download{
+    width:100%;
+    min-height:50px;
+  }
+}
+
+@media(max-width:390px){
+  .finalV17__title{
+    font-size:31px;
+  }
+}

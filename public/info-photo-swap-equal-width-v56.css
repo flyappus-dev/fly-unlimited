@@ -1,0 +1,53 @@
+/* =========================================================
+   FLY INFO — PHOTO SWAP + EQUAL WIDTH V56 FIXED
+   - all 3 photos equal width
+   - slightly wider row
+   - smaller gaps
+   - swap slot 1 and slot 2
+   ========================================================= */
+
+.infoAudienceV53__visual:nth-child(1) {
+  order: 2 !important;
+}
+
+.infoAudienceV53__visual:nth-child(2) {
+  order: 1 !important;
+}
+
+.infoAudienceV53__visual:nth-child(3) {
+  order: 3 !important;
+}
+
+.infoAudienceV53__visual {
+  aspect-ratio: 9 / 16 !important;
+}
+
+.infoAudienceV53__visualImage {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+@media (min-width: 961px) {
+  .infoAudienceV53__visuals {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    align-items: stretch !important;
+    width: calc(100% + 72px) !important;
+    margin-left: -36px !important;
+    margin-right: -36px !important;
+    gap: 10px !important;
+  }
+
+  .infoAudienceV53__visual {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+}
+
+@media (max-width: 960px) {
+  .infoAudienceV53__visuals {
+    gap: 14px !important;
+  }
+}

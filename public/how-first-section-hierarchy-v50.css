@@ -1,0 +1,183 @@
+/* FLY HOW IT WORKS — FIRST SECTION HIERARCHY V50 */
+
+.guideIntroV26{
+  padding-top:58px !important;
+  padding-bottom:42px !important;
+  background:#fff !important;
+}
+
+.guideIntroV26__inner{
+  width:min(1180px, calc(100% - 48px)) !important;
+  margin:0 auto !important;
+}
+
+.guideIntroV50__chapter{
+  width:100%;
+  margin:0 0 40px;
+  padding:16px 0 22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  border-top:1px solid #d8d8dc;
+  border-bottom:1px solid #ececef;
+}
+
+.guideIntroV50__chapterLeft{
+  color:#111;
+  font-size:12px;
+  line-height:1;
+  letter-spacing:.18em;
+  font-weight:700;
+  text-transform:uppercase;
+}
+
+.guideIntroV50__chapterRight{
+  color:#8b8b90;
+  font-size:13px;
+  line-height:1.3;
+  font-weight:500;
+}
+
+.guideIntroV26__eyebrow{
+  display:none !important;
+}
+
+.guideIntroV26__top{
+  grid-template-columns:minmax(320px,.43fr) minmax(0,.57fr) !important;
+  gap:clamp(48px,6vw,84px) !important;
+  align-items:center !important;
+}
+
+.guideIntroV26__copy{
+  max-width:470px !important;
+}
+
+.guideIntroV26__title{
+  margin:0 !important;
+  max-width:7.8ch !important;
+  font-size:clamp(62px,6vw,86px) !important;
+  line-height:.91 !important;
+  letter-spacing:-.058em !important;
+  font-weight:700 !important;
+}
+
+.guideIntroV26__lead{
+  margin-top:24px !important;
+  max-width:28rem !important;
+  font-size:18px !important;
+  line-height:1.52 !important;
+  color:#6e6e73 !important;
+}
+
+.guideIntroV26__demo{
+  align-self:center !important;
+  justify-self:stretch !important;
+  width:100% !important;
+  max-width:none !important;
+}
+
+.guideIntroV26__composer{
+  width:100% !important;
+  min-height:98px !important;
+  border-radius:28px !important;
+  box-shadow:0 18px 44px rgba(0,0,0,.06), 0 1px 0 rgba(0,0,0,.035) !important;
+}
+
+.guideIntroV26__input{
+  min-height:72px !important;
+}
+
+.guideIntroV26__askButton{
+  min-width:112px !important;
+}
+
+.guideIntroV26__categories{
+  margin-top:38px !important;
+}
+
+@media(max-width:900px){
+  .guideIntroV26__inner{
+    width:min(100% - 36px, 1120px) !important;
+  }
+
+  .guideIntroV50__chapter{
+    margin-bottom:32px;
+  }
+
+  .guideIntroV26__top{
+    grid-template-columns:1fr !important;
+    gap:32px !important;
+  }
+
+  .guideIntroV26__copy{
+    max-width:620px !important;
+  }
+
+  .guideIntroV26__title{
+    max-width:9ch !important;
+  }
+
+  .guideIntroV26__demo{
+    max-width:760px !important;
+  }
+}
+
+@media(max-width:620px){
+  .guideIntroV26{
+    padding-top:34px !important;
+    padding-bottom:30px !important;
+  }
+
+  .guideIntroV26__inner{
+    width:calc(100% - 32px) !important;
+  }
+
+  .guideIntroV50__chapter{
+    margin-bottom:28px;
+    padding:13px 0 17px;
+    gap:12px;
+  }
+
+  .guideIntroV50__chapterLeft{
+    font-size:10px;
+    letter-spacing:.16em;
+  }
+
+  .guideIntroV50__chapterRight{
+    font-size:11px;
+    text-align:right;
+  }
+
+  .guideIntroV26__top{
+    gap:24px !important;
+  }
+
+  .guideIntroV26__title{
+    max-width:8.5ch !important;
+    font-size:clamp(49px,14vw,64px) !important;
+  }
+
+  .guideIntroV26__lead{
+    margin-top:18px !important;
+    font-size:16px !important;
+    line-height:1.48 !important;
+  }
+
+  .guideIntroV26__composer{
+    min-height:82px !important;
+    border-radius:22px !important;
+  }
+
+  .guideIntroV26__input{
+    min-height:62px !important;
+  }
+
+  .guideIntroV26__askButton{
+    min-width:86px !important;
+  }
+
+  .guideIntroV26__categories{
+    margin-top:24px !important;
+  }
+}

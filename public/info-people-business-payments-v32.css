@@ -1,0 +1,176 @@
+
+/* =========================================================
+   FLY INFO — PEOPLE / BUSINESS / PAYMENTS V32
+   Informational product-value section for the Info page.
+   ========================================================= */
+
+.infoAudienceV32{
+  background:#fff;
+  padding:82px 24px 90px;
+}
+
+.infoAudienceV32 *{
+  box-sizing:border-box;
+}
+
+.infoAudienceV32__inner{
+  width:min(100%,1180px);
+  margin:0 auto;
+}
+
+.infoAudienceV32__eyebrow{
+  margin:0 0 12px;
+  color:#86868b;
+  font-size:10px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.infoAudienceV32__title{
+  margin:0;
+  max-width:11ch;
+  color:#0a0a0a;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
+  font-size:clamp(48px,4.9vw,68px);
+  line-height:.95;
+  letter-spacing:-.052em;
+  font-weight:700;
+}
+
+.infoAudienceV32__lead{
+  margin:18px 0 0;
+  max-width:44rem;
+  color:#747479;
+  font-size:17px;
+  line-height:1.55;
+}
+
+.infoAudienceV32__grid{
+  margin-top:50px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  border-top:1px solid #dedee2;
+  border-left:1px solid #dedee2;
+}
+
+.infoAudienceV32__card{
+  min-height:260px;
+  padding:30px 30px 32px;
+  border-right:1px solid #dedee2;
+  border-bottom:1px solid #dedee2;
+  background:#fff;
+  display:flex;
+  flex-direction:column;
+}
+
+.infoAudienceV32__card--payment{
+  background:#f7f7f8;
+}
+
+.infoAudienceV32__icon{
+  width:44px;
+  height:44px;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  background:#f2f2f4;
+  color:#111;
+}
+
+.infoAudienceV32__icon svg{
+  width:21px;
+  height:21px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.9;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.infoAudienceV32__cardTitle{
+  margin:26px 0 0;
+  color:#111;
+  font-size:clamp(25px,2.2vw,32px);
+  line-height:1.02;
+  letter-spacing:-.04em;
+  font-weight:700;
+}
+
+.infoAudienceV32__cardText{
+  margin:13px 0 0;
+  max-width:34rem;
+  color:#6f6f74;
+  font-size:15.5px;
+  line-height:1.55;
+}
+
+.infoAudienceV32__paymentKicker{
+  margin:25px 0 0;
+  color:#727277;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.infoAudienceV32__paymentPoints{
+  margin:17px 0 0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.infoAudienceV32__pill{
+  min-height:31px;
+  padding:0 11px;
+  border:1px solid #dedee2;
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  background:#fff;
+  color:#4f4f54;
+  font-size:11px;
+  line-height:1;
+  font-weight:650;
+}
+
+.infoAudienceV32__note{
+  margin:22px 0 0;
+  color:#8a8a90;
+  font-size:12px;
+  line-height:1.5;
+}
+
+@media(max-width:760px){
+  .infoAudienceV32{
+    padding:62px 18px 68px;
+  }
+
+  .infoAudienceV32__title{
+    font-size:clamp(42px,11vw,52px);
+  }
+
+  .infoAudienceV32__lead{
+    font-size:16px;
+  }
+
+  .infoAudienceV32__grid{
+    margin-top:38px;
+    grid-template-columns:1fr;
+  }
+
+  .infoAudienceV32__card{
+    min-height:0;
+    padding:26px 22px 28px;
+  }
+
+  .infoAudienceV32__cardTitle{
+    font-size:27px;
+  }
+
+  .infoAudienceV32__cardText{
+    font-size:15px;
+  }
+}

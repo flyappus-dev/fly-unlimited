@@ -726,8 +726,85 @@ const contactEmail = "contact@fly-unlimited.com";
         :root{color-scheme:light}
       }
 
+
+      /* ===== FLY NAV STATE V1 — WHITE AT TOP / DARK GLASS ON SCROLL ===== */
+      .topbar{
+        background:#fff !important;
+        border-bottom:1px solid rgba(11,11,11,.08) !important;
+        box-shadow:none !important;
+        backdrop-filter:none !important;
+        -webkit-backdrop-filter:none !important;
+        transition:
+          background .22s ease,
+          border-color .22s ease,
+          box-shadow .22s ease,
+          backdrop-filter .22s ease;
+      }
+
+      .topbar .mascot,
+      .topbar .navIcon{
+        filter:none !important;
+        transition:filter .20s ease;
+      }
+
+      .topbar .navBtn{
+        color:rgba(11,11,11,.88) !important;
+        transition:
+          background .18s ease,
+          color .18s ease;
+      }
+
+      .topbar .navBtn:hover{
+        background:rgba(0,0,0,.05) !important;
+        color:#111 !important;
+      }
+
+      .topbar .navBtn.active{
+        background:rgba(0,0,0,.08) !important;
+        color:#111 !important;
+      }
+
+      .topbar.is-scrolled{
+        background:rgba(9,9,9,.80) !important;
+        border-bottom-color:rgba(255,255,255,.08) !important;
+        box-shadow:0 8px 28px rgba(0,0,0,.14) !important;
+        backdrop-filter:blur(18px) saturate(115%) !important;
+        -webkit-backdrop-filter:blur(18px) saturate(115%) !important;
+      }
+
+      .topbar.is-scrolled .mascot,
+      .topbar.is-scrolled .navIcon{
+        filter:brightness(0) invert(1) !important;
+      }
+
+      .topbar.is-scrolled .navBtn{
+        color:rgba(255,255,255,.92) !important;
+      }
+
+      .topbar.is-scrolled .navBtn:hover{
+        background:rgba(255,255,255,.07) !important;
+        color:#fff !important;
+      }
+
+      .topbar.is-scrolled .navBtn.active{
+        background:rgba(255,255,255,.11) !important;
+        color:#fff !important;
+      }
+
+      @media(max-width:720px){
+        .topbar.is-scrolled{
+          background:rgba(9,9,9,.84) !important;
+          backdrop-filter:blur(16px) saturate(110%) !important;
+          -webkit-backdrop-filter:blur(16px) saturate(110%) !important;
+        }
+      }
+
 </style>
-  </head>
+      <link rel="stylesheet" href="/fly-global-nav-thin-v20.css" />
+    <link rel="stylesheet" href="/fly-global-nav-minimal-v21.css" />
+    <link rel="stylesheet" href="/fly-global-nav-bare-icons-v22.css" />
+    <link rel="stylesheet" href="/fly-global-nav-no-selector-v23.css" />
+</head>
 
   <body>
     <header class="topbar">
@@ -910,5 +987,33 @@ const contactEmail = "contact@fly-unlimited.com";
       </div>
     </footer>
 
-  </body>
+
+    <script is:inline>
+      (() => {
+        const bar = document.querySelector(".topbar");
+        if (!bar) return;
+
+        let ticking = false;
+
+        const syncNavState = () => {
+          const trigger = Math.max(40, bar.offsetHeight - 8);
+          bar.classList.toggle("is-scrolled", window.scrollY >= trigger);
+        };
+
+        const onScroll = () => {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(() => {
+            syncNavState();
+            ticking = false;
+          });
+        };
+
+        syncNavState();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", syncNavState, { passive: true });
+      })();
+    </script>
+
+</body>
 </html>

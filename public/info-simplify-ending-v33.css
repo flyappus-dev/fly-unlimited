@@ -1,0 +1,26 @@
+
+/* FLY Info — Simplify Ending V33
+   Content now ends with the black Contact / Let's talk section. */
+
+.contact{
+  margin-bottom:0 !important;
+}
+
+.linksSection{
+  display:none !important;
+}
+
+/* Keep the footer visually quiet after the black ending banner. */
+.footer{
+  padding-top:22px !important;
+}
+
+@media(max-width:720px){
+  .contact{
+    padding-bottom:58px !important;
+  }
+
+  .footer{
+    padding-top:18px !important;
+  }
+}

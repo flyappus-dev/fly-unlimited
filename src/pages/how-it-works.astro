@@ -271,7 +271,7 @@ const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
       .stepNavLabel{
         margin-top:5px;
         font-size:14px;
-        font-weight:600;
+        font-weight:800;
       }
 
       .how{background:#fff}
@@ -976,7 +976,7 @@ const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
       }
 
       .wayCard h3{
-        margin:auto 0 0;
+        margin:22px 0 0;
         font-size:25px;
         line-height:1;
         letter-spacing:-.04em;
@@ -1221,8 +1221,2185 @@ const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
         }
       }
 
+
+      /* ===== FLY NAV STATE V1 — WHITE AT TOP / DARK GLASS ON SCROLL ===== */
+      .topbar{
+        background:#fff !important;
+        border-bottom:1px solid rgba(11,11,11,.08) !important;
+        box-shadow:none !important;
+        backdrop-filter:none !important;
+        -webkit-backdrop-filter:none !important;
+        transition:
+          background .22s ease,
+          border-color .22s ease,
+          box-shadow .22s ease,
+          backdrop-filter .22s ease;
+      }
+
+      .topbar .mascot,
+      .topbar .navIcon{
+        filter:none !important;
+        transition:filter .20s ease;
+      }
+
+      .topbar .navBtn{
+        color:rgba(11,11,11,.88) !important;
+        transition:
+          background .18s ease,
+          color .18s ease;
+      }
+
+      .topbar .navBtn:hover{
+        background:rgba(0,0,0,.05) !important;
+        color:#111 !important;
+      }
+
+      .topbar .navBtn.active{
+        background:rgba(0,0,0,.08) !important;
+        color:#111 !important;
+      }
+
+      .topbar.is-scrolled{
+        background:rgba(9,9,9,.80) !important;
+        border-bottom-color:rgba(255,255,255,.08) !important;
+        box-shadow:0 8px 28px rgba(0,0,0,.14) !important;
+        backdrop-filter:blur(18px) saturate(115%) !important;
+        -webkit-backdrop-filter:blur(18px) saturate(115%) !important;
+      }
+
+      .topbar.is-scrolled .mascot,
+      .topbar.is-scrolled .navIcon{
+        filter:brightness(0) invert(1) !important;
+      }
+
+      .topbar.is-scrolled .navBtn{
+        color:rgba(255,255,255,.92) !important;
+      }
+
+      .topbar.is-scrolled .navBtn:hover{
+        background:rgba(255,255,255,.07) !important;
+        color:#fff !important;
+      }
+
+      .topbar.is-scrolled .navBtn.active{
+        background:rgba(255,255,255,.11) !important;
+        color:#fff !important;
+      }
+
+      @media(max-width:720px){
+        .topbar.is-scrolled{
+          background:rgba(9,9,9,.84) !important;
+          backdrop-filter:blur(16px) saturate(110%) !important;
+          -webkit-backdrop-filter:blur(16px) saturate(110%) !important;
+        }
+      }
+
+
+      /* ===== FLY FEATURES SECTION V5 FIX ===== */
+      .whySectionEyebrow{
+        margin:0 0 12px;
+        color:#86868b;
+        font-size:11px;
+        font-weight:700;
+        letter-spacing:.18em;
+        text-transform:uppercase;
+      }
+\n
+
+      /* ===== WAYS TO FLY — COMPACT ICONS V3 ===== */
+      .ways{
+        padding:62px var(--pad) 66px;
+        background:#fff;
+      }
+
+      .waysInner{
+        width:min(100%,var(--max));
+        margin:0 auto;
+      }
+
+      .waysTitle{
+        margin:0;
+        max-width:12ch;
+        font-size:clamp(46px,5vw,72px);
+        line-height:.95;
+        letter-spacing:-.05em;
+        font-weight:650;
+      }
+
+      .waysEyebrow,
+      .waysLead{
+        display:none !important;
+      }
+
+      .waysGrid{
+        margin-top:30px;
+        display:grid;
+        grid-template-columns:repeat(4,minmax(0,1fr));
+        border-top:1px solid var(--hair);
+        border-bottom:1px solid var(--hair);
+      }
+
+      .wayCard{
+        min-height:0 !important;
+        padding:20px 20px 22px !important;
+        border-right:1px solid var(--hair);
+        display:block !important;
+      }
+
+      .wayCard:last-child{
+        border-right:0;
+      }
+
+      .wayMeta{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:12px;
+        margin-bottom:18px;
+      }
+
+      .wayIndex{
+        color:#86868b;
+        font-size:12px;
+      }
+
+      .wayIcon{
+        width:38px;
+        height:38px;
+        border-radius:999px;
+        background:#f2f2f2;
+        display:grid;
+        place-items:center;
+        flex:0 0 auto;
+      }
+
+      .wayIcon svg{
+        width:20px;
+        height:20px;
+        fill:none;
+        stroke:#111;
+        stroke-width:1.8;
+        stroke-linecap:round;
+        stroke-linejoin:round;
+      }
+
+      .wayCard h3{
+        margin:0 !important;
+        font-size:24px;
+        line-height:1.05;
+        letter-spacing:-.035em;
+        font-weight:700;
+      }
+
+      .wayCard p{
+        margin:8px 0 0;
+        max-width:16rem;
+        color:var(--muted);
+        font-size:14px;
+        line-height:1.42;
+      }
+
+      @media(max-width:900px){
+        .waysGrid{
+          grid-template-columns:repeat(2,minmax(0,1fr));
+        }
+
+        .wayCard:nth-child(2){
+          border-right:0;
+        }
+
+        .wayCard:nth-child(-n+2){
+          border-bottom:1px solid var(--hair);
+        }
+      }
+
+      @media(max-width:560px){
+        .ways{
+          padding:52px 18px 56px;
+        }
+
+        .waysTitle{
+          font-size:44px;
+        }
+
+        .waysGrid{
+          grid-template-columns:1fr;
+          margin-top:26px;
+        }
+
+        .wayCard{
+          padding:20px 0 22px !important;
+          border-right:0;
+          border-bottom:1px solid var(--hair);
+        }
+
+        .wayCard:last-child{
+          border-bottom:0;
+        }
+
+        .wayMeta{
+          margin-bottom:14px;
+        }
+      }
+
+
+
+      /* ===== COMPACT CATEGORIES + UNIFIED FEATURES V1 ===== */
+
+      /* Compact category band */
+      .waysCompact{
+        padding:34px var(--pad) 38px !important;
+        background:#fff;
+      }
+
+      .waysCompact .waysInner{
+        width:min(100%,var(--max));
+        margin:0 auto;
+      }
+
+      .waysBand{
+        display:grid;
+        grid-template-columns:1.25fr repeat(4,1fr);
+        border:1px solid var(--hair);
+        border-radius:16px;
+        overflow:hidden;
+        background:#fff;
+      }
+
+      .waysBandIntro,
+      .wayMini{
+        min-width:0;
+        padding:18px 18px;
+      }
+
+      .waysBandIntro{
+        display:flex;
+        align-items:center;
+      }
+
+      .waysCompact .waysTitle{
+        margin:0;
+        max-width:none;
+        font-size:clamp(25px,2.2vw,34px);
+        line-height:.96;
+        letter-spacing:-.045em;
+        font-weight:700;
+      }
+
+      .wayMini{
+        display:grid;
+        grid-template-columns:30px minmax(0,1fr);
+        gap:10px;
+        align-items:start;
+        border-left:1px solid var(--hair);
+      }
+
+      .wayMiniIcon{
+        width:30px;
+        height:30px;
+        border-radius:999px;
+        background:#f2f2f2;
+        display:grid;
+        place-items:center;
+      }
+
+      .wayMiniIcon svg{
+        width:16px;
+        height:16px;
+        fill:none;
+        stroke:#111;
+        stroke-width:1.8;
+        stroke-linecap:round;
+        stroke-linejoin:round;
+      }
+
+      .wayMini h3{
+        margin:1px 0 0;
+        font-size:16px;
+        line-height:1.05;
+        letter-spacing:-.025em;
+        font-weight:750;
+      }
+
+      .wayMini p{
+        margin:5px 0 0;
+        color:var(--muted);
+        font-size:12px;
+        line-height:1.35;
+      }
+
+      /* Unified features */
+      .whyUnified{
+        padding:58px var(--pad) 64px !important;
+      }
+
+      .whyUnified .whyTitle{
+        max-width:13ch;
+      }
+
+      .unifiedBenefits{
+        margin-top:32px;
+        display:grid;
+        grid-template-columns:repeat(4,minmax(0,1fr));
+        border-top:1px solid var(--hair);
+        border-bottom:1px solid var(--hair);
+      }
+
+      .unifiedBenefit{
+        min-width:0;
+        padding:24px 22px 26px;
+        border-right:1px solid var(--hair);
+      }
+
+      .unifiedBenefit:last-child{
+        border-right:0;
+      }
+
+      .unifiedBenefitIcon{
+        width:42px;
+        height:42px;
+        border-radius:999px;
+        background:#f2f2f2;
+        display:grid;
+        place-items:center;
+        margin-bottom:18px;
+      }
+
+      .unifiedBenefitIcon svg{
+        width:22px;
+        height:22px;
+        fill:none;
+        stroke:#111;
+        stroke-width:1.9;
+        stroke-linecap:round;
+        stroke-linejoin:round;
+      }
+
+      .unifiedBenefit h3{
+        margin:0;
+        font-size:19px;
+        line-height:1.12;
+        letter-spacing:-.028em;
+        font-weight:750;
+      }
+
+      .unifiedBenefit p{
+        margin:8px 0 0;
+        color:var(--muted);
+        font-size:14px;
+        line-height:1.45;
+      }
+
+      @media(max-width:1000px){
+        .waysBand{
+          grid-template-columns:230px repeat(4,210px);
+          overflow-x:auto;
+          -webkit-overflow-scrolling:touch;
+          scrollbar-width:none;
+        }
+
+        .waysBand::-webkit-scrollbar{
+          display:none;
+        }
+
+        .unifiedBenefits{
+          grid-template-columns:repeat(2,minmax(0,1fr));
+        }
+
+        .unifiedBenefit:nth-child(2){
+          border-right:0;
+        }
+
+        .unifiedBenefit:nth-child(-n+2){
+          border-bottom:1px solid var(--hair);
+        }
+      }
+
+      @media(max-width:560px){
+        .waysCompact{
+          padding:26px 18px 30px !important;
+        }
+
+        .waysBand{
+          grid-template-columns:210px repeat(4,190px);
+          border-radius:14px;
+        }
+
+        .waysBandIntro,
+        .wayMini{
+          padding:16px;
+        }
+
+        .waysCompact .waysTitle{
+          font-size:28px;
+        }
+
+        .whyUnified{
+          padding:50px 18px 56px !important;
+        }
+
+        .whyUnified .whyTitle{
+          font-size:42px !important;
+          max-width:11ch;
+        }
+
+        .unifiedBenefits{
+          grid-template-columns:1fr;
+          margin-top:26px;
+        }
+
+        .unifiedBenefit{
+          border-right:0;
+          border-bottom:1px solid var(--hair);
+          padding:22px 0;
+        }
+
+        .unifiedBenefit:last-child{
+          border-bottom:0;
+        }
+
+        .unifiedBenefitIcon{
+          width:38px;
+          height:38px;
+          margin-bottom:14px;
+        }
+      }
+
 </style>
-  </head>
+
+    <style is:global>
+      /* ===== FLY ICON SIZE EMERGENCY FIX V1 ===== */
+
+      /* Never allow inline SVGs in these two sections to use browser default 300x150 sizing. */
+      .ways svg,
+      .why svg {
+        display:block !important;
+        max-width:24px !important;
+        max-height:24px !important;
+      }
+
+      /* Current compact category banner */
+      .waysCompact{
+        padding:28px var(--pad) 32px !important;
+      }
+
+      .waysCompact .waysBand{
+        min-height:0 !important;
+      }
+
+      .waysCompact .waysBandIntro,
+      .waysCompact .wayMini{
+        min-height:0 !important;
+        padding:14px 16px !important;
+      }
+
+      .waysCompact .wayMini{
+        grid-template-columns:28px minmax(0,1fr) !important;
+        gap:9px !important;
+      }
+
+      .waysCompact .wayMiniIcon{
+        width:28px !important;
+        height:28px !important;
+        min-width:28px !important;
+        min-height:28px !important;
+        max-width:28px !important;
+        max-height:28px !important;
+        border-radius:999px !important;
+        overflow:hidden !important;
+        display:grid !important;
+        place-items:center !important;
+      }
+
+      .waysCompact .wayMiniIcon > svg{
+        width:14px !important;
+        height:14px !important;
+        min-width:14px !important;
+        min-height:14px !important;
+        max-width:14px !important;
+        max-height:14px !important;
+        fill:none !important;
+        stroke:#111 !important;
+        stroke-width:1.8 !important;
+      }
+
+      .waysCompact .wayMini h3{
+        font-size:15px !important;
+        margin:0 !important;
+      }
+
+      .waysCompact .wayMini p{
+        font-size:11.5px !important;
+        line-height:1.32 !important;
+        margin:4px 0 0 !important;
+      }
+
+      /* Previous category-card version too, so any leftover markup is safe. */
+      .ways .wayIcon{
+        width:30px !important;
+        height:30px !important;
+        min-width:30px !important;
+        min-height:30px !important;
+        max-width:30px !important;
+        max-height:30px !important;
+        border-radius:999px !important;
+        overflow:hidden !important;
+        display:grid !important;
+        place-items:center !important;
+      }
+
+      .ways .wayIcon > svg{
+        width:15px !important;
+        height:15px !important;
+        min-width:15px !important;
+        min-height:15px !important;
+        max-width:15px !important;
+        max-height:15px !important;
+        fill:none !important;
+        stroke:#111 !important;
+      }
+
+      .ways .wayCard{
+        min-height:0 !important;
+      }
+
+      /* Current unified feature section */
+      .whyUnified .unifiedBenefitIcon{
+        width:38px !important;
+        height:38px !important;
+        min-width:38px !important;
+        min-height:38px !important;
+        max-width:38px !important;
+        max-height:38px !important;
+        border-radius:999px !important;
+        overflow:hidden !important;
+        display:grid !important;
+        place-items:center !important;
+      }
+
+      .whyUnified .unifiedBenefitIcon > svg{
+        width:19px !important;
+        height:19px !important;
+        min-width:19px !important;
+        min-height:19px !important;
+        max-width:19px !important;
+        max-height:19px !important;
+        fill:none !important;
+        stroke:#111 !important;
+        stroke-width:1.9 !important;
+      }
+
+      /* Previous split feature version too. */
+      .why .benefitIcon{
+        width:42px !important;
+        height:42px !important;
+        min-width:42px !important;
+        min-height:42px !important;
+        max-width:42px !important;
+        max-height:42px !important;
+        border-radius:999px !important;
+        overflow:hidden !important;
+        display:grid !important;
+        place-items:center !important;
+      }
+
+      .why .benefitIcon > svg{
+        width:21px !important;
+        height:21px !important;
+        min-width:21px !important;
+        min-height:21px !important;
+        max-width:21px !important;
+        max-height:21px !important;
+        fill:none !important;
+        stroke:#111 !important;
+        stroke-width:1.9 !important;
+      }
+
+      @media(max-width:560px){
+        .waysCompact{
+          padding:22px 18px 26px !important;
+        }
+      }
+
+
+      /* ===== ASK VISUAL ASSET V1 ===== */
+      .askVisualCard{
+        padding:0 !important;
+        overflow:hidden !important;
+        background:#f7f7f7 !important;
+        display:grid !important;
+        place-items:center !important;
+      }
+
+      .askVisualImage{
+        display:block !important;
+        width:100% !important;
+        height:100% !important;
+        object-fit:contain !important;
+        object-position:center !important;
+      }
+
+      @media(max-width:720px){
+        .askVisualCard{
+          min-height:0 !important;
+        }
+
+        .askVisualImage{
+          height:auto !important;
+          aspect-ratio:1448 / 1086;
+        }
+      }
+
+
+
+      /* ===== CONNECT VISUAL ASSET V1 ===== */
+      .connectVisualCard{
+        padding:0 !important;
+        overflow:hidden !important;
+        background:#f7f7f7 !important;
+        display:grid !important;
+        place-items:center !important;
+      }
+
+      .connectVisualImage{
+        display:block !important;
+        width:100% !important;
+        height:100% !important;
+        object-fit:contain !important;
+        object-position:center !important;
+      }
+
+      @media(max-width:720px){
+        .connectVisualCard{
+          min-height:0 !important;
+        }
+
+        .connectVisualImage{
+          height:auto !important;
+          aspect-ratio:4 / 3;
+        }
+      }
+
+
+
+      /* ===== CONNECT VISUAL ALL-IN-ONE V3 ===== */
+      .howRow#connect .connectVisualCard{
+        width:min(100%,500px) !important;
+        max-width:500px !important;
+        min-width:0 !important;
+        min-height:0 !important;
+        height:auto !important;
+        aspect-ratio:4 / 3 !important;
+        margin:0 auto !important;
+        padding:0 !important;
+        overflow:hidden !important;
+        border-radius:18px !important;
+        background:#f7f7f7 !important;
+        display:block !important;
+      }
+
+      .howRow#connect .connectVisualImage{
+        display:block !important;
+        width:100% !important;
+        max-width:100% !important;
+        height:100% !important;
+        max-height:100% !important;
+        object-fit:contain !important;
+        object-position:center !important;
+        margin:0 !important;
+      }
+
+      @media(max-width:900px){
+        .howRow#connect .connectVisualCard{
+          width:min(100%,440px) !important;
+          max-width:440px !important;
+        }
+      }
+
+      @media(max-width:720px){
+        .howRow#connect .connectVisualCard{
+          width:100% !important;
+          max-width:420px !important;
+          aspect-ratio:4 / 3 !important;
+          border-radius:16px !important;
+        }
+      }
+
+      @media(max-width:440px){
+        .howRow#connect .connectVisualCard{
+          max-width:100% !important;
+        }
+      }
+
+
+
+      /* ===== LIVETIME VISUAL ALL-IN-ONE V2 ===== */
+      .howRow#livetime .liveTimeVisualCard{
+        width:min(100%,500px) !important;
+        max-width:500px !important;
+        min-width:0 !important;
+        min-height:0 !important;
+        height:auto !important;
+        aspect-ratio:4 / 3 !important;
+        margin:0 auto !important;
+        padding:0 !important;
+        overflow:hidden !important;
+        border-radius:18px !important;
+        background:#f7f7f7 !important;
+        display:block !important;
+      }
+
+      .howRow#livetime .liveTimeVisualImage{
+        display:block !important;
+        width:100% !important;
+        max-width:100% !important;
+        height:100% !important;
+        max-height:100% !important;
+        object-fit:contain !important;
+        object-position:center !important;
+        margin:0 !important;
+      }
+
+      @media(max-width:900px){
+        .howRow#livetime .liveTimeVisualCard{
+          width:min(100%,440px) !important;
+          max-width:440px !important;
+        }
+      }
+
+      @media(max-width:720px){
+        .howRow#livetime .liveTimeVisualCard{
+          width:100% !important;
+          max-width:420px !important;
+          aspect-ratio:4 / 3 !important;
+          border-radius:16px !important;
+        }
+      }
+
+      @media(max-width:440px){
+        .howRow#livetime .liveTimeVisualCard{
+          max-width:100% !important;
+        }
+      }
+
+
+
+      /* ===== SHAKE HANDS VISUAL ALL-IN-ONE V1 ===== */
+      .howRow#shake-hands .shakeHandsVisualCard,
+      .howRow#complete .shakeHandsVisualCard{
+        width:min(100%,500px) !important;
+        max-width:500px !important;
+        min-width:0 !important;
+        min-height:0 !important;
+        height:auto !important;
+        aspect-ratio:4 / 3 !important;
+        margin:0 auto !important;
+        padding:0 !important;
+        overflow:hidden !important;
+        border-radius:18px !important;
+        background:#f7f7f7 !important;
+        display:block !important;
+      }
+
+      .howRow#shake-hands .shakeHandsVisualImage,
+      .howRow#complete .shakeHandsVisualImage{
+        display:block !important;
+        width:100% !important;
+        max-width:100% !important;
+        height:100% !important;
+        max-height:100% !important;
+        object-fit:contain !important;
+        object-position:center !important;
+        margin:0 !important;
+      }
+
+      @media(max-width:900px){
+        .howRow#shake-hands .shakeHandsVisualCard,
+        .howRow#complete .shakeHandsVisualCard{
+          width:min(100%,440px) !important;
+          max-width:440px !important;
+        }
+      }
+
+      @media(max-width:720px){
+        .howRow#shake-hands .shakeHandsVisualCard,
+        .howRow#complete .shakeHandsVisualCard{
+          width:100% !important;
+          max-width:420px !important;
+          aspect-ratio:4 / 3 !important;
+          border-radius:16px !important;
+        }
+      }
+
+      @media(max-width:440px){
+        .howRow#shake-hands .shakeHandsVisualCard,
+        .howRow#complete .shakeHandsVisualCard{
+          max-width:100% !important;
+        }
+      }
+
+
+
+      /* ===== SHAKE HANDS VISUAL SIZE FIX V2 ===== */
+      .howRow#shake-hands .shakeHandsVisualCard,
+      .howRow#complete .shakeHandsVisualCard{
+        width:min(100%,360px) !important;
+        max-width:360px !important;
+        min-width:0 !important;
+        min-height:0 !important;
+        height:auto !important;
+        aspect-ratio:4 / 3 !important;
+        margin:0 auto !important;
+        padding:0 !important;
+        overflow:hidden !important;
+        border-radius:16px !important;
+      }
+
+      .howRow#shake-hands .shakeHandsVisualImage,
+      .howRow#complete .shakeHandsVisualImage{
+        display:block !important;
+        width:100% !important;
+        height:100% !important;
+        max-width:100% !important;
+        max-height:100% !important;
+        object-fit:contain !important;
+        object-position:center !important;
+      }
+
+      @media(max-width:900px){
+        .howRow#shake-hands .shakeHandsVisualCard,
+        .howRow#complete .shakeHandsVisualCard{
+          width:min(100%,330px) !important;
+          max-width:330px !important;
+        }
+      }
+
+      @media(max-width:720px){
+        .howRow#shake-hands .shakeHandsVisualCard,
+        .howRow#complete .shakeHandsVisualCard{
+          width:min(100%,320px) !important;
+          max-width:320px !important;
+        }
+      }
+
+      @media(max-width:390px){
+        .howRow#shake-hands .shakeHandsVisualCard,
+        .howRow#complete .shakeHandsVisualCard{
+          width:100% !important;
+          max-width:100% !important;
+        }
+      }
+
+
+
+      /* ===== ASK MANUAL VISUAL V1 =====
+         Apple-style: no outer card/container. The artwork floats directly on white. */
+      .howRow#ask .askManualVisual,
+      .howRow#create .askManualVisual{
+        width:min(100%,680px) !important;
+        max-width:680px !important;
+        min-width:0 !important;
+        height:auto !important;
+        margin:0 auto !important;
+        padding:0 !important;
+        background:transparent !important;
+        border:0 !important;
+        border-radius:0 !important;
+        box-shadow:none !important;
+        overflow:visible !important;
+        display:block !important;
+      }
+
+      .howRow#ask .askManualImage,
+      .howRow#create .askManualImage{
+        display:block !important;
+        width:100% !important;
+        max-width:100% !important;
+        height:auto !important;
+        object-fit:contain !important;
+        object-position:center !important;
+        margin:0 !important;
+        border:0 !important;
+        border-radius:0 !important;
+        box-shadow:none !important;
+        background:transparent !important;
+      }
+
+      @media(max-width:900px){
+        .howRow#ask .askManualVisual,
+        .howRow#create .askManualVisual{
+          width:min(100%,600px) !important;
+          max-width:600px !important;
+        }
+      }
+
+      @media(max-width:720px){
+        .howRow#ask .askManualVisual,
+        .howRow#create .askManualVisual{
+          width:100% !important;
+          max-width:560px !important;
+          margin:10px auto 0 !important;
+        }
+      }
+
+
+
+      /* ===== ASK MANUAL VISUAL SIZE BUMP V3 ===== */
+      .howRow#ask .askManualVisual,
+      .howRow#create .askManualVisual{
+        width:min(100%,520px) !important;
+        max-width:520px !important;
+        min-width:0 !important;
+        height:auto !important;
+        margin:0 auto !important;
+        padding:0 !important;
+        background:transparent !important;
+        border:0 !important;
+        border-radius:0 !important;
+        box-shadow:none !important;
+        overflow:visible !important;
+      }
+
+      .howRow#ask .askManualImage,
+      .howRow#create .askManualImage{
+        display:block !important;
+        width:100% !important;
+        max-width:100% !important;
+        height:auto !important;
+        object-fit:contain !important;
+        object-position:center !important;
+        margin:0 !important;
+      }
+
+      @media(max-width:900px){
+        .howRow#ask .askManualVisual,
+        .howRow#create .askManualVisual{
+          width:min(100%,460px) !important;
+          max-width:460px !important;
+        }
+      }
+
+      @media(max-width:720px){
+        .howRow#ask .askManualVisual,
+        .howRow#create .askManualVisual{
+          width:min(100%,390px) !important;
+          max-width:390px !important;
+          margin:8px auto 0 !important;
+        }
+      }
+
+      @media(max-width:390px){
+        .howRow#ask .askManualVisual,
+        .howRow#create .askManualVisual{
+          width:100% !important;
+          max-width:100% !important;
+        }
+      }
+
+
+
+      /* ===== ASK MANUAL VISUAL SIZE BUMP V4 ===== */
+      .howRow#ask .askManualVisual,
+      .howRow#create .askManualVisual{
+        width:min(100%,580px) !important;
+        max-width:580px !important;
+        min-width:0 !important;
+        height:auto !important;
+        margin:0 auto !important;
+        padding:0 !important;
+        background:transparent !important;
+        border:0 !important;
+        border-radius:0 !important;
+        box-shadow:none !important;
+        overflow:visible !important;
+      }
+
+      .howRow#ask .askManualImage,
+      .howRow#create .askManualImage{
+        display:block !important;
+        width:100% !important;
+        max-width:100% !important;
+        height:auto !important;
+        object-fit:contain !important;
+        object-position:center !important;
+        margin:0 !important;
+      }
+
+      @media(max-width:900px){
+        .howRow#ask .askManualVisual,
+        .howRow#create .askManualVisual{
+          width:min(100%,500px) !important;
+          max-width:500px !important;
+        }
+      }
+
+      @media(max-width:720px){
+        .howRow#ask .askManualVisual,
+        .howRow#create .askManualVisual{
+          width:min(100%,410px) !important;
+          max-width:410px !important;
+          margin:8px auto 0 !important;
+        }
+      }
+
+      @media(max-width:420px){
+        .howRow#ask .askManualVisual,
+        .howRow#create .askManualVisual{
+          width:100% !important;
+          max-width:100% !important;
+        }
+      }
+
+
+
+      /* ===== ASK MANUAL VISUAL SIZE BUMP V5 ===== */
+      .howRow#ask .askManualVisual,
+      .howRow#create .askManualVisual{
+        width:min(100%,700px) !important;
+        max-width:700px !important;
+        min-width:0 !important;
+        height:auto !important;
+        margin:0 auto !important;
+        padding:0 !important;
+        background:transparent !important;
+        border:0 !important;
+        border-radius:0 !important;
+        box-shadow:none !important;
+        overflow:visible !important;
+      }
+
+      .howRow#ask .askManualImage,
+      .howRow#create .askManualImage{
+        display:block !important;
+        width:100% !important;
+        max-width:100% !important;
+        height:auto !important;
+        object-fit:contain !important;
+        object-position:center !important;
+        margin:0 !important;
+      }
+
+      @media(max-width:900px){
+        .howRow#ask .askManualVisual,
+        .howRow#create .askManualVisual{
+          width:min(100%,600px) !important;
+          max-width:600px !important;
+        }
+      }
+
+      @media(max-width:720px){
+        .howRow#ask .askManualVisual,
+        .howRow#create .askManualVisual{
+          width:min(100%,492px) !important;
+          max-width:492px !important;
+          margin:8px auto 0 !important;
+        }
+      }
+
+      @media(max-width:420px){
+        .howRow#ask .askManualVisual,
+        .howRow#create .askManualVisual{
+          width:100% !important;
+          max-width:100% !important;
+        }
+      }
+      /* ===== END ASK MANUAL VISUAL SIZE BUMP ===== */
+
+
+
+      /* ===== CONNECT MANUAL VISUAL V1 =====
+         Apple/Zara-style: artwork floats directly on white, no outer card. */
+      .howRow#connect .connectManualVisual{
+        width:min(100%,700px) !important;
+        max-width:700px !important;
+        min-width:0 !important;
+        height:auto !important;
+        margin:0 auto !important;
+        padding:0 !important;
+        background:transparent !important;
+        border:0 !important;
+        border-radius:0 !important;
+        box-shadow:none !important;
+        overflow:visible !important;
+        display:block !important;
+      }
+
+      .howRow#connect .connectManualImage{
+        display:block !important;
+        width:100% !important;
+        max-width:100% !important;
+        height:auto !important;
+        object-fit:contain !important;
+        object-position:center !important;
+        margin:0 !important;
+        background:transparent !important;
+        border:0 !important;
+        border-radius:0 !important;
+        box-shadow:none !important;
+      }
+
+      @media(max-width:900px){
+        .howRow#connect .connectManualVisual{
+          width:min(100%,600px) !important;
+          max-width:600px !important;
+        }
+      }
+
+      @media(max-width:720px){
+        .howRow#connect .connectManualVisual{
+          width:min(100%,492px) !important;
+          max-width:492px !important;
+          margin:8px auto 0 !important;
+        }
+      }
+
+      @media(max-width:420px){
+        .howRow#connect .connectManualVisual{
+          width:100% !important;
+          max-width:100% !important;
+        }
+      }
+
+
+
+      /* ===== CONNECT MANUAL VISUAL SIZE FIX V2 ===== */
+      .howRow#connect .connectManualVisual{
+        width:min(100%,520px) !important;
+        max-width:520px !important;
+        min-width:0 !important;
+        height:auto !important;
+        margin:0 auto !important;
+        padding:0 !important;
+        background:transparent !important;
+        border:0 !important;
+        border-radius:0 !important;
+        box-shadow:none !important;
+        overflow:visible !important;
+      }
+
+      .howRow#connect .connectManualImage{
+        display:block !important;
+        width:100% !important;
+        max-width:100% !important;
+        height:auto !important;
+        object-fit:contain !important;
+        object-position:center !important;
+        margin:0 !important;
+      }
+
+      @media(max-width:900px){
+        .howRow#connect .connectManualVisual{
+          width:min(100%,460px) !important;
+          max-width:460px !important;
+        }
+      }
+
+      @media(max-width:720px){
+        .howRow#connect .connectManualVisual{
+          width:min(100%,390px) !important;
+          max-width:390px !important;
+          margin:8px auto 0 !important;
+        }
+      }
+
+      @media(max-width:420px){
+        .howRow#connect .connectManualVisual{
+          width:100% !important;
+          max-width:100% !important;
+        }
+      }
+
+
+
+      /* ===== LIVETIME MANUAL VISUAL V3 =====
+         Clean floating artwork on white — no outer website container. */
+      .howRow#livetime .liveTimeManualVisual{
+        width:min(100%,560px) !important;
+        max-width:560px !important;
+        min-width:0 !important;
+        height:auto !important;
+        margin:0 auto !important;
+        padding:0 !important;
+        background:transparent !important;
+        border:0 !important;
+        border-radius:0 !important;
+        box-shadow:none !important;
+        overflow:visible !important;
+        display:block !important;
+      }
+
+      .howRow#livetime .liveTimeManualImage{
+        display:block !important;
+        width:100% !important;
+        max-width:100% !important;
+        height:auto !important;
+        object-fit:contain !important;
+        object-position:center !important;
+        margin:0 !important;
+        background:transparent !important;
+        border:0 !important;
+        border-radius:0 !important;
+        box-shadow:none !important;
+      }
+
+      @media(max-width:900px){
+        .howRow#livetime .liveTimeManualVisual{
+          width:min(100%,500px) !important;
+          max-width:500px !important;
+        }
+      }
+
+      @media(max-width:720px){
+        .howRow#livetime .liveTimeManualVisual{
+          width:min(100%,410px) !important;
+          max-width:410px !important;
+          margin:8px auto 0 !important;
+        }
+      }
+
+      @media(max-width:420px){
+        .howRow#livetime .liveTimeManualVisual{
+          width:100% !important;
+          max-width:100% !important;
+        }
+      }
+
+
+
+      /* ===== LIVETIME MANUAL VISUAL SIZE FIX V4 ===== */
+      .howRow#livetime .liveTimeManualVisual{
+        width:min(100%,430px) !important;
+        max-width:430px !important;
+        min-width:0 !important;
+        height:auto !important;
+        margin:0 auto !important;
+        padding:0 !important;
+        background:transparent !important;
+        border:0 !important;
+        border-radius:0 !important;
+        box-shadow:none !important;
+        overflow:visible !important;
+      }
+
+      .howRow#livetime .liveTimeManualImage{
+        display:block !important;
+        width:100% !important;
+        max-width:100% !important;
+        height:auto !important;
+        object-fit:contain !important;
+        object-position:center !important;
+        margin:0 !important;
+      }
+
+      @media(max-width:900px){
+        .howRow#livetime .liveTimeManualVisual{
+          width:min(100%,390px) !important;
+          max-width:390px !important;
+        }
+      }
+
+      @media(max-width:720px){
+        .howRow#livetime .liveTimeManualVisual{
+          width:min(100%,340px) !important;
+          max-width:340px !important;
+          margin:8px auto 0 !important;
+        }
+      }
+
+      @media(max-width:390px){
+        .howRow#livetime .liveTimeManualVisual{
+          width:100% !important;
+          max-width:100% !important;
+        }
+      }
+
+
+
+      /* ===== SHAKE HANDS MANUAL VISUAL V2 ===== */
+      .howRow#shake-hands .shakeHandsManualVisual,
+      .howRow#complete .shakeHandsManualVisual{
+        width:min(100%,430px) !important;
+        max-width:430px !important;
+        min-width:0 !important;
+        height:auto !important;
+        margin:0 auto !important;
+        padding:0 !important;
+        background:transparent !important;
+        border:0 !important;
+        border-radius:0 !important;
+        box-shadow:none !important;
+        overflow:visible !important;
+        display:block !important;
+      }
+
+      .howRow#shake-hands .shakeHandsManualImage,
+      .howRow#complete .shakeHandsManualImage{
+        display:block !important;
+        width:100% !important;
+        max-width:100% !important;
+        height:auto !important;
+        object-fit:contain !important;
+        object-position:center !important;
+        margin:0 !important;
+        background:transparent !important;
+        border:0 !important;
+        border-radius:0 !important;
+        box-shadow:none !important;
+      }
+
+      @media(max-width:900px){
+        .howRow#shake-hands .shakeHandsManualVisual,
+        .howRow#complete .shakeHandsManualVisual{
+          width:min(100%,390px) !important;
+          max-width:390px !important;
+        }
+      }
+
+      @media(max-width:720px){
+        .howRow#shake-hands .shakeHandsManualVisual,
+        .howRow#complete .shakeHandsManualVisual{
+          width:min(100%,340px) !important;
+          max-width:340px !important;
+          margin:8px auto 0 !important;
+        }
+      }
+
+      @media(max-width:390px){
+        .howRow#shake-hands .shakeHandsManualVisual,
+        .howRow#complete .shakeHandsManualVisual{
+          width:100% !important;
+          max-width:100% !important;
+        }
+      }
+
+
+
+      /* ===== SHAKE HANDS MANUAL VISUAL SIZE FIX V3 ===== */
+      .howRow#shake-hands .shakeHandsManualVisual,
+      .howRow#complete .shakeHandsManualVisual{
+        width:min(100%,320px) !important;
+        max-width:320px !important;
+        min-width:0 !important;
+        height:auto !important;
+        margin:0 auto !important;
+        padding:0 !important;
+        background:transparent !important;
+        border:0 !important;
+        border-radius:0 !important;
+        box-shadow:none !important;
+        overflow:visible !important;
+      }
+
+      .howRow#shake-hands .shakeHandsManualImage,
+      .howRow#complete .shakeHandsManualImage{
+        display:block !important;
+        width:100% !important;
+        max-width:100% !important;
+        height:auto !important;
+        object-fit:contain !important;
+        object-position:center !important;
+        margin:0 !important;
+      }
+
+      @media(max-width:900px){
+        .howRow#shake-hands .shakeHandsManualVisual,
+        .howRow#complete .shakeHandsManualVisual{
+          width:min(100%,300px) !important;
+          max-width:300px !important;
+        }
+      }
+
+      @media(max-width:720px){
+        .howRow#shake-hands .shakeHandsManualVisual,
+        .howRow#complete .shakeHandsManualVisual{
+          width:min(100%,280px) !important;
+          max-width:280px !important;
+          margin:8px auto 0 !important;
+        }
+      }
+
+      @media(max-width:360px){
+        .howRow#shake-hands .shakeHandsManualVisual,
+        .howRow#complete .shakeHandsManualVisual{
+          width:100% !important;
+          max-width:100% !important;
+        }
+      }
+
+
+
+      /* ===== SHAKE HANDS MANUAL VISUAL SIZE BUMP V4 ===== */
+      .howRow#shake-hands .shakeHandsManualVisual,
+      .howRow#complete .shakeHandsManualVisual{
+        width:min(100%,400px) !important;
+        max-width:400px !important;
+        min-width:0 !important;
+        height:auto !important;
+        margin:0 auto !important;
+        padding:0 !important;
+        background:transparent !important;
+        border:0 !important;
+        border-radius:0 !important;
+        box-shadow:none !important;
+        overflow:visible !important;
+      }
+
+      .howRow#shake-hands .shakeHandsManualImage,
+      .howRow#complete .shakeHandsManualImage{
+        display:block !important;
+        width:100% !important;
+        max-width:100% !important;
+        height:auto !important;
+        object-fit:contain !important;
+        object-position:center !important;
+        margin:0 !important;
+      }
+
+      @media(max-width:900px){
+        .howRow#shake-hands .shakeHandsManualVisual,
+        .howRow#complete .shakeHandsManualVisual{
+          width:min(100%,360px) !important;
+          max-width:360px !important;
+        }
+      }
+
+      @media(max-width:720px){
+        .howRow#shake-hands .shakeHandsManualVisual,
+        .howRow#complete .shakeHandsManualVisual{
+          width:min(100%,320px) !important;
+          max-width:320px !important;
+          margin:8px auto 0 !important;
+        }
+      }
+
+      @media(max-width:360px){
+        .howRow#shake-hands .shakeHandsManualVisual,
+        .howRow#complete .shakeHandsManualVisual{
+          width:100% !important;
+          max-width:100% !important;
+        }
+      }
+
+
+
+      /* ===== SHAKE HANDS MANUAL VISUAL V5 ===== */
+      .howRow#shake-hands .shakeHandsManualVisual,
+      .howRow#complete .shakeHandsManualVisual{
+        width:min(100%,460px) !important;
+        max-width:460px !important;
+        min-width:0 !important;
+        height:auto !important;
+        margin:0 auto !important;
+        padding:0 !important;
+        background:transparent !important;
+        border:0 !important;
+        border-radius:0 !important;
+        box-shadow:none !important;
+        overflow:visible !important;
+        display:block !important;
+      }
+
+      .howRow#shake-hands .shakeHandsManualImage,
+      .howRow#complete .shakeHandsManualImage{
+        display:block !important;
+        width:100% !important;
+        max-width:100% !important;
+        height:auto !important;
+        object-fit:contain !important;
+        object-position:center !important;
+        margin:0 !important;
+        background:transparent !important;
+        border:0 !important;
+        border-radius:0 !important;
+        box-shadow:none !important;
+      }
+
+      @media(max-width:900px){
+        .howRow#shake-hands .shakeHandsManualVisual,
+        .howRow#complete .shakeHandsManualVisual{
+          width:min(100%,420px) !important;
+          max-width:420px !important;
+        }
+      }
+
+      @media(max-width:720px){
+        .howRow#shake-hands .shakeHandsManualVisual,
+        .howRow#complete .shakeHandsManualVisual{
+          width:min(100%,360px) !important;
+          max-width:360px !important;
+          margin:8px auto 0 !important;
+        }
+      }
+
+      @media(max-width:390px){
+        .howRow#shake-hands .shakeHandsManualVisual,
+        .howRow#complete .shakeHandsManualVisual{
+          width:100% !important;
+          max-width:100% !important;
+        }
+      }
+
+
+
+      /* ===== REPEAT MANUAL VISUAL V1 ===== */
+      .howRow#repeat .repeatManualVisual,
+      .howRow#network .repeatManualVisual{
+        width:min(100%,560px) !important;
+        max-width:560px !important;
+        min-width:0 !important;
+        height:auto !important;
+        margin:0 auto !important;
+        padding:0 !important;
+        background:transparent !important;
+        border:0 !important;
+        border-radius:0 !important;
+        box-shadow:none !important;
+        overflow:visible !important;
+        display:block !important;
+      }
+
+      .howRow#repeat .repeatManualImage,
+      .howRow#network .repeatManualImage{
+        display:block !important;
+        width:100% !important;
+        max-width:100% !important;
+        height:auto !important;
+        object-fit:contain !important;
+        object-position:center !important;
+        margin:0 !important;
+        background:transparent !important;
+        border:0 !important;
+        border-radius:0 !important;
+        box-shadow:none !important;
+      }
+
+      @media(max-width:900px){
+        .howRow#repeat .repeatManualVisual,
+        .howRow#network .repeatManualVisual{
+          width:min(100%,500px) !important;
+          max-width:500px !important;
+        }
+      }
+
+      @media(max-width:720px){
+        .howRow#repeat .repeatManualVisual,
+        .howRow#network .repeatManualVisual{
+          width:min(100%,380px) !important;
+          max-width:380px !important;
+          margin:8px auto 0 !important;
+        }
+      }
+
+      @media(max-width:420px){
+        .howRow#repeat .repeatManualVisual,
+        .howRow#network .repeatManualVisual{
+          width:100% !important;
+          max-width:100% !important;
+        }
+      }
+      /* ===== END REPEAT MANUAL VISUAL ===== */
+
+
+
+      /* ===== REPEAT MANUAL VISUAL SIZE FIX V2 ===== */
+      .howRow#repeat .repeatManualVisual,
+      .howRow#network .repeatManualVisual,
+      .repeatManualVisual{
+        width:min(100%,400px) !important;
+        max-width:400px !important;
+        min-width:0 !important;
+        height:auto !important;
+        margin:0 auto !important;
+        padding:0 !important;
+        background:transparent !important;
+        border:0 !important;
+        border-radius:0 !important;
+        box-shadow:none !important;
+        overflow:visible !important;
+      }
+
+      .howRow#repeat .repeatManualImage,
+      .howRow#network .repeatManualImage,
+      .repeatManualImage{
+        display:block !important;
+        width:100% !important;
+        max-width:100% !important;
+        height:auto !important;
+        object-fit:contain !important;
+        object-position:center !important;
+        margin:0 !important;
+      }
+
+      @media(max-width:900px){
+        .howRow#repeat .repeatManualVisual,
+        .howRow#network .repeatManualVisual,
+        .repeatManualVisual{
+          width:min(100%,360px) !important;
+          max-width:360px !important;
+        }
+      }
+
+      @media(max-width:720px){
+        .howRow#repeat .repeatManualVisual,
+        .howRow#network .repeatManualVisual,
+        .repeatManualVisual{
+          width:min(100%,320px) !important;
+          max-width:320px !important;
+          margin:8px auto 0 !important;
+        }
+      }
+
+      @media(max-width:360px){
+        .howRow#repeat .repeatManualVisual,
+        .howRow#network .repeatManualVisual,
+        .repeatManualVisual{
+          width:100% !important;
+          max-width:100% !important;
+        }
+      }
+
+
+
+      /* ===== HOW IT WORKS — SIMPLIFY + TUNE V1 ===== */
+      :root{
+        --how-content-max:1080px;
+      }
+
+      /* Pull the white information areas inward so the page feels
+         more editorial and less stretched across the viewport. */
+      .stepNavInner,
+      .howInner,
+      .waysCompact .waysInner,
+      .whyUnified .whyInner,
+      .footerInner{
+        width:min(100%,var(--how-content-max)) !important;
+        max-width:var(--how-content-max) !important;
+      }
+
+      /* Main five-step story: narrower, taller, calmer. */
+      .howInner{
+        padding:34px 28px 44px !important;
+      }
+
+      .howRow{
+        grid-template-columns:minmax(280px,.43fr) minmax(0,.57fr) !important;
+        gap:clamp(46px,5.5vw,72px) !important;
+        padding:92px 0 !important;
+        align-items:center !important;
+      }
+
+      .howRow > div:first-child{
+        max-width:445px;
+      }
+
+      .howNum{
+        margin-bottom:10px !important;
+      }
+
+      .howTitle{
+        font-size:clamp(30px,2.6vw,40px) !important;
+        line-height:1.01 !important;
+      }
+
+      .howText{
+        max-width:28rem !important;
+        margin-top:12px !important;
+        font-size:17px !important;
+        line-height:1.55 !important;
+      }
+
+      /* Keep the Ways strip useful, but remove the small explanatory
+         paragraphs that make the band read like five mini-sections. */
+      .waysCompact{
+        padding:48px var(--pad) 66px !important;
+      }
+
+      .waysBand{
+        grid-template-columns:1.12fr repeat(4,1fr) !important;
+      }
+
+      .waysBandIntro,
+      .wayMini{
+        padding:17px 16px !important;
+      }
+
+      .waysCompact .waysTitle{
+        font-size:clamp(24px,2vw,30px) !important;
+        line-height:.98 !important;
+      }
+
+      .wayMini{
+        grid-template-columns:30px minmax(0,1fr) !important;
+        align-items:center !important;
+      }
+
+      .wayMini h3{
+        margin:0 !important;
+        font-size:16px !important;
+      }
+
+      .wayMini p{
+        display:none !important;
+      }
+
+      /* Features should support the story, not become another hero. */
+      .whyUnified{
+        padding:84px var(--pad) 92px !important;
+      }
+
+      .whyUnified .whySectionEyebrow{
+        display:none !important;
+      }
+
+      .whyUnified .whyTitle{
+        max-width:14ch !important;
+        font-size:clamp(40px,4vw,56px) !important;
+        line-height:.98 !important;
+        letter-spacing:-.045em !important;
+      }
+
+      .unifiedBenefits{
+        margin-top:34px !important;
+      }
+
+      .unifiedBenefit{
+        padding:26px 18px 28px !important;
+      }
+
+      .unifiedBenefitIcon{
+        width:38px !important;
+        height:38px !important;
+        margin-bottom:16px !important;
+      }
+
+      .unifiedBenefitIcon svg{
+        width:20px !important;
+        height:20px !important;
+      }
+
+      .unifiedBenefit h3{
+        font-size:18px !important;
+        line-height:1.12 !important;
+      }
+
+      .unifiedBenefit p{
+        margin-top:7px !important;
+        font-size:13.5px !important;
+        line-height:1.46 !important;
+      }
+
+      /* Keep supporting white space deliberate between the information
+         sections without changing the locked campaign banners. */
+      .waysCompact + .live,
+      .live + .whyUnified{
+        margin-top:0 !important;
+      }
+
+      @media(max-width:1000px){
+        :root{
+          --how-content-max:920px;
+        }
+
+        .howRow{
+          grid-template-columns:minmax(240px,.42fr) minmax(0,.58fr) !important;
+          gap:42px !important;
+          padding:78px 0 !important;
+        }
+
+        .waysBand{
+          grid-template-columns:210px repeat(4,180px) !important;
+        }
+      }
+
+      @media(max-width:760px){
+        .stepNavInner,
+        .howInner,
+        .waysCompact .waysInner,
+        .whyUnified .whyInner,
+        .footerInner{
+          width:100% !important;
+          max-width:none !important;
+        }
+
+        .howInner{
+          padding:16px 20px 26px !important;
+        }
+
+        .howRow{
+          grid-template-columns:1fr !important;
+          gap:30px !important;
+          padding:64px 0 !important;
+        }
+
+        .howRow > div:first-child{
+          max-width:34rem;
+        }
+
+        .howText{
+          max-width:32rem !important;
+        }
+
+        .waysCompact{
+          padding:42px 20px 54px !important;
+        }
+
+        .waysBand{
+          grid-template-columns:180px repeat(4,160px) !important;
+        }
+
+        .waysBandIntro,
+        .wayMini{
+          padding:15px !important;
+        }
+
+        .whyUnified{
+          padding:68px 20px 74px !important;
+        }
+
+        .whyUnified .whyTitle{
+          font-size:clamp(36px,10vw,46px) !important;
+          max-width:12ch !important;
+        }
+
+        .unifiedBenefits{
+          margin-top:28px !important;
+        }
+      }
+
+      @media(max-width:560px){
+        .howRow{
+          padding:54px 0 !important;
+        }
+
+        .waysCompact .waysTitle{
+          font-size:25px !important;
+        }
+
+        .unifiedBenefit{
+          padding:24px 6px 26px !important;
+        }
+      }
+      /* ===== END HOW IT WORKS — SIMPLIFY + TUNE V1 ===== */
+
+
+
+
+      /* ===== HOW IT WORKS — HORIZONTAL RAILS FIX V1 ===== */
+
+      .stepNav{
+        width:100% !important;
+        overflow-x:auto !important;
+        overflow-y:hidden !important;
+        -webkit-overflow-scrolling:touch !important;
+        overscroll-behavior-x:contain !important;
+        scrollbar-width:none !important;
+        scroll-padding-inline:20px !important;
+      }
+
+      .stepNav::-webkit-scrollbar{
+        display:none !important;
+      }
+
+      .stepNavInner{
+        width:max(100%,860px) !important;
+        max-width:none !important;
+        min-width:860px !important;
+        margin:0 auto !important;
+        padding-left:20px !important;
+        padding-right:20px !important;
+        box-sizing:border-box !important;
+        grid-template-columns:repeat(5,minmax(150px,1fr)) !important;
+        flex:none !important;
+      }
+
+      .stepNavInner > *{
+        min-width:0 !important;
+        white-space:nowrap !important;
+      }
+
+      .waysCompact{
+        overflow:hidden !important;
+      }
+
+      .waysCompact .waysInner{
+        width:100% !important;
+        max-width:none !important;
+        overflow-x:auto !important;
+        overflow-y:hidden !important;
+        -webkit-overflow-scrolling:touch !important;
+        overscroll-behavior-x:contain !important;
+        scrollbar-width:none !important;
+        scroll-padding-inline:20px !important;
+        padding-left:max(20px,calc((100vw - 1080px) / 2)) !important;
+        padding-right:max(20px,calc((100vw - 1080px) / 2)) !important;
+        box-sizing:border-box !important;
+      }
+
+      .waysCompact .waysInner::-webkit-scrollbar{
+        display:none !important;
+      }
+
+      .waysBand{
+        width:max-content !important;
+        min-width:100% !important;
+        max-width:none !important;
+        grid-template-columns:250px repeat(4,210px) !important;
+        margin:0 !important;
+      }
+
+      .waysBandIntro,
+      .wayMini{
+        min-width:0 !important;
+        box-sizing:border-box !important;
+      }
+
+      .wayMini{
+        white-space:nowrap !important;
+      }
+
+      @media(min-width:1100px){
+        .stepNavInner{
+          width:min(100%,1080px) !important;
+          min-width:1080px !important;
+        }
+
+        .waysBand{
+          width:1080px !important;
+          min-width:1080px !important;
+          grid-template-columns:240px repeat(4,210px) !important;
+        }
+      }
+
+      @media(max-width:760px){
+        .stepNav{
+          scroll-padding-inline:18px !important;
+        }
+
+        .stepNavInner{
+          width:760px !important;
+          min-width:760px !important;
+          padding-left:18px !important;
+          padding-right:18px !important;
+          grid-template-columns:repeat(5,145px) !important;
+        }
+
+        .waysCompact{
+          padding-left:0 !important;
+          padding-right:0 !important;
+        }
+
+        .waysCompact .waysInner{
+          padding-left:20px !important;
+          padding-right:20px !important;
+          scroll-padding-inline:20px !important;
+        }
+
+        .waysBand{
+          width:max-content !important;
+          min-width:max-content !important;
+          grid-template-columns:220px repeat(4,205px) !important;
+        }
+      }
+
+      @media(max-width:430px){
+        .stepNavInner{
+          width:720px !important;
+          min-width:720px !important;
+          grid-template-columns:repeat(5,137px) !important;
+        }
+
+        .waysBand{
+          grid-template-columns:205px repeat(4,190px) !important;
+        }
+      }
+
+      /* ===== END HOW IT WORKS — HORIZONTAL RAILS FIX V1 ===== */
+
+
+
+
+
+      /* ===== HOW IT WORKS — HORIZONTAL RAILS FIX V2 ===== */
+
+      /*
+       * Mobile rail fix:
+       * - the OUTER element owns scrolling
+       * - the INNER rail uses max-content instead of a forced grid width
+       * - nothing is centered while wider than the viewport
+       * - safe edge padding keeps first/last items fully reachable
+       * - scroll snap prevents stopping with cards awkwardly cut in half
+       */
+
+      .stepNav{
+        width:100% !important;
+        max-width:none !important;
+        overflow-x:auto !important;
+        overflow-y:hidden !important;
+        -webkit-overflow-scrolling:touch !important;
+        overscroll-behavior-x:contain !important;
+        scrollbar-width:none !important;
+        scroll-snap-type:x proximity !important;
+        scroll-padding-left:20px !important;
+        scroll-padding-right:20px !important;
+      }
+
+      .stepNav::-webkit-scrollbar{
+        display:none !important;
+      }
+
+      .stepNavInner{
+        box-sizing:border-box !important;
+      }
+
+      .waysCompact{
+        overflow:visible !important;
+      }
+
+      .waysCompact .waysInner{
+        box-sizing:border-box !important;
+        scrollbar-width:none !important;
+      }
+
+      .waysCompact .waysInner::-webkit-scrollbar{
+        display:none !important;
+      }
+
+      @media(max-width:760px){
+        /* ---------- TOP FIVE-STEP RAIL ---------- */
+        .stepNav{
+          padding:0 !important;
+        }
+
+        .stepNavInner{
+          display:flex !important;
+          grid-template-columns:none !important;
+          width:max-content !important;
+          min-width:100% !important;
+          max-width:none !important;
+          margin:0 !important;
+          padding-left:max(20px,env(safe-area-inset-left)) !important;
+          padding-right:max(20px,env(safe-area-inset-right)) !important;
+          justify-content:flex-start !important;
+          align-items:stretch !important;
+        }
+
+        .stepNavInner > *{
+          flex:0 0 145px !important;
+          width:145px !important;
+          min-width:145px !important;
+          max-width:145px !important;
+          box-sizing:border-box !important;
+          white-space:nowrap !important;
+          scroll-snap-align:start !important;
+          scroll-snap-stop:normal !important;
+        }
+
+        /* ---------- WAYS TO FLY RAIL ---------- */
+        .waysCompact{
+          padding-left:0 !important;
+          padding-right:0 !important;
+        }
+
+        .waysCompact .waysInner{
+          width:100vw !important;
+          max-width:none !important;
+          margin-left:calc(50% - 50vw) !important;
+          margin-right:calc(50% - 50vw) !important;
+          padding:0 !important;
+          overflow-x:auto !important;
+          overflow-y:hidden !important;
+          -webkit-overflow-scrolling:touch !important;
+          overscroll-behavior-x:contain !important;
+          scroll-snap-type:x proximity !important;
+          scroll-padding-left:20px !important;
+          scroll-padding-right:20px !important;
+        }
+
+        .waysBand{
+          display:flex !important;
+          grid-template-columns:none !important;
+          width:max-content !important;
+          min-width:max-content !important;
+          max-width:none !important;
+          margin:0 !important;
+          padding-left:max(20px,env(safe-area-inset-left)) !important;
+          padding-right:max(20px,env(safe-area-inset-right)) !important;
+          box-sizing:border-box !important;
+        }
+
+        .waysBandIntro{
+          flex:0 0 210px !important;
+          width:210px !important;
+          min-width:210px !important;
+          max-width:210px !important;
+          scroll-snap-align:start !important;
+        }
+
+        .wayMini{
+          flex:0 0 190px !important;
+          width:190px !important;
+          min-width:190px !important;
+          max-width:190px !important;
+          white-space:nowrap !important;
+          scroll-snap-align:start !important;
+        }
+      }
+
+      @media(max-width:430px){
+        .stepNavInner > *{
+          flex-basis:136px !important;
+          width:136px !important;
+          min-width:136px !important;
+          max-width:136px !important;
+        }
+
+        .waysBandIntro{
+          flex-basis:195px !important;
+          width:195px !important;
+          min-width:195px !important;
+          max-width:195px !important;
+        }
+
+        .wayMini{
+          flex-basis:176px !important;
+          width:176px !important;
+          min-width:176px !important;
+          max-width:176px !important;
+        }
+      }
+
+      /* ===== END HOW IT WORKS — HORIZONTAL RAILS FIX V2 ===== */
+</style>
+
+    <link rel="stylesheet" href="/how-guided-marketplace-v2.css" />
+    <link rel="stylesheet" href="/how-marketplace-sections-v4.css" />
+    <link rel="stylesheet" href="/how-marketplace-refine-v5.css" />
+    <link rel="stylesheet" href="/how-mix-types-v6.css" />
+    <link rel="stylesheet" href="/how-mix-avatars-v7.css" />
+    <link rel="stylesheet" href="/how-mix-avatars-v8.css" />
+    <link rel="stylesheet" href="/how-mix-cards-v10.css" />
+    <link rel="stylesheet" href="/how-finesse-v11.css" />
+<link rel="stylesheet" href="/how-structure-v13.css" />
+    <link rel="stylesheet" href="/how-livetime-explain-v14.css" />
+    <link rel="stylesheet" href="/how-final-cta-v17.css" />
+    <link rel="stylesheet" href="/how-final-cta-v18.css" />
+    <link rel="stylesheet" href="/how-system-polish-v19.css" />
+    <link rel="stylesheet" href="/fly-global-nav-thin-v20.css" />
+    <link rel="stylesheet" href="/fly-global-nav-minimal-v21.css" />
+    <link rel="stylesheet" href="/fly-global-nav-bare-icons-v22.css" />
+    <link rel="stylesheet" href="/fly-global-nav-no-selector-v23.css" />
+    <link rel="stylesheet" href="/fly-home-ask-how-compact-v24.css" />
+    <link rel="stylesheet" href="/how-manual-tone-v25.css" />
+    <link rel="stylesheet" href="/how-ask-first-v26.css" />
+    <link rel="stylesheet" href="/how-guide-polish-v27.css" />
+    <link rel="stylesheet" href="/how-hero-banner-v39.css" />
+    <link rel="stylesheet" href="/how-steps-banner-v41.css" />
+    <link rel="stylesheet" href="/how-steps-carousel-v42.css" />
+    <link rel="stylesheet" href="/how-compact-categories-v44.css" />
+    <link rel="stylesheet" href="/how-category-rhythm-v45.css" />
+    <link rel="stylesheet" href="/how-livetime-photo-v48.css" />
+    <link rel="stylesheet" href="/how-first-section-hierarchy-v50.css" />
+</head>
 
   <body>
     <header class="topbar">
@@ -1236,7 +3413,7 @@ const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
             <img class="navIcon" src="/flyhome.svg" alt="" aria-hidden="true" />
           </a>
 
-          <a class="navBtn active" href="/how-it-works/" aria-label="How it works" title="How it works">
+          <a class="navBtn currentPage" aria-current="page" href="/how-it-works/" aria-label="How it works" title="How it works">
             <img class="navIcon" src="/flyactive.svg" alt="" aria-hidden="true" />
           </a>
 
@@ -1252,276 +3429,376 @@ const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
     </header>
 
     <main>
-      <!-- FLY HOW IT WORKS — APPLE-LIKE V1 -->
-      <section class="hero" aria-labelledby="how-title">
-        <img class="heroPhoto" src="/campaign/hero-center-you.png" alt="" aria-hidden="true" />
+<section class="hero" aria-labelledby="how-title">
+        <img class="heroPhoto" src="/campaign/how-hero-ask-v39.png" alt="" aria-hidden="true" />
 
         <div class="heroInner">
           <div class="heroCopy">
-            <p class="heroEyebrow">How FLY works</p>
-            <h1 class="heroTitle" id="how-title">How FLY<br />Works</h1>
-            <p class="heroLead">One network. Built around you.</p>
-            <p class="heroSub">Create. Discover. Connect. LiveTime. Complete.</p>
-            <a class="heroCta" href="#create">See how it works <span aria-hidden="true">→</span></a>
+            <p class="heroEyebrow">How to use FLY</p>
+            <h1 class="heroTitle" id="how-title">How to FLY</h1>
+            <p class="heroLead">A simple guide to creating a FLY, choosing how it works, connecting, and completing it.</p>
+            <p class="heroSub"></p>
+            <a class="heroCta" href="#guide-start">Start the guide <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </section>
 
-      <section class="stepNav" aria-label="FLY flow">
-        <div class="stepNavInner">
-          <a class="stepNavItem" href="#create"><span class="stepNavNum">01</span><span class="stepNavLabel">Create</span></a>
-          <a class="stepNavItem" href="#discover"><span class="stepNavNum">02</span><span class="stepNavLabel">Discover</span></a>
-          <a class="stepNavItem" href="#connect"><span class="stepNavNum">03</span><span class="stepNavLabel">Connect</span></a>
-          <a class="stepNavItem" href="#livetime"><span class="stepNavNum">04</span><span class="stepNavLabel">LiveTime</span></a>
-          <a class="stepNavItem" href="#complete"><span class="stepNavNum">05</span><span class="stepNavLabel">Complete</span></a>
+
+
+
+
+
+
+      <section class="guideIntroV26" id="guide-start" aria-labelledby="guide-v26-title">
+        <div class="guideIntroV26__inner">
+
+          <div class="guideIntroV50__chapter" aria-label="First section">
+            <span class="guideIntroV50__chapterLeft">01 / The Ask</span>
+            <span class="guideIntroV50__chapterRight">Every FLY begins here.</span>
+          </div>
+
+          <div class="guideIntroV26__top">
+            <div class="guideIntroV26__copy">
+              <p class="guideIntroV26__eyebrow">Start with the Ask</p>
+              <h2 class="guideIntroV26__title" id="guide-v26-title">Just ask what you need.</h2>
+              <p class="guideIntroV26__lead">Write your Ask in your own words. FLY suggests the category automatically, and you can change it before you continue.</p>
+            </div>
+
+            <div class="guideIntroV26__demo" aria-label="Example FLY Ask">
+              <div class="guideIntroV26__composer">
+                <div class="guideIntroV26__input">
+                  <span class="guideIntroV26__prefix">I need…</span>
+                  <span class="guideIntroV26__query">a photographer for a music video recording session</span>
+                  <span class="guideIntroV26__cursor" aria-hidden="true"></span>
+                </div>
+                <div class="guideIntroV26__askButton"><span>Ask</span><span aria-hidden="true">→</span></div>
+              </div>
+
+              <div class="guideIntroV26__suggested">
+                <span class="guideIntroV26__suggestedLabel">FLY suggests</span>
+                <span class="guideIntroV26__categoryChip">
+                  <span class="guideIntroV26__categoryIcon"><img src="/category-icons/Events.svg" alt="" /></span>
+                  <span>Events</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="guideIntroV26__categories">
+            <div class="guideIntroV26__categoriesCopy">
+              <h3 class="guideIntroV26__categoriesTitle">Discover Categories</h3>
+              <p class="guideIntroV26__categoriesText">FLY suggests a category automatically. Change it anytime to help your Ask reach the right people and opportunities.</p>
+            </div>
+
+            <div class="guideIntroV26__grid" aria-label="FLY category examples">
+              <div class="guideIntroV26__item" style="--cat:#6600FF">
+                <span class="guideIntroV26__square"><img src="/category-icons/Music.svg" alt="" /></span>
+                <span class="guideIntroV26__label">For Home</span>
+              </div>
+              <div class="guideIntroV26__item" style="--cat:#0054A3">
+                <span class="guideIntroV26__square"><img src="/category-icons/Events.svg" alt="" /></span>
+                <span class="guideIntroV26__label">Events</span>
+              </div>
+              <div class="guideIntroV26__item" style="--cat:#2ECC71">
+                <span class="guideIntroV26__square"><img src="/category-icons/Business.svg" alt="" /></span>
+                <span class="guideIntroV26__label">Business</span>
+              </div>
+
+              <div class="guideIntroV26__item" style="--cat:#9B59B6">
+                <span class="guideIntroV26__square"><img src="/category-icons/Photo.svg" alt="" /></span>
+                <span class="guideIntroV26__label">Photo &amp; Video</span>
+              </div>
+              <div class="guideIntroV26__item" style="--cat:#6000E0">
+                <span class="guideIntroV26__square"><img src="/category-icons/Technology.svg" alt="" /></span>
+                <span class="guideIntroV26__label">Technology</span>
+              </div>
+              <div class="guideIntroV26__item" style="--cat:#3498DB">
+                <span class="guideIntroV26__square"><img src="/category-icons/Collabs.svg" alt="" /></span>
+                <span class="guideIntroV26__label">Collabs</span>
+              </div>
+
+              <div class="guideIntroV26__item" style="--cat:#20C997">
+                <span class="guideIntroV26__square"><img src="/category-icons/Pets.svg" alt="" /></span>
+                <span class="guideIntroV26__label">For Pets</span>
+              </div>
+              <div class="guideIntroV26__item" style="--cat:#C62828">
+                <span class="guideIntroV26__square"><img src="/category-icons/Gaming.svg" alt="" /></span>
+                <span class="guideIntroV26__label">Gaming</span>
+              </div>
+              <div class="guideIntroV26__item" style="--cat:#00C3FF">
+                <span class="guideIntroV26__square"><img src="/category-icons/Education.svg" alt="" /></span>
+                <span class="guideIntroV26__label">Education</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="how">
+
+
+
+      <section class="marketMixV24" aria-labelledby="market-mix-v24-title">
+        <div class="marketMixV24__inner">
+          <h2 class="marketMixV24__title" id="market-mix-v24-title">One category. Many ways to FLY.</h2>
+          <p class="marketMixV24__lead">Once your Ask has a category, choose the FLY type that matches how you want it fulfilled: Service, Rental, Delivery, or Purchase.</p>
+
+          <div class="marketMixV24__event">
+            <span class="marketMixV24__eventIcon" aria-hidden="true">
+              <img src="/category-icons/Events.svg" alt="" />
+            </span>
+            <span class="marketMixV24__eventText"><small>Category</small><strong>Events</strong></span>
+          </div>
+
+          <div class="marketMixV24__branch" aria-hidden="true"></div>
+
+          <div class="marketMixV24__examples">
+            <article class="marketMixV24__example">
+              <div class="marketMixV24__type">
+                <span class="marketMixV24__typeIcon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><rect x="5" y="7" width="14" height="11" rx="2"></rect><path d="M9 7V5h6v2M5 11h14"></path></svg>
+                </span>
+                <span>Service</span>
+              </div>
+              <p class="marketMixV24__ask">Need a photographer for my wedding.</p>
+            </article>
+
+            <article class="marketMixV24__example">
+              <div class="marketMixV24__type">
+                <span class="marketMixV24__typeIcon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="4"></circle><path d="M12 12h7M16 12v3M19 12v2"></path></svg>
+                </span>
+                <span>Rental</span>
+              </div>
+              <p class="marketMixV24__ask">Need speakers and lighting for a concert.</p>
+            </article>
+
+            <article class="marketMixV24__example">
+              <div class="marketMixV24__type">
+                <span class="marketMixV24__typeIcon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"></path><circle cx="7" cy="18" r="1.5"></circle><circle cx="18" cy="18" r="1.5"></circle></svg>
+                </span>
+                <span>Delivery</span>
+              </div>
+              <p class="marketMixV24__ask">Need flowers delivered to my wedding venue.</p>
+            </article>
+
+            <article class="marketMixV24__example">
+              <div class="marketMixV24__type">
+                <span class="marketMixV24__typeIcon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M6 8h12l1 12H5L6 8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg>
+                </span>
+                <span>Purchase</span>
+              </div>
+              <p class="marketMixV24__ask">Looking for Smashing Pumpkins tickets.</p>
+            </article>
+          </div>
+
+          <p class="marketMixV24__close">The category stays the same; the FLY type changes how the request is fulfilled.</p>
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+
+
+      <!-- FLY HOW IT WORKS — APPLE-LIKE V1 -->
+
+      <section class="stepsBannerV41" aria-labelledby="steps-banner-v41-title">
+        <img
+          class="stepsBannerV41__photo"
+          src="/campaign/how-steps-banner-v41.png"
+          alt=""
+        />
+        <div class="stepsBannerV41__inner">
+          <h2 class="stepsBannerV41__title" id="steps-banner-v41-title">The Steps</h2>
+        </div>
+      </section>
+
+<section class="how stepsCarouselV42">
         <div class="howInner">
-          <article class="howRow" id="create">
+          <article class="howRow" id="ask">
             <div>
               <p class="howNum">01</p>
-              <h2 class="howTitle">Create the FLY</h2>
-              <p class="howText">Post what you need, what you offer, or what you want to make happen — from a service or collab to a stay or rental.</p>
+              <h2 class="howTitle">Ask.</h2>
+              <p class="howText"><strong>Think of something? Ask.</strong> Need a place, have an idea, looking for someone, or want to make something happen? Put it out there and see what comes back.</p>
             </div>
-            <div class="productCard" aria-label="Reserved Create FLY visual">
-              <div class="productCardContent">
-                <svg class="productIcon" viewBox="0 0 48 48" aria-hidden="true">
-                  <rect x="12" y="8" width="24" height="32" rx="4"></rect>
-                  <path d="M18 17h12M18 23h8"></path>
-                  <circle cx="34" cy="34" r="7"></circle>
-                  <path d="M34 30v8M30 34h8"></path>
-                </svg>
-                <span class="productLabel">Create</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="howRow" id="discover">
-            <div>
-              <p class="howNum">02</p>
-              <h2 class="howTitle">Discover your network</h2>
-              <p class="howText">Explore people, services, stays, rentals, collabs and opportunities around you.</p>
-            </div>
-            <div class="productCard" aria-label="Reserved discovery visual">
-              <div class="productCardContent">
-                <svg class="productIcon" viewBox="0 0 48 48" aria-hidden="true">
-                  <path d="M24 42s12-11.2 12-22A12 12 0 0 0 12 20c0 10.8 12 22 12 22Z"></path>
-                  <circle cx="24" cy="20" r="4"></circle>
-                </svg>
-                <span class="productLabel">Discover</span>
-              </div>
+            <div class="askManualVisual" aria-label="Examples of asking on FLY">
+              <img
+                class="askManualImage"
+                src="/campaign/how-ask-manual.webp"
+                alt="An example FLY ask turning into published FLYs"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </article>
 
           <article class="howRow" id="connect">
             <div>
-              <p class="howNum">03</p>
-              <h2 class="howTitle">Connect and confirm</h2>
-              <p class="howText">Message, apply, book, hire or collaborate — then confirm the plan together.</p>
+              <p class="howNum">02</p>
+              <h2 class="howTitle">Connect.</h2>
+              <p class="howText"><strong>Ready to make it happen? Connect your way.</strong> One time, for a while, or something ongoing — choose the kind of connection that fits what you’re trying to do.</p>
             </div>
-            <div class="productCard" aria-label="Reserved connection visual">
-              <div class="productCardContent">
-                <svg class="productIcon" viewBox="0 0 48 48" aria-hidden="true">
-                  <path d="M10 11h28a4 4 0 0 1 4 4v17a4 4 0 0 1-4 4H22l-9 7v-7h-3a4 4 0 0 1-4-4V15a4 4 0 0 1 4-4Z"></path>
-                </svg>
-                <span class="productLabel">Connect</span>
-              </div>
+            <div class="connectManualVisual" aria-label="FLY Connect example">
+              <img
+                class="connectManualImage"
+                src="/campaign/how-connect-manual.webp"
+                alt="A hosting FLY and an available photographer connecting through Apply and Selected states"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </article>
 
           <article class="howRow" id="livetime">
             <div>
-              <p class="howNum">04</p>
-              <h2 class="howTitle">Move into LiveTime</h2>
-              <p class="howText">When it’s time to move, LiveTime keeps the plan, communication, progress and updates connected while it’s happening.</p>
+              <p class="howNum">03</p>
+              <h2 class="howTitle">LiveTime</h2>
+              <p class="howText"><strong>When it’s time, go Live.</strong> Keep everyone in sync while it’s happening. Follow the plan, share updates, confirm what’s done, and keep the FLY moving from start to finish.</p>
             </div>
-            <div class="productCard" aria-label="Reserved LiveTime visual">
-              <div class="productCardContent">
-                <svg class="productIcon" viewBox="0 0 48 48" aria-hidden="true">
-                  <circle cx="24" cy="14" r="6"></circle>
-                  <circle cx="11" cy="20" r="4"></circle>
-                  <circle cx="37" cy="20" r="4"></circle>
-                  <path d="M13 39c0-7 4-12 11-12s11 5 11 12"></path>
-                  <path d="M3 39c0-5 3-9 8-9M45 39c0-5-3-9-8-9"></path>
-                </svg>
-                <span class="productLabel">LiveTime</span>
-              </div>
+            <div class="liveTimeManualVisual" aria-label="LiveTime progress example">
+              <img
+                class="liveTimeManualImage"
+                src="/campaign/how-livetime-manual.webp"
+                alt="LiveTime progress bar with planning, materials, in progress, review and complete stages, surrounded by a photo, attachment and confirmation"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </article>
 
-          <article class="howRow" id="complete">
+          <article class="howRow" id="shake-hands">
+            <div>
+              <p class="howNum">04</p>
+              <h2 class="howTitle">Shake Hands.</h2>
+              <p class="howText"><strong>Done? Make it official.</strong> Confirm what was completed, settle payment when payment is part of the FLY, and close things out together.</p>
+            </div>
+            <div class="shakeHandsManualVisual" aria-label="Shake Hands approval example">
+              <img
+                class="shakeHandsManualImage"
+                src="/campaign/how-shakehands-manual-v5.webp"
+                alt="Host and photographer connected around an Approve the work action, followed by Approved and Payment sent states"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </article>
+          <article class="howRow" id="repeat">
             <div>
               <p class="howNum">05</p>
-              <h2 class="howTitle">Complete the FLY</h2>
-              <p class="howText">Finish the FLY, mark it complete, and handle payment when payment is part of the experience.</p>
+              <h2 class="howTitle">Repeat.</h2>
+              <p class="howText"><strong>Every FLY grows your network.</strong> Keep the people and connections that worked for you close. Add new needs, reconnect, and come back to a network that becomes more useful every time you use it.</p>
             </div>
-            <div class="productCard" aria-label="Reserved completion and payment visual">
-              <div class="productCardContent">
-                <svg class="productIcon" viewBox="0 0 48 48" aria-hidden="true">
-                  <rect x="7" y="12" width="34" height="24" rx="4"></rect>
-                  <path d="M7 20h34M13 30h10"></path>
-                </svg>
-                <span class="productLabel">Complete</span>
-              </div>
+            <div class="repeatManualVisual" aria-label="Repeat example showing the FLY Network loop">
+              <img
+                class="repeatManualImage"
+                src="/campaign/how-repeat-manual-v1.webp"
+                alt="A clean FLY Network graphic showing repeat what worked on one side and try new FLYs on the other, connected in a continuous loop"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </article>
         </div>
-      </section>
+
+        <div class="stepsCarouselV42__nav" aria-label="Step carousel navigation">
+          <div class="stepsCarouselV42__dots" aria-label="Choose a step"></div>
+          <div class="stepsCarouselV42__buttons">
+            <button class="stepsCarouselV42__button stepsCarouselV42__prev" type="button" aria-label="Previous step">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 6-6 6 6 6"></path></svg>
+            </button>
+            <button class="stepsCarouselV42__button stepsCarouselV42__next" type="button" aria-label="Next step">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 6 6 6-6 6"></path></svg>
+            </button>
+          </div>
+        </div>
+        <p class="stepsCarouselV42__hint">Swipe, scroll, or use the arrows to move through the five steps.</p>
+</section>
 
 
       <!-- FLY PHASE 8 — WAYS TO FLY -->
-      <section class="ways" aria-labelledby="ways-title">
-        <div class="waysInner">
-          <p class="waysEyebrow">One network. Different ways to use it.</p>
-          <h2 class="waysTitle" id="ways-title">One network. Many ways to FLY.</h2>
-          <p class="waysLead">
-            Services, stays, rentals and collabs live in the same marketplace — centered around you.
-          </p>
 
-          <div class="waysGrid">
-            <article class="wayCard">
-              <span class="wayIndex">01</span>
-              <h3>Services</h3>
-              <p>Find help, offer a skill, or hire someone for what you need.</p>
-            </article>
 
-            <article class="wayCard">
-              <span class="wayIndex">02</span>
-              <h3>Collabs</h3>
-              <p>Build, create, coordinate, and move ideas forward with other people.</p>
-            </article>
 
-            <article class="wayCard">
-              <span class="wayIndex">03</span>
-              <h3>Stays</h3>
-              <p>Discover places to stay through the same network you already use.</p>
-            </article>
-
-            <article class="wayCard">
-              <span class="wayIndex">04</span>
-              <h3>Rentals</h3>
-              <p>Access things you need without turning to a completely different marketplace.</p>
-            </article>
+      <section class="liveExplainV14" aria-labelledby="livetime-v14-title">
+        <div class="liveExplainV14__inner">
+          <div class="liveExplainV14__media">
+            <img src="/campaign/how-livetime-editorial-v48.png" alt="" aria-hidden="true" />
           </div>
-        </div>
-      </section>
 
-<section class="live" aria-labelledby="live-title">
-        <img class="livePhoto" src="/campaign/livetime-yes-to-done.png" alt="" aria-hidden="true" />
-        <div class="liveInner">
-          <div class="liveCopy">
-            <p class="liveEyebrow">LiveTime</p>
-            <h2 class="liveTitle" id="live-title">Keeps the FLY moving.</h2>
-            <p class="liveText">LiveTime keeps the plan, communication and progress connected while the FLY is happening.</p>
-          </div>
-        </div>
-      </section>
+          <div class="liveExplainV14__content">
+            <p class="liveExplainV14__eyebrow">LiveTime</p>
+            <h2 class="liveExplainV14__title" id="livetime-v14-title">Where the FLY happens.</h2>
+            <p class="liveExplainV14__lead">Once a FLY starts, LiveTime becomes the shared space for keeping the plan, progress, files and confirmations together from start to finish.</p>
 
-      <section class="why" aria-labelledby="why-title">
-        <div class="whyInner">
-          <h2 class="whyTitle" id="why-title">Built for real life.</h2>
-          <div class="whyGrid">
-            <div class="whyCol">
-              <p class="whyKicker">For people</p>
-
-              <div class="benefit">
-                <div class="benefitIcon">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13 2-7 11h6l-1 9 7-12h-6z"></path></svg>
-                </div>
-                <div>
-                  <p class="benefitTitle">Simple</p>
-                  <p class="benefitText">Start with a real need, offer, or idea.</p>
-                </div>
+            <div class="liveExplainV14__flow" aria-label="LiveTime progress">
+              <div class="liveExplainV14__flowItem">
+                <span class="liveExplainV14__dot"></span>
+                <span>Plan</span>
               </div>
-
-              <div class="benefit">
-                <div class="benefitIcon">
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12 21s7-6.6 7-13a7 7 0 1 0-14 0c0 6.4 7 13 7 13Z"></path>
-                    <circle cx="12" cy="8" r="2"></circle>
-                  </svg>
-                </div>
-                <div>
-                  <p class="benefitTitle">Nearby</p>
-                  <p class="benefitText">Discover people and opportunities around you.</p>
-                </div>
+              <div class="liveExplainV14__flowItem is-active">
+                <span class="liveExplainV14__dot"></span>
+                <span>In progress</span>
               </div>
-
-              <div class="benefit">
-                <div class="benefitIcon">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4 10-10"></path></svg>
-                </div>
-                <div>
-                  <p class="benefitTitle">Actionable</p>
-                  <p class="benefitText">Move from interest to action.</p>
-                </div>
+              <div class="liveExplainV14__flowItem">
+                <span class="liveExplainV14__dot"></span>
+                <span>Review</span>
+              </div>
+              <div class="liveExplainV14__flowItem">
+                <span class="liveExplainV14__dot"></span>
+                <span>Complete</span>
               </div>
             </div>
 
-            <div class="whyCol">
-              <p class="whyKicker">For businesses</p>
-
-              <div class="benefit">
-                <div class="benefitIcon">
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <circle cx="12" cy="8" r="3"></circle>
-                    <circle cx="5" cy="10" r="2"></circle>
-                    <circle cx="19" cy="10" r="2"></circle>
-                    <path d="M7 20c0-4 2-7 5-7s5 3 5 7M1 20c0-3 1-5 4-5M23 20c0-3-1-5-4-5"></path>
-                  </svg>
-                </div>
-                <div>
-                  <p class="benefitTitle">Reach real people</p>
-                  <p class="benefitText">Show up when someone is looking for what you offer.</p>
-                </div>
+            <div class="liveExplainV14__features">
+              <div class="liveExplainV14__feature">
+                <span class="liveExplainV14__featureIcon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M5 5h14v14H5z"></path><path d="m8 12 2.5 2.5L16 9"></path></svg>
+                </span>
+                <p class="liveExplainV14__featureTitle">Follow the plan</p>
+                <p class="liveExplainV14__featureText">Keep goals, materials and key details in one place.</p>
               </div>
 
-              <div class="benefit">
-                <div class="benefitIcon">
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-                    <path d="M3 10h18M7 15h4"></path>
-                  </svg>
-                </div>
-                <div>
-                  <p class="benefitTitle">Coordinate in one place</p>
-                  <p class="benefitText">Keep the people, plan, progress and payment connected in one place.</p>
-                </div>
+              <div class="liveExplainV14__feature">
+                <span class="liveExplainV14__featureIcon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M4 17V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10"></path><path d="M7 13l3-3 2 2 3-4 2 3"></path></svg>
+                </span>
+                <p class="liveExplainV14__featureTitle">Share progress</p>
+                <p class="liveExplainV14__featureText">Add updates, photos and files while the FLY is happening.</p>
               </div>
 
-              <div class="benefit">
-                <div class="benefitIcon">
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <rect x="3" y="3" width="7" height="7" rx="1"></rect>
-                    <rect x="14" y="3" width="7" height="7" rx="1"></rect>
-                    <rect x="3" y="14" width="7" height="7" rx="1"></rect>
-                    <rect x="14" y="14" width="7" height="7" rx="1"></rect>
-                  </svg>
-                </div>
-                <div>
-                  <p class="benefitTitle">Built for repeat use</p>
-                  <p class="benefitText">One network built for repeat use across different kinds of opportunities.</p>
-                </div>
+              <div class="liveExplainV14__feature">
+                <span class="liveExplainV14__featureIcon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="m8.5 12 2.2 2.2 4.8-5"></path></svg>
+                </span>
+                <p class="liveExplainV14__featureTitle">Confirm &amp; complete</p>
+                <p class="liveExplainV14__featureText">Review what’s done, confirm it together and close the FLY.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="final" aria-label="Time to FLY">
-        <div class="finalInner">
-          <img class="finalPhoto" src="/campaign/time-to-fly.png" alt="" aria-hidden="true" />
-          <div class="finalCopy">
-            <p class="finalKicker">Ready to get started?</p>
-            <h2 class="finalTitle">Time to FLY.</h2>
-            <p class="finalText">Open the marketplace around you.</p>
-            <div class="finalActions">
-              <a class="finalBtn primary" href={appStoreUrl} target="_blank" rel="noopener noreferrer">Download FLY</a>
-              <a class="finalBtn" href="/info/">Learn more</a>
-            </div>
+
+
+
+      <section class="finalV17" aria-label="Download FLY">
+        <div class="finalV17__inner">
+          <div class="finalV17__copy">
+            <p class="finalV17__eyebrow">FLY Unlimited</p>
+            <h2 class="finalV17__title">Ready when you are.</h2>
+            <p class="finalV17__text">Open the marketplace around you.</p>
           </div>
+
+          <a class="finalV17__download" href={appStoreUrl} target="_blank" rel="noopener noreferrer">
+            <span>Download FLY</span>
+            <span class="finalV17__arrow" aria-hidden="true">↗</span>
+          </a>
         </div>
       </section>
     </main>
@@ -1538,5 +3815,140 @@ const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
         </div>
       </div>
     </footer>
-  </body>
+
+    <script is:inline>
+      (() => {
+        const bar = document.querySelector(".topbar");
+        if (!bar) return;
+
+        let ticking = false;
+
+        const syncNavState = () => {
+          const trigger = Math.max(40, bar.offsetHeight - 8);
+          bar.classList.toggle("is-scrolled", window.scrollY >= trigger);
+        };
+
+        const onScroll = () => {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(() => {
+            syncNavState();
+            ticking = false;
+          });
+        };
+
+        syncNavState();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", syncNavState, { passive: true });
+      })();
+    </script>
+
+
+    <!-- ===== APPLE STEP CAROUSEL V42 ===== -->
+    <script is:inline>
+      (() => {
+        const setup = () => {
+          const section = document.querySelector('.how.stepsCarouselV42');
+          if (!section || section.dataset.carouselReady === 'true') return;
+
+          const scroller = section.querySelector('.howInner');
+          const cards = Array.from(scroller?.querySelectorAll('.howRow') || []);
+          const dotsHost = section.querySelector('.stepsCarouselV42__dots');
+          const prev = section.querySelector('.stepsCarouselV42__prev');
+          const next = section.querySelector('.stepsCarouselV42__next');
+
+          if (!scroller || cards.length < 2 || !dotsHost || !prev || !next) return;
+          section.dataset.carouselReady = 'true';
+
+          cards.forEach((card, index) => {
+            card.setAttribute('role', 'group');
+            card.setAttribute('aria-roledescription', 'slide');
+            card.setAttribute('aria-label', `Step ${index + 1} of ${cards.length}`);
+          });
+
+          const dots = cards.map((card, index) => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'stepsCarouselV42__dot';
+            button.setAttribute('aria-label', `Go to step ${index + 1}`);
+            button.addEventListener('click', () => goTo(index));
+            dotsHost.appendChild(button);
+            return button;
+          });
+
+          let active = 0;
+          let frame = 0;
+
+          const targetLeft = (card) => card.offsetLeft - ((scroller.clientWidth - card.clientWidth) / 2);
+
+          const goTo = (index, behavior = 'smooth') => {
+            const bounded = Math.max(0, Math.min(cards.length - 1, index));
+            scroller.scrollTo({ left: targetLeft(cards[bounded]), behavior });
+          };
+
+          const setActive = (index) => {
+            active = Math.max(0, Math.min(cards.length - 1, index));
+            dots.forEach((dot, i) => {
+              dot.classList.toggle('is-active', i === active);
+              dot.setAttribute('aria-current', i === active ? 'step' : 'false');
+            });
+            prev.disabled = active === 0;
+            next.disabled = active === cards.length - 1;
+          };
+
+          const updateFromScroll = () => {
+            frame = 0;
+            const center = scroller.scrollLeft + (scroller.clientWidth / 2);
+            let nearest = 0;
+            let distance = Infinity;
+
+            cards.forEach((card, index) => {
+              const cardCenter = card.offsetLeft + (card.clientWidth / 2);
+              const delta = Math.abs(cardCenter - center);
+              if (delta < distance) {
+                distance = delta;
+                nearest = index;
+              }
+            });
+
+            setActive(nearest);
+          };
+
+          scroller.addEventListener('scroll', () => {
+            if (frame) cancelAnimationFrame(frame);
+            frame = requestAnimationFrame(updateFromScroll);
+          }, { passive: true });
+
+          prev.addEventListener('click', () => goTo(active - 1));
+          next.addEventListener('click', () => goTo(active + 1));
+
+          section.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowLeft') {
+              event.preventDefault();
+              goTo(active - 1);
+            } else if (event.key === 'ArrowRight') {
+              event.preventDefault();
+              goTo(active + 1);
+            }
+          });
+
+          let resizeFrame = 0;
+          window.addEventListener('resize', () => {
+            if (resizeFrame) cancelAnimationFrame(resizeFrame);
+            resizeFrame = requestAnimationFrame(() => goTo(active, 'auto'));
+          }, { passive: true });
+
+          setActive(0);
+        };
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', setup, { once: true });
+        } else {
+          setup();
+        }
+      })();
+    </script>
+    <!-- ===== END APPLE STEP CAROUSEL V42 ===== -->
+
+</body>
 </html>

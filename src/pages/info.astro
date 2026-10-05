@@ -1212,8 +1212,88 @@ scroll-behavior:auto
 transition:none!important
 }
 }
+
+      /* ===== FLY NAV STATE V1 — WHITE AT TOP / DARK GLASS ON SCROLL ===== */
+      .topbar{
+        background:#fff !important;
+        border-bottom:1px solid rgba(11,11,11,.08) !important;
+        box-shadow:none !important;
+        backdrop-filter:none !important;
+        -webkit-backdrop-filter:none !important;
+        transition:
+          background .22s ease,
+          border-color .22s ease,
+          box-shadow .22s ease,
+          backdrop-filter .22s ease;
+      }
+
+      .topbar .mascot,
+      .topbar .navIcon{
+        filter:none !important;
+        transition:filter .20s ease;
+      }
+
+      .topbar .navBtn{
+        color:rgba(11,11,11,.88) !important;
+        transition:
+          background .18s ease,
+          color .18s ease;
+      }
+
+      .topbar .navBtn:hover{
+        background:rgba(0,0,0,.05) !important;
+        color:#111 !important;
+      }
+
+      .topbar .navBtn.active{
+        background:rgba(0,0,0,.08) !important;
+        color:#111 !important;
+      }
+
+      .topbar.is-scrolled{
+        background:rgba(9,9,9,.80) !important;
+        border-bottom-color:rgba(255,255,255,.08) !important;
+        box-shadow:0 8px 28px rgba(0,0,0,.14) !important;
+        backdrop-filter:blur(18px) saturate(115%) !important;
+        -webkit-backdrop-filter:blur(18px) saturate(115%) !important;
+      }
+
+      .topbar.is-scrolled .mascot,
+      .topbar.is-scrolled .navIcon{
+        filter:brightness(0) invert(1) !important;
+      }
+
+      .topbar.is-scrolled .navBtn{
+        color:rgba(255,255,255,.92) !important;
+      }
+
+      .topbar.is-scrolled .navBtn:hover{
+        background:rgba(255,255,255,.07) !important;
+        color:#fff !important;
+      }
+
+      .topbar.is-scrolled .navBtn.active{
+        background:rgba(255,255,255,.11) !important;
+        color:#fff !important;
+      }
+
+      @media(max-width:720px){
+        .topbar.is-scrolled{
+          background:rgba(9,9,9,.84) !important;
+          backdrop-filter:blur(16px) saturate(110%) !important;
+          -webkit-backdrop-filter:blur(16px) saturate(110%) !important;
+        }
+      }
+
 </style>
-  </head>
+      <link rel="stylesheet" href="/fly-global-nav-thin-v20.css" />
+    <link rel="stylesheet" href="/fly-global-nav-minimal-v21.css" />
+    <link rel="stylesheet" href="/fly-global-nav-bare-icons-v22.css" />
+    <link rel="stylesheet" href="/fly-global-nav-no-selector-v23.css" />
+<link rel="stylesheet" href="/info-simplify-ending-v33.css" />
+    <link rel="stylesheet" href="/info-photo-aspect-v53.css" />
+    <link rel="stylesheet" href="/info-photo-row-centered-v58.css" />
+</head>
 
   <body>
     <header class="topbar">
@@ -1231,7 +1311,7 @@ transition:none!important
             <img class="navIcon" src="/flyinactive.svg" alt="" aria-hidden="true" />
           </a>
 
-          <a class="navBtn active" href="/info/" aria-label="Info" title="Info">
+          <a class="navBtn currentPage" aria-current="page" href="/info/" aria-label="Info" title="Info">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <circle cx="12" cy="12" r="9"></circle>
               <path d="M12 10.6v6"></path>
@@ -1282,48 +1362,83 @@ transition:none!important
       </div>
 
 
-      <section class="about" id="about">
-        <div class="aboutInner">
-          <p class="eyebrow">About FLY</p>
 
-          <div class="aboutGrid">
-            <h2 class="aboutTitle">The marketplace starts with the person.</h2>
 
-            <p class="aboutText">
-              FLY is designed around a simple idea: the things you need, the things
-              you can offer, and the opportunities around you should be easier to
-              discover and act on. Instead of separating everyday life across
-              different marketplaces, FLY brings them into one network centered around you.
-            </p>
-          </div>
 
-          <div class="principles">
-            <article class="principle">
-              <span class="principleNum">01</span>
-              <h3 class="principleTitle">Personal first</h3>
-              <p class="principleText">
-                Your needs, offers and connections shape the marketplace around you.
-              </p>
-            </article>
 
-            <article class="principle">
-              <span class="principleNum">02</span>
-              <h3 class="principleTitle">Built for action</h3>
-              <p class="principleText">
-                FLY is designed to move from discovery to coordination and completion.
-              </p>
-            </article>
 
-            <article class="principle">
-              <span class="principleNum">03</span>
-              <h3 class="principleTitle">One network</h3>
-              <p class="principleText">
-                Services, stays, rentals, collabs and opportunities can live together.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
+
+
+      <section class="infoAudienceV53" aria-labelledby="info-audience-v53-title">
+  <div class="infoAudienceV53__inner">
+    <p class="infoAudienceV53__eyebrow">One marketplace</p>
+    <h2 class="infoAudienceV53__title" id="info-audience-v53-title">For People and Businesses Alike.</h2>
+    <p class="infoAudienceV53__lead">FLY helps you ask for what you need, discover real opportunities around you, and keep the whole process easier to manage in one place.</p>
+
+    <div class="infoAudienceV53__audiences">
+      <article class="infoAudienceV53__audience">
+        <p class="infoAudienceV53__label">For People</p>
+        <h3 class="infoAudienceV53__audienceTitle">Find what fits — and move with more confidence.</h3>
+        <p class="infoAudienceV53__audienceText">Post in your own words, explore nearby FLYs, and connect when something feels right.</p>
+        <ul class="infoAudienceV53__points">
+          <li class="infoAudienceV53__point"><span class="infoAudienceV53__check"><svg viewBox="0 0 16 16"><path d="m4 8 2.4 2.4L12 5"></path></svg></span><span>Ask for services, stays, rentals, collaborations and more.</span></li>
+          <li class="infoAudienceV53__point"><span class="infoAudienceV53__check"><svg viewBox="0 0 16 16"><path d="m4 8 2.4 2.4L12 5"></path></svg></span><span>Apply directly to FLYs that match what you can do.</span></li>
+          <li class="infoAudienceV53__point"><span class="infoAudienceV53__check"><svg viewBox="0 0 16 16"><path d="m4 8 2.4 2.4L12 5"></path></svg></span><span>Keep the request, the connection and the progress together instead of scattered across different apps.</span></li>
+        </ul>
+      </article>
+
+      <article class="infoAudienceV53__audience">
+        <p class="infoAudienceV53__label">For Businesses</p>
+        <h3 class="infoAudienceV53__audienceTitle">Turn a need into a clear request — and keep it organized.</h3>
+        <p class="infoAudienceV53__audienceText">Post what you need, review profiles, choose who fits, and keep the work connected from start to finish.</p>
+        <ul class="infoAudienceV53__points">
+          <li class="infoAudienceV53__point"><span class="infoAudienceV53__check"><svg viewBox="0 0 16 16"><path d="m4 8 2.4 2.4L12 5"></path></svg></span><span>Source people, services, rentals, collaborations and other real-world needs.</span></li>
+          <li class="infoAudienceV53__point"><span class="infoAudienceV53__check"><svg viewBox="0 0 16 16"><path d="m4 8 2.4 2.4L12 5"></path></svg></span><span>Review applicants through profiles instead of disconnected one-off offers.</span></li>
+          <li class="infoAudienceV53__point"><span class="infoAudienceV53__check"><svg viewBox="0 0 16 16"><path d="m4 8 2.4 2.4L12 5"></path></svg></span><span>Keep the plan, progress, files and payment context attached to the same FLY.</span></li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="infoAudienceV53__visuals" aria-label="Marketplace photos">
+      <figure class="infoAudienceV53__visual"><img class="infoAudienceV53__visualImage" src="/info-people-business-v53-1.png" alt="A woman in a beige suit seated on concrete steps in warm light." /></figure>
+      <figure class="infoAudienceV53__visual"><img class="infoAudienceV53__visualImage" src="/info-people-business-v53-2.png" alt="A person seated on concrete steps in a minimalist city setting." /></figure>
+      <figure class="infoAudienceV53__visual"><img class="infoAudienceV53__visualImage" src="/info-people-business-v53-3.png" alt="A woman seated on concrete steps in a minimalist city setting." /></figure>
+    </div>
+
+    <div class="infoAudienceV53__platform">
+      <div class="infoAudienceV53__platformHead">
+        <h3 class="infoAudienceV53__platformTitle">Why doing it in one place helps.</h3>
+        <p class="infoAudienceV53__platformText">FLY keeps the request, the people, the work and the payment connected — so there is more clarity, better follow-through and fewer off-platform gaps.</p>
+      </div>
+
+      <div class="infoAudienceV53__system">
+        <article class="infoAudienceV53__systemItem">
+          <div class="infoAudienceV53__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"></rect><path d="M3 10h18M7 14h3"></path></svg></div>
+          <h4 class="infoAudienceV53__systemTitle">Pay more safely</h4>
+          <p class="infoAudienceV53__systemText">Instead of sending money somewhere else, payment stays tied to the FLY so there is a clearer record of what was agreed, what is happening and what was paid.</p>
+          <div class="infoAudienceV53__pills"><span class="infoAudienceV53__pill">Clearer payment record</span><span class="infoAudienceV53__pill">Connected to the FLY</span></div>
+        </article>
+
+        <article class="infoAudienceV53__systemItem">
+          <div class="infoAudienceV53__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 7v6a7 7 0 1 1-2.05-4.95L20 10"></path><path d="M20 4v6h-6"></path></svg></div>
+          <h4 class="infoAudienceV53__systemTitle">Refund policy support</h4>
+          <p class="infoAudienceV53__systemText">When a FLY needs to be canceled or does not go as planned, having the payment inside the platform makes refund handling more straightforward under the applicable policy.</p>
+          <div class="infoAudienceV53__pills"><span class="infoAudienceV53__pill">On-platform handling</span><span class="infoAudienceV53__pill">More straightforward support</span></div>
+        </article>
+
+        <article class="infoAudienceV53__systemItem">
+          <div class="infoAudienceV53__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="6" cy="7" r="2.5"></circle><circle cx="18" cy="7" r="2.5"></circle><circle cx="12" cy="17" r="2.5"></circle><path d="M8 8.5 10.5 15M16 8.5 13.5 15M8.5 7h7"></path></svg></div>
+          <h4 class="infoAudienceV53__systemTitle">Everything stays together</h4>
+          <p class="infoAudienceV53__systemText">The Ask, the people, the files, the updates, LiveTime progress and the payment all stay in one flow, which makes the whole experience easier to track and manage.</p>
+          <div class="infoAudienceV53__pills"><span class="infoAudienceV53__pill">One place</span><span class="infoAudienceV53__pill">Less back and forth</span><span class="infoAudienceV53__pill">More clarity</span></div>
+        </article>
+      </div>
+
+      <p class="infoAudienceV53__note">Refund availability, payment timing and Early Pay eligibility can vary depending on the FLY and applicable policy.</p>
+    </div>
+  </div>
+</section>
+
 
       <section class="contact" id="contact">
         <div class="contactInner">
@@ -1346,38 +1461,7 @@ transition:none!important
         </div>
       </section>
 
-      <section class="linksSection" aria-labelledby="links-title">
-        <div class="linksInner">
-          <h2 class="linksTitle" id="links-title">Explore FLY</h2>
 
-          <div class="linksGrid">
-            <a class="resource" href="/how-it-works/">
-              <span class="resourceLabel">01</span>
-              <span class="resourceTitle">How FLY works →</span>
-            </a>
-
-            <a
-              class="resource"
-              href={appStoreUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span class="resourceLabel">02</span>
-              <span class="resourceTitle">Download FLY →</span>
-            </a>
-
-            <a class="resource" href="/terms/">
-              <span class="resourceLabel">03</span>
-              <span class="resourceTitle">Terms →</span>
-            </a>
-
-            <a class="resource" href="/privacy/">
-              <span class="resourceLabel">04</span>
-              <span class="resourceTitle">Privacy →</span>
-            </a>
-          </div>
-        </div>
-      </section>
     </main>
 
     <footer class="footer">
@@ -1392,5 +1476,33 @@ transition:none!important
         </div>
       </div>
     </footer>
-  </body>
+
+    <script is:inline>
+      (() => {
+        const bar = document.querySelector(".topbar");
+        if (!bar) return;
+
+        let ticking = false;
+
+        const syncNavState = () => {
+          const trigger = Math.max(40, bar.offsetHeight - 8);
+          bar.classList.toggle("is-scrolled", window.scrollY >= trigger);
+        };
+
+        const onScroll = () => {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(() => {
+            syncNavState();
+            ticking = false;
+          });
+        };
+
+        syncNavState();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", syncNavState, { passive: true });
+      })();
+    </script>
+
+</body>
 </html>

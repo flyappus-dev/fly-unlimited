@@ -1,0 +1,23 @@
+
+/* =========================================================
+   FLY HOW IT WORKS — HERO BANNER V39
+   New thoughtful-workday banner belongs in the main How to FLY hero.
+   ========================================================= */
+
+.hero .heroPhoto{
+  object-fit:cover !important;
+  object-position:center center !important;
+}
+
+/* Preserve the person on the right while keeping left copy space. */
+@media(max-width:900px){
+  .hero .heroPhoto{
+    object-position:62% center !important;
+  }
+}
+
+@media(max-width:620px){
+  .hero .heroPhoto{
+    object-position:68% center !important;
+  }
+}

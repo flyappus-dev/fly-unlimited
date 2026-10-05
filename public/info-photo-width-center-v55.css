@@ -1,0 +1,35 @@
+/* =========================================================
+   FLY INFO — PHOTO WIDTH + CENTER CROP V55 FIXED
+   Slightly wider cards, tighter gaps, centered middle image.
+   ========================================================= */
+
+.infoAudienceV53__visuals {
+  width: calc(100% + 48px) !important;
+  margin-left: -24px !important;
+  margin-right: -24px !important;
+  gap: 12px !important;
+}
+
+.infoAudienceV53__visual {
+  aspect-ratio: 9 / 16 !important;
+}
+
+.infoAudienceV53__visualImage {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+.infoAudienceV53__visual:nth-child(2) .infoAudienceV53__visualImage {
+  object-position: 50% 50% !important;
+}
+
+@media (max-width: 1060px) {
+  .infoAudienceV53__visuals {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    gap: 16px !important;
+  }
+}

@@ -1,0 +1,542 @@
+
+/* =========================================================
+   FLY HOW IT WORKS — SYSTEM POLISH V19
+   Final institutional polish pass:
+   - one content system
+   - one spacing rhythm
+   - calmer typography
+   - cleaner transitions
+   - mobile-first consistency
+   ========================================================= */
+
+:root{
+  --fly-v19-content:1080px;
+  --fly-v19-wide:1180px;
+  --fly-v19-pad:24px;
+  --fly-v19-section:96px;
+  --fly-v19-rule:#dedee2;
+}
+
+/* ---------- PAGE RHYTHM ---------- */
+
+.marketAskV2,
+.marketCategoriesV4,
+.marketMixV6{
+  padding-top:var(--fly-v19-section) !important;
+  padding-bottom:var(--fly-v19-section) !important;
+}
+
+.marketAskV2__inner,
+.marketCategoriesV4__inner,
+.marketMixV6__inner,
+.stepsIntroV12__inner,
+.howInner{
+  width:min(100%,var(--fly-v19-content)) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+
+/* Keep the photography-led LiveTime ending slightly wider than content. */
+.liveExplainV14__inner,
+.finalV17__inner,
+.footerInner{
+  width:min(100%,var(--fly-v19-wide)) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+
+
+/* ---------- TYPE SYSTEM ---------- */
+
+.marketAskV2__title,
+.marketCategoriesV4__title{
+  font-size:clamp(52px,5vw,68px) !important;
+  line-height:.95 !important;
+  letter-spacing:-.052em !important;
+  font-weight:700 !important;
+}
+
+.marketMixV6__title,
+.stepsIntroV12__title{
+  font-size:clamp(44px,4.3vw,58px) !important;
+  line-height:.97 !important;
+  letter-spacing:-.048em !important;
+  font-weight:700 !important;
+}
+
+.marketAskV2__lead,
+.marketCategoriesV4__lead,
+.marketMixV6__lead{
+  font-size:17px !important;
+  line-height:1.52 !important;
+  color:#737378 !important;
+}
+
+.howTitle{
+  font-size:clamp(32px,2.6vw,40px) !important;
+  line-height:1.02 !important;
+  letter-spacing:-.04em !important;
+  font-weight:680 !important;
+}
+
+.howText{
+  max-width:34rem !important;
+  font-size:17px !important;
+  line-height:1.5 !important;
+}
+
+
+/* ---------- ASK ---------- */
+
+.marketAskV2__inner{
+  grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr) !important;
+  gap:72px !important;
+  align-items:center !important;
+}
+
+.marketAskV2__copy{
+  max-width:500px !important;
+}
+
+.marketAskV2__composer{
+  max-width:620px !important;
+  justify-self:end !important;
+  box-shadow:0 18px 48px rgba(0,0,0,.055) !important;
+}
+
+
+/* ---------- CATEGORIES ---------- */
+
+.marketCategoriesV4__inner{
+  grid-template-columns:minmax(0,.95fr) minmax(360px,1.05fr) !important;
+  gap:72px !important;
+  align-items:center !important;
+}
+
+.marketCategoriesV4__copy{
+  max-width:510px !important;
+}
+
+/* Preserve the desktop composition that already looked right. */
+@media(min-width:1051px){
+  .marketCategoriesV4__grid{
+    transform:translateX(-60px) !important;
+    justify-self:end !important;
+  }
+}
+
+
+/* ---------- MIX + MATCH ---------- */
+
+.marketMixV6{
+  padding-top:92px !important;
+  padding-bottom:96px !important;
+}
+
+.marketMixV6__inner{
+  max-width:var(--fly-v19-content) !important;
+}
+
+.marketMixV6__lead{
+  max-width:42rem !important;
+}
+
+.marketMixV6__types{
+  width:min(100%,820px) !important;
+  margin-top:30px !important;
+}
+
+.marketMixV6__event{
+  margin-top:36px !important;
+}
+
+.marketMixV6__cards{
+  gap:16px !important;
+}
+
+.marketMixV6__fly{
+  min-height:230px !important;
+  padding:16px 15px 15px !important;
+  border-radius:18px !important;
+  box-shadow:0 12px 30px rgba(0,0,0,.045) !important;
+}
+
+.marketMixV6__flyText{
+  font-size:17px !important;
+  line-height:1.36 !important;
+}
+
+.marketMixV6__close{
+  margin-top:26px !important;
+  font-size:15px !important;
+}
+
+
+/* ---------- THE STEPS ---------- */
+
+.stepsIntroV12{
+  padding-left:var(--fly-v19-pad) !important;
+  padding-right:var(--fly-v19-pad) !important;
+}
+
+.stepsIntroV12__inner{
+  padding-top:82px !important;
+  border-top:1px solid var(--fly-v19-rule) !important;
+}
+
+.stepsIntroV12__title{
+  margin:0 !important;
+}
+
+.howInner{
+  padding-top:18px !important;
+  padding-bottom:26px !important;
+}
+
+.howRow{
+  grid-template-columns:minmax(250px,.40fr) minmax(0,.60fr) !important;
+  gap:72px !important;
+  padding:62px 0 !important;
+  align-items:center !important;
+  border-bottom:1px solid var(--fly-v19-rule) !important;
+}
+
+.howRow:last-child{
+  border-bottom:0 !important;
+}
+
+.howNum{
+  margin-bottom:8px !important;
+  font-size:12px !important;
+  color:#8a8a8f !important;
+}
+
+/* Slightly reduce the visual weight of the explanatory graphics.
+   They stay prominent, but no longer overpower the copy. */
+.askManualVisual{
+  max-width:640px !important;
+}
+
+.connectManualVisual{
+  max-width:490px !important;
+}
+
+.liveTimeManualVisual{
+  max-width:410px !important;
+}
+
+.shakeHandsManualVisual{
+  max-width:500px !important;
+}
+
+.repeatManualVisual{
+  max-width:500px !important;
+}
+
+.askManualVisual,
+.connectManualVisual,
+.liveTimeManualVisual,
+.shakeHandsManualVisual,
+.repeatManualVisual{
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+
+
+/* ---------- LIVETIME FINALE ---------- */
+
+.liveExplainV14__inner{
+  min-height:500px !important;
+}
+
+.liveExplainV14__media{
+  min-height:500px !important;
+}
+
+.liveExplainV14__content{
+  padding:52px 48px !important;
+}
+
+.liveExplainV14__title{
+  font-size:clamp(42px,4vw,60px) !important;
+}
+
+.liveExplainV14__lead{
+  font-size:16px !important;
+  line-height:1.5 !important;
+}
+
+.liveExplainV14__features{
+  margin-top:32px !important;
+  padding-top:26px !important;
+}
+
+
+/* ---------- FINAL CTA ---------- */
+
+.finalV17{
+  padding:0 var(--fly-v19-pad) 18px !important;
+}
+
+.finalV17__inner{
+  padding-top:28px !important;
+  padding-bottom:30px !important;
+  gap:28px !important;
+}
+
+.finalV17__title{
+  font-size:clamp(29px,2.4vw,38px) !important;
+}
+
+.finalV17__download{
+  width:auto !important;
+  min-width:0 !important;
+  height:44px !important;
+  min-height:44px !important;
+  max-height:44px !important;
+  padding:0 18px !important;
+  font-size:13px !important;
+}
+
+
+/* ---------- FOOTER ---------- */
+
+.footerInner{
+  padding-left:0 !important;
+  padding-right:0 !important;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media(max-width:1050px){
+  :root{
+    --fly-v19-section:80px;
+  }
+
+  .marketAskV2__inner,
+  .marketCategoriesV4__inner{
+    grid-template-columns:1fr !important;
+    gap:42px !important;
+  }
+
+  .marketAskV2__copy,
+  .marketCategoriesV4__copy{
+    max-width:620px !important;
+  }
+
+  .marketAskV2__composer{
+    justify-self:start !important;
+    width:min(100%,680px) !important;
+    max-width:680px !important;
+  }
+
+  .marketCategoriesV4__grid{
+    transform:none !important;
+    justify-self:center !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+  .howRow{
+    gap:48px !important;
+  }
+
+  .liveExplainV14__inner{
+    grid-template-columns:1fr !important;
+  }
+
+  .liveExplainV14__media{
+    min-height:0 !important;
+    aspect-ratio:16 / 9 !important;
+  }
+
+  .liveExplainV14__content{
+    padding:46px 34px !important;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media(max-width:720px){
+  :root{
+    --fly-v19-pad:18px;
+    --fly-v19-section:64px;
+  }
+
+  .marketAskV2,
+  .marketCategoriesV4,
+  .marketMixV6{
+    padding-left:18px !important;
+    padding-right:18px !important;
+  }
+
+  .marketAskV2__title,
+  .marketCategoriesV4__title{
+    font-size:clamp(42px,12vw,52px) !important;
+  }
+
+  .marketMixV6__title,
+  .stepsIntroV12__title{
+    font-size:clamp(38px,10.5vw,46px) !important;
+  }
+
+  .marketAskV2__lead,
+  .marketCategoriesV4__lead,
+  .marketMixV6__lead{
+    font-size:16px !important;
+  }
+
+  .marketAskV2__inner,
+  .marketCategoriesV4__inner{
+    gap:34px !important;
+  }
+
+  .marketAskV2__composer{
+    width:100% !important;
+    max-width:none !important;
+  }
+
+  .marketCategoriesV4__grid{
+    width:max-content !important;
+    max-width:100% !important;
+    grid-template-columns:repeat(3,58px) !important;
+    gap:17px 15px !important;
+    justify-self:center !important;
+    transform:none !important;
+  }
+
+  .marketCategoriesV4__square{
+    width:56px !important;
+    height:56px !important;
+  }
+
+  .marketMixV6{
+    padding-top:62px !important;
+    padding-bottom:66px !important;
+  }
+
+  .marketMixV6__types{
+    margin-top:26px !important;
+  }
+
+  .marketMixV6__event{
+    margin-top:30px !important;
+  }
+
+  .marketMixV6__cards{
+    margin-top:24px !important;
+  }
+
+  .stepsIntroV12{
+    padding-left:18px !important;
+    padding-right:18px !important;
+  }
+
+  .stepsIntroV12__inner{
+    padding-top:60px !important;
+  }
+
+  .howInner{
+    padding-left:18px !important;
+    padding-right:18px !important;
+  }
+
+  .howRow{
+    grid-template-columns:1fr !important;
+    gap:26px !important;
+    padding:54px 0 !important;
+  }
+
+  .howTitle{
+    font-size:34px !important;
+  }
+
+  .howText{
+    font-size:16px !important;
+  }
+
+  .askManualVisual,
+  .connectManualVisual,
+  .liveTimeManualVisual,
+  .shakeHandsManualVisual,
+  .repeatManualVisual{
+    width:100% !important;
+    max-width:100% !important;
+  }
+
+  .liveExplainV14__media{
+    aspect-ratio:4 / 3 !important;
+  }
+
+  .liveExplainV14__content{
+    padding:38px 20px 40px !important;
+  }
+
+  .liveExplainV14__title{
+    font-size:clamp(40px,11vw,50px) !important;
+  }
+
+  .liveExplainV14__features{
+    margin-top:30px !important;
+    padding-top:24px !important;
+  }
+
+  .finalV17{
+    padding-left:18px !important;
+    padding-right:18px !important;
+  }
+
+  .finalV17__inner{
+    padding:26px 0 28px !important;
+    grid-template-columns:1fr !important;
+    gap:18px !important;
+  }
+
+  .finalV17__title{
+    font-size:32px !important;
+  }
+
+  .finalV17__download{
+    width:max-content !important;
+    max-width:100% !important;
+    height:44px !important;
+    min-height:44px !important;
+    padding:0 18px !important;
+    justify-self:start !important;
+  }
+
+  .footerInner{
+    padding-left:18px !important;
+    padding-right:18px !important;
+  }
+}
+
+
+/* ---------- SMALL MOBILE ---------- */
+
+@media(max-width:430px){
+  .marketCategoriesV4__grid{
+    grid-template-columns:repeat(3,56px) !important;
+    gap:16px 14px !important;
+  }
+
+  .marketCategoriesV4__square{
+    width:54px !important;
+    height:54px !important;
+  }
+
+  .marketMixV6__types{
+    grid-template-columns:1fr 1fr !important;
+  }
+
+  .finalV17__download{
+    width:auto !important;
+    max-width:100% !important;
+  }
+}

@@ -1,0 +1,22 @@
+/* =========================================================
+   FLY HOMEPAGE — FINAL BANNER V40
+   Replaces the final homepage closing image with the new
+   contemplative portrait while keeping the existing CTA.
+   ========================================================= */
+
+.closing .closingPhoto{
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+@media (max-width: 900px){
+  .closing .closingPhoto{
+    object-position: 62% center !important;
+  }
+}
+
+@media (max-width: 620px){
+  .closing .closingPhoto{
+    object-position: 70% center !important;
+  }
+}

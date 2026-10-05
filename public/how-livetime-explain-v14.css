@@ -1,0 +1,237 @@
+
+/* FLY How It Works — LiveTime Explain V14 */
+
+.liveExplainV14{
+  background:#111;
+  color:#fff;
+}
+
+.liveExplainV14 *{
+  box-sizing:border-box;
+}
+
+.liveExplainV14__inner{
+  width:min(100%,1180px);
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(420px,.95fr);
+  min-height:520px;
+}
+
+.liveExplainV14__media{
+  position:relative;
+  overflow:hidden;
+  min-height:520px;
+  background:#25221f;
+}
+
+.liveExplainV14__media img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+  filter:saturate(.82) contrast(.98) brightness(.90);
+}
+
+.liveExplainV14__content{
+  padding:58px 54px 52px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.liveExplainV14__eyebrow{
+  margin:0 0 12px;
+  color:rgba(255,255,255,.58);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.liveExplainV14__title{
+  margin:0;
+  color:#fff;
+  font-size:clamp(44px,4.2vw,64px);
+  line-height:.95;
+  letter-spacing:-.048em;
+  font-weight:700;
+}
+
+.liveExplainV14__lead{
+  margin:17px 0 0;
+  max-width:34rem;
+  color:rgba(255,255,255,.74);
+  font-size:17px;
+  line-height:1.52;
+}
+
+.liveExplainV14__flow{
+  margin-top:34px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  position:relative;
+}
+
+.liveExplainV14__flow::before{
+  content:"";
+  position:absolute;
+  left:7%;
+  right:7%;
+  top:10px;
+  height:1px;
+  background:rgba(255,255,255,.22);
+}
+
+.liveExplainV14__flowItem{
+  position:relative;
+  z-index:1;
+  display:grid;
+  justify-items:center;
+  gap:8px;
+  color:rgba(255,255,255,.58);
+  font-size:10px;
+  font-weight:600;
+}
+
+.liveExplainV14__dot{
+  width:20px;
+  height:20px;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  background:#2a2a2c;
+  border:1px solid rgba(255,255,255,.18);
+}
+
+.liveExplainV14__flowItem.is-active{
+  color:#fff;
+}
+
+.liveExplainV14__flowItem.is-active .liveExplainV14__dot{
+  background:#fff;
+  border-color:#fff;
+  box-shadow:0 0 0 5px rgba(255,255,255,.08);
+}
+
+.liveExplainV14__flowItem.is-active .liveExplainV14__dot::after{
+  content:"";
+  width:6px;
+  height:6px;
+  border-radius:999px;
+  background:#111;
+}
+
+.liveExplainV14__features{
+  margin-top:36px;
+  padding-top:30px;
+  border-top:1px solid rgba(255,255,255,.12);
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.liveExplainV14__feature{
+  min-width:0;
+}
+
+.liveExplainV14__featureIcon{
+  width:34px;
+  height:34px;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  background:rgba(255,255,255,.08);
+}
+
+.liveExplainV14__featureIcon svg{
+  width:17px;
+  height:17px;
+  fill:none;
+  stroke:#fff;
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.liveExplainV14__featureTitle{
+  margin:12px 0 0;
+  color:#fff;
+  font-size:14px;
+  line-height:1.2;
+  font-weight:650;
+}
+
+.liveExplainV14__featureText{
+  margin:6px 0 0;
+  color:rgba(255,255,255,.58);
+  font-size:12.5px;
+  line-height:1.45;
+}
+
+@media(max-width:920px){
+  .liveExplainV14__inner{
+    grid-template-columns:1fr;
+  }
+
+  .liveExplainV14__media{
+    min-height:0;
+    aspect-ratio:16 / 9;
+  }
+
+  .liveExplainV14__media img{
+    position:absolute;
+    object-position:center;
+  }
+
+  .liveExplainV14__content{
+    padding:44px 28px 46px;
+  }
+}
+
+@media(max-width:620px){
+  .liveExplainV14__media{
+    aspect-ratio:4 / 3;
+  }
+
+  .liveExplainV14__content{
+    padding:38px 20px 42px;
+  }
+
+  .liveExplainV14__title{
+    font-size:clamp(40px,11vw,52px);
+  }
+
+  .liveExplainV14__lead{
+    font-size:16px;
+  }
+
+  .liveExplainV14__flow{
+    margin-top:30px;
+  }
+
+  .liveExplainV14__features{
+    grid-template-columns:1fr;
+    gap:22px;
+    margin-top:32px;
+  }
+
+  .liveExplainV14__feature{
+    display:grid;
+    grid-template-columns:34px 1fr;
+    column-gap:12px;
+    align-items:start;
+  }
+
+  .liveExplainV14__featureTitle{
+    margin:1px 0 0;
+  }
+
+  .liveExplainV14__featureText{
+    grid-column:2;
+    margin-top:4px;
+  }
+}

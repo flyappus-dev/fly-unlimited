@@ -1,0 +1,197 @@
+
+/* FLY Homepage — One Network Compact V30 */
+
+.homeNetworkV30{
+  background:#fff;
+  padding:72px 24px 64px !important;
+  min-height:0 !important;
+  height:auto !important;
+}
+
+.homeNetworkV30 *{
+  box-sizing:border-box;
+}
+
+.homeNetworkV30__inner{
+  width:min(100%,1080px);
+  margin:0 auto;
+  min-height:0 !important;
+  height:auto !important;
+}
+
+.homeNetworkV30__head{
+  max-width:760px;
+  margin:0 auto;
+  text-align:center;
+}
+
+.homeNetworkV30__eyebrow{
+  margin:0 0 10px;
+  color:#8b8b90;
+  font-size:10px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.homeNetworkV30__title{
+  margin:0;
+  color:#0a0a0a;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
+  font-size:clamp(46px,4.7vw,62px);
+  line-height:.96;
+  letter-spacing:-.052em;
+  font-weight:700;
+}
+
+.homeNetworkV30__lead{
+  margin:16px auto 0;
+  max-width:44rem;
+  color:#747479;
+  font-size:17px;
+  line-height:1.5;
+}
+
+.homeNetworkV30__rail{
+  margin-top:46px;
+  border-top:1px solid #dedee2;
+  border-bottom:1px solid #dedee2;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+}
+
+.homeNetworkV30__item{
+  min-width:0;
+  padding:28px 28px 30px;
+  text-align:center;
+}
+
+.homeNetworkV30__item + .homeNetworkV30__item{
+  border-left:1px solid #dedee2;
+}
+
+.homeNetworkV30__icon{
+  width:54px;
+  height:54px;
+  margin:0 auto 16px;
+  border-radius:16px;
+  display:grid;
+  place-items:center;
+}
+
+.homeNetworkV30__icon svg{
+  width:26px;
+  height:26px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.9;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.homeNetworkV30__icon.need{
+  color:#6f36ff;
+  background:linear-gradient(145deg,#f0e9ff,#f8f4ff);
+}
+
+.homeNetworkV30__icon.have{
+  color:#1696ff;
+  background:linear-gradient(145deg,#e7f5ff,#f4fbff);
+}
+
+.homeNetworkV30__icon.find{
+  color:#21b96b;
+  background:linear-gradient(145deg,#e7f8ef,#f4fcf7);
+}
+
+.homeNetworkV30__itemTitle{
+  margin:0;
+  color:#111;
+  font-size:24px;
+  line-height:1.03;
+  letter-spacing:-.035em;
+  font-weight:680;
+}
+
+.homeNetworkV30__itemText{
+  margin:10px auto 0;
+  max-width:17rem;
+  color:#76767b;
+  font-size:15px;
+  line-height:1.48;
+}
+
+.homeNetworkV30__footer{
+  margin-top:24px;
+  text-align:center;
+}
+
+.homeNetworkV30__types{
+  margin:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  color:#6d6d72;
+  font-size:11px;
+  line-height:1.4;
+  font-weight:650;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.homeNetworkV30__dot{
+  color:#b1b1b6;
+}
+
+@media(max-width:840px){
+  .homeNetworkV30{
+    padding:64px 20px 58px !important;
+  }
+
+  .homeNetworkV30__rail{
+    grid-template-columns:1fr;
+  }
+
+  .homeNetworkV30__item{
+    padding:24px 20px 26px;
+  }
+
+  .homeNetworkV30__item + .homeNetworkV30__item{
+    border-left:0;
+    border-top:1px solid #dedee2;
+  }
+}
+
+@media(max-width:620px){
+  .homeNetworkV30{
+    padding:56px 18px 52px !important;
+  }
+
+  .homeNetworkV30__title{
+    font-size:clamp(40px,11vw,50px);
+  }
+
+  .homeNetworkV30__lead{
+    font-size:16px;
+  }
+
+  .homeNetworkV30__rail{
+    margin-top:34px;
+  }
+
+  .homeNetworkV30__icon{
+    width:50px;
+    height:50px;
+  }
+
+  .homeNetworkV30__itemTitle{
+    font-size:22px;
+  }
+
+  .homeNetworkV30__itemText{
+    font-size:14.5px;
+  }
+}

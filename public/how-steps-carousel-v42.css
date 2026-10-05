@@ -1,0 +1,287 @@
+/* =========================================================
+   FLY HOW IT WORKS — APPLE-STYLE STEP CAROUSEL V42
+   Five large step cards, one at a time, horizontal snap.
+   Existing copy + existing step visuals stay inside each card.
+   ========================================================= */
+
+.how.stepsCarouselV42{
+  position:relative !important;
+  width:100% !important;
+  overflow:hidden !important;
+  padding:54px 0 38px !important;
+  background:#f5f5f7 !important;
+  border-top:0 !important;
+}
+
+.how.stepsCarouselV42 .howInner{
+  width:100% !important;
+  max-width:none !important;
+  margin:0 !important;
+  padding:8px max(24px, calc((100vw - 1120px) / 2)) 18px !important;
+  display:flex !important;
+  grid-template-columns:none !important;
+  gap:24px !important;
+  align-items:stretch !important;
+  overflow-x:auto !important;
+  overflow-y:hidden !important;
+  overscroll-behavior-x:contain !important;
+  scroll-snap-type:x mandatory !important;
+  scroll-padding-inline:max(24px, calc((100vw - 1120px) / 2)) !important;
+  -webkit-overflow-scrolling:touch !important;
+  scrollbar-width:none !important;
+  -ms-overflow-style:none !important;
+}
+
+.how.stepsCarouselV42 .howInner::-webkit-scrollbar{ display:none !important; }
+
+.how.stepsCarouselV42 .howRow{
+  position:relative !important;
+  flex:0 0 min(1080px, calc(100vw - 96px)) !important;
+  width:min(1080px, calc(100vw - 96px)) !important;
+  min-width:0 !important;
+  min-height:620px !important;
+  scroll-snap-align:center !important;
+  scroll-snap-stop:always !important;
+  display:grid !important;
+  grid-template-columns:minmax(280px,.40fr) minmax(0,.60fr) !important;
+  gap:clamp(34px,5vw,76px) !important;
+  align-items:center !important;
+  margin:0 !important;
+  padding:clamp(42px,4.2vw,62px) !important;
+  background:#fff !important;
+  border:1px solid rgba(0,0,0,.055) !important;
+  border-radius:34px !important;
+  box-shadow:0 1px 0 rgba(0,0,0,.02),0 18px 55px rgba(0,0,0,.055) !important;
+}
+
+.how.stepsCarouselV42 .howRow::after{ display:none !important; }
+.how.stepsCarouselV42 .howRow > div:first-child{ min-width:0 !important; align-self:center !important; }
+
+.how.stepsCarouselV42 .howNum{
+  margin:0 0 14px !important;
+  color:#8b8b90 !important;
+  font-size:13px !important;
+  line-height:1 !important;
+  letter-spacing:.08em !important;
+  font-weight:500 !important;
+}
+
+.how.stepsCarouselV42 .howTitle{
+  margin:0 !important;
+  color:#0a0a0a !important;
+  font-size:clamp(44px,4.3vw,66px) !important;
+  line-height:.94 !important;
+  letter-spacing:-.052em !important;
+  font-weight:700 !important;
+}
+
+.how.stepsCarouselV42 .howText{
+  margin:22px 0 0 !important;
+  max-width:31rem !important;
+  color:#6e6e73 !important;
+  font-size:clamp(17px,1.5vw,21px) !important;
+  line-height:1.52 !important;
+}
+
+.how.stepsCarouselV42 .howText strong{ color:#333336 !important; font-weight:650 !important; }
+
+.how.stepsCarouselV42 .productCard,
+.how.stepsCarouselV42 .askManualVisual,
+.how.stepsCarouselV42 .connectManualVisual,
+.how.stepsCarouselV42 .liveTimeManualVisual,
+.how.stepsCarouselV42 .shakeHandsManualVisual,
+.how.stepsCarouselV42 .repeatManualVisual{
+  justify-self:center !important;
+  align-self:center !important;
+  min-width:0 !important;
+}
+
+body .how.stepsCarouselV42 .howInner .howRow#ask .askManualVisual,
+body .how.stepsCarouselV42 .howInner .howRow#create .askManualVisual{
+  width:min(100%,640px) !important;
+  max-width:640px !important;
+}
+
+body .how.stepsCarouselV42 .howInner .howRow#connect .connectManualVisual{
+  width:min(100%,560px) !important;
+  max-width:560px !important;
+}
+
+body .how.stepsCarouselV42 .howInner .howRow#livetime .liveTimeManualVisual{
+  width:min(100%,520px) !important;
+  max-width:520px !important;
+}
+
+body .how.stepsCarouselV42 .howInner .howRow#shake-hands .shakeHandsManualVisual,
+body .how.stepsCarouselV42 .howInner .howRow#complete .shakeHandsManualVisual{
+  width:min(100%,500px) !important;
+  max-width:500px !important;
+}
+
+body .how.stepsCarouselV42 .howInner .howRow#repeat .repeatManualVisual,
+body .how.stepsCarouselV42 .howInner .howRow#network .repeatManualVisual{
+  width:min(100%,560px) !important;
+  max-width:560px !important;
+}
+
+.how.stepsCarouselV42 .askManualImage,
+.how.stepsCarouselV42 .connectManualImage,
+.how.stepsCarouselV42 .liveTimeManualImage,
+.how.stepsCarouselV42 .shakeHandsManualImage,
+.how.stepsCarouselV42 .repeatManualImage{
+  display:block !important;
+  width:100% !important;
+  height:auto !important;
+  max-width:100% !important;
+  object-fit:contain !important;
+}
+
+.stepsCarouselV42__nav{
+  width:min(100%,1120px);
+  margin:20px auto 0;
+  padding:0 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.stepsCarouselV42__dots{ display:flex; align-items:center; gap:8px; }
+
+.stepsCarouselV42__dot{
+  width:8px;
+  height:8px;
+  padding:0;
+  border:0;
+  border-radius:999px;
+  background:#c6c6ca;
+  cursor:pointer;
+  transition:width .24s ease,background .24s ease,transform .24s ease;
+}
+
+.stepsCarouselV42__dot.is-active{ width:28px; background:#111; }
+.stepsCarouselV42__buttons{ display:flex; align-items:center; gap:9px; }
+
+.stepsCarouselV42__button{
+  width:42px;
+  height:42px;
+  padding:0;
+  border:0;
+  border-radius:50%;
+  background:#e2e2e5;
+  color:#111;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  transition:background .18s ease,opacity .18s ease,transform .18s ease;
+}
+
+.stepsCarouselV42__button:hover:not(:disabled){ background:#d6d6da; transform:scale(1.035); }
+.stepsCarouselV42__button:disabled{ opacity:.34; cursor:default; }
+.stepsCarouselV42__button svg{ width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+
+.stepsCarouselV42__hint{
+  width:min(100%,1120px);
+  margin:11px auto 0;
+  padding:0 24px;
+  color:#9a9a9f;
+  font-size:11px;
+  line-height:1.4;
+}
+
+@media(max-width:900px){
+  .how.stepsCarouselV42{ padding-top:38px !important; }
+  .how.stepsCarouselV42 .howInner{
+    gap:18px !important;
+    padding-left:24px !important;
+    padding-right:24px !important;
+    scroll-padding-inline:24px !important;
+  }
+  .how.stepsCarouselV42 .howRow{
+    flex-basis:calc(100vw - 64px) !important;
+    width:calc(100vw - 64px) !important;
+    min-height:590px !important;
+    grid-template-columns:minmax(230px,.38fr) minmax(0,.62fr) !important;
+    gap:30px !important;
+    padding:42px !important;
+    border-radius:30px !important;
+  }
+  .how.stepsCarouselV42 .howTitle{ font-size:clamp(40px,6vw,56px) !important; }
+}
+
+@media(max-width:680px){
+  .how.stepsCarouselV42{ padding:26px 0 30px !important; }
+  .how.stepsCarouselV42 .howInner{
+    gap:14px !important;
+    padding:6px 16px 16px !important;
+    scroll-padding-inline:16px !important;
+  }
+  .how.stepsCarouselV42 .howRow{
+    flex:0 0 calc(100vw - 32px) !important;
+    width:calc(100vw - 32px) !important;
+    min-height:0 !important;
+    grid-template-columns:1fr !important;
+    grid-template-rows:auto auto !important;
+    gap:30px !important;
+    align-content:start !important;
+    padding:32px 24px 30px !important;
+    border-radius:28px !important;
+  }
+  .how.stepsCarouselV42 .howTitle{ font-size:clamp(42px,12.5vw,54px) !important; }
+  .how.stepsCarouselV42 .howText{
+    margin-top:16px !important;
+    max-width:none !important;
+    font-size:17px !important;
+    line-height:1.48 !important;
+  }
+  body .how.stepsCarouselV42 .howInner .howRow .askManualVisual,
+  body .how.stepsCarouselV42 .howInner .howRow .connectManualVisual,
+  body .how.stepsCarouselV42 .howInner .howRow .liveTimeManualVisual,
+  body .how.stepsCarouselV42 .howInner .howRow .shakeHandsManualVisual,
+  body .how.stepsCarouselV42 .howInner .howRow .repeatManualVisual,
+  .how.stepsCarouselV42 .howRow .productCard{
+    width:100% !important;
+    max-width:100% !important;
+    margin:0 auto !important;
+  }
+  .stepsCarouselV42__nav{ margin-top:13px; padding:0 18px; }
+  .stepsCarouselV42__button{ width:40px; height:40px; }
+  .stepsCarouselV42__hint{ padding:0 18px; }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .how.stepsCarouselV42 .howInner{ scroll-behavior:auto !important; }
+  .stepsCarouselV42__dot,
+  .stepsCarouselV42__button{ transition:none !important; }
+}
+
+/* ===== STEPS CAROUSEL DOT CENTER FIX V43 ===== */
+.stepsCarouselV42__nav{
+  position:relative !important;
+  justify-content:flex-end !important;
+  min-height:42px !important;
+}
+
+.stepsCarouselV42__dots{
+  position:absolute !important;
+  left:50% !important;
+  transform:translateX(-50%) !important;
+  justify-content:center !important;
+  width:max-content !important;
+  max-width:calc(100% - 140px) !important;
+}
+
+.stepsCarouselV42__buttons{
+  margin-left:auto !important;
+}
+
+@media(max-width:680px){
+  .stepsCarouselV42__nav{
+    min-height:40px !important;
+  }
+
+  .stepsCarouselV42__dots{
+    max-width:calc(100% - 112px) !important;
+  }
+}
+/* ===== END STEPS CAROUSEL DOT CENTER FIX V43 ===== */

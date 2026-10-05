@@ -1,0 +1,25 @@
+
+/* FLY How It Works — Structure V13 */
+
+/* Clean section break before The Steps. */
+.stepsIntroV12{
+  padding:0 24px 4px !important;
+  background:#fff !important;
+}
+
+.stepsIntroV12__inner{
+  width:min(100%,1080px) !important;
+  margin:0 auto !important;
+  padding-top:72px !important;
+  border-top:1px solid #dedee2 !important;
+}
+
+@media(max-width:720px){
+  .stepsIntroV12{
+    padding:0 18px !important;
+  }
+
+  .stepsIntroV12__inner{
+    padding-top:56px !important;
+  }
+}

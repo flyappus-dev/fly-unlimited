@@ -1,0 +1,39 @@
+/* FLY How It Works — The Steps V12 */
+
+.stepsIntroV12{
+  background:#fff;
+  padding:76px 24px 4px;
+}
+
+.stepsIntroV12__inner{
+  width:min(100%,1080px);
+  margin:0 auto;
+}
+
+.stepsIntroV12__title{
+  margin:0;
+  color:#0a0a0a;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
+  font-size:clamp(46px,4.8vw,64px);
+  line-height:.96;
+  letter-spacing:-.048em;
+  font-weight:700;
+}
+
+.stepsIntroV12 + .how .howInner{
+  padding-top:22px !important;
+}
+
+@media(max-width:720px){
+  .stepsIntroV12{
+    padding:60px 18px 0;
+  }
+
+  .stepsIntroV12__title{
+    font-size:clamp(40px,11vw,50px);
+  }
+
+  .stepsIntroV12 + .how .howInner{
+    padding-top:18px !important;
+  }
+}
