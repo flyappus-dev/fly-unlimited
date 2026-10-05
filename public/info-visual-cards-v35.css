@@ -1,0 +1,231 @@
+
+/* =========================================================
+   FLY INFO — VISUAL CARDS V35
+   Apple-like 3-card story: less copy, more visual hierarchy.
+   ========================================================= */
+
+.infoAudienceV35{
+  background:#fff;
+  padding:88px 24px 92px;
+}
+
+.infoAudienceV35 *{
+  box-sizing:border-box;
+}
+
+.infoAudienceV35__inner{
+  width:min(100%,1180px);
+  margin:0 auto;
+}
+
+.infoAudienceV35__eyebrow{
+  margin:0 0 12px;
+  color:#8a8a90;
+  font-size:10px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.infoAudienceV35__title{
+  margin:0;
+  max-width:12ch;
+  color:#0a0a0a;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
+  font-size:clamp(52px,5vw,72px);
+  line-height:.94;
+  letter-spacing:-.055em;
+  font-weight:700;
+}
+
+.infoAudienceV35__lead{
+  margin:18px 0 0;
+  max-width:47rem;
+  color:#717176;
+  font-size:18px;
+  line-height:1.5;
+}
+
+/* ---------- 3 CARDS ---------- */
+
+.infoAudienceV35__cards{
+  margin-top:48px;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+}
+
+.infoAudienceV35__card{
+  min-width:0;
+  overflow:hidden;
+  border:1px solid #e1e1e5;
+  border-radius:24px;
+  background:#fff;
+  box-shadow:0 14px 38px rgba(0,0,0,.045);
+}
+
+.infoAudienceV35__media{
+  position:relative;
+  aspect-ratio:1.42/1;
+  overflow:hidden;
+  background:#ececee;
+}
+
+.infoAudienceV35__media img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+}
+
+.infoAudienceV35__card:nth-child(1) .infoAudienceV35__media img{
+  object-position:center 46%;
+}
+
+.infoAudienceV35__card:nth-child(2) .infoAudienceV35__media img{
+  object-position:center 50%;
+}
+
+.infoAudienceV35__card:nth-child(3) .infoAudienceV35__media img{
+  object-position:center 48%;
+}
+
+.infoAudienceV35__body{
+  padding:24px 24px 26px;
+}
+
+.infoAudienceV35__label{
+  margin:0 0 11px;
+  color:#8a8a90;
+  font-size:9px;
+  line-height:1;
+  font-weight:750;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+
+.infoAudienceV35__cardTitle{
+  margin:0;
+  color:#111;
+  font-size:clamp(24px,2.1vw,31px);
+  line-height:1.01;
+  letter-spacing:-.042em;
+  font-weight:700;
+}
+
+.infoAudienceV35__cardText{
+  margin:12px 0 0;
+  color:#707075;
+  font-size:14.5px;
+  line-height:1.5;
+}
+
+.infoAudienceV35__card--system{
+  background:#f7f7f8;
+}
+
+.infoAudienceV35__chips{
+  margin-top:16px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.infoAudienceV35__chip{
+  min-height:28px;
+  padding:0 9px;
+  border:1px solid #dedee2;
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  background:#fff;
+  color:#56565b;
+  font-size:10px;
+  line-height:1;
+  font-weight:650;
+}
+
+.infoAudienceV35__footer{
+  margin:30px 0 0;
+  padding-top:22px;
+  border-top:1px solid #dedee2;
+  color:#8a8a90;
+  font-size:10px;
+  line-height:1.45;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  text-align:center;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media(max-width:900px){
+  .infoAudienceV35__cards{
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+
+  .infoAudienceV35__card{
+    display:grid;
+    grid-template-columns:minmax(240px,.82fr) minmax(0,1.18fr);
+    align-items:stretch;
+  }
+
+  .infoAudienceV35__media{
+    aspect-ratio:auto;
+    min-height:300px;
+  }
+
+  .infoAudienceV35__body{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+}
+
+@media(max-width:620px){
+  .infoAudienceV35{
+    padding:64px 18px 70px;
+  }
+
+  .infoAudienceV35__title{
+    font-size:clamp(43px,11.5vw,54px);
+  }
+
+  .infoAudienceV35__lead{
+    font-size:16px;
+  }
+
+  .infoAudienceV35__cards{
+    margin-top:36px;
+  }
+
+  .infoAudienceV35__card{
+    display:block;
+    border-radius:20px;
+  }
+
+  .infoAudienceV35__media{
+    aspect-ratio:1.35/1;
+    min-height:0;
+  }
+
+  .infoAudienceV35__body{
+    padding:22px 20px 23px;
+  }
+
+  .infoAudienceV35__cardTitle{
+    font-size:27px;
+  }
+
+  .infoAudienceV35__cardText{
+    font-size:14.5px;
+  }
+
+  .infoAudienceV35__footer{
+    margin-top:26px;
+    font-size:9px;
+  }
+}

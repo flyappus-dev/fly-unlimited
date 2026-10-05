@@ -1,0 +1,20 @@
+
+/* FLY How It Works — LiveTime photo swap V48 */
+
+.liveExplainV14__media img{
+  object-position:left center !important;
+}
+
+@media(max-width:920px){
+  .liveExplainV14__media img{
+    object-position:center center !important;
+  }
+}
+
+/* ===== LIVETIME MOBILE CROP FIX V49 ===== */
+@media(max-width:920px){
+  .liveExplainV14__media img{
+    object-position:left center !important;
+  }
+}
+/* ===== END LIVETIME MOBILE CROP FIX V49 ===== */

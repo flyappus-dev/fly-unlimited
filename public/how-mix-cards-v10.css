@@ -1,0 +1,150 @@
+
+/* FLY How It Works — Mix Cards Fix V10 */
+
+/* --------------------------------
+   Perfect circular avatars
+   -------------------------------- */
+.marketMixV6__profile{
+  align-items:center !important;
+  gap:11px !important;
+}
+
+.marketMixV6__avatar{
+  flex:0 0 42px !important;
+  width:42px !important;
+  min-width:42px !important;
+  max-width:42px !important;
+  height:42px !important;
+  min-height:42px !important;
+  max-height:42px !important;
+  aspect-ratio:1 / 1 !important;
+  padding:0 !important;
+  margin:0 !important;
+  display:block !important;
+  overflow:hidden !important;
+  border-radius:50% !important;
+  clip-path:circle(50% at 50% 50%) !important;
+  background:#efeff2 !important;
+  box-shadow:0 0 0 2px #fff !important;
+}
+
+.marketMixV6__avatar img{
+  width:42px !important;
+  min-width:42px !important;
+  max-width:42px !important;
+  height:42px !important;
+  min-height:42px !important;
+  max-height:42px !important;
+  aspect-ratio:1 / 1 !important;
+  display:block !important;
+  object-fit:cover !important;
+  object-position:center center !important;
+  border-radius:50% !important;
+  clip-path:circle(50% at 50% 50%) !important;
+  transform:none !important;
+}
+
+
+/* --------------------------------
+   Clean connector web
+   -------------------------------- */
+
+/* Events node connects straight into the horizontal spine. */
+.marketMixV6__event::after{
+  bottom:-34px !important;
+  width:1px !important;
+  height:34px !important;
+}
+
+/* With four columns and a 14px gap, this exact width lands the
+   horizontal spine on the center of card 1 and card 4. */
+.marketMixV6__branch{
+  width:calc(75% + 10.5px) !important;
+  height:0 !important;
+  margin:34px auto 0 !important;
+  top:0 !important;
+  border-top:1px solid #b9becb !important;
+}
+
+/* Kill the old endpoint drops; every card now draws its own vertical
+   directly from the horizontal spine to its center. */
+.marketMixV6__branch::before,
+.marketMixV6__branch::after{
+  display:none !important;
+}
+
+.marketMixV6__cards{
+  margin-top:29px !important;
+}
+
+.marketMixV6__fly::before{
+  display:block !important;
+  left:50% !important;
+  top:-30px !important;
+  width:1px !important;
+  height:30px !important;
+  transform:translateX(-.5px) !important;
+  background:#b9becb !important;
+}
+
+
+/* --------------------------------
+   Simpler FLY copy
+   -------------------------------- */
+.marketMixV6__fly{
+  min-height:245px !important;
+}
+
+.marketMixV6__flyText{
+  margin:8px 0 0 !important;
+  color:#222225 !important;
+  font-size:18px !important;
+  line-height:1.34 !important;
+  letter-spacing:-.018em !important;
+  font-weight:400 !important;
+}
+
+/* Remove legacy title/body/stats if stale markup survives. */
+.marketMixV6__flyTitle,
+.marketMixV6__flyBody,
+.marketMixV6__stats{
+  display:none !important;
+}
+
+.marketMixV6__chips{
+  margin-top:auto !important;
+  padding-top:18px !important;
+}
+
+
+/* --------------------------------
+   Responsive
+   -------------------------------- */
+@media(max-width:960px){
+  .marketMixV6__branch,
+  .marketMixV6__event::after,
+  .marketMixV6__fly::before{
+    display:none !important;
+  }
+
+  .marketMixV6__cards{
+    margin-top:26px !important;
+  }
+}
+
+@media(max-width:620px){
+  .marketMixV6__avatar,
+  .marketMixV6__avatar img{
+    flex-basis:40px !important;
+    width:40px !important;
+    min-width:40px !important;
+    max-width:40px !important;
+    height:40px !important;
+    min-height:40px !important;
+    max-height:40px !important;
+  }
+
+  .marketMixV6__flyText{
+    font-size:17px !important;
+  }
+}

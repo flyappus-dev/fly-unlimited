@@ -1,0 +1,153 @@
+
+/* FLY How It Works — Final CTA V15 */
+
+/* Compact utility CTA after the LiveTime footer-style section.
+   Intentionally no campaign photo so LiveTime remains the visual ending. */
+
+.final{
+  background:#fff !important;
+  padding:34px 24px 28px !important;
+}
+
+.finalInner{
+  width:min(100%,1180px) !important;
+  min-height:0 !important;
+  margin:0 auto !important;
+  padding:0 !important;
+  border:1px solid #e0e0e4 !important;
+  border-radius:22px !important;
+  overflow:hidden !important;
+  background:#f7f7f8 !important;
+  display:block !important;
+  position:relative !important;
+}
+
+.finalPhoto,
+.finalInner::before{
+  display:none !important;
+}
+
+.finalCopy{
+  width:100% !important;
+  min-height:150px !important;
+  max-width:none !important;
+  padding:30px 34px !important;
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) auto !important;
+  grid-template-areas:
+    "title actions"
+    "text actions" !important;
+  column-gap:34px !important;
+  row-gap:6px !important;
+  align-items:center !important;
+  justify-content:stretch !important;
+  position:relative !important;
+  z-index:1 !important;
+}
+
+.finalKicker{
+  display:none !important;
+}
+
+.finalTitle{
+  grid-area:title !important;
+  margin:0 !important;
+  color:#111 !important;
+  font-size:clamp(32px,3vw,44px) !important;
+  line-height:1 !important;
+  letter-spacing:-.045em !important;
+  font-weight:700 !important;
+}
+
+.finalText{
+  grid-area:text !important;
+  margin:2px 0 0 !important;
+  color:#747479 !important;
+  font-size:15px !important;
+  line-height:1.45 !important;
+}
+
+.finalActions{
+  grid-area:actions !important;
+  margin:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-end !important;
+  gap:10px !important;
+  flex-wrap:nowrap !important;
+}
+
+.finalBtn{
+  min-height:44px !important;
+  padding:0 17px !important;
+  border:1px solid #d3d3d7 !important;
+  border-radius:999px !important;
+  background:#fff !important;
+  color:#111 !important;
+  font-size:13px !important;
+  font-weight:650 !important;
+  white-space:nowrap !important;
+}
+
+.finalBtn.primary{
+  background:#111 !important;
+  border-color:#111 !important;
+  color:#fff !important;
+}
+
+.footer{
+  border-top:0 !important;
+}
+
+@media(max-width:720px){
+  .final{
+    padding:24px 18px 20px !important;
+  }
+
+  .finalInner{
+    border-radius:18px !important;
+  }
+
+  .finalCopy{
+    min-height:0 !important;
+    padding:26px 22px !important;
+    grid-template-columns:1fr !important;
+    grid-template-areas:
+      "title"
+      "text"
+      "actions" !important;
+    row-gap:10px !important;
+  }
+
+  .finalTitle{
+    font-size:36px !important;
+  }
+
+  .finalText{
+    font-size:14px !important;
+  }
+
+  .finalActions{
+    margin-top:8px !important;
+    justify-content:flex-start !important;
+    flex-wrap:wrap !important;
+  }
+
+  .finalBtn{
+    min-height:42px !important;
+  }
+}
+
+@media(max-width:430px){
+  .finalActions{
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    width:100% !important;
+  }
+
+  .finalBtn{
+    width:100% !important;
+    text-align:center !important;
+    justify-content:center !important;
+  }
+}

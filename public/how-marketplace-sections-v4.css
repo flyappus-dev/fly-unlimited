@@ -1,0 +1,218 @@
+
+/* FLY How It Works — Marketplace Sections V4 */
+
+/* ---------- Categories: simple 3 x 3 ---------- */
+.marketCategoriesV4{
+  background:#f7f7f8;
+  border-top:1px solid #ececef;
+  border-bottom:1px solid #ececef;
+  padding:96px 24px 100px;
+}
+
+.marketCategoriesV4 *,
+.marketMixV4 *{
+  box-sizing:border-box;
+}
+
+.marketCategoriesV4__inner{
+  width:min(100%,1040px);
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:minmax(0,.95fr) minmax(340px,1.05fr);
+  gap:78px;
+  align-items:center;
+}
+
+.marketCategoriesV4__copy{
+  max-width:500px;
+}
+
+.marketCategoriesV4__title{
+  margin:0;
+  color:#0a0a0a;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
+  font-size:clamp(48px,5.2vw,70px);
+  line-height:.94;
+  letter-spacing:-.052em;
+  font-weight:700;
+}
+
+.marketCategoriesV4__lead{
+  margin:18px 0 0;
+  max-width:31rem;
+  color:#707075;
+  font-size:18px;
+  line-height:1.52;
+}
+
+.marketCategoriesV4__grid{
+  width:max-content;
+  display:grid;
+  grid-template-columns:repeat(3,78px);
+  gap:20px;
+  justify-self:end;
+}
+
+.marketCategoriesV4__item{
+  display:grid;
+  justify-items:center;
+  gap:8px;
+}
+
+.marketCategoriesV4__square{
+  width:72px;
+  height:72px;
+  border-radius:19px;
+  display:grid;
+  place-items:center;
+  background:var(--cat);
+  box-shadow:0 12px 28px rgba(0,0,0,.09);
+}
+
+.marketCategoriesV4__square img{
+  width:46px;
+  height:46px;
+  display:block;
+  object-fit:contain;
+}
+
+.marketCategoriesV4__label{
+  max-width:82px;
+  color:#77777c;
+  font-size:10px;
+  line-height:1.08;
+  font-weight:600;
+  text-align:center;
+}
+
+
+/* ---------- Mix & match: one Events node -> real FLYs ---------- */
+.marketMixV4{
+  background:#fff;
+  padding:96px 24px 106px;
+}
+
+.marketMixV4__inner{
+  width:min(100%,1080px);
+  margin:0 auto;
+  text-align:center;
+}
+
+.marketMixV4__title{
+  margin:0;
+  color:#0a0a0a;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
+  font-size:clamp(42px,4.7vw,62px);
+  line-height:.96;
+  letter-spacing:-.048em;
+  font-weight:700;
+}
+
+.marketMixV4__lead{
+  margin:14px auto 0;
+  max-width:38rem;
+  color:#747479;
+  font-size:17px;
+  line-height:1.5;
+}
+
+.marketMixV4__visual{
+  width:min(100%,980px);
+  margin:40px auto 0;
+}
+
+.marketMixV4__visual img{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  background:transparent;
+  border:0;
+  box-shadow:none;
+}
+
+.marketMixV4__close{
+  margin:24px 0 0;
+  color:#4b4b50;
+  font-size:16px;
+  line-height:1.35;
+  font-weight:620;
+}
+
+
+/* ---------- Responsive ---------- */
+@media(max-width:900px){
+  .marketCategoriesV4__inner{
+    grid-template-columns:1fr;
+    gap:42px;
+  }
+
+  .marketCategoriesV4__copy{
+    max-width:650px;
+  }
+
+  .marketCategoriesV4__grid{
+    justify-self:start;
+  }
+}
+
+@media(max-width:620px){
+  .marketCategoriesV4{
+    padding:70px 20px 74px;
+  }
+
+  .marketCategoriesV4__title{
+    font-size:clamp(42px,11.8vw,54px);
+  }
+
+  .marketCategoriesV4__lead{
+    font-size:16px;
+  }
+
+  .marketCategoriesV4__inner{
+    gap:36px;
+  }
+
+  .marketCategoriesV4__grid{
+    grid-template-columns:repeat(3,62px);
+    gap:17px;
+  }
+
+  .marketCategoriesV4__square{
+    width:58px;
+    height:58px;
+    border-radius:16px;
+  }
+
+  .marketCategoriesV4__square img{
+    width:38px;
+    height:38px;
+  }
+
+  .marketCategoriesV4__label{
+    max-width:64px;
+    font-size:9px;
+  }
+
+  .marketMixV4{
+    padding:72px 20px 80px;
+  }
+
+  .marketMixV4__title{
+    font-size:clamp(38px,10.6vw,50px);
+  }
+
+  .marketMixV4__lead{
+    font-size:16px;
+  }
+
+  .marketMixV4__visual{
+    width:100%;
+    margin-top:30px;
+  }
+
+  .marketMixV4__close{
+    margin-top:20px;
+    font-size:15px;
+  }
+}

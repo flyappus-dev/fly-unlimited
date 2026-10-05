@@ -1,0 +1,198 @@
+
+/* =========================================================
+   FLY HOW IT WORKS — GUIDE POLISH V27
+   - white intro
+   - centered categories
+   - cleaner copy
+   - more compact Steps
+   ========================================================= */
+
+/* ---------- INTRO: WHITE, NOT GRAY ---------- */
+
+.guideIntroV26{
+  background:#fff !important;
+}
+
+.guideIntroV26__categories{
+  background:#fff !important;
+}
+
+
+/* ---------- ASK TITLE ---------- */
+
+.guideIntroV26__title{
+  max-width:10ch !important;
+}
+
+
+/* ---------- CATEGORIES: ALWAYS CENTERED ---------- */
+
+.guideIntroV26__categories{
+  margin-top:54px !important;
+  padding-top:42px !important;
+  display:block !important;
+  text-align:center !important;
+}
+
+.guideIntroV26__categoriesCopy{
+  max-width:640px !important;
+  margin:0 auto !important;
+}
+
+.guideIntroV26__categoriesTitle{
+  font-size:clamp(36px,3.6vw,48px) !important;
+  line-height:.98 !important;
+  letter-spacing:-.045em !important;
+}
+
+.guideIntroV26__categoriesText{
+  max-width:37rem !important;
+  margin:14px auto 0 !important;
+  font-size:15.5px !important;
+  line-height:1.52 !important;
+}
+
+.guideIntroV26__grid{
+  width:max-content !important;
+  max-width:100% !important;
+  margin:34px auto 0 !important;
+  justify-self:auto !important;
+  grid-template-columns:repeat(3,64px) !important;
+  gap:18px !important;
+}
+
+
+/* ---------- SUGGESTED CATEGORY ---------- */
+
+.guideIntroV26__suggested{
+  justify-content:flex-end !important;
+}
+
+
+/* ---------- STEPS: COMPACT, STILL EXPLANATORY ---------- */
+
+.stepsIntroV12__inner{
+  padding-top:54px !important;
+}
+
+.howInner{
+  padding-top:6px !important;
+  padding-bottom:14px !important;
+}
+
+.howRow{
+  padding-top:36px !important;
+  padding-bottom:36px !important;
+  gap:44px !important;
+}
+
+.howNum{
+  margin-bottom:5px !important;
+}
+
+.howTitle{
+  font-size:clamp(30px,2.4vw,37px) !important;
+}
+
+.howText{
+  font-size:16px !important;
+  line-height:1.46 !important;
+  max-width:31rem !important;
+}
+
+/* Keep the instructional visuals important, but stop them dominating each row. */
+.askManualVisual{
+  max-width:525px !important;
+}
+
+.connectManualVisual{
+  max-width:420px !important;
+}
+
+.liveTimeManualVisual{
+  max-width:355px !important;
+}
+
+.shakeHandsManualVisual,
+.repeatManualVisual{
+  max-width:425px !important;
+}
+
+
+/* ---------- TABLET ---------- */
+
+@media(max-width:900px){
+  .guideIntroV26__suggested{
+    justify-content:flex-start !important;
+  }
+
+  .guideIntroV26__categories{
+    text-align:center !important;
+  }
+
+  .guideIntroV26__grid{
+    justify-self:auto !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+  .howRow{
+    gap:34px !important;
+  }
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:620px){
+  .guideIntroV26{
+    background:#fff !important;
+  }
+
+  .guideIntroV26__categories{
+    margin-top:40px !important;
+    padding-top:32px !important;
+  }
+
+  .guideIntroV26__categoriesTitle{
+    font-size:36px !important;
+  }
+
+  .guideIntroV26__categoriesText{
+    font-size:15px !important;
+  }
+
+  .guideIntroV26__grid{
+    grid-template-columns:repeat(3,58px) !important;
+    gap:17px 15px !important;
+    margin-top:28px !important;
+  }
+
+  .stepsIntroV12__inner{
+    padding-top:46px !important;
+  }
+
+  .howRow{
+    padding-top:32px !important;
+    padding-bottom:32px !important;
+    gap:20px !important;
+  }
+
+  .howTitle{
+    font-size:32px !important;
+  }
+
+  .howText{
+    font-size:15.5px !important;
+    line-height:1.45 !important;
+  }
+
+  .askManualVisual,
+  .connectManualVisual,
+  .liveTimeManualVisual,
+  .shakeHandsManualVisual,
+  .repeatManualVisual{
+    width:92% !important;
+    max-width:92% !important;
+  }
+}

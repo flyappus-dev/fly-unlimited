@@ -1,0 +1,56 @@
+
+/* FLY How It Works — Marketplace Refine V5 */
+
+/* Move only the 3x3 category grid further inward on desktop. */
+.marketCategoriesV4__grid{
+  transform:translateX(-72px);
+}
+
+/* The prior Events artwork was too dominant.
+   Keep the diagram readable, but subordinate it to the heading. */
+.marketMixV4__visual{
+  width:min(100%,780px) !important;
+  max-width:780px !important;
+  margin:34px auto 0 !important;
+}
+
+.marketMixV4__visual img{
+  width:100% !important;
+  height:auto !important;
+  display:block !important;
+  object-fit:contain !important;
+}
+
+/* Slightly tighten the visual section now that the artwork is smaller. */
+.marketMixV4{
+  padding-top:90px !important;
+  padding-bottom:96px !important;
+}
+
+.marketMixV4__close{
+  margin-top:20px !important;
+}
+
+@media(max-width:900px){
+  .marketCategoriesV4__grid{
+    transform:none;
+  }
+
+  .marketMixV4__visual{
+    width:min(100%,720px) !important;
+    max-width:720px !important;
+  }
+}
+
+@media(max-width:620px){
+  .marketMixV4__visual{
+    width:100% !important;
+    max-width:100% !important;
+    margin-top:28px !important;
+  }
+
+  .marketMixV4{
+    padding-top:68px !important;
+    padding-bottom:76px !important;
+  }
+}

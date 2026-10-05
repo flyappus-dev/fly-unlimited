@@ -1,0 +1,141 @@
+
+/* FLY Homepage — Marketplace Banner V28
+   New campaign asset after the Ask section.
+   Copy remains live HTML so desktop/mobile crop safely. */
+
+.campaign.marketplace{
+  position:relative !important;
+  min-height:520px !important;
+  overflow:hidden !important;
+  background:#111 !important;
+}
+
+.campaign.marketplace .campaignPhoto{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  display:block !important;
+  object-fit:cover !important;
+  object-position:center 48% !important;
+}
+
+.campaign.marketplace::after{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  background:
+    linear-gradient(90deg,
+      rgba(0,0,0,.70) 0%,
+      rgba(0,0,0,.50) 28%,
+      rgba(0,0,0,.13) 56%,
+      rgba(0,0,0,0) 78%
+    ) !important;
+  pointer-events:none !important;
+}
+
+.campaign.marketplace .campaignInner{
+  position:relative !important;
+  z-index:2 !important;
+  width:min(100%,1180px) !important;
+  min-height:520px !important;
+  margin:0 auto !important;
+  padding:76px 32px !important;
+  display:flex !important;
+  align-items:center !important;
+}
+
+.campaign.marketplace .campaignCopy{
+  max-width:520px !important;
+}
+
+.campaign.marketplace .campaignKicker{
+  display:none !important;
+}
+
+.campaign.marketplace .campaignTitle{
+  margin:0 !important;
+  color:#fff !important;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif !important;
+  font-size:clamp(52px,5.2vw,72px) !important;
+  line-height:.94 !important;
+  letter-spacing:-.052em !important;
+  font-weight:700 !important;
+}
+
+.campaign.marketplace .campaignSub{
+  margin:18px 0 0 !important;
+  color:rgba(255,255,255,.80) !important;
+  font-size:20px !important;
+  line-height:1.45 !important;
+  font-weight:500 !important;
+  max-width:29rem !important;
+}
+
+@media(max-width:860px){
+  .campaign.marketplace{
+    min-height:500px !important;
+  }
+
+  .campaign.marketplace .campaignInner{
+    min-height:500px !important;
+    padding:64px 24px !important;
+  }
+
+  .campaign.marketplace .campaignPhoto{
+    object-position:62% center !important;
+  }
+
+  .campaign.marketplace::after{
+    background:
+      linear-gradient(90deg,
+        rgba(0,0,0,.75) 0%,
+        rgba(0,0,0,.56) 45%,
+        rgba(0,0,0,.14) 76%,
+        rgba(0,0,0,0) 100%
+      ) !important;
+  }
+
+  .campaign.marketplace .campaignCopy{
+    max-width:430px !important;
+  }
+}
+
+@media(max-width:620px){
+  .campaign.marketplace{
+    min-height:520px !important;
+  }
+
+  .campaign.marketplace .campaignPhoto{
+    object-position:68% center !important;
+  }
+
+  .campaign.marketplace::after{
+    background:
+      linear-gradient(180deg,
+        rgba(0,0,0,.20) 0%,
+        rgba(0,0,0,.22) 35%,
+        rgba(0,0,0,.77) 100%
+      ) !important;
+  }
+
+  .campaign.marketplace .campaignInner{
+    min-height:520px !important;
+    padding:34px 20px 38px !important;
+    align-items:flex-end !important;
+  }
+
+  .campaign.marketplace .campaignCopy{
+    max-width:100% !important;
+  }
+
+  .campaign.marketplace .campaignTitle{
+    font-size:clamp(42px,12vw,54px) !important;
+  }
+
+  .campaign.marketplace .campaignSub{
+    margin-top:14px !important;
+    font-size:17px !important;
+    max-width:20rem !important;
+  }
+}

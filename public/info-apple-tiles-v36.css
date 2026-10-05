@@ -1,0 +1,270 @@
+
+/* =========================================================
+   FLY INFO — APPLE-STYLE PRODUCT TILES V36
+   Text lives inside the tile; imagery fills the lower half.
+   No split "photo card + text card" treatment.
+   ========================================================= */
+
+.infoAudienceV36{
+  background:#fff;
+  padding:88px 24px 92px;
+}
+
+.infoAudienceV36 *{
+  box-sizing:border-box;
+}
+
+.infoAudienceV36__inner{
+  width:min(100%,1180px);
+  margin:0 auto;
+}
+
+.infoAudienceV36__eyebrow{
+  margin:0 0 12px;
+  color:#8a8a90;
+  font-size:10px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.infoAudienceV36__title{
+  margin:0;
+  max-width:12ch;
+  color:#0a0a0a;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
+  font-size:clamp(52px,5vw,72px);
+  line-height:.94;
+  letter-spacing:-.055em;
+  font-weight:700;
+}
+
+.infoAudienceV36__lead{
+  margin:18px 0 0;
+  max-width:44rem;
+  color:#717176;
+  font-size:18px;
+  line-height:1.5;
+}
+
+/* ---------- APPLE-LIKE TILES ---------- */
+
+.infoAudienceV36__tiles{
+  margin-top:48px;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+
+.infoAudienceV36__tile{
+  position:relative;
+  min-width:0;
+  min-height:560px;
+  overflow:hidden;
+  border-radius:28px;
+  background:#f5f5f7;
+  border:1px solid #ececef;
+  box-shadow:0 12px 34px rgba(0,0,0,.035);
+}
+
+.infoAudienceV36__tile--dark{
+  background:#0d0d0f;
+  border-color:#0d0d0f;
+}
+
+.infoAudienceV36__copy{
+  position:relative;
+  z-index:2;
+  padding:34px 30px 0;
+  text-align:center;
+}
+
+.infoAudienceV36__label{
+  margin:0;
+  color:#8a8a90;
+  font-size:10px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+
+.infoAudienceV36__tile--dark .infoAudienceV36__label{
+  color:rgba(255,255,255,.58);
+}
+
+.infoAudienceV36__tileTitle{
+  margin:13px 0 0;
+  color:#111;
+  font-size:clamp(26px,2.2vw,34px);
+  line-height:.98;
+  letter-spacing:-.042em;
+  font-weight:700;
+}
+
+.infoAudienceV36__tile--dark .infoAudienceV36__tileTitle{
+  color:#fff;
+}
+
+.infoAudienceV36__tileText{
+  margin:12px auto 0;
+  max-width:19rem;
+  color:#6f6f74;
+  font-size:14.5px;
+  line-height:1.48;
+}
+
+.infoAudienceV36__tile--dark .infoAudienceV36__tileText{
+  color:rgba(255,255,255,.68);
+}
+
+/* Image acts like the product photography in Apple tiles: anchored to the bottom. */
+.infoAudienceV36__imageWrap{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:58%;
+  overflow:hidden;
+}
+
+.infoAudienceV36__imageWrap::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:linear-gradient(
+    180deg,
+    rgba(245,245,247,1) 0%,
+    rgba(245,245,247,.30) 14%,
+    rgba(245,245,247,0) 34%
+  );
+}
+
+.infoAudienceV36__tile--dark .infoAudienceV36__imageWrap::before{
+  background:linear-gradient(
+    180deg,
+    rgba(13,13,15,1) 0%,
+    rgba(13,13,15,.34) 16%,
+    rgba(13,13,15,0) 36%
+  );
+}
+
+.infoAudienceV36__imageWrap img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+}
+
+.infoAudienceV36__tile:nth-child(1) .infoAudienceV36__imageWrap img{
+  object-position:center 44%;
+}
+
+.infoAudienceV36__tile:nth-child(2) .infoAudienceV36__imageWrap img{
+  object-position:center 48%;
+}
+
+.infoAudienceV36__tile:nth-child(3) .infoAudienceV36__imageWrap img{
+  object-position:center 46%;
+}
+
+.infoAudienceV36__chips{
+  margin-top:15px;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.infoAudienceV36__chip{
+  min-height:27px;
+  padding:0 9px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.16);
+  display:inline-flex;
+  align-items:center;
+  color:rgba(255,255,255,.76);
+  font-size:9.5px;
+  font-weight:650;
+}
+
+.infoAudienceV36__footer{
+  margin:30px 0 0;
+  padding-top:22px;
+  border-top:1px solid #dedee2;
+  color:#8a8a90;
+  font-size:10px;
+  line-height:1.45;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  text-align:center;
+}
+
+/* ---------- TABLET ---------- */
+
+@media(max-width:980px){
+  .infoAudienceV36__tiles{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .infoAudienceV36__tile:nth-child(3){
+    grid-column:1 / -1;
+    min-height:520px;
+  }
+
+  .infoAudienceV36__tile:nth-child(3) .infoAudienceV36__imageWrap{
+    height:62%;
+  }
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:640px){
+  .infoAudienceV36{
+    padding:64px 18px 70px;
+  }
+
+  .infoAudienceV36__title{
+    font-size:clamp(43px,11.5vw,54px);
+  }
+
+  .infoAudienceV36__lead{
+    font-size:16px;
+  }
+
+  .infoAudienceV36__tiles{
+    margin-top:36px;
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+
+  .infoAudienceV36__tile,
+  .infoAudienceV36__tile:nth-child(3){
+    grid-column:auto;
+    min-height:500px;
+    border-radius:24px;
+  }
+
+  .infoAudienceV36__copy{
+    padding:30px 24px 0;
+  }
+
+  .infoAudienceV36__tileTitle{
+    font-size:30px;
+  }
+
+  .infoAudienceV36__tileText{
+    font-size:14px;
+  }
+
+  .infoAudienceV36__imageWrap,
+  .infoAudienceV36__tile:nth-child(3) .infoAudienceV36__imageWrap{
+    height:57%;
+  }
+}

@@ -1,0 +1,136 @@
+/* =========================================================
+   FLY HOW IT WORKS — THE STEPS BANNER V41 CROP FIX
+   Makes the banner taller and adjusts crop so the subject
+   stays fully visible on wide and mobile screens.
+   ========================================================= */
+
+.stepsBannerV41{
+  position:relative;
+  width:100%;
+  min-height:clamp(340px,36vw,520px);
+  overflow:hidden;
+  isolation:isolate;
+  background:#b79f84;
+}
+
+.stepsBannerV41__photo{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:66% 28%;
+  z-index:-2;
+}
+
+.stepsBannerV41::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(34,25,18,.52) 0%,
+      rgba(34,25,18,.30) 30%,
+      rgba(34,25,18,.10) 56%,
+      rgba(34,25,18,0) 82%
+    );
+}
+
+.stepsBannerV41__inner{
+  width:min(100%,1240px);
+  min-height:inherit;
+  margin:0 auto;
+  padding:clamp(28px,4vw,48px) clamp(20px,4vw,56px);
+  display:flex;
+  align-items:flex-end;
+}
+
+.stepsBannerV41__title{
+  margin:0;
+  color:#fff;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
+  font-size:clamp(58px,7.4vw,108px);
+  line-height:.92;
+  letter-spacing:-.06em;
+  font-weight:650;
+  text-shadow:0 2px 24px rgba(0,0,0,.18);
+  max-width:6ch;
+}
+
+.stepsBannerV41 + .how{
+  border-top:0 !important;
+}
+
+@media(min-width:1400px){
+  .stepsBannerV41{
+    min-height:clamp(380px,34vw,560px);
+  }
+
+  .stepsBannerV41__photo{
+    object-position:67% 24%;
+  }
+}
+
+@media(max-width:1024px){
+  .stepsBannerV41{
+    min-height:400px;
+  }
+
+  .stepsBannerV41__photo{
+    object-position:64% 24%;
+  }
+}
+
+@media(max-width:760px){
+  .stepsBannerV41{
+    min-height:440px;
+  }
+
+  .stepsBannerV41__photo{
+    object-position:62% 18%;
+  }
+
+  .stepsBannerV41__inner{
+    padding:28px 22px 24px;
+  }
+
+  .stepsBannerV41__title{
+    font-size:clamp(62px,15vw,86px);
+    line-height:.9;
+  }
+}
+
+@media(max-width:520px){
+  .stepsBannerV41{
+    min-height:500px;
+  }
+
+  .stepsBannerV41__photo{
+    object-position:61% 18%;
+  }
+
+  .stepsBannerV41::after{
+    background:
+      linear-gradient(
+        90deg,
+        rgba(34,25,18,.40) 0%,
+        rgba(34,25,18,.20) 26%,
+        rgba(34,25,18,.04) 52%,
+        rgba(34,25,18,0) 78%
+      );
+  }
+
+  .stepsBannerV41__inner{
+    align-items:flex-end;
+    padding:24px 20px 20px;
+  }
+
+  .stepsBannerV41__title{
+    max-width:none;
+    font-size:clamp(60px,16vw,80px);
+  }
+}

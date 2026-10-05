@@ -1,0 +1,76 @@
+
+/* FLY — Global Navigation Thin V20
+   Slightly slimmer navigation across every website page that uses .topbar. */
+
+:root{
+  --fly-nav-h:58px !important;
+}
+
+body{
+  padding-top:calc(var(--fly-nav-h) + var(--fly-safe-top, 0px)) !important;
+}
+
+.topbar{
+  min-height:calc(var(--fly-nav-h) + var(--fly-safe-top, 0px)) !important;
+}
+
+.topbarInner{
+  min-height:58px !important;
+  padding:7px 18px !important;
+}
+
+.brand{
+  min-height:40px !important;
+}
+
+.mascot{
+  width:24px !important;
+  height:24px !important;
+}
+
+.nav{
+  gap:8px !important;
+}
+
+.navBtn{
+  width:40px !important;
+  height:40px !important;
+  min-width:40px !important;
+  min-height:40px !important;
+}
+
+.navIcon,
+.navBtn svg{
+  width:18px !important;
+  height:18px !important;
+}
+
+html{
+  scroll-padding-top:calc(var(--fly-nav-h) + var(--fly-safe-top, 0px) + 14px) !important;
+}
+
+[id]{
+  scroll-margin-top:calc(var(--fly-nav-h) + var(--fly-safe-top, 0px) + 18px) !important;
+}
+
+@media(max-width:720px){
+  :root{
+    --fly-nav-h:56px !important;
+  }
+
+  .topbarInner{
+    min-height:56px !important;
+    padding:6px 16px !important;
+  }
+
+  .brand{
+    min-height:40px !important;
+  }
+
+  .navBtn{
+    width:40px !important;
+    height:40px !important;
+    min-width:40px !important;
+    min-height:40px !important;
+  }
+}

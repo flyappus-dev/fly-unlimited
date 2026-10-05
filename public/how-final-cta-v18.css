@@ -1,0 +1,139 @@
+
+/* FLY How It Works — Final CTA V18
+   Compact, width-safe closing CTA. */
+
+.finalV17{
+  background:#fff !important;
+  padding:0 24px 18px !important;
+}
+
+.finalV17 *,
+.finalV17 *::before,
+.finalV17 *::after{
+  box-sizing:border-box !important;
+}
+
+.finalV17__inner{
+  width:min(100%,1180px) !important;
+  margin:0 auto !important;
+  padding:30px 0 32px !important;
+  border-top:1px solid #dedee2 !important;
+  border-bottom:1px solid #dedee2 !important;
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) auto !important;
+  gap:28px !important;
+  align-items:center !important;
+}
+
+.finalV17__copy{
+  min-width:0 !important;
+}
+
+.finalV17__eyebrow{
+  margin:0 0 7px !important;
+  color:#8a8a8f !important;
+  font-size:10px !important;
+  line-height:1 !important;
+  font-weight:700 !important;
+  letter-spacing:.16em !important;
+  text-transform:uppercase !important;
+}
+
+.finalV17__title{
+  margin:0 !important;
+  color:#0a0a0a !important;
+  font-size:clamp(30px,2.6vw,40px) !important;
+  line-height:1 !important;
+  letter-spacing:-.045em !important;
+  font-weight:700 !important;
+}
+
+.finalV17__text{
+  margin:8px 0 0 !important;
+  color:#77777c !important;
+  font-size:15px !important;
+  line-height:1.45 !important;
+}
+
+/* Hard reset so no legacy CTA styles can turn this into a huge blank pill. */
+.finalV17__download{
+  appearance:none !important;
+  -webkit-appearance:none !important;
+  width:auto !important;
+  min-width:0 !important;
+  max-width:none !important;
+  height:46px !important;
+  min-height:46px !important;
+  max-height:46px !important;
+  padding:0 19px !important;
+  margin:0 !important;
+  border:0 !important;
+  border-radius:999px !important;
+  display:inline-flex !important;
+  flex:0 0 auto !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:9px !important;
+  background:#111 !important;
+  color:#fff !important;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif !important;
+  font-size:14px !important;
+  line-height:1 !important;
+  font-weight:650 !important;
+  letter-spacing:-.01em !important;
+  text-decoration:none !important;
+  white-space:nowrap !important;
+  overflow:visible !important;
+}
+
+.finalV17__download span{
+  display:inline !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  color:#fff !important;
+  font-size:inherit !important;
+  line-height:1 !important;
+}
+
+.finalV17__arrow{
+  font-size:15px !important;
+}
+
+@media(max-width:720px){
+  .finalV17{
+    padding:0 18px 16px !important;
+  }
+
+  .finalV17__inner{
+    padding:26px 0 28px !important;
+    grid-template-columns:1fr !important;
+    gap:18px !important;
+    align-items:start !important;
+  }
+
+  .finalV17__title{
+    font-size:34px !important;
+  }
+
+  .finalV17__text{
+    font-size:14px !important;
+    max-width:28rem !important;
+  }
+
+  .finalV17__download{
+    width:max-content !important;
+    min-width:0 !important;
+    max-width:100% !important;
+    height:44px !important;
+    min-height:44px !important;
+    max-height:44px !important;
+    padding:0 18px !important;
+    justify-self:start !important;
+  }
+}
+
+@media(max-width:390px){
+  .finalV17__title{
+    font-size:31px !important;
+  }
+}

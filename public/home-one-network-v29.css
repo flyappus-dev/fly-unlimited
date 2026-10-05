@@ -1,0 +1,187 @@
+
+/* =========================================================
+   FLY HOMEPAGE — ONE NETWORK V29
+   Calm white product section after Marketplace banner.
+   ========================================================= */
+
+.homeNetworkV29{
+  background:#fff;
+  padding:92px 24px 96px;
+}
+
+.homeNetworkV29 *{
+  box-sizing:border-box;
+}
+
+.homeNetworkV29__inner{
+  width:min(100%,1080px);
+  margin:0 auto;
+}
+
+.homeNetworkV29__head{
+  display:grid;
+  grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+  gap:64px;
+  align-items:end;
+}
+
+.homeNetworkV29__eyebrow{
+  margin:0 0 12px;
+  color:#8b8b90;
+  font-size:10px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.homeNetworkV29__title{
+  margin:0;
+  color:#0a0a0a;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
+  font-size:clamp(48px,4.9vw,64px);
+  line-height:.96;
+  letter-spacing:-.052em;
+  font-weight:700;
+}
+
+.homeNetworkV29__lead{
+  margin:0;
+  max-width:35rem;
+  color:#727277;
+  font-size:18px;
+  line-height:1.5;
+}
+
+.homeNetworkV29__rail{
+  margin-top:54px;
+  border-top:1px solid #dedee2;
+  border-bottom:1px solid #dedee2;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+}
+
+.homeNetworkV29__item{
+  min-width:0;
+  padding:30px 30px 32px;
+}
+
+.homeNetworkV29__item + .homeNetworkV29__item{
+  border-left:1px solid #dedee2;
+}
+
+.homeNetworkV29__num{
+  margin:0 0 18px;
+  color:#9a9aa0;
+  font-size:10px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:.1em;
+}
+
+.homeNetworkV29__itemTitle{
+  margin:0;
+  color:#111;
+  font-size:24px;
+  line-height:1.03;
+  letter-spacing:-.035em;
+  font-weight:680;
+}
+
+.homeNetworkV29__itemText{
+  margin:10px 0 0;
+  color:#76767b;
+  font-size:15px;
+  line-height:1.5;
+}
+
+.homeNetworkV29__footer{
+  margin-top:26px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  flex-wrap:wrap;
+}
+
+.homeNetworkV29__footerText{
+  margin:0;
+  color:#8a8a90;
+  font-size:12px;
+  line-height:1.4;
+}
+
+.homeNetworkV29__types{
+  margin:0;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  color:#57575c;
+  font-size:12px;
+  line-height:1.4;
+  font-weight:600;
+}
+
+.homeNetworkV29__dot{
+  color:#b0b0b5;
+}
+
+@media(max-width:900px){
+  .homeNetworkV29__head{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+
+  .homeNetworkV29__lead{
+    max-width:39rem;
+  }
+
+  .homeNetworkV29__rail{
+    grid-template-columns:1fr;
+  }
+
+  .homeNetworkV29__item{
+    padding:26px 0 28px;
+  }
+
+  .homeNetworkV29__item + .homeNetworkV29__item{
+    border-left:0;
+    border-top:1px solid #dedee2;
+  }
+}
+
+@media(max-width:620px){
+  .homeNetworkV29{
+    padding:66px 18px 70px;
+  }
+
+  .homeNetworkV29__title{
+    font-size:clamp(42px,11.5vw,52px);
+  }
+
+  .homeNetworkV29__lead{
+    font-size:16px;
+  }
+
+  .homeNetworkV29__rail{
+    margin-top:38px;
+  }
+
+  .homeNetworkV29__itemTitle{
+    font-size:22px;
+  }
+
+  .homeNetworkV29__itemText{
+    font-size:14.5px;
+  }
+
+  .homeNetworkV29__footer{
+    margin-top:22px;
+    display:block;
+  }
+
+  .homeNetworkV29__types{
+    margin-top:10px;
+  }
+}

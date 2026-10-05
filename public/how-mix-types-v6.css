@@ -1,0 +1,410 @@
+
+/* FLY How It Works — Mix Types Publish V6 */
+
+/* Keep the category grid comfortably inward. */
+.marketCategoriesV4__grid{
+  transform:translateX(-72px);
+}
+
+/* One category -> many FLY types */
+.marketMixV6{
+  background:#fff;
+  padding:88px 24px 104px;
+  box-sizing:border-box;
+}
+
+.marketMixV6 *{box-sizing:border-box}
+
+.marketMixV6__inner{
+  width:min(100%,1080px);
+  margin:0 auto;
+}
+
+.marketMixV6__head{
+  text-align:center;
+}
+
+.marketMixV6__title{
+  margin:0;
+  color:#0a0a0a;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
+  font-size:clamp(42px,4.7vw,62px);
+  line-height:.96;
+  letter-spacing:-.048em;
+  font-weight:700;
+}
+
+.marketMixV6__lead{
+  margin:14px auto 0;
+  max-width:38rem;
+  color:#747479;
+  font-size:17px;
+  line-height:1.5;
+}
+
+/* Moved/repurposed horizontal bar: these are FLY fulfillment types. */
+.marketMixV6__types{
+  margin:34px auto 0;
+  width:min(100%,850px);
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid #dedee2;
+  border-radius:20px;
+  overflow:hidden;
+  background:#fff;
+}
+
+.marketMixV6__type{
+  min-height:68px;
+  padding:12px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:11px;
+  color:#18181a;
+  font-size:14px;
+  font-weight:650;
+}
+
+.marketMixV6__type + .marketMixV6__type{
+  border-left:1px solid #dedee2;
+}
+
+.marketMixV6__typeIcon{
+  width:34px;
+  height:34px;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  background:#f3f3f5;
+}
+
+.marketMixV6__typeIcon svg{
+  width:18px;
+  height:18px;
+  display:block;
+  fill:none;
+  stroke:#111;
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+/* Events source node */
+.marketMixV6__event{
+  position:relative;
+  width:max-content;
+  margin:42px auto 0;
+  padding:12px 18px 12px 12px;
+  border:1px solid #e0e0e4;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  gap:13px;
+  background:#fff;
+  box-shadow:0 12px 32px rgba(0,0,0,.055);
+}
+
+.marketMixV6__event::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-34px;
+  width:1px;
+  height:34px;
+  background:#b9becb;
+}
+
+.marketMixV6__eventIcon{
+  width:54px;
+  height:54px;
+  border-radius:15px;
+  display:grid;
+  place-items:center;
+  background:#0054A3;
+}
+
+.marketMixV6__eventIcon img{
+  width:36px;
+  height:36px;
+  object-fit:contain;
+}
+
+.marketMixV6__eventText small{
+  display:block;
+  margin:0 0 4px;
+  color:#8a8a90;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+
+.marketMixV6__eventText strong{
+  display:block;
+  color:#111;
+  font-size:24px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:-.03em;
+}
+
+/* Branch line */
+.marketMixV6__branch{
+  position:relative;
+  height:46px;
+  width:75%;
+  margin:0 auto;
+  border-top:1px solid #b9becb;
+  top:34px;
+}
+
+.marketMixV6__branch::before,
+.marketMixV6__branch::after{
+  content:"";
+  position:absolute;
+  top:-1px;
+  width:1px;
+  height:26px;
+  background:#b9becb;
+}
+
+.marketMixV6__branch::before{left:0}
+.marketMixV6__branch::after{right:0}
+
+/* Real FLY-style examples */
+.marketMixV6__cards{
+  margin-top:28px;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+
+.marketMixV6__fly{
+  position:relative;
+  min-width:0;
+  min-height:300px;
+  padding:17px 16px 14px;
+  border:1px solid #e4e4e7;
+  border-radius:20px;
+  background:#fff;
+  box-shadow:0 14px 36px rgba(0,0,0,.055);
+  display:flex;
+  flex-direction:column;
+}
+
+.marketMixV6__fly::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:-29px;
+  width:1px;
+  height:29px;
+  background:#b9becb;
+}
+
+.marketMixV6__flyType{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:14px;
+  color:#66708b;
+  font-size:10px;
+  font-weight:750;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.marketMixV6__flyTypeIcon{
+  width:32px;
+  height:32px;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  background:#f2f2f4;
+}
+
+.marketMixV6__flyTypeIcon svg{
+  width:17px;
+  height:17px;
+  fill:none;
+  stroke:#111;
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.marketMixV6__profile{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin-bottom:14px;
+}
+
+.marketMixV6__avatar{
+  width:36px;
+  height:36px;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  background:#efeff2;
+  color:#606066;
+  font-size:12px;
+  font-weight:700;
+}
+
+.marketMixV6__profileText{
+  min-width:0;
+}
+
+.marketMixV6__name{
+  display:block;
+  color:#171719;
+  font-size:13px;
+  font-weight:650;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.marketMixV6__meta{
+  display:block;
+  margin-top:2px;
+  color:#929297;
+  font-size:10px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.marketMixV6__flyTitle{
+  margin:0;
+  color:#0f0f10;
+  font-size:18px;
+  line-height:1.13;
+  letter-spacing:-.028em;
+  font-weight:700;
+}
+
+.marketMixV6__flyBody{
+  margin:8px 0 0;
+  color:#69696e;
+  font-size:13px;
+  line-height:1.42;
+}
+
+.marketMixV6__chips{
+  margin-top:auto;
+  padding-top:17px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+.marketMixV6__chip{
+  min-height:27px;
+  padding:0 9px;
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  background:#f3f3f5;
+  color:#66666b;
+  font-size:9.5px;
+  font-weight:600;
+  white-space:nowrap;
+}
+
+.marketMixV6__chip--event{
+  background:#eaf4ff;
+  color:#0067c9;
+}
+
+.marketMixV6__stats{
+  margin-top:12px;
+  padding-top:11px;
+  border-top:1px solid #ededf0;
+  display:flex;
+  justify-content:space-between;
+  gap:6px;
+  color:#77777c;
+  font-size:9.5px;
+}
+
+.marketMixV6__close{
+  margin:30px 0 0;
+  text-align:center;
+  color:#4b4b50;
+  font-size:16px;
+  line-height:1.4;
+  font-weight:620;
+}
+
+@media(max-width:960px){
+  .marketMixV6__cards{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:16px;
+  }
+
+  .marketMixV6__branch{
+    display:none;
+  }
+
+  .marketMixV6__fly::before{
+    display:none;
+  }
+
+  .marketMixV6__event::after{
+    display:none;
+  }
+}
+
+@media(max-width:720px){
+  .marketCategoriesV4__grid{
+    transform:none;
+  }
+
+  .marketMixV6{
+    padding:68px 20px 78px;
+  }
+
+  .marketMixV6__title{
+    font-size:clamp(38px,10.6vw,50px);
+  }
+
+  .marketMixV6__lead{
+    font-size:16px;
+  }
+
+  .marketMixV6__types{
+    grid-template-columns:repeat(2,1fr);
+    border-radius:17px;
+  }
+
+  .marketMixV6__type{
+    min-height:58px;
+    font-size:13px;
+  }
+
+  .marketMixV6__type:nth-child(3){
+    border-left:0;
+    border-top:1px solid #dedee2;
+  }
+
+  .marketMixV6__type:nth-child(4){
+    border-top:1px solid #dedee2;
+  }
+
+  .marketMixV6__event{
+    margin-top:34px;
+  }
+}
+
+@media(max-width:520px){
+  .marketMixV6__cards{
+    grid-template-columns:1fr;
+  }
+
+  .marketMixV6__fly{
+    min-height:0;
+  }
+}

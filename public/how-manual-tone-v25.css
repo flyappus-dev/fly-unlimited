@@ -1,0 +1,156 @@
+
+/* =========================================================
+   FLY HOW IT WORKS — MANUAL TONE V25
+   Converts the opening of How It Works from campaign language
+   into a concise product guide / sendable manual.
+   ========================================================= */
+
+/* ---------- MAIN GUIDE HEADER ---------- */
+
+.hero{
+  min-height:460px !important;
+}
+
+.heroInner{
+  min-height:460px !important;
+  padding-top:112px !important;
+  padding-bottom:54px !important;
+  align-items:flex-end !important;
+}
+
+.heroCopy{
+  width:min(100%,620px) !important;
+}
+
+.heroEyebrow{
+  margin-bottom:12px !important;
+  font-size:10px !important;
+  letter-spacing:.16em !important;
+}
+
+.heroTitle{
+  max-width:none !important;
+  margin:0 !important;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif !important;
+  font-size:clamp(58px,6vw,86px) !important;
+  line-height:.94 !important;
+  letter-spacing:-.055em !important;
+  font-weight:700 !important;
+  text-transform:none !important;
+}
+
+.heroLead{
+  margin-top:18px !important;
+  max-width:36rem !important;
+  font-size:clamp(17px,1.4vw,21px) !important;
+  line-height:1.5 !important;
+  font-weight:500 !important;
+  color:rgba(255,255,255,.86) !important;
+}
+
+.heroSub{
+  display:none !important;
+}
+
+.heroCta{
+  margin-top:24px !important;
+  min-height:42px !important;
+  padding:0 16px !important;
+  font-size:12.5px !important;
+}
+
+
+/* ---------- CATEGORY GUIDE ---------- */
+
+.marketCategoriesV4{
+  padding-top:82px !important;
+  padding-bottom:86px !important;
+}
+
+.marketCategoriesV4__copy{
+  max-width:560px !important;
+}
+
+.marketCategoriesV25__eyebrow{
+  margin:0 0 12px;
+  color:#8a8a90;
+  font-size:10px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+
+.marketCategoriesV4__title{
+  max-width:9.5ch !important;
+  font-size:clamp(46px,4.6vw,62px) !important;
+  line-height:.97 !important;
+  letter-spacing:-.048em !important;
+}
+
+.marketCategoriesV4__lead{
+  margin-top:18px !important;
+  max-width:34rem !important;
+  font-size:17px !important;
+  line-height:1.55 !important;
+  color:#707075 !important;
+}
+
+
+/* ---------- FLY TYPE EXPLANATION ---------- */
+
+.marketMixV24{
+  padding-top:74px !important;
+  padding-bottom:78px !important;
+}
+
+.marketMixV24__title{
+  font-size:clamp(42px,4.1vw,56px) !important;
+}
+
+.marketMixV24__lead{
+  max-width:44rem !important;
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:720px){
+  .hero{
+    min-height:390px !important;
+  }
+
+  .heroInner{
+    min-height:390px !important;
+    padding-top:92px !important;
+    padding-bottom:42px !important;
+  }
+
+  .heroTitle{
+    font-size:clamp(48px,14vw,64px) !important;
+  }
+
+  .heroLead{
+    margin-top:15px !important;
+    font-size:16px !important;
+  }
+
+  .marketCategoriesV4{
+    padding-top:62px !important;
+    padding-bottom:66px !important;
+  }
+
+  .marketCategoriesV4__title{
+    max-width:10ch !important;
+    font-size:clamp(40px,11vw,50px) !important;
+  }
+
+  .marketCategoriesV4__lead{
+    font-size:16px !important;
+  }
+
+  .marketMixV24{
+    padding-top:60px !important;
+    padding-bottom:64px !important;
+  }
+}

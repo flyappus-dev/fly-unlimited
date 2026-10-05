@@ -1,0 +1,133 @@
+
+/* FLY — Global Navigation Minimal V21
+   Slimmer bar + no active bubble. Selection is tonal only. */
+
+:root{
+  --fly-nav-h:52px !important;
+}
+
+/* Keep the page offset + anchored scroll positions in sync with the slimmer bar. */
+body{
+  padding-top:calc(var(--fly-nav-h) + var(--fly-safe-top, 0px)) !important;
+}
+
+html{
+  scroll-padding-top:calc(var(--fly-nav-h) + var(--fly-safe-top, 0px) + 12px) !important;
+}
+
+[id]{
+  scroll-margin-top:calc(var(--fly-nav-h) + var(--fly-safe-top, 0px) + 16px) !important;
+}
+
+.topbar{
+  min-height:calc(var(--fly-nav-h) + var(--fly-safe-top, 0px)) !important;
+}
+
+.topbarInner{
+  min-height:52px !important;
+  padding:4px 18px !important;
+}
+
+.brand{
+  min-height:38px !important;
+}
+
+.mascot{
+  width:23px !important;
+  height:23px !important;
+}
+
+.nav{
+  gap:7px !important;
+}
+
+/* Preserve a comfortable invisible hit target while removing the visible bubble. */
+.navBtn{
+  width:38px !important;
+  height:38px !important;
+  min-width:38px !important;
+  min-height:38px !important;
+  padding:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  opacity:.68 !important;
+  transition:opacity .16s ease, transform .16s ease !important;
+}
+
+/* No circle on hover or selection. */
+.navBtn:hover,
+.navBtn:focus-visible,
+.navBtn.active{
+  background:transparent !important;
+  box-shadow:none !important;
+}
+
+/* Selection = tonal emphasis only. */
+.navBtn.active{
+  opacity:1 !important;
+}
+
+.navBtn:hover{
+  opacity:.92 !important;
+}
+
+.navBtn.active:hover{
+  opacity:1 !important;
+}
+
+.navIcon,
+.navBtn svg{
+  width:18px !important;
+  height:18px !important;
+}
+
+/* If the icon itself carries opacity in older page CSS, normalize it here. */
+.navBtn .navIcon,
+.navBtn svg{
+  opacity:1 !important;
+}
+
+/* Slightly emphasize the active glyph without changing layout. */
+.navBtn.active .navIcon,
+.navBtn.active svg{
+  transform:scale(1.04) !important;
+}
+
+/* Mobile stays equally slim and avoids a chunky app-bar look. */
+@media(max-width:720px){
+  :root{
+    --fly-nav-h:50px !important;
+  }
+
+  .topbarInner{
+    min-height:50px !important;
+    padding:3px 15px !important;
+  }
+
+  .brand{
+    min-height:38px !important;
+  }
+
+  .mascot{
+    width:22px !important;
+    height:22px !important;
+  }
+
+  .nav{
+    gap:6px !important;
+  }
+
+  .navBtn{
+    width:38px !important;
+    height:38px !important;
+    min-width:38px !important;
+    min-height:38px !important;
+  }
+
+  .navIcon,
+  .navBtn svg{
+    width:18px !important;
+    height:18px !important;
+  }
+}

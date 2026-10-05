@@ -1,0 +1,316 @@
+
+/* =========================================================
+   FLY INFO — VC READY V34
+   A cleaner, more strategic People + Business story.
+   ========================================================= */
+
+.infoAudienceV34{
+  background:#fff;
+  padding:92px 24px 96px;
+}
+
+.infoAudienceV34 *{
+  box-sizing:border-box;
+}
+
+.infoAudienceV34__inner{
+  width:min(100%,1180px);
+  margin:0 auto;
+}
+
+/* ---------- INTRO ---------- */
+
+.infoAudienceV34__eyebrow{
+  margin:0 0 12px;
+  color:#8a8a90;
+  font-size:10px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.infoAudienceV34__title{
+  margin:0;
+  max-width:12ch;
+  color:#0a0a0a;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
+  font-size:clamp(52px,5.1vw,72px);
+  line-height:.94;
+  letter-spacing:-.055em;
+  font-weight:700;
+}
+
+.infoAudienceV34__lead{
+  margin:20px 0 0;
+  max-width:50rem;
+  color:#6f6f74;
+  font-size:18px;
+  line-height:1.55;
+}
+
+/* ---------- PEOPLE / BUSINESS ---------- */
+
+.infoAudienceV34__audiences{
+  margin-top:54px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  border-top:1px solid #dedee2;
+  border-bottom:1px solid #dedee2;
+}
+
+.infoAudienceV34__audience{
+  min-width:0;
+  padding:34px 34px 38px;
+}
+
+.infoAudienceV34__audience + .infoAudienceV34__audience{
+  border-left:1px solid #dedee2;
+}
+
+.infoAudienceV34__label{
+  margin:0;
+  color:#8a8a90;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+.infoAudienceV34__audienceTitle{
+  margin:14px 0 0;
+  color:#111;
+  font-size:clamp(30px,2.8vw,40px);
+  line-height:.98;
+  letter-spacing:-.045em;
+  font-weight:700;
+}
+
+.infoAudienceV34__audienceText{
+  margin:15px 0 0;
+  max-width:31rem;
+  color:#707075;
+  font-size:15.5px;
+  line-height:1.55;
+}
+
+.infoAudienceV34__points{
+  margin:26px 0 0;
+  padding:0;
+  list-style:none;
+  display:grid;
+  gap:13px;
+}
+
+.infoAudienceV34__point{
+  display:flex;
+  align-items:flex-start;
+  gap:11px;
+  color:#303034;
+  font-size:14px;
+  line-height:1.45;
+}
+
+.infoAudienceV34__check{
+  flex:0 0 22px;
+  width:22px;
+  height:22px;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  margin-top:-1px;
+  background:#f2f2f4;
+}
+
+.infoAudienceV34__check svg{
+  width:12px;
+  height:12px;
+  fill:none;
+  stroke:#111;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+/* ---------- PLATFORM LAYER ---------- */
+
+.infoAudienceV34__platform{
+  margin-top:64px;
+}
+
+.infoAudienceV34__platformHead{
+  display:grid;
+  grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);
+  gap:56px;
+  align-items:end;
+}
+
+.infoAudienceV34__platformTitle{
+  margin:0;
+  color:#111;
+  font-size:clamp(36px,3.6vw,50px);
+  line-height:.97;
+  letter-spacing:-.045em;
+  font-weight:700;
+}
+
+.infoAudienceV34__platformText{
+  margin:0;
+  color:#737378;
+  font-size:16px;
+  line-height:1.55;
+}
+
+.infoAudienceV34__system{
+  margin-top:34px;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  border-top:1px solid #dedee2;
+  border-bottom:1px solid #dedee2;
+}
+
+.infoAudienceV34__systemItem{
+  padding:28px 26px 30px;
+}
+
+.infoAudienceV34__systemItem + .infoAudienceV34__systemItem{
+  border-left:1px solid #dedee2;
+}
+
+.infoAudienceV34__icon{
+  width:42px;
+  height:42px;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  background:#f2f2f4;
+  color:#111;
+}
+
+.infoAudienceV34__icon svg{
+  width:20px;
+  height:20px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.85;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.infoAudienceV34__systemTitle{
+  margin:22px 0 0;
+  color:#111;
+  font-size:22px;
+  line-height:1.02;
+  letter-spacing:-.035em;
+  font-weight:700;
+}
+
+.infoAudienceV34__systemText{
+  margin:10px 0 0;
+  color:#717176;
+  font-size:14.5px;
+  line-height:1.5;
+}
+
+/* Payment gets just a little extra weight without turning into an ad. */
+.infoAudienceV34__systemItem--payment{
+  background:#f7f7f8;
+}
+
+.infoAudienceV34__pills{
+  margin-top:16px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.infoAudienceV34__pill{
+  min-height:28px;
+  padding:0 9px;
+  border:1px solid #dedee2;
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  background:#fff;
+  color:#55555a;
+  font-size:10px;
+  font-weight:650;
+}
+
+.infoAudienceV34__note{
+  margin:20px 0 0;
+  max-width:59rem;
+  color:#96969c;
+  font-size:11px;
+  line-height:1.5;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media(max-width:840px){
+  .infoAudienceV34__audiences,
+  .infoAudienceV34__system{
+    grid-template-columns:1fr;
+  }
+
+  .infoAudienceV34__audience + .infoAudienceV34__audience,
+  .infoAudienceV34__systemItem + .infoAudienceV34__systemItem{
+    border-left:0;
+    border-top:1px solid #dedee2;
+  }
+
+  .infoAudienceV34__platformHead{
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+}
+
+@media(max-width:620px){
+  .infoAudienceV34{
+    padding:66px 18px 72px;
+  }
+
+  .infoAudienceV34__title{
+    font-size:clamp(43px,11.5vw,54px);
+  }
+
+  .infoAudienceV34__lead{
+    font-size:16px;
+  }
+
+  .infoAudienceV34__audiences{
+    margin-top:38px;
+  }
+
+  .infoAudienceV34__audience{
+    padding:27px 0 30px;
+  }
+
+  .infoAudienceV34__audienceTitle{
+    font-size:32px;
+  }
+
+  .infoAudienceV34__platform{
+    margin-top:50px;
+  }
+
+  .infoAudienceV34__platformTitle{
+    font-size:36px;
+  }
+
+  .infoAudienceV34__system{
+    margin-top:28px;
+  }
+
+  .infoAudienceV34__systemItem{
+    padding:25px 0 27px;
+  }
+
+  .infoAudienceV34__systemItem--payment{
+    margin-left:-18px;
+    margin-right:-18px;
+    padding-left:18px;
+    padding-right:18px;
+  }
+}

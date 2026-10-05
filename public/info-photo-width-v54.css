@@ -1,0 +1,45 @@
+/* =========================================================
+   FLY INFO — PHOTO WIDTH ALIGNMENT V54 FIXED
+   Keeps the V53 tall portrait ratio, widens the three images,
+   tightens gaps, and aligns their outer edges with the section.
+   ========================================================= */
+
+.infoAudienceV53__visuals {
+  margin-top: 30px !important;
+  width: calc(100% + 28px) !important;
+  margin-left: -14px !important;
+  margin-right: -14px !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+}
+
+.infoAudienceV53__visual {
+  overflow: hidden !important;
+  aspect-ratio: 9 / 16 !important;
+  border-radius: 34px !important;
+  background: #f2f2f4 !important;
+}
+
+.infoAudienceV53__visualImage {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+@media (max-width: 1060px) {
+  .infoAudienceV53__visuals {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+}
+
+@media (max-width: 780px) {
+  .infoAudienceV53__visual {
+    border-radius: 28px !important;
+  }
+}
