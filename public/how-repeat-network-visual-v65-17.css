@@ -1,0 +1,319 @@
+/* =========================================================
+   FLY HOW IT WORKS — REPEAT NETWORK VISUAL V65.17
+   Replaces the last Repeat card visual with a cleaner
+   network-of-needs / users illustration.
+   ========================================================= */
+
+.repeatNetworkV65_17{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.repeatNetworkV65_17__board{
+  width:min(100%, 620px);
+  min-height:360px;
+  position:relative;
+  padding:34px 26px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.repeatNetworkV65_17__orbit,
+.repeatNetworkV65_17__orbitInner{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+}
+
+.repeatNetworkV65_17__orbit{
+  width:360px;
+  height:196px;
+  border:2px solid rgba(124,116,255,.24);
+  opacity:.95;
+}
+
+.repeatNetworkV65_17__orbitInner{
+  width:218px;
+  height:218px;
+  border:1px solid rgba(124,116,255,.10);
+  box-shadow:0 0 0 18px rgba(124,116,255,.04);
+}
+
+.repeatNetworkV65_17__arrowTop,
+.repeatNetworkV65_17__arrowBottom{
+  position:absolute;
+  width:20px;
+  height:20px;
+  border-top:3px solid #8a81ff;
+  border-right:3px solid #8a81ff;
+  border-radius:3px;
+}
+
+.repeatNetworkV65_17__arrowTop{
+  top:98px;
+  right:60px;
+  transform:rotate(45deg);
+}
+
+.repeatNetworkV65_17__arrowBottom{
+  bottom:100px;
+  left:66px;
+  transform:rotate(225deg);
+}
+
+.repeatNetworkV65_17__softGlow{
+  position:absolute;
+  width:192px;
+  height:192px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(124,116,255,.10) 0%, rgba(124,116,255,.05) 34%, rgba(124,116,255,0) 72%);
+}
+
+.repeatNetworkV65_17__panel{
+  position:relative;
+  z-index:2;
+  width:210px;
+  min-height:174px;
+  border-radius:30px;
+  background:linear-gradient(180deg, rgba(255,255,255,.95), rgba(251,251,253,.98));
+  border:1px solid rgba(17,17,17,.06);
+  box-shadow:0 20px 48px rgba(17,17,17,.06), 0 3px 10px rgba(17,17,17,.03);
+  padding:26px 20px 22px;
+}
+
+.repeatNetworkV65_17__left{
+  position:absolute;
+  left:8px;
+  top:106px;
+}
+
+.repeatNetworkV65_17__right{
+  position:absolute;
+  right:8px;
+  top:106px;
+}
+
+.repeatNetworkV65_17__center{
+  position:relative;
+  z-index:3;
+  width:236px;
+  min-height:236px;
+  border-radius:34px;
+  background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(250,250,252,.99));
+  border:1px solid rgba(17,17,17,.05);
+  box-shadow:0 28px 58px rgba(17,17,17,.07), 0 3px 12px rgba(17,17,17,.04);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+
+.repeatNetworkV65_17__cluster{
+  display:flex;
+  justify-content:center;
+  margin-bottom:16px;
+}
+
+.repeatNetworkV65_17__avatar{
+  width:54px;
+  height:54px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid #fff;
+  box-shadow:0 6px 16px rgba(17,17,17,.12);
+  margin-left:-8px;
+}
+.repeatNetworkV65_17__avatar:first-child{ margin-left:0; }
+
+.repeatNetworkV65_17__panelTitle{
+  margin:0;
+  color:#2c2c30;
+  font-size:15px;
+  line-height:1.18;
+  font-weight:500;
+  text-align:center;
+  letter-spacing:-.02em;
+}
+
+.repeatNetworkV65_17__plus{
+  width:54px;
+  height:54px;
+  border-radius:50%;
+  margin:0 auto 16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#8a81ff;
+  font-size:40px;
+  line-height:1;
+  font-weight:300;
+  background:radial-gradient(circle at 50% 50%, rgba(151,133,255,.14), rgba(151,133,255,.07));
+}
+
+.repeatNetworkV65_17__chips{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:9px;
+  margin-bottom:16px;
+}
+
+.repeatNetworkV65_17__chip{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:9px 14px;
+  border-radius:999px;
+  background:#f7f7fa;
+  border:1px solid rgba(17,17,17,.05);
+  color:#5d5d66;
+  font-size:12px;
+  line-height:1;
+  font-weight:500;
+  white-space:nowrap;
+}
+
+.repeatNetworkV65_17__chip--accent{
+  background:rgba(124,116,255,.10);
+  color:#7b73ff;
+  border-color:rgba(124,116,255,.08);
+}
+
+.repeatNetworkV65_17__network{
+  width:118px;
+  height:118px;
+  position:relative;
+}
+
+.repeatNetworkV65_17__line,
+.repeatNetworkV65_17__node,
+.repeatNetworkV65_17__hub{
+  position:absolute;
+}
+
+.repeatNetworkV65_17__line{
+  left:50%;
+  top:50%;
+  width:2px;
+  height:36px;
+  background:linear-gradient(180deg, rgba(137,127,255,.85), rgba(137,127,255,.45));
+  transform-origin:center top;
+  border-radius:999px;
+}
+
+.repeatNetworkV65_17__line--1{ transform:translate(-50%, -50%) rotate(0deg); }
+.repeatNetworkV65_17__line--2{ transform:translate(-50%, -50%) rotate(60deg); }
+.repeatNetworkV65_17__line--3{ transform:translate(-50%, -50%) rotate(120deg); }
+.repeatNetworkV65_17__line--4{ transform:translate(-50%, -50%) rotate(180deg); }
+.repeatNetworkV65_17__line--5{ transform:translate(-50%, -50%) rotate(240deg); }
+.repeatNetworkV65_17__line--6{ transform:translate(-50%, -50%) rotate(300deg); }
+
+.repeatNetworkV65_17__hub{
+  left:50%;
+  top:50%;
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  transform:translate(-50%, -50%);
+  background:linear-gradient(180deg, rgba(255,255,255,.98), rgba(244,242,255,.98));
+  border:3px solid #9c93ff;
+  box-shadow:0 8px 18px rgba(124,116,255,.18);
+}
+
+.repeatNetworkV65_17__node{
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:linear-gradient(180deg, rgba(255,255,255,.95), rgba(243,241,255,.97));
+  border:3px solid #b0a7ff;
+  box-shadow:0 6px 14px rgba(124,116,255,.12);
+}
+
+.repeatNetworkV65_17__node--1{ left:50%; top:6px; transform:translateX(-50%); }
+.repeatNetworkV65_17__node--2{ right:12px; top:28px; }
+.repeatNetworkV65_17__node--3{ right:12px; bottom:28px; }
+.repeatNetworkV65_17__node--4{ left:50%; bottom:6px; transform:translateX(-50%); }
+.repeatNetworkV65_17__node--5{ left:12px; bottom:28px; }
+.repeatNetworkV65_17__node--6{ left:12px; top:28px; }
+
+.repeatNetworkV65_17__centerLabel{
+  margin-top:18px;
+  color:#2d2d31;
+  font-size:19px;
+  line-height:1.14;
+  font-weight:500;
+  text-align:center;
+  letter-spacing:-.02em;
+}
+
+@media (max-width: 1280px){
+  .repeatNetworkV65_17__board{ width:min(100%, 560px); min-height:338px; }
+  .repeatNetworkV65_17__orbit{ width:326px; height:180px; }
+  .repeatNetworkV65_17__orbitInner{ width:198px; height:198px; }
+  .repeatNetworkV65_17__center{ width:214px; min-height:214px; }
+  .repeatNetworkV65_17__panel{ width:192px; min-height:166px; }
+  .repeatNetworkV65_17__left, .repeatNetworkV65_17__right{ top:100px; }
+}
+
+@media (max-width: 980px){
+  .repeatNetworkV65_17__board{
+    width:min(100%, 440px);
+    min-height:unset;
+    padding:18px 12px;
+    display:grid;
+    gap:14px;
+  }
+  .repeatNetworkV65_17__orbit,
+  .repeatNetworkV65_17__orbitInner,
+  .repeatNetworkV65_17__arrowTop,
+  .repeatNetworkV65_17__arrowBottom,
+  .repeatNetworkV65_17__softGlow{ display:none; }
+  .repeatNetworkV65_17__left,
+  .repeatNetworkV65_17__right,
+  .repeatNetworkV65_17__center{
+    position:relative;
+    left:auto;
+    right:auto;
+    top:auto;
+    margin:0 auto;
+    width:100%;
+    max-width:340px;
+  }
+  .repeatNetworkV65_17__center{ min-height:200px; order:2; }
+  .repeatNetworkV65_17__left{ order:1; }
+  .repeatNetworkV65_17__right{ order:3; }
+  .repeatNetworkV65_17__panel{ min-height:154px; }
+}
+
+@media (max-width: 520px){
+  .repeatNetworkV65_17__board{ padding:10px 0; gap:10px; }
+  .repeatNetworkV65_17__panel{
+    max-width:300px;
+    border-radius:22px;
+    min-height:138px;
+    padding:18px 14px 16px;
+  }
+  .repeatNetworkV65_17__center{
+    max-width:300px;
+    min-height:170px;
+    border-radius:26px;
+    padding:18px;
+  }
+  .repeatNetworkV65_17__avatar{ width:46px; height:46px; }
+  .repeatNetworkV65_17__panelTitle{ font-size:13px; }
+  .repeatNetworkV65_17__plus{ width:46px; height:46px; font-size:34px; margin-bottom:14px; }
+  .repeatNetworkV65_17__chips{ gap:7px; margin-bottom:14px; }
+  .repeatNetworkV65_17__chip{ font-size:11px; padding:8px 12px; }
+  .repeatNetworkV65_17__network{ width:96px; height:96px; }
+  .repeatNetworkV65_17__line{ height:28px; }
+  .repeatNetworkV65_17__hub{ width:22px; height:22px; }
+  .repeatNetworkV65_17__node{ width:15px; height:15px; border-width:2px; }
+  .repeatNetworkV65_17__node--2{ right:10px; top:22px; }
+  .repeatNetworkV65_17__node--3{ right:10px; bottom:22px; }
+  .repeatNetworkV65_17__node--5{ left:10px; bottom:22px; }
+  .repeatNetworkV65_17__node--6{ left:10px; top:22px; }
+  .repeatNetworkV65_17__centerLabel{ font-size:17px; margin-top:14px; }
+}

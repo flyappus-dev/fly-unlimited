@@ -1,0 +1,145 @@
+/* =========================================================
+   FLY HOW IT WORKS — MOBILE CARD HEIGHT FIX V65.11
+
+   Mobile only:
+   - restores the original compact Steps-card rhythm
+   - prevents Card 03 from forcing every carousel card tall
+   - keeps every card the exact same height
+   - compacts Card 03 internally so it fits cleanly
+   ========================================================= */
+
+@media (max-width: 720px) {
+
+  /* IMPORTANT:
+     V65.11 intentionally overrides any JS/CSS equal-height value that
+     was inherited from the taller Card 03.
+     All seven cards stay equal, but compact. */
+  .stepsCarouselV42 .howRow {
+    height: clamp(500px, 130vw, 560px) !important;
+    min-height: clamp(500px, 130vw, 560px) !important;
+    max-height: clamp(500px, 130vw, 560px) !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  /* Keep normal cards vertically balanced inside the restored height. */
+  .stepsCarouselV42 .howRow:not(.stepsCarouselV65__typesCard) {
+    align-content: center !important;
+  }
+
+  /* Ask / Connect / LiveTime artwork should not reserve phantom height. */
+  .stepsCarouselV42 .askManualVisual,
+  .stepsCarouselV42 .connectManualVisual,
+  .stepsCarouselV42 .liveTimeManualVisual {
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  /* ---------------------------------------------------------
+     CARD 03 — compact the content instead of growing the card.
+     --------------------------------------------------------- */
+  .stepsCarouselV65__typesCard {
+    align-content: center !important;
+  }
+
+  .stepsCarouselV65__typesCard .stepsCarouselV65__typesVisual {
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    height: auto !important;
+    margin: 0 auto !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__event {
+    margin: 0 auto 10px !important;
+    padding: 7px 10px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__eventIcon {
+    width: 34px !important;
+    height: 34px !important;
+    flex: 0 0 34px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__eventIcon img {
+    width: 21px !important;
+    height: 21px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__examples {
+    gap: 7px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__example {
+    padding: 10px 11px 11px !important;
+    border-radius: 16px !important;
+    row-gap: 7px !important;
+    column-gap: 8px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV60__profile {
+    gap: 8px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV60__avatar {
+    width: 31px !important;
+    height: 31px !important;
+    min-width: 31px !important;
+    max-width: 31px !important;
+    flex: 0 0 31px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV60__name {
+    font-size: 11px !important;
+    line-height: 1.1 !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV60__username {
+    font-size: 8px !important;
+    line-height: 1.05 !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__type {
+    padding: 5px 7px !important;
+    gap: 4px !important;
+    font-size: 7px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__typeIcon {
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    max-width: 18px !important;
+    flex: 0 0 18px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__typeIcon svg {
+    width: 10px !important;
+    height: 10px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__ask {
+    font-size: 11px !important;
+    line-height: 1.24 !important;
+  }
+
+  /* Connector gaps must fit the tighter mobile rhythm. */
+  .stepsCarouselV65__typesCard .marketMixV24__event::after {
+    height: 10px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__example:nth-child(1)::after,
+  .stepsCarouselV65__typesCard .marketMixV24__example:nth-child(2)::after {
+    bottom: -8px !important;
+    height: 8px !important;
+  }
+}
+
+/* Extra narrow phones: keep the cards equal without letting Card 03 expand. */
+@media (max-width: 390px) {
+  .stepsCarouselV42 .howRow {
+    height: 500px !important;
+    min-height: 500px !important;
+    max-height: 500px !important;
+  }
+}

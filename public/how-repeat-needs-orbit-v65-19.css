@@ -1,0 +1,217 @@
+/* =========================================================
+   FLY HOW IT WORKS — REPEAT NEEDS ORBIT RESPONSIVE V65.19
+   Keeps the good mobile concept, but makes the Repeat visual
+   clean, centered, and visible across desktop/tablet widths.
+   ========================================================= */
+
+.repeatNeedsOrbitV65_18{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.repeatNeedsOrbitV65_18__stage{
+  --orbit-size: clamp(250px, 28vw, 410px);
+  --avatar-size: clamp(40px, 4.7vw, 64px);
+  --icon-size: clamp(42px, 5vw, 62px);
+  --core-size: calc(var(--orbit-size) * .42);
+  --connector: calc(var(--orbit-size) * .20);
+  width:min(100%, calc(var(--orbit-size) + 120px));
+  aspect-ratio:1 / 1;
+  min-height:0;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto;
+  padding:0;
+  overflow:visible;
+}
+
+.repeatNeedsOrbitV65_18__ringOuter,
+.repeatNeedsOrbitV65_18__ringMiddle,
+.repeatNeedsOrbitV65_18__ringInner,
+.repeatNeedsOrbitV65_18__coreGlow,
+.repeatNeedsOrbitV65_18__core{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%, -50%);
+  border-radius:50%;
+}
+
+.repeatNeedsOrbitV65_18__ringOuter{
+  width:var(--orbit-size);
+  height:var(--orbit-size);
+  border:2px solid rgba(137,123,255,.22);
+}
+
+.repeatNeedsOrbitV65_18__ringMiddle{
+  width:calc(var(--orbit-size) * .74);
+  height:calc(var(--orbit-size) * .74);
+  border:1.5px solid rgba(137,123,255,.15);
+}
+
+.repeatNeedsOrbitV65_18__ringInner{
+  width:calc(var(--orbit-size) * .54);
+  height:calc(var(--orbit-size) * .54);
+  border:1px solid rgba(137,123,255,.11);
+  box-shadow:0 0 0 16px rgba(137,123,255,.035);
+}
+
+.repeatNeedsOrbitV65_18__coreGlow{
+  width:calc(var(--core-size) + 10px);
+  height:calc(var(--core-size) + 10px);
+  background:radial-gradient(circle, rgba(137,123,255,.14) 0%, rgba(137,123,255,.06) 44%, rgba(137,123,255,0) 76%);
+  z-index:0;
+}
+
+.repeatNeedsOrbitV65_18__core{
+  width:var(--core-size);
+  height:var(--core-size);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:22px;
+  background:linear-gradient(180deg, rgba(255,255,255,.98), rgba(249,248,253,.98));
+  border:1px solid rgba(17,17,17,.05);
+  box-shadow:0 24px 56px rgba(17,17,17,.08), 0 0 0 8px rgba(140,130,255,.045);
+  z-index:3;
+}
+
+.repeatNeedsOrbitV65_18__coreTitle{
+  margin:0;
+  color:#23232b;
+  font-size:clamp(24px, 3vw, 36px);
+  line-height:1;
+  font-weight:700;
+  letter-spacing:-.04em;
+}
+
+.repeatNeedsOrbitV65_18__coreSub{
+  margin:10px 0 0;
+  color:#7f7f8b;
+  font-size:clamp(9px, 1vw, 13px);
+  line-height:1.25;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-weight:600;
+}
+
+.repeatNeedsOrbitV65_18__connector{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:2px;
+  height:var(--connector);
+  background:linear-gradient(180deg, rgba(137,123,255,.50), rgba(137,123,255,.12));
+  border-radius:999px;
+  transform-origin:center bottom;
+  z-index:1;
+}
+.repeatNeedsOrbitV65_18__connector--1{ transform:translate(-50%, calc(-50% - var(--core-size) * .23)) rotate(0deg); }
+.repeatNeedsOrbitV65_18__connector--2{ transform:translate(-50%, calc(-50% - var(--core-size) * .05)) rotate(58deg); }
+.repeatNeedsOrbitV65_18__connector--3{ transform:translate(-50%, calc(-50% + var(--core-size) * .08)) rotate(122deg); }
+.repeatNeedsOrbitV65_18__connector--4{ transform:translate(-50%, calc(-50% + var(--core-size) * .10)) rotate(238deg); }
+.repeatNeedsOrbitV65_18__connector--5{ transform:translate(-50%, calc(-50% - var(--core-size) * .03)) rotate(302deg); }
+
+.repeatNeedsOrbitV65_18__avatar,
+.repeatNeedsOrbitV65_18__iconTile,
+.repeatNeedsOrbitV65_18__dot{
+  position:absolute;
+  z-index:2;
+}
+
+.repeatNeedsOrbitV65_18__avatar{
+  width:var(--avatar-size);
+  height:var(--avatar-size);
+  border-radius:50%;
+  object-fit:cover;
+  border:4px solid rgba(255,255,255,.96);
+  box-shadow:0 12px 24px rgba(17,17,17,.12);
+  background:#fff;
+  transform:translate(-50%, -50%);
+}
+.repeatNeedsOrbitV65_18__avatar--1{ left:50%; top:15%; }
+.repeatNeedsOrbitV65_18__avatar--2{ left:79%; top:37%; }
+.repeatNeedsOrbitV65_18__avatar--3{ left:76%; top:66%; }
+.repeatNeedsOrbitV65_18__avatar--4{ left:50%; top:84%; }
+.repeatNeedsOrbitV65_18__avatar--5{ left:21%; top:46%; }
+
+.repeatNeedsOrbitV65_18__iconTile{
+  width:var(--icon-size);
+  height:var(--icon-size);
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(180deg, rgba(255,255,255,.97), rgba(248,248,251,.98));
+  border:1px solid rgba(17,17,17,.05);
+  box-shadow:0 12px 24px rgba(17,17,17,.08);
+  transform:translate(-50%, -50%);
+}
+.repeatNeedsOrbitV65_18__iconTile svg{
+  width:calc(var(--icon-size) * .45);
+  height:calc(var(--icon-size) * .45);
+  stroke:#8d83ff;
+  stroke-width:1.8;
+  fill:none;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.repeatNeedsOrbitV65_18__iconTile--pin{ left:17%; top:18%; }
+.repeatNeedsOrbitV65_18__iconTile--calendar{ left:89%; top:34%; }
+.repeatNeedsOrbitV65_18__iconTile--chat{ left:90%; top:72%; }
+.repeatNeedsOrbitV65_18__iconTile--briefcase{ left:20%; top:78%; }
+
+.repeatNeedsOrbitV65_18__dot{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:#9b93ff;
+  box-shadow:0 4px 12px rgba(137,123,255,.22);
+  transform:translate(-50%, -50%);
+}
+.repeatNeedsOrbitV65_18__dot--1{ left:27%; top:31%; }
+.repeatNeedsOrbitV65_18__dot--2{ left:73%; top:19%; }
+.repeatNeedsOrbitV65_18__dot--3{ left:74%; top:74%; }
+.repeatNeedsOrbitV65_18__dot--4{ left:21%; top:59%; }
+
+@media (min-width: 1400px){
+  .repeatNeedsOrbitV65_18__stage{
+    --orbit-size: 430px;
+    width:min(100%, 550px);
+  }
+}
+
+@media (max-width: 1200px){
+  .repeatNeedsOrbitV65_18__stage{
+    --orbit-size: clamp(250px, 31vw, 380px);
+    width:min(100%, calc(var(--orbit-size) + 96px));
+  }
+}
+
+@media (max-width: 980px){
+  .repeatNeedsOrbitV65_18__stage{
+    --orbit-size: clamp(230px, 46vw, 330px);
+    --avatar-size: clamp(38px, 6vw, 52px);
+    --icon-size: clamp(38px, 6vw, 52px);
+    width:min(100%, 420px);
+  }
+  .repeatNeedsOrbitV65_18__ringInner{ box-shadow:0 0 0 12px rgba(137,123,255,.03); }
+}
+
+@media (max-width: 640px){
+  .repeatNeedsOrbitV65_18__stage{
+    --orbit-size: clamp(220px, 66vw, 270px);
+    --avatar-size: clamp(36px, 9vw, 42px);
+    --icon-size: clamp(36px, 9vw, 42px);
+    width:min(100%, 320px);
+  }
+  .repeatNeedsOrbitV65_18__ringInner{ box-shadow:none; }
+  .repeatNeedsOrbitV65_18__core{ padding:14px; }
+  .repeatNeedsOrbitV65_18__coreSub{ letter-spacing:.06em; }
+  .repeatNeedsOrbitV65_18__dot{ width:8px; height:8px; }
+}

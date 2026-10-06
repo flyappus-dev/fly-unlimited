@@ -1,0 +1,170 @@
+/* =========================================================
+   FLY HOW IT WORKS — REPEAT ICON ONLY V65.14
+   Replaces the last Repeat card visual with a single clean icon.
+   ========================================================= */
+
+.repeatIconOnlyV65_14{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.repeatIconOnlyV65_14__frame{
+  position:relative;
+  width:min(100%, 360px);
+  aspect-ratio:1 / 1;
+  border-radius:34px;
+  background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(248,248,250,.98));
+  border:1px solid rgba(17,17,17,.08);
+  box-shadow:0 22px 54px rgba(17,17,17,.08), 0 4px 18px rgba(17,17,17,.05);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.repeatIconOnlyV65_14__glow{
+  position:absolute;
+  width:58%;
+  aspect-ratio:1 / 1;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(124,116,255,.18) 0%, rgba(124,116,255,.08) 38%, rgba(124,116,255,0) 72%);
+  filter:blur(2px);
+}
+
+.repeatIconOnlyV65_14__ring,
+.repeatIconOnlyV65_14__ringInner{
+  position:absolute;
+  border-radius:50%;
+}
+
+.repeatIconOnlyV65_14__ring{
+  width:46%;
+  aspect-ratio:1 / 1;
+  border:1.5px solid rgba(124,116,255,.22);
+}
+
+.repeatIconOnlyV65_14__ringInner{
+  width:31%;
+  aspect-ratio:1 / 1;
+  border:1px solid rgba(124,116,255,.14);
+}
+
+.repeatIconOnlyV65_14__icon{
+  position:relative;
+  width:120px;
+  height:120px;
+}
+
+.repeatIconOnlyV65_14__curve{
+  position:absolute;
+  border:4px solid transparent;
+  border-radius:50%;
+}
+
+.repeatIconOnlyV65_14__curve--one{
+  inset:10px;
+  border-top-color:#776eff;
+  border-right-color:#776eff;
+  transform:rotate(24deg);
+}
+
+.repeatIconOnlyV65_14__curve--two{
+  inset:10px;
+  border-bottom-color:#776eff;
+  border-left-color:#776eff;
+  transform:rotate(24deg);
+}
+
+.repeatIconOnlyV65_14__head{
+  position:absolute;
+  width:14px;
+  height:14px;
+  border-top:4px solid #776eff;
+  border-right:4px solid #776eff;
+  border-radius:3px;
+}
+
+.repeatIconOnlyV65_14__head--one{
+  top:12px;
+  right:24px;
+  transform:rotate(19deg);
+}
+
+.repeatIconOnlyV65_14__head--two{
+  bottom:12px;
+  left:24px;
+  transform:rotate(199deg);
+}
+
+.repeatIconOnlyV65_14__dot{
+  position:absolute;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#776eff;
+  box-shadow:0 0 0 7px rgba(124,116,255,.10);
+}
+
+.repeatIconOnlyV65_14__dot--one{
+  top:20px;
+  left:20px;
+}
+
+.repeatIconOnlyV65_14__dot--two{
+  right:18px;
+  bottom:20px;
+}
+
+@media (max-width: 1100px){
+  .repeatIconOnlyV65_14__frame{
+    width:min(100%, 320px);
+    border-radius:28px;
+  }
+
+  .repeatIconOnlyV65_14__icon{
+    width:102px;
+    height:102px;
+  }
+}
+
+@media (max-width: 760px){
+  .repeatIconOnlyV65_14__frame{
+    width:min(100%, 280px);
+    border-radius:24px;
+  }
+
+  .repeatIconOnlyV65_14__icon{
+    width:92px;
+    height:92px;
+  }
+
+  .repeatIconOnlyV65_14__curve{
+    border-width:3.5px;
+  }
+
+  .repeatIconOnlyV65_14__head{
+    width:12px;
+    height:12px;
+    border-top-width:3.5px;
+    border-right-width:3.5px;
+  }
+}
+
+@media (max-width: 520px){
+  .repeatIconOnlyV65_14__frame{
+    width:min(100%, 232px);
+    border-radius:22px;
+  }
+
+  .repeatIconOnlyV65_14__icon{
+    width:80px;
+    height:80px;
+  }
+
+  .repeatIconOnlyV65_14__dot{
+    width:9px;
+    height:9px;
+  }
+}
