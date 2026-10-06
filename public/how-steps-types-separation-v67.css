@@ -1,0 +1,36 @@
+/* FLY HOW IT WORKS — STEPS / TYPES SEPARATION V67 */
+.stepsHeadingV66{width:100%!important;margin:0!important;padding:58px max(24px,calc((100vw - 1180px)/2)) 30px!important;background:#f5f5f7!important;border-top:1px solid #d8d8dc!important;box-sizing:border-box!important}
+.stepsHeadingV66__title{width:min(1180px,100%)!important;margin:0 auto!important}
+.stepsHeadingV66 + .how.stepsCarouselV42,.stepsHeadingV66 + .stepsCarouselV42{margin-top:0!important}
+.how.stepsCarouselV42{background:#f5f5f7!important;border-top:0!important;border-bottom:1px solid #e6e6ea!important;padding-top:54px!important;padding-bottom:42px!important}
+.marketMixV24.stepsTypesStandaloneV67{background:#fff!important;padding:92px 24px 98px!important;border-top:0!important;border-bottom:1px solid #ededf0!important}
+.marketMixV24.stepsTypesStandaloneV67 .marketMixV24__inner{width:min(100%,1180px)!important}
+.marketMixV24.stepsTypesStandaloneV67 .marketMixV24__title{font-size:clamp(46px,4.8vw,68px)!important;line-height:.96!important}
+.marketMixV24.stepsTypesStandaloneV67 .marketMixV24__lead{max-width:48rem!important;font-size:18px!important}
+.stepsAskSingleV67{width:min(100%,500px);justify-self:center;align-self:center}
+.stepsAskSingleV67__card{width:100%;padding:22px 22px 20px;border:1px solid #e3e3e7;border-radius:26px;background:#fff;box-shadow:0 18px 48px rgba(0,0,0,.065);text-align:left}
+.stepsAskSingleV67__head{display:flex;align-items:center;gap:12px}
+.stepsAskSingleV67__avatar{flex:0 0 48px;width:48px;height:48px;aspect-ratio:1/1;display:block;object-fit:cover;object-position:center;border-radius:50%;clip-path:circle(50% at 50% 50%);border:1px solid rgba(0,0,0,.08);background:#eee}
+.stepsAskSingleV67__identity{min-width:0;display:flex;flex-direction:column;gap:3px}
+.stepsAskSingleV67__name{color:#111;font-size:16px;line-height:1.1;font-weight:700}
+.stepsAskSingleV67__username{color:#85858b;font-size:12px;line-height:1.1;font-weight:500}
+.stepsAskSingleV67__type{margin-left:auto;display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border-radius:999px;background:#f5f2ff;color:#6f46ff;font-size:10px;line-height:1;font-weight:700;white-space:nowrap}
+.stepsAskSingleV67__type img{width:16px;height:16px;display:block}
+.stepsAskSingleV67__ask{margin:18px 0 0;color:#171719;font-size:clamp(18px,1.8vw,22px);line-height:1.34;letter-spacing:-.025em;font-weight:560}
+.stepsAskSingleV67__meta{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
+.stepsAskSingleV67__pill{display:inline-flex;align-items:center;gap:6px;min-height:30px;padding:0 10px;border-radius:999px;background:#f5f5f7;color:#6d6d73;font-size:11px;line-height:1;font-weight:550}
+.stepsAskSingleV67__pill svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.stepsTypesStandaloneV67 .marketMixV24__event{margin-top:38px!important}
+.stepsTypesStandaloneV67 .marketMixV24__examples{gap:16px!important}
+.stepsTypesStandaloneV67 .marketMixV24__example{min-height:190px!important;padding:20px!important;border-radius:22px!important}
+.stepsTypesStandaloneV67 .marketMixV60__profile{margin:16px 0 13px!important;gap:10px!important}
+.stepsTypesStandaloneV67 .marketMixV60__avatar{flex:0 0 42px!important;width:42px!important;height:42px!important;aspect-ratio:1/1!important;display:block!important;object-fit:cover!important;object-position:center!important;border-radius:50%!important;clip-path:circle(50% at 50% 50%)!important;overflow:hidden!important}
+.stepsTypesStandaloneV67 .marketMixV60__name{font-size:14px!important}
+.stepsTypesStandaloneV67 .marketMixV60__username{font-size:11px!important}
+.stepsTypesStandaloneV67 .marketMixV24__ask{margin-top:0!important;font-size:16px!important;line-height:1.38!important}
+.stepsTypesStandaloneV67 .marketMixV24__close{margin-top:28px!important;font-size:15px!important}
+.how.stepsCarouselV42 .howRow{min-height:620px!important}
+@media(max-width:1050px){.marketMixV24.stepsTypesStandaloneV67{padding-top:78px!important;padding-bottom:84px!important}.stepsTypesStandaloneV67 .marketMixV24__examples{grid-template-columns:repeat(2,minmax(0,1fr))!important}.stepsTypesStandaloneV67 .marketMixV24__branch,.stepsTypesStandaloneV67 .marketMixV24__event::after,.stepsTypesStandaloneV67 .marketMixV24__example::before{display:none!important}.stepsTypesStandaloneV67 .marketMixV24__examples{margin-top:28px!important}}
+@media(max-width:900px){.stepsHeadingV66{padding-top:48px!important;padding-bottom:26px!important}.how.stepsCarouselV42{padding-top:40px!important}.stepsAskSingleV67{width:min(100%,450px)}}
+@media(max-width:720px){.stepsHeadingV66{padding:40px 16px 22px!important}.how.stepsCarouselV42{padding-top:28px!important;padding-bottom:34px!important}.how.stepsCarouselV42 .howRow{min-height:0!important}.stepsAskSingleV67{width:100%;max-width:none}.stepsAskSingleV67__card{padding:18px 17px 17px;border-radius:22px}.stepsAskSingleV67__avatar{flex-basis:42px;width:42px;height:42px}.stepsAskSingleV67__name{font-size:15px}.stepsAskSingleV67__ask{font-size:18px}.marketMixV24.stepsTypesStandaloneV67{padding:66px 18px 72px!important}.marketMixV24.stepsTypesStandaloneV67 .marketMixV24__title{font-size:clamp(39px,10.6vw,48px)!important}.marketMixV24.stepsTypesStandaloneV67 .marketMixV24__lead{font-size:16px!important}.stepsTypesStandaloneV67 .marketMixV24__examples{grid-template-columns:1fr 1fr!important;gap:12px!important}.stepsTypesStandaloneV67 .marketMixV24__example{min-height:184px!important;padding:16px!important}.stepsTypesStandaloneV67 .marketMixV60__avatar{flex-basis:38px!important;width:38px!important;height:38px!important}}
+@media(max-width:500px){.stepsAskSingleV67__head{gap:10px}.stepsAskSingleV67__type{padding:7px 9px;font-size:9px}.stepsAskSingleV67__type img{width:14px;height:14px}.stepsTypesStandaloneV67 .marketMixV24__examples{grid-template-columns:1fr!important}.stepsTypesStandaloneV67 .marketMixV24__example{min-height:0!important}}
