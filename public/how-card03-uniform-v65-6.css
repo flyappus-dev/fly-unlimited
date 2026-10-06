@@ -1,0 +1,278 @@
+/* =========================================================
+   FLY HOW IT WORKS — CARD 03 UNIFORM V65.6
+
+   Card 03 only.
+   - Same outer Steps-card size as the rest.
+   - Same internal layout at ALL widths.
+   - No narrow third text column.
+   - No global img rules.
+   ========================================================= */
+
+.stepsCarouselV65__typesCard .stepsCarouselV65__typesVisual{
+  width:min(100%, 560px) !important;
+  max-width:560px !important;
+  margin:0 auto !important;
+}
+
+/* Small category context above the three examples. */
+.stepsCarouselV65__typesCard .marketMixV24__event{
+  transform:none !important;
+  width:max-content !important;
+  max-width:100% !important;
+  margin:0 auto 14px !important;
+  padding:10px 14px !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV24__eventIcon{
+  width:42px !important;
+  height:42px !important;
+  flex:0 0 42px !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV24__eventIcon img{
+  width:26px !important;
+  height:26px !important;
+  object-fit:contain !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV24__branch{
+  display:none !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV24__examples{
+  width:100% !important;
+  display:flex !important;
+  flex-direction:column !important;
+  gap:10px !important;
+}
+
+/* Three examples only. */
+.stepsCarouselV65__typesCard .marketMixV24__example:nth-child(4){
+  display:none !important;
+}
+
+/*
+  Every example uses ONE layout at every viewport:
+  top row = FLY type + user
+  bottom row = Ask
+*/
+.stepsCarouselV65__typesCard .marketMixV24__example{
+  width:100% !important;
+  min-width:0 !important;
+  min-height:0 !important;
+  height:auto !important;
+  box-sizing:border-box !important;
+
+  padding:13px 15px 14px !important;
+  display:grid !important;
+  grid-template-columns:auto minmax(0,1fr) !important;
+  grid-template-areas:
+    "type profile"
+    "ask ask" !important;
+
+  align-items:center !important;
+  column-gap:16px !important;
+  row-gap:10px !important;
+
+  border-radius:18px !important;
+}
+
+/* TYPE */
+.stepsCarouselV65__typesCard .marketMixV24__type{
+  grid-area:type !important;
+  min-width:104px !important;
+  margin:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:7px !important;
+  white-space:nowrap !important;
+  font-size:9px !important;
+  line-height:1 !important;
+  letter-spacing:.12em !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV24__typeIcon{
+  width:30px !important;
+  height:30px !important;
+  flex:0 0 30px !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV24__typeIcon svg{
+  width:16px !important;
+  height:16px !important;
+}
+
+/* USER */
+.stepsCarouselV65__typesCard .marketMixV60__profile{
+  grid-area:profile !important;
+  min-width:0 !important;
+  margin:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  gap:9px !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV60__avatar{
+  width:38px !important;
+  height:38px !important;
+  min-width:38px !important;
+  max-width:38px !important;
+  flex:0 0 38px !important;
+  aspect-ratio:1 / 1 !important;
+  border-radius:50% !important;
+  object-fit:cover !important;
+  object-position:center !important;
+  display:block !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV60__identity{
+  min-width:0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  gap:2px !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV60__name{
+  margin:0 !important;
+  font-size:11px !important;
+  line-height:1.15 !important;
+  font-weight:700 !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV60__username{
+  margin:0 !important;
+  font-size:8px !important;
+  line-height:1.1 !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+}
+
+/* ASK */
+.stepsCarouselV65__typesCard .marketMixV24__ask{
+  grid-area:ask !important;
+  width:100% !important;
+  min-width:0 !important;
+  margin:0 !important;
+  padding:0 !important;
+
+  font-size:11px !important;
+  line-height:1.3 !important;
+  text-align:left !important;
+
+  white-space:normal !important;
+  word-break:normal !important;
+  overflow-wrap:break-word !important;
+}
+
+/* Duplicate explanatory note removed from fixed-size card. */
+.stepsCarouselV65__typesCard .marketMixV24__close{
+  display:none !important;
+}
+
+
+/* Keep exactly the same composition on tablet.
+   Only scale the visual slightly, never rearrange it. */
+@media(max-width:1100px){
+  .stepsCarouselV65__typesCard .stepsCarouselV65__typesVisual{
+    width:min(100%, 500px) !important;
+    max-width:500px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__example{
+    padding:12px 13px 13px !important;
+    column-gap:12px !important;
+    row-gap:8px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__type{
+    min-width:96px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV60__avatar{
+    width:36px !important;
+    height:36px !important;
+    min-width:36px !important;
+    max-width:36px !important;
+    flex-basis:36px !important;
+  }
+}
+
+
+/* Mobile: same two-line composition, just proportionally smaller. */
+@media(max-width:720px){
+  .stepsCarouselV65__typesCard .stepsCarouselV65__typesVisual{
+    width:100% !important;
+    max-width:none !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__event{
+    margin-bottom:10px !important;
+    padding:8px 11px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__eventIcon{
+    width:36px !important;
+    height:36px !important;
+    flex-basis:36px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__eventIcon img{
+    width:22px !important;
+    height:22px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__examples{
+    gap:8px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__example{
+    padding:10px 11px 11px !important;
+    grid-template-columns:auto minmax(0,1fr) !important;
+    column-gap:9px !important;
+    row-gap:7px !important;
+    border-radius:16px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__type{
+    min-width:88px !important;
+    gap:5px !important;
+    font-size:8px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__typeIcon{
+    width:26px !important;
+    height:26px !important;
+    flex-basis:26px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__typeIcon svg{
+    width:14px !important;
+    height:14px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV60__avatar{
+    width:32px !important;
+    height:32px !important;
+    min-width:32px !important;
+    max-width:32px !important;
+    flex-basis:32px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV60__name{
+    font-size:10px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV60__username{
+    font-size:8px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__ask{
+    font-size:10px !important;
+    line-height:1.28 !important;
+  }
+}

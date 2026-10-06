@@ -1,0 +1,218 @@
+/* =========================================================
+   FLY HOW IT WORKS — CARD 03 SIMPLE FLY CARDS V65.7
+
+   Card 03 only.
+   Keep the Events category badge where it is.
+   Each example now reads like a simplified FLY:
+   user info on top, request text full-width below.
+   ========================================================= */
+
+.stepsCarouselV65__typesCard .stepsCarouselV65__typesVisual{
+  width:min(100%, 560px) !important;
+  max-width:560px !important;
+  margin:0 auto !important;
+}
+
+/* Keep the existing Events category anchor. */
+.stepsCarouselV65__typesCard .marketMixV24__event{
+  transform:none !important;
+  width:max-content !important;
+  max-width:100% !important;
+  margin:0 auto 16px !important;
+}
+
+/* Remove the old diagram line / branch. */
+.stepsCarouselV65__typesCard .marketMixV24__branch{
+  display:none !important;
+}
+
+/* Three simplified FLYs, vertically stacked. */
+.stepsCarouselV65__typesCard .marketMixV24__examples{
+  width:100% !important;
+  display:flex !important;
+  flex-direction:column !important;
+  gap:12px !important;
+}
+
+/* Keep three examples only. */
+.stepsCarouselV65__typesCard .marketMixV24__example:nth-child(4){
+  display:none !important;
+}
+
+/* Hide Service / Rental / Delivery treatment.
+   The card should look like a FLY, not a diagram row. */
+.stepsCarouselV65__typesCard .marketMixV24__type{
+  display:none !important;
+}
+
+/* Simplified FLY card */
+.stepsCarouselV65__typesCard .marketMixV24__example{
+  width:100% !important;
+  min-width:0 !important;
+  min-height:0 !important;
+  height:auto !important;
+  box-sizing:border-box !important;
+
+  display:block !important;
+  padding:15px 17px 16px !important;
+
+  border-radius:20px !important;
+  background:#fff !important;
+  border:1px solid rgba(0,0,0,.09) !important;
+  box-shadow:0 8px 22px rgba(0,0,0,.035) !important;
+}
+
+/* User row */
+.stepsCarouselV65__typesCard .marketMixV60__profile{
+  width:100% !important;
+  min-width:0 !important;
+  margin:0 0 11px !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  gap:10px !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV60__avatar{
+  width:40px !important;
+  height:40px !important;
+  min-width:40px !important;
+  max-width:40px !important;
+  flex:0 0 40px !important;
+
+  display:block !important;
+  aspect-ratio:1 / 1 !important;
+  object-fit:cover !important;
+  object-position:center !important;
+  border-radius:50% !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV60__identity{
+  min-width:0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:flex-start !important;
+  gap:2px !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV60__name{
+  margin:0 !important;
+  color:#111 !important;
+  font-size:12px !important;
+  line-height:1.15 !important;
+  font-weight:700 !important;
+
+  white-space:nowrap !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV60__username{
+  margin:0 !important;
+  color:#8a8a90 !important;
+  font-size:9px !important;
+  line-height:1.15 !important;
+
+  white-space:nowrap !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+}
+
+/* Request text always owns the full card width. */
+.stepsCarouselV65__typesCard .marketMixV24__ask{
+  display:block !important;
+  width:100% !important;
+  max-width:none !important;
+  min-width:0 !important;
+
+  margin:0 !important;
+  padding:0 !important;
+
+  color:#1d1d1f !important;
+  font-size:13px !important;
+  line-height:1.34 !important;
+  text-align:left !important;
+
+  white-space:normal !important;
+  word-break:normal !important;
+  overflow-wrap:normal !important;
+}
+
+/* Remove duplicate explanatory note in this fixed-size card. */
+.stepsCarouselV65__typesCard .marketMixV24__close{
+  display:none !important;
+}
+
+
+/* Same exact hierarchy at intermediate widths. */
+@media(max-width:1100px){
+  .stepsCarouselV65__typesCard .stepsCarouselV65__typesVisual{
+    width:min(100%, 500px) !important;
+    max-width:500px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__example{
+    padding:14px 15px 15px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV60__avatar{
+    width:38px !important;
+    height:38px !important;
+    min-width:38px !important;
+    max-width:38px !important;
+    flex-basis:38px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__ask{
+    font-size:12px !important;
+  }
+}
+
+
+/* Mobile keeps the same FLY-card layout, just slightly smaller. */
+@media(max-width:720px){
+  .stepsCarouselV65__typesCard .stepsCarouselV65__typesVisual{
+    width:100% !important;
+    max-width:none !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__event{
+    margin-bottom:12px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__examples{
+    gap:9px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__example{
+    padding:12px 13px 13px !important;
+    border-radius:17px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV60__profile{
+    margin-bottom:9px !important;
+    gap:9px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV60__avatar{
+    width:34px !important;
+    height:34px !important;
+    min-width:34px !important;
+    max-width:34px !important;
+    flex-basis:34px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV60__name{
+    font-size:11px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV60__username{
+    font-size:8px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__ask{
+    font-size:11px !important;
+    line-height:1.32 !important;
+  }
+}

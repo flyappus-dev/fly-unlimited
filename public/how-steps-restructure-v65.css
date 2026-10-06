@@ -1,0 +1,157 @@
+/* =========================================================
+   FLY HOW IT WORKS — STEPS RESTRUCTURE V65
+   Category = card 02, FLY Types = card 03.
+   Existing Ask card stays card 01.
+   ========================================================= */
+
+.stepsCarouselV65__categoryCard .stepsCarouselV65__categoryVisual{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+}
+
+.stepsCarouselV65__categoryCard .guideIntroV59__grid{
+  width:min(100%, 560px) !important;
+  margin:0 auto !important;
+  padding:0 !important;
+  display:grid !important;
+  grid-template-columns:repeat(3, minmax(0, 1fr)) !important;
+  gap:26px 22px !important;
+  overflow:visible !important;
+}
+
+.stepsCarouselV65__categoryCard .guideIntroV59__item{
+  min-width:0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  gap:9px !important;
+  text-align:center !important;
+}
+
+.stepsCarouselV65__categoryCard .guideIntroV59__square{
+  width:70px !important;
+  height:70px !important;
+  border-radius:20px !important;
+  box-shadow:0 10px 24px rgba(0,0,0,.08) !important;
+}
+
+.stepsCarouselV65__categoryCard .guideIntroV59__square img{
+  width:38px !important;
+  height:38px !important;
+}
+
+.stepsCarouselV65__categoryCard .guideIntroV59__label{
+  max-width:90px !important;
+  color:#6e6e73 !important;
+  font-size:11px !important;
+  line-height:1.15 !important;
+  font-weight:600 !important;
+}
+
+.stepsCarouselV65__typesCard .stepsCarouselV65__typesVisual{
+  width:100%;
+  max-width:650px;
+  margin:0 auto;
+}
+
+.stepsCarouselV65__typesCard .marketMixV24__event{
+  margin:0 auto 28px !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV24__branch{
+  margin-bottom:0 !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV24__examples{
+  display:grid !important;
+  grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
+  gap:12px !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV24__example{
+  min-height:190px !important;
+  padding:18px !important;
+  border-radius:22px !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV60__profile{
+  margin:14px 0 12px !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV60__avatar{
+  width:34px !important;
+  height:34px !important;
+  flex-basis:34px !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV24__ask{
+  font-size:14px !important;
+  line-height:1.35 !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV24__close{
+  margin:20px auto 0 !important;
+  max-width:560px !important;
+  text-align:center !important;
+  font-size:12px !important;
+  line-height:1.45 !important;
+}
+
+.stepsCarouselV65__categoryCard,
+.stepsCarouselV65__typesCard{
+  min-height:720px !important;
+}
+
+@media(max-width:900px){
+  .stepsCarouselV65__categoryCard .guideIntroV59__grid{
+    width:min(100%, 470px) !important;
+    gap:20px 16px !important;
+  }
+
+  .stepsCarouselV65__categoryCard .guideIntroV59__square{
+    width:60px !important;
+    height:60px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__examples{
+    grid-template-columns:1fr 1fr !important;
+  }
+}
+
+@media(max-width:720px){
+  .stepsCarouselV65__categoryCard,
+  .stepsCarouselV65__typesCard{
+    min-height:auto !important;
+  }
+
+  .stepsCarouselV65__categoryCard .guideIntroV59__grid{
+    width:100% !important;
+    grid-template-columns:repeat(3, minmax(0, 1fr)) !important;
+    gap:18px 10px !important;
+  }
+
+  .stepsCarouselV65__categoryCard .guideIntroV59__square{
+    width:54px !important;
+    height:54px !important;
+    border-radius:17px !important;
+  }
+
+  .stepsCarouselV65__categoryCard .guideIntroV59__square img{
+    width:31px !important;
+    height:31px !important;
+  }
+
+  .stepsCarouselV65__categoryCard .guideIntroV59__label{
+    font-size:9px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__examples{
+    grid-template-columns:1fr !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__example{
+    min-height:0 !important;
+  }
+}

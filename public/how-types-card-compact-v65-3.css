@@ -1,0 +1,157 @@
+/* =========================================================
+   FLY HOW IT WORKS — TYPES CARD COMPACT V65.3
+   Keeps Card 03 the SAME size as every other Steps card.
+   The content is reduced/reflowed to fit the card.
+   ========================================================= */
+
+.stepsCarouselV65__typesCard .stepsCarouselV65__typesVisual{
+  width:min(100%, 560px) !important;
+  max-width:560px !important;
+  margin:0 auto !important;
+}
+
+/* Keep the Events context, but small and quiet. */
+.stepsCarouselV65__typesCard .marketMixV24__event{
+  transform:scale(.76) !important;
+  transform-origin:center top !important;
+  margin:0 auto 4px !important;
+}
+
+/* The old branching diagram adds height and is no longer needed. */
+.stepsCarouselV65__typesCard .marketMixV24__branch{
+  display:none !important;
+}
+
+/* Three examples only, stacked vertically. */
+.stepsCarouselV65__typesCard .marketMixV24__examples{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:10px !important;
+  width:100% !important;
+}
+
+/* Hide the fourth example (Purchase) for this compact card. */
+.stepsCarouselV65__typesCard .marketMixV24__example:nth-child(4){
+  display:none !important;
+}
+
+/* Each example becomes a compact horizontal row instead of a mini-card block. */
+.stepsCarouselV65__typesCard .marketMixV24__example{
+  min-height:0 !important;
+  height:auto !important;
+  padding:12px 14px !important;
+  display:grid !important;
+  grid-template-columns:112px 132px minmax(0,1fr) !important;
+  align-items:center !important;
+  gap:12px !important;
+  border-radius:18px !important;
+}
+
+/* Type stays readable but compact. */
+.stepsCarouselV65__typesCard .marketMixV24__type{
+  margin:0 !important;
+  gap:7px !important;
+  font-size:9px !important;
+  letter-spacing:.12em !important;
+  white-space:nowrap !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV24__typeIcon{
+  width:28px !important;
+  height:28px !important;
+  flex:0 0 28px !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV24__typeIcon svg{
+  width:15px !important;
+  height:15px !important;
+}
+
+/* Person identity fits on one compact line/column. */
+.stepsCarouselV65__typesCard .marketMixV60__profile{
+  margin:0 !important;
+  gap:8px !important;
+  min-width:0 !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV60__avatar{
+  width:30px !important;
+  height:30px !important;
+  flex:0 0 30px !important;
+  border-radius:50% !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV60__identity{
+  min-width:0 !important;
+  gap:1px !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV60__name{
+  font-size:10px !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV60__username{
+  font-size:8px !important;
+}
+
+/* Request becomes the right-most line in each row. */
+.stepsCarouselV65__typesCard .marketMixV24__ask{
+  margin:0 !important;
+  font-size:11px !important;
+  line-height:1.3 !important;
+  text-align:left !important;
+}
+
+/* This repeated note is removed from the card to preserve hierarchy + height. */
+.stepsCarouselV65__typesCard .marketMixV24__close{
+  display:none !important;
+}
+
+
+/* Tablet: keep the same compact stacked concept. */
+@media(max-width:980px){
+  .stepsCarouselV65__typesCard .stepsCarouselV65__typesVisual{
+    max-width:500px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__example{
+    grid-template-columns:102px 120px minmax(0,1fr) !important;
+    gap:9px !important;
+    padding:10px 12px !important;
+  }
+}
+
+
+/* Mobile: still three vertical rows, but each row becomes two lines. */
+@media(max-width:720px){
+  .stepsCarouselV65__typesCard .marketMixV24__event{
+    transform:scale(.7) !important;
+    margin-bottom:0 !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__examples{
+    gap:8px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__example{
+    grid-template-columns:auto minmax(0,1fr) !important;
+    grid-template-areas:
+      "type profile"
+      "ask ask" !important;
+    gap:7px 10px !important;
+    padding:10px 12px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__type{
+    grid-area:type !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV60__profile{
+    grid-area:profile !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__ask{
+    grid-area:ask !important;
+    padding-top:2px !important;
+  }
+}

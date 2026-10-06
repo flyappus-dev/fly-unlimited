@@ -1,0 +1,302 @@
+/* =========================================================
+   FLY HOW IT WORKS — CARD 03 POLISH V65.9
+   - clean connector rail
+   - fuller simplified FLY copy
+   - slightly larger text
+   - same outer card dimensions
+   ========================================================= */
+
+.stepsCarouselV65__typesCard .stepsCarouselV65__typesVisual{
+  width:min(100%, 560px) !important;
+  max-width:560px !important;
+  margin:0 auto !important;
+  position:relative !important;
+  isolation:isolate !important;
+}
+
+/* Kill any inherited / experimental connector fragments. */
+.stepsCarouselV65__typesCard .marketMixV24__branch,
+.stepsCarouselV65__typesCard .marketMixV24__examples::before,
+.stepsCarouselV65__typesCard .marketMixV24__examples::after,
+.stepsCarouselV65__typesCard .marketMixV24__example::before,
+.stepsCarouselV65__typesCard .marketMixV24__example::after{
+  display:none !important;
+  content:none !important;
+}
+
+/* One clean rail behind the Events badge and all three FLYs.
+   Because the badge/cards are opaque and z-indexed above it,
+   the line only appears naturally in the gaps. */
+.stepsCarouselV65__typesCard .stepsCarouselV65__typesVisual::before{
+  content:"" !important;
+  position:absolute !important;
+  left:50% !important;
+  top:42px !important;
+  bottom:46px !important;
+  width:1px !important;
+  transform:translateX(-50%) !important;
+  background:#d2d2d7 !important;
+  z-index:0 !important;
+  pointer-events:none !important;
+}
+
+/* Events stays exactly as the category anchor. */
+.stepsCarouselV65__typesCard .marketMixV24__event{
+  position:relative !important;
+  z-index:2 !important;
+  width:max-content !important;
+  max-width:100% !important;
+  margin:0 auto 16px !important;
+  background:#fff !important;
+}
+
+/* Three simplified FLYs. */
+.stepsCarouselV65__typesCard .marketMixV24__examples{
+  width:100% !important;
+  display:flex !important;
+  flex-direction:column !important;
+  gap:12px !important;
+  position:relative !important;
+  z-index:1 !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV24__example:nth-child(4){
+  display:none !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV24__example{
+  width:100% !important;
+  min-width:0 !important;
+  min-height:0 !important;
+  height:auto !important;
+  box-sizing:border-box !important;
+
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) auto !important;
+  grid-template-areas:
+    "profile type"
+    "ask ask" !important;
+
+  align-items:center !important;
+  column-gap:14px !important;
+  row-gap:12px !important;
+
+  padding:16px 18px 17px !important;
+
+  border-radius:20px !important;
+  background:#fff !important;
+  border:1px solid rgba(0,0,0,.09) !important;
+  box-shadow:0 8px 22px rgba(0,0,0,.035) !important;
+
+  position:relative !important;
+  z-index:2 !important;
+}
+
+/* User identity */
+.stepsCarouselV65__typesCard .marketMixV60__profile{
+  grid-area:profile !important;
+  width:100% !important;
+  min-width:0 !important;
+  margin:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  gap:10px !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV60__avatar{
+  width:40px !important;
+  height:40px !important;
+  min-width:40px !important;
+  max-width:40px !important;
+  flex:0 0 40px !important;
+  aspect-ratio:1/1 !important;
+  display:block !important;
+  object-fit:cover !important;
+  object-position:center !important;
+  border-radius:50% !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV60__identity{
+  min-width:0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:flex-start !important;
+  gap:2px !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV60__name{
+  margin:0 !important;
+  color:#111 !important;
+  font-size:13px !important;
+  line-height:1.15 !important;
+  font-weight:700 !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV60__username{
+  margin:0 !important;
+  color:#8a8a90 !important;
+  font-size:10px !important;
+  line-height:1.15 !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+}
+
+/* Type pill remains visible. */
+.stepsCarouselV65__typesCard .marketMixV24__type{
+  grid-area:type !important;
+  margin:0 !important;
+  padding:7px 10px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:6px !important;
+  width:max-content !important;
+  max-width:100% !important;
+  border-radius:999px !important;
+  background:#f5f5f7 !important;
+  color:#66666d !important;
+  font-size:8px !important;
+  line-height:1 !important;
+  font-weight:700 !important;
+  letter-spacing:.11em !important;
+  white-space:nowrap !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV24__typeIcon{
+  width:21px !important;
+  height:21px !important;
+  min-width:21px !important;
+  max-width:21px !important;
+  flex:0 0 21px !important;
+  border-radius:50% !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV24__typeIcon svg{
+  width:12px !important;
+  height:12px !important;
+}
+
+/* Fuller FLY copy uses the entire width below the identity row. */
+.stepsCarouselV65__typesCard .marketMixV24__ask{
+  grid-area:ask !important;
+  display:block !important;
+  width:100% !important;
+  max-width:none !important;
+  min-width:0 !important;
+  margin:0 !important;
+  padding:0 !important;
+  color:#1d1d1f !important;
+  font-size:14px !important;
+  line-height:1.38 !important;
+  font-weight:500 !important;
+  text-align:left !important;
+  white-space:normal !important;
+  word-break:normal !important;
+  overflow-wrap:normal !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV24__close{
+  display:none !important;
+}
+
+/* Same hierarchy at intermediate widths. */
+@media(max-width:1100px){
+  .stepsCarouselV65__typesCard .stepsCarouselV65__typesVisual{
+    width:min(100%, 500px) !important;
+    max-width:500px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__example{
+    padding:15px 16px 16px !important;
+    column-gap:10px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV60__avatar{
+    width:38px !important;
+    height:38px !important;
+    min-width:38px !important;
+    max-width:38px !important;
+    flex-basis:38px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__ask{
+    font-size:13px !important;
+  }
+}
+
+/* Mobile: same structure, just scaled slightly. */
+@media(max-width:720px){
+  .stepsCarouselV65__typesCard .stepsCarouselV65__typesVisual{
+    width:100% !important;
+    max-width:none !important;
+  }
+
+  .stepsCarouselV65__typesCard .stepsCarouselV65__typesVisual::before{
+    top:38px !important;
+    bottom:38px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__event{
+    margin-bottom:12px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__examples{
+    gap:9px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__example{
+    grid-template-columns:minmax(0,1fr) auto !important;
+    grid-template-areas:
+      "profile type"
+      "ask ask" !important;
+    padding:13px 14px 14px !important;
+    column-gap:8px !important;
+    row-gap:9px !important;
+    border-radius:17px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV60__avatar{
+    width:34px !important;
+    height:34px !important;
+    min-width:34px !important;
+    max-width:34px !important;
+    flex-basis:34px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV60__name{
+    font-size:12px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV60__username{
+    font-size:9px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__type{
+    padding:6px 8px !important;
+    gap:5px !important;
+    font-size:7px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__typeIcon{
+    width:19px !important;
+    height:19px !important;
+    min-width:19px !important;
+    max-width:19px !important;
+    flex-basis:19px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__typeIcon svg{
+    width:11px !important;
+    height:11px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__ask{
+    font-size:12px !important;
+    line-height:1.34 !important;
+  }
+}

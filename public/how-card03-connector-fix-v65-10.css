@@ -1,0 +1,77 @@
+/* =========================================================
+   FLY HOW IT WORKS — CARD 03 CONNECTOR FIX V65.10
+   Fixes only the connector lines in Card 03.
+   No card sizing / copy / image changes.
+   ========================================================= */
+
+.stepsCarouselV65__typesCard .stepsCarouselV65__typesVisual::before,
+.stepsCarouselV65__typesCard .stepsCarouselV65__typesVisual::after,
+.stepsCarouselV65__typesCard .marketMixV24__branch,
+.stepsCarouselV65__typesCard .marketMixV24__examples::before,
+.stepsCarouselV65__typesCard .marketMixV24__examples::after{
+  display:none !important;
+  content:none !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV24__event{
+  position:relative !important;
+  z-index:3 !important;
+  margin-bottom:18px !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV24__event::after{
+  content:"" !important;
+  display:block !important;
+  position:absolute !important;
+  left:50% !important;
+  top:100% !important;
+  width:1px !important;
+  height:18px !important;
+  transform:translateX(-50%) !important;
+  background:#d2d2d7 !important;
+  z-index:1 !important;
+  pointer-events:none !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV24__example{
+  position:relative !important;
+  z-index:2 !important;
+  background:#fff !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV24__example::before,
+.stepsCarouselV65__typesCard .marketMixV24__example::after{
+  display:none !important;
+  content:none !important;
+}
+
+.stepsCarouselV65__typesCard .marketMixV24__example:nth-child(1)::after,
+.stepsCarouselV65__typesCard .marketMixV24__example:nth-child(2)::after{
+  content:"" !important;
+  display:block !important;
+  position:absolute !important;
+  left:50% !important;
+  bottom:-13px !important;
+  width:1px !important;
+  height:13px !important;
+  transform:translateX(-50%) !important;
+  background:#d2d2d7 !important;
+  z-index:1 !important;
+  pointer-events:none !important;
+}
+
+@media(max-width:720px){
+  .stepsCarouselV65__typesCard .marketMixV24__event{
+    margin-bottom:14px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__event::after{
+    height:14px !important;
+  }
+
+  .stepsCarouselV65__typesCard .marketMixV24__example:nth-child(1)::after,
+  .stepsCarouselV65__typesCard .marketMixV24__example:nth-child(2)::after{
+    bottom:-10px !important;
+    height:10px !important;
+  }
+}

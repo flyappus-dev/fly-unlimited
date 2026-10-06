@@ -1,0 +1,61 @@
+/* =========================================================
+   FLY HOW IT WORKS — CATEGORY COPY + EVENT PROFILES V60
+   ========================================================= */
+
+/* Give the 4 FLY-type examples a little more life without making them busy. */
+.marketMixV60__profile{
+  margin:18px 0 14px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.marketMixV60__avatar{
+  width:38px;
+  height:38px;
+  flex:0 0 38px;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+  border-radius:50%;
+  border:1px solid rgba(0,0,0,.08);
+  background:#eee;
+}
+
+.marketMixV60__identity{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+
+.marketMixV60__name{
+  color:#111;
+  font-size:13px;
+  line-height:1.1;
+  font-weight:700;
+}
+
+.marketMixV60__username{
+  color:#85858b;
+  font-size:11px;
+  line-height:1.1;
+  font-weight:500;
+}
+
+.marketMixV24__ask{
+  margin-top:0 !important;
+}
+
+/* Keep the profile treatment compact on smaller screens. */
+@media(max-width:720px){
+  .marketMixV60__profile{
+    margin:15px 0 12px;
+  }
+
+  .marketMixV60__avatar{
+    width:36px;
+    height:36px;
+    flex-basis:36px;
+  }
+}

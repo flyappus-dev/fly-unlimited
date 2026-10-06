@@ -1,0 +1,435 @@
+/* =========================================================
+   FLY HOW IT WORKS — OPENING HIERARCHY V59
+   Cleaner hero + cleaner first Ask chapter.
+   ========================================================= */
+
+/* ---------- HERO ---------- */
+
+.heroEyebrow{
+  display:none !important;
+}
+
+.heroCopy{
+  width:min(100%, 650px) !important;
+}
+
+.heroTitle{
+  margin:0 !important;
+  max-width:none !important;
+  font-size:clamp(60px, 6vw, 88px) !important;
+  line-height:.96 !important;
+  letter-spacing:-.038em !important;
+  word-spacing:.14em !important;
+}
+
+.heroLead{
+  margin-top:24px !important;
+  max-width:31rem !important;
+  font-size:clamp(17px, 1.35vw, 21px) !important;
+  line-height:1.52 !important;
+  font-weight:500 !important;
+  color:rgba(255,255,255,.86) !important;
+}
+
+.heroCta{
+  margin-top:28px !important;
+}
+
+
+/* ---------- FIRST CHAPTER ---------- */
+
+.guideIntroV59{
+  padding:76px 0 58px;
+  background:#fff;
+  color:#111;
+}
+
+.guideIntroV59__inner{
+  width:min(1180px, calc(100% - 48px));
+  margin:0 auto;
+}
+
+.guideIntroV59__head{
+  display:grid;
+  grid-template-columns:minmax(300px,.39fr) minmax(0,.61fr);
+  gap:clamp(54px,6vw,92px);
+  align-items:center;
+}
+
+.guideIntroV59__copy{
+  max-width:440px;
+}
+
+.guideIntroV59__step{
+  margin:0 0 18px;
+  color:#77777d;
+  font-size:11px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+.guideIntroV59__title{
+  margin:0;
+  max-width:8.3ch;
+  font-size:clamp(54px,5vw,74px);
+  line-height:.94;
+  letter-spacing:-.052em;
+  font-weight:700;
+}
+
+.guideIntroV59__lead{
+  margin:22px 0 0;
+  max-width:27rem;
+  color:#6e6e73;
+  font-size:17px;
+  line-height:1.55;
+}
+
+.guideIntroV59__demo{
+  width:100%;
+}
+
+.guideIntroV59__composer{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:12px;
+  width:100%;
+  padding:12px;
+  border:1px solid #dedee3;
+  border-radius:28px;
+  background:#fff;
+  box-shadow:0 18px 42px rgba(0,0,0,.055);
+}
+
+.guideIntroV59__input{
+  min-width:0;
+  min-height:72px;
+  padding:0 22px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  overflow:hidden;
+  border-radius:20px;
+  background:#f5f5f7;
+  font-size:17px;
+  white-space:nowrap;
+}
+
+.guideIntroV59__prefix{
+  flex:0 0 auto;
+  color:#9a9aa0;
+}
+
+.guideIntroV59__query{
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  color:#111;
+  font-weight:600;
+}
+
+.guideIntroV59__cursor{
+  flex:0 0 auto;
+  width:2px;
+  height:28px;
+  border-radius:999px;
+  background:#7b39ff;
+}
+
+.guideIntroV59__askButton{
+  min-width:118px;
+  min-height:72px;
+  padding:0 24px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  border-radius:20px;
+  background:#080808;
+  color:#fff;
+  font-size:15px;
+  font-weight:700;
+}
+
+.guideIntroV59__suggested{
+  margin-top:14px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px;
+}
+
+.guideIntroV59__suggestedLabel{
+  color:#8a8a90;
+  font-size:13px;
+}
+
+.guideIntroV59__categoryChip{
+  min-height:38px;
+  padding:4px 12px 4px 5px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid #dedee3;
+  border-radius:999px;
+  background:#fff;
+  color:#111;
+  font-size:13px;
+  font-weight:700;
+}
+
+.guideIntroV59__categoryIcon{
+  width:28px;
+  height:28px;
+  display:grid;
+  place-items:center;
+  border-radius:9px;
+  background:#0054A3;
+}
+
+.guideIntroV59__categoryIcon img{
+  width:18px;
+  height:18px;
+}
+
+
+/* Categories now read as a subordinate part of Ask, not a new chapter. */
+
+.guideIntroV59__categories{
+  margin-top:34px;
+  padding:22px 24px;
+  display:grid;
+  grid-template-columns:minmax(210px,.28fr) minmax(0,.72fr);
+  gap:28px;
+  align-items:center;
+  border-radius:24px;
+  background:#f5f5f7;
+}
+
+.guideIntroV59__categoriesCopy{
+  max-width:280px;
+}
+
+.guideIntroV59__categoriesTitle{
+  margin:0;
+  font-size:26px;
+  line-height:1.03;
+  letter-spacing:-.04em;
+}
+
+.guideIntroV59__categoriesText{
+  margin:8px 0 0;
+  color:#707075;
+  font-size:13px;
+  line-height:1.45;
+}
+
+.guideIntroV59__grid{
+  min-width:0;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.guideIntroV59__item{
+  flex:1 1 0;
+  min-width:52px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  text-align:center;
+}
+
+.guideIntroV59__square{
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  background:var(--cat);
+  box-shadow:0 5px 14px rgba(0,0,0,.055);
+}
+
+.guideIntroV59__square img{
+  width:28px;
+  height:28px;
+}
+
+.guideIntroV59__label{
+  max-width:64px;
+  color:#6e6e73;
+  font-size:8px;
+  line-height:1.08;
+  font-weight:600;
+}
+
+
+/* Make the next section feel like the next chapter, not a continuation
+   of a cluttered intro. */
+
+.marketMixV24{
+  margin-top:0 !important;
+  border-top:1px solid #ececef !important;
+}
+
+
+/* ---------- TABLET ---------- */
+
+@media(max-width:980px){
+  .guideIntroV59{
+    padding-top:64px;
+  }
+
+  .guideIntroV59__head{
+    grid-template-columns:minmax(260px,.4fr) minmax(0,.6fr);
+    gap:38px;
+  }
+
+  .guideIntroV59__categories{
+    grid-template-columns:minmax(190px,.3fr) minmax(0,.7fr);
+    gap:20px;
+  }
+
+  .guideIntroV59__square{
+    width:43px;
+    height:43px;
+  }
+
+  .guideIntroV59__square img{
+    width:26px;
+    height:26px;
+  }
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:720px){
+  .heroTitle{
+    font-size:clamp(50px,13vw,64px) !important;
+    letter-spacing:-.03em !important;
+    word-spacing:.08em !important;
+  }
+
+  .heroLead{
+    margin-top:20px !important;
+    max-width:22rem !important;
+    font-size:16px !important;
+    line-height:1.5 !important;
+  }
+
+  .guideIntroV59{
+    padding:52px 0 42px;
+  }
+
+  .guideIntroV59__inner{
+    width:calc(100% - 32px);
+  }
+
+  .guideIntroV59__head{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+
+  .guideIntroV59__copy{
+    max-width:100%;
+  }
+
+  .guideIntroV59__step{
+    margin-bottom:14px;
+    font-size:10px;
+  }
+
+  .guideIntroV59__title{
+    max-width:8.5ch;
+    font-size:clamp(48px,13vw,60px);
+    line-height:.96;
+  }
+
+  .guideIntroV59__lead{
+    margin-top:18px;
+    max-width:22rem;
+    font-size:16px;
+    line-height:1.5;
+  }
+
+  .guideIntroV59__composer{
+    grid-template-columns:1fr;
+    gap:10px;
+    padding:10px;
+    border-radius:24px;
+  }
+
+  .guideIntroV59__input{
+    min-height:66px;
+    padding:0 18px;
+    border-radius:17px;
+    font-size:15px;
+  }
+
+  .guideIntroV59__askButton{
+    min-width:0;
+    min-height:58px;
+    border-radius:17px;
+  }
+
+  .guideIntroV59__suggested{
+    justify-content:flex-start;
+    margin-top:14px;
+  }
+
+  .guideIntroV59__categories{
+    margin-top:28px;
+    padding:18px 18px 16px;
+    grid-template-columns:1fr;
+    gap:15px;
+    border-radius:22px;
+  }
+
+  .guideIntroV59__categoriesCopy{
+    max-width:100%;
+  }
+
+  .guideIntroV59__categoriesTitle{
+    font-size:23px;
+  }
+
+  .guideIntroV59__categoriesText{
+    max-width:25rem;
+    font-size:13px;
+  }
+
+  .guideIntroV59__grid{
+    width:calc(100% + 18px);
+    margin-right:-18px;
+    padding:2px 18px 4px 0;
+    overflow-x:auto;
+    overscroll-behavior-inline:contain;
+    scrollbar-width:none;
+    justify-content:flex-start;
+    scroll-snap-type:x proximity;
+  }
+
+  .guideIntroV59__grid::-webkit-scrollbar{
+    display:none;
+  }
+
+  .guideIntroV59__item{
+    flex:0 0 54px;
+    scroll-snap-align:start;
+  }
+
+  .guideIntroV59__square{
+    width:44px;
+    height:44px;
+  }
+
+  .guideIntroV59__label{
+    max-width:56px;
+    font-size:7.5px;
+  }
+}

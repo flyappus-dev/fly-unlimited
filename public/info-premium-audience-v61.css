@@ -1,0 +1,258 @@
+/* =========================================================
+   FLY INFO — PREMIUM PEOPLE / BUSINESS SECTION V61
+   Rebuilds only the section above "Why doing it in one place helps."
+   ========================================================= */
+
+.infoAudienceV61{
+  padding-top:112px !important;
+  padding-bottom:0 !important;
+}
+
+.infoAudienceV61__intro{
+  max-width:850px;
+}
+
+.infoAudienceV61__eyebrow{
+  margin:0 0 15px;
+  color:#86868b;
+  font-size:11px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:.19em;
+  text-transform:uppercase;
+}
+
+.infoAudienceV61__title{
+  margin:0;
+  max-width:12ch;
+  font-size:clamp(52px,5.3vw,76px);
+  line-height:.95;
+  letter-spacing:-.055em;
+  font-weight:700;
+}
+
+.infoAudienceV61__lead{
+  margin:22px 0 0;
+  max-width:44rem;
+  color:#6e6e73;
+  font-size:20px;
+  line-height:1.55;
+}
+
+
+/* Two clean paths instead of two large gray text boxes. */
+
+.infoAudienceV61__paths{
+  margin-top:64px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  border-top:1px solid #d9d9de;
+  border-bottom:1px solid #d9d9de;
+}
+
+.infoAudienceV61__path{
+  min-height:250px;
+  padding:32px 38px 34px 0;
+}
+
+.infoAudienceV61__path + .infoAudienceV61__path{
+  padding-left:38px;
+  padding-right:0;
+  border-left:1px solid #d9d9de;
+}
+
+.infoAudienceV61__number{
+  display:block;
+  margin-bottom:34px;
+  color:#98989d;
+  font-size:11px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:.15em;
+}
+
+.infoAudienceV61__pathLabel{
+  margin:0 0 10px;
+  color:#77777d;
+  font-size:11px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+}
+
+.infoAudienceV61__pathTitle{
+  margin:0;
+  max-width:15ch;
+  color:#111;
+  font-size:clamp(30px,2.55vw,40px);
+  line-height:1.02;
+  letter-spacing:-.045em;
+}
+
+.infoAudienceV61__pathText{
+  margin:16px 0 0;
+  max-width:31rem;
+  color:#6e6e73;
+  font-size:16px;
+  line-height:1.6;
+}
+
+
+/* Editorial image composition: one hero portrait, two supporting portraits.
+   No text overlays. */
+
+.infoAudienceV61__gallery{
+  width:100%;
+  margin:56px auto 0;
+  display:grid;
+  grid-template-columns:minmax(0,.92fr) minmax(0,1.18fr) minmax(0,.92fr);
+  gap:16px;
+  align-items:center;
+}
+
+.infoAudienceV61__photo{
+  overflow:hidden;
+  width:100%;
+  margin:0;
+  border-radius:32px;
+  background:#f2f2f4;
+}
+
+.infoAudienceV61__photo--side{
+  aspect-ratio:4 / 5;
+}
+
+.infoAudienceV61__photo--hero{
+  aspect-ratio:3 / 4;
+}
+
+.infoAudienceV61__photo img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+
+
+/* Make the hand-off to the existing black platform section feel intentional. */
+
+.infoAudienceV61 + *{
+  scroll-margin-top:80px;
+}
+
+.infoAudienceV61__gallery + .infoAudienceV53__platform,
+.infoAudienceV61__gallery + .infoAudienceV52__platform,
+.infoAudienceV61__gallery + .infoAudienceV51__platform{
+  margin-top:64px !important;
+}
+
+
+/* Tablet */
+
+@media(max-width:980px){
+  .infoAudienceV61{
+    padding-top:88px !important;
+  }
+
+  .infoAudienceV61__paths{
+    margin-top:50px;
+  }
+
+  .infoAudienceV61__path{
+    padding-right:26px;
+  }
+
+  .infoAudienceV61__path + .infoAudienceV61__path{
+    padding-left:26px;
+  }
+
+  .infoAudienceV61__gallery{
+    gap:12px;
+  }
+}
+
+
+/* Mobile */
+
+@media(max-width:720px){
+  .infoAudienceV61{
+    padding-top:72px !important;
+  }
+
+  .infoAudienceV61__title{
+    max-width:10ch;
+    font-size:clamp(48px,13vw,62px);
+  }
+
+  .infoAudienceV61__lead{
+    font-size:17px;
+    line-height:1.55;
+  }
+
+  .infoAudienceV61__paths{
+    margin-top:42px;
+    grid-template-columns:1fr;
+  }
+
+  .infoAudienceV61__path{
+    min-height:0;
+    padding:26px 0 30px;
+  }
+
+  .infoAudienceV61__path + .infoAudienceV61__path{
+    padding:30px 0 26px;
+    border-left:0;
+    border-top:1px solid #d9d9de;
+  }
+
+  .infoAudienceV61__number{
+    margin-bottom:24px;
+  }
+
+  .infoAudienceV61__pathTitle{
+    max-width:13ch;
+    font-size:34px;
+  }
+
+  .infoAudienceV61__pathText{
+    font-size:15px;
+  }
+
+  .infoAudienceV61__gallery{
+    margin-top:38px;
+    grid-template-columns:1fr 1fr;
+    grid-template-areas:
+      "hero hero"
+      "left right";
+    gap:10px;
+  }
+
+  .infoAudienceV61__photo--left{
+    grid-area:left;
+  }
+
+  .infoAudienceV61__photo--hero{
+    grid-area:hero;
+    aspect-ratio:4 / 5;
+  }
+
+  .infoAudienceV61__photo--right{
+    grid-area:right;
+  }
+
+  .infoAudienceV61__photo{
+    border-radius:24px;
+  }
+
+  .infoAudienceV61__photo--side{
+    aspect-ratio:3 / 4;
+  }
+
+  .infoAudienceV61__gallery + .infoAudienceV53__platform,
+  .infoAudienceV61__gallery + .infoAudienceV52__platform,
+  .infoAudienceV61__gallery + .infoAudienceV51__platform{
+    margin-top:42px !important;
+  }
+}
