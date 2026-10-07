@@ -1,0 +1,1288 @@
+---
+import SiteNav from "../components/SiteNav.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+
+const siteName = "FLY Unlimited";
+const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
+
+const stages = [
+  {
+    num: "01",
+    title: "Plan",
+    text: "Keep the goals, materials and key details of the FLY attached to the work before it begins.",
+  },
+  {
+    num: "02",
+    title: "Move",
+    text: "Follow the shared plan as the FLY happens, with the next action kept clear for both sides.",
+  },
+  {
+    num: "03",
+    title: "Show",
+    text: "Add updates, photos, files and confirmations where they belong instead of scattering them across apps.",
+  },
+  {
+    num: "04",
+    title: "Complete",
+    text: "Review what happened, confirm the finish and keep completion connected to the original FLY.",
+  },
+];
+
+const modes = [
+  {
+    label: "Service",
+    title: "Work with a plan.",
+    text: "Goals, materials, information, updates and proof can stay connected to the service being completed.",
+  },
+  {
+    label: "Delivery",
+    title: "From pickup to delivered.",
+    text: "LiveTime can carry the delivery from pickup and directions through the final handoff and confirmation.",
+  },
+  {
+    label: "Transport",
+    title: "From here to there — and back.",
+    text: "Routes can support a destination, return trip, multiple legs and the intervals between them.",
+  },
+  {
+    label: "Collab",
+    title: "Keep everyone moving together.",
+    text: "Shared goals, files, updates and context stay attached to the collaboration instead of getting lost in a thread.",
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LiveTime • {siteName}</title>
+    <meta
+      name="description"
+      content="LiveTime is where a FLY moves from connection to completion — keeping the plan, progress, files, directions, proof and confirmations together."
+    />
+    <meta name="theme-color" content="#ffffff" />
+      <link rel="stylesheet" href="/fly-refinement-v1.css" />
+</head>
+
+  <body class="siteShellPage page-livetime">
+    <SiteNav />
+
+    <main>
+      <section class="hero" aria-labelledby="livetime-title">
+        <div class="hero__inner">
+          <div class="hero__copy">
+            <p class="eyebrow">LiveTime</p>
+            <h1 id="livetime-title">
+              Where the <span>FLY happens.</span>
+            </h1>
+            <p class="hero__lead">
+              Finding the right person is only the beginning. LiveTime keeps the
+              plan, progress, files and confirmations connected while the FLY is
+              actually happening.
+            </p>
+
+            <div class="hero__actions">
+              <a
+                class="button button--dark"
+                href={appStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="downloadFlyBird" aria-hidden="true"></span>Download FLY
+              </a>
+              <a class="button button--light" href="/how-it-works/">
+                See how FLY works
+              </a>
+            </div>
+          </div>
+
+          <div class="hero__visual" aria-label="LiveTime product view">
+            <div class="hero__halo" aria-hidden="true"></div>
+
+            <div class="liveCard">
+              <div class="liveCard__head">
+                <div>
+                  <span>LiveTime</span>
+                  <strong>In progress</strong>
+                </div>
+                <div class="liveCard__status" aria-hidden="true"></div>
+              </div>
+
+              <div class="liveCard__title">
+                <span>Today’s FLY</span>
+                <strong>Rooftop event photos</strong>
+              </div>
+
+              <div class="liveCard__rail" aria-label="LiveTime progress">
+                <div class="is-done"><span>✓</span><small>Plan</small></div>
+                <div class="is-active"><span>2</span><small>In progress</small></div>
+                <div><span>3</span><small>Review</small></div>
+                <div><span>4</span><small>Complete</small></div>
+              </div>
+
+              <div class="liveCard__tasks">
+                <article>
+                  <span class="liveCard__taskIcon">01</span>
+                  <div>
+                    <strong>Follow the plan</strong>
+                    <p>Goals and key details stay with the FLY.</p>
+                  </div>
+                </article>
+
+                <article>
+                  <span class="liveCard__taskIcon">02</span>
+                  <div>
+                    <strong>Share progress</strong>
+                    <p>Add updates, photos and files as it happens.</p>
+                  </div>
+                </article>
+
+                <article>
+                  <span class="liveCard__taskIcon">03</span>
+                  <div>
+                    <strong>Confirm the finish</strong>
+                    <p>Review what happened and complete together.</p>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <span class="floatTag floatTag--one">Goals</span>
+            <span class="floatTag floatTag--two">Photos</span>
+            <span class="floatTag floatTag--three">Files</span>
+            <span class="floatTag floatTag--four">Directions</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="statement" aria-labelledby="statement-title">
+        <div class="statement__inner">
+          <p class="eyebrow">From connection to completion</p>
+          <h2 id="statement-title">
+            A marketplace should not disappear the moment the work begins.
+          </h2>
+
+          <p>
+            Once a host chooses someone for a FLY, the important context should
+            stay attached to what is happening. LiveTime gives both sides a shared
+            place to move the FLY forward.
+          </p>
+        </div>
+      </section>
+
+      <section class="productShot" aria-labelledby="product-shot-title">
+        <div class="productShot__inner">
+          <div class="productShot__head">
+            <div>
+              <p class="eyebrow">One shared flow</p>
+              <h2 id="product-shot-title">Yes → in progress → done.</h2>
+            </div>
+
+            <p>
+              LiveTime turns the agreement behind a FLY into something both sides
+              can follow, update and finish.
+            </p>
+          </div>
+
+          <div class="productShot__frame">
+            <img
+              src="/campaign/livetime-yes-to-done.png"
+              alt="LiveTime product visual showing a FLY moving from yes to in progress to done."
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="stages" aria-labelledby="stages-title">
+        <div class="stages__inner">
+          <div class="stages__head">
+            <p class="eyebrow">The shared work</p>
+            <h2 id="stages-title">Keep the FLY together.</h2>
+          </div>
+
+          <div class="stages__grid">
+            {stages.map((stage) => (
+              <article>
+                <span>{stage.num}</span>
+                <div>
+                  <h3>{stage.title}</h3>
+                  <p>{stage.text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="adaptive" aria-labelledby="adaptive-title">
+        <div class="adaptive__inner">
+          <div class="adaptive__head">
+            <p class="eyebrow">Built around the FLY</p>
+            <h2 id="adaptive-title">The work changes. LiveTime changes with it.</h2>
+            <p>
+              A delivery does not happen like a photo shoot. A ride does not happen
+              like a collaboration. LiveTime can surface the context the FLY needs
+              without making every FLY follow the same rigid workflow.
+            </p>
+          </div>
+
+          <div class="adaptive__grid">
+            {modes.map((mode, index) => (
+              <article class:list={["modeCard", index === 1 && "modeCard--dark"]}>
+                <span>{mode.label}</span>
+                <h3>{mode.title}</h3>
+                <p>{mode.text}</p>
+
+                <div class="modeCard__visual" aria-hidden="true">
+                  {index === 0 && (
+                    <>
+                      <i></i><i></i><i></i>
+                    </>
+                  )}
+                  {index === 1 && (
+                    <svg viewBox="0 0 260 100">
+                      <path d="M18 72 C70 20, 108 88, 154 43 S221 51, 242 17"></path>
+                      <circle cx="18" cy="72" r="7"></circle>
+                      <circle cx="242" cy="17" r="7"></circle>
+                    </svg>
+                  )}
+                  {index === 2 && (
+                    <div class="routeStops">
+                      <i></i><b></b><i></i><b></b><i></i>
+                    </div>
+                  )}
+                  {index === 3 && (
+                    <div class="people">
+                      <i></i><i></i><i></i>
+                    </div>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="context" aria-labelledby="context-title">
+        <div class="context__inner">
+          <div class="context__copy">
+            <p class="eyebrow">Context stays attached</p>
+            <h2 id="context-title">Less scattered. More clear.</h2>
+            <p>
+              The request, the selected person, the progress, the files and the
+              confirmation of completion can stay connected to the same FLY.
+            </p>
+          </div>
+
+          <div class="context__list">
+            <article>
+              <span>01</span>
+              <div>
+                <h3>Updates where they matter</h3>
+                <p>Progress belongs with the work, not buried in a separate conversation.</p>
+              </div>
+            </article>
+
+            <article>
+              <span>02</span>
+              <div>
+                <h3>Photos and files in context</h3>
+                <p>Supporting material can stay connected to the relevant part of the FLY.</p>
+              </div>
+            </article>
+
+            <article>
+              <span>03</span>
+              <div>
+                <h3>A clearer finish</h3>
+                <p>Completion can be reviewed and confirmed instead of ending with an ambiguous text message.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="finish" aria-labelledby="finish-title">
+        <div class="finish__inner">
+          <div class="finish__copy">
+            <p class="eyebrow">The finish matters</p>
+            <h2 id="finish-title">Done should mean done.</h2>
+            <p>
+              LiveTime keeps the end of the FLY visible too — so both sides can
+              review what happened, confirm completion and leave the work with a
+              clear ending.
+            </p>
+          </div>
+
+          <div class="finish__card">
+            <div class="finish__mark" aria-hidden="true">✓</div>
+            <span>FLY completed</span>
+            <strong>Everything stays with the FLY.</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing" aria-labelledby="closing-title">
+        <div class="closing__inner">
+          <img class="closing__bird" src="/brand/fly-bird-filled.svg" alt="" aria-hidden="true" />
+          <p class="eyebrow">LiveTime by FLY</p>
+          <h2 id="closing-title">Connect. Then make it happen.</h2>
+          <p>Start with the ask. LiveTime helps carry the FLY the rest of the way.</p>
+
+          <div class="closing__actions">
+            <a
+              class="button button--dark"
+              href={appStoreUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="downloadFlyBird" aria-hidden="true"></span>Download FLY
+            </a>
+            <a class="button button--light" href="/explore/">Explore FLY</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <SiteFooter />
+  </body>
+</html>
+
+<style>
+  :root{
+    --black:#090909;
+    --ink:#111;
+    --muted:#6e6e73;
+    --line:rgba(17,17,17,.12);
+    --panel:#f5f5f7;
+    --purple:#b88cf1;
+    --max:1240px;
+    --pad:clamp(20px,4vw,64px);
+  }
+
+  *{box-sizing:border-box}
+
+  html{
+    margin:0;
+    padding:0;
+    scroll-behavior:smooth;
+    background:#fff;
+  }
+
+  body{
+    margin:0;
+    padding:0;
+    background:#fff;
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+
+  a{color:inherit}
+
+  .eyebrow{
+    margin:0 0 16px;
+    color:#86868b;
+    font-size:10px;
+    line-height:1;
+    font-weight:800;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+  }
+
+  .hero{
+    padding:clamp(54px,6vw,92px) var(--pad) clamp(66px,7vw,108px);
+    background:#fff;
+    overflow:hidden;
+  }
+
+  .hero__inner{
+    width:min(100%,var(--max));
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:minmax(0,.88fr) minmax(460px,.82fr);
+    gap:clamp(58px,8vw,124px);
+    align-items:center;
+  }
+
+  .hero h1{
+    margin:0;
+    max-width:8.6ch;
+    font-size:clamp(68px,7.4vw,116px);
+    line-height:.88;
+    letter-spacing:-.066em;
+    font-weight:760;
+  }
+
+  .hero h1 span{
+    display:block;
+    color:#9a9a9e;
+  }
+
+  .hero__lead{
+    margin:28px 0 0;
+    max-width:37rem;
+    color:var(--muted);
+    font-size:clamp(18px,1.5vw,22px);
+    line-height:1.5;
+    letter-spacing:-.018em;
+  }
+
+  .hero__actions,
+  .closing__actions{
+    margin-top:32px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+
+  .button{
+    min-height:46px;
+    padding:0 19px;
+    border-radius:999px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:760;
+  }
+
+  .button--dark{background:#0a0a0a;color:#fff}
+  .button--light{background:#fff;color:#111;border:1px solid rgba(10,10,10,.12)}
+
+  .hero__visual{
+    position:relative;
+    min-height:560px;
+    display:grid;
+    place-items:center;
+  }
+
+  .hero__halo{
+    position:absolute;
+    width:540px;
+    height:540px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(184,140,241,.25),rgba(184,140,241,0) 67%);
+  }
+
+  .liveCard{
+    position:relative;
+    z-index:2;
+    width:min(100%,430px);
+    min-height:485px;
+    padding:25px;
+    border-radius:34px;
+    background:#0a0a0a;
+    color:#fff;
+    box-shadow:0 36px 90px rgba(0,0,0,.24);
+    transform:rotate(1.8deg);
+  }
+
+  .liveCard__head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+  }
+
+  .liveCard__head > div:first-child{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+  }
+
+  .liveCard__head span,
+  .liveCard__title span{
+    color:rgba(255,255,255,.42);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+  }
+
+  .liveCard__head strong{
+    font-size:14px;
+    font-weight:700;
+  }
+
+  .liveCard__status{
+    width:10px;
+    height:10px;
+    margin-top:4px;
+    border-radius:50%;
+    background:#b88cf1;
+    box-shadow:0 0 0 6px rgba(184,140,241,.12);
+  }
+
+  .liveCard__title{
+    margin-top:62px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+
+  .liveCard__title strong{
+    max-width:9ch;
+    font-size:37px;
+    line-height:.98;
+    letter-spacing:-.05em;
+  }
+
+  .liveCard__rail{
+    margin-top:35px;
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    position:relative;
+  }
+
+  .liveCard__rail::before{
+    content:"";
+    position:absolute;
+    left:11%;
+    right:11%;
+    top:15px;
+    height:1px;
+    background:rgba(255,255,255,.12);
+  }
+
+  .liveCard__rail > div{
+    position:relative;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:7px;
+  }
+
+  .liveCard__rail span{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:#1d1d1f;
+    border:1px solid rgba(255,255,255,.12);
+    color:rgba(255,255,255,.42);
+    font-size:10px;
+    font-weight:800;
+  }
+
+  .liveCard__rail small{
+    color:rgba(255,255,255,.35);
+    font-size:8px;
+    white-space:nowrap;
+  }
+
+  .liveCard__rail .is-done span{
+    background:#fff;
+    color:#111;
+  }
+
+  .liveCard__rail .is-active span{
+    background:#b88cf1;
+    border-color:#b88cf1;
+    color:#111;
+  }
+
+  .liveCard__rail .is-active small{color:#d8bcff}
+
+  .liveCard__tasks{
+    margin-top:34px;
+    border-top:1px solid rgba(255,255,255,.12);
+  }
+
+  .liveCard__tasks article{
+    min-height:72px;
+    padding:14px 0;
+    border-bottom:1px solid rgba(255,255,255,.12);
+    display:grid;
+    grid-template-columns:34px 1fr;
+    gap:12px;
+  }
+
+  .liveCard__taskIcon{
+    width:27px;
+    height:27px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:rgba(255,255,255,.08);
+    color:rgba(255,255,255,.5);
+    font-size:8px;
+    font-weight:800;
+  }
+
+  .liveCard__tasks strong{
+    font-size:12px;
+    font-weight:700;
+  }
+
+  .liveCard__tasks p{
+    margin:4px 0 0;
+    color:rgba(255,255,255,.42);
+    font-size:10px;
+    line-height:1.4;
+  }
+
+  .floatTag{
+    position:absolute;
+    z-index:3;
+    padding:10px 13px;
+    border:1px solid rgba(10,10,10,.08);
+    border-radius:999px;
+    background:rgba(255,255,255,.95);
+    box-shadow:0 12px 32px rgba(0,0,0,.09);
+    font-size:11px;
+    font-weight:750;
+  }
+
+  .floatTag--one{top:12%;left:0}
+  .floatTag--two{top:28%;right:-1%}
+  .floatTag--three{bottom:26%;left:-2%}
+  .floatTag--four{bottom:8%;right:4%}
+
+  .statement{
+    padding:clamp(92px,10vw,154px) var(--pad);
+    background:#090909;
+    color:#fff;
+  }
+
+  .statement__inner{
+    width:min(100%,var(--max));
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(320px,.38fr);
+    gap:clamp(48px,8vw,120px);
+    align-items:end;
+  }
+
+  .statement .eyebrow{color:rgba(255,255,255,.36)}
+
+  .statement h2{
+    margin:0;
+    max-width:12ch;
+    font-size:clamp(54px,6vw,94px);
+    line-height:.91;
+    letter-spacing:-.058em;
+    font-weight:720;
+  }
+
+  .statement p:last-child{
+    margin:0;
+    color:rgba(255,255,255,.56);
+    font-size:clamp(17px,1.35vw,20px);
+    line-height:1.62;
+  }
+
+  .productShot{
+    padding:clamp(72px,8vw,112px) var(--pad);
+    background:#f5f5f7;
+  }
+
+  .productShot__inner{
+    width:min(100%,var(--max));
+    margin:0 auto;
+  }
+
+  .productShot__head{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(300px,.38fr);
+    gap:clamp(42px,8vw,118px);
+    align-items:end;
+  }
+
+  .productShot__head h2{
+    margin:0;
+    font-size:clamp(48px,5.4vw,84px);
+    line-height:.92;
+    letter-spacing:-.058em;
+    font-weight:720;
+  }
+
+  .productShot__head > p{
+    margin:0;
+    color:var(--muted);
+    font-size:17px;
+    line-height:1.58;
+  }
+
+  .productShot__frame{
+    margin-top:clamp(46px,6vw,76px);
+    padding:clamp(12px,1.8vw,22px);
+    border-radius:30px;
+    background:#fff;
+    box-shadow:0 28px 70px rgba(0,0,0,.08);
+    overflow:hidden;
+  }
+
+  .productShot__frame img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:20px;
+  }
+
+  .stages{
+    padding:clamp(72px,8vw,112px) var(--pad);
+    background:#fff;
+  }
+
+  .stages__inner{
+    width:min(100%,var(--max));
+    margin:0 auto;
+  }
+
+  .stages__head h2{
+    margin:0;
+    max-width:8ch;
+    font-size:clamp(50px,5.5vw,84px);
+    line-height:.92;
+    letter-spacing:-.058em;
+    font-weight:720;
+  }
+
+  .stages__grid{
+    margin-top:clamp(48px,6vw,78px);
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+
+  .stages__grid article{
+    min-height:310px;
+    padding:28px 24px;
+    border-right:1px solid var(--line);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+
+  .stages__grid article:first-child{padding-left:0}
+  .stages__grid article:last-child{border-right:0;padding-right:0}
+
+  .stages__grid > article > span{
+    color:#9a9a9e;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.12em;
+  }
+
+  .stages__grid h3{
+    margin:0;
+    font-size:30px;
+    line-height:1;
+    letter-spacing:-.045em;
+  }
+
+  .stages__grid p{
+    margin:12px 0 0;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.55;
+  }
+
+  .adaptive{
+    padding:clamp(72px,8vw,112px) var(--pad);
+    background:#f5f5f7;
+  }
+
+  .adaptive__inner{
+    width:min(100%,var(--max));
+    margin:0 auto;
+  }
+
+  .adaptive__head{
+    max-width:59rem;
+  }
+
+  .adaptive__head h2{
+    margin:0;
+    max-width:11ch;
+    font-size:clamp(50px,5.6vw,88px);
+    line-height:.91;
+    letter-spacing:-.06em;
+    font-weight:720;
+  }
+
+  .adaptive__head > p:last-child{
+    margin:24px 0 0;
+    max-width:42rem;
+    color:var(--muted);
+    font-size:17px;
+    line-height:1.6;
+  }
+
+  .adaptive__grid{
+    margin-top:clamp(50px,6vw,80px);
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:16px;
+  }
+
+  .modeCard{
+    min-height:430px;
+    padding:30px;
+    border-radius:24px;
+    background:#fff;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+  }
+
+  .modeCard--dark{
+    background:#0a0a0a;
+    color:#fff;
+  }
+
+  .modeCard > span{
+    color:#8a8a8e;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+  }
+
+  .modeCard--dark > span{color:rgba(255,255,255,.36)}
+
+  .modeCard h3{
+    margin:18px 0 0;
+    max-width:11ch;
+    font-size:clamp(35px,3.6vw,54px);
+    line-height:.96;
+    letter-spacing:-.052em;
+    font-weight:700;
+  }
+
+  .modeCard p{
+    margin:15px 0 0;
+    max-width:29rem;
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.55;
+  }
+
+  .modeCard--dark p{color:rgba(255,255,255,.52)}
+
+  .modeCard__visual{
+    margin:auto auto 0;
+    width:100%;
+    min-height:120px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+  }
+
+  .modeCard__visual > i{
+    width:28%;
+    height:74px;
+    margin:0 -7px;
+    border:1px solid rgba(10,10,10,.12);
+    border-radius:18px;
+    background:#f7f7f8;
+    transform:rotate(-5deg);
+  }
+
+  .modeCard__visual > i:nth-child(2){
+    height:96px;
+    z-index:2;
+    transform:rotate(1deg);
+    background:#eee8f6;
+  }
+
+  .modeCard__visual > i:nth-child(3){transform:rotate(6deg)}
+
+  .modeCard__visual svg{
+    width:85%;
+    overflow:visible;
+  }
+
+  .modeCard__visual svg path{
+    fill:none;
+    stroke:#b88cf1;
+    stroke-width:4;
+    stroke-linecap:round;
+    stroke-dasharray:8 10;
+  }
+
+  .modeCard__visual svg circle{
+    fill:#fff;
+    stroke:#b88cf1;
+    stroke-width:4;
+  }
+
+  .routeStops{
+    width:85%;
+    display:grid;
+    grid-template-columns:16px 1fr 16px 1fr 16px;
+    align-items:center;
+  }
+
+  .routeStops i{
+    width:16px;
+    height:16px;
+    border-radius:50%;
+    background:#111;
+  }
+
+  .routeStops i:last-child{background:#b88cf1}
+
+  .routeStops b{
+    height:2px;
+    background:#d8d8dc;
+  }
+
+  .people{
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+  }
+
+  .people i{
+    width:70px;
+    height:70px;
+    margin:0 -8px;
+    border-radius:50%;
+    border:5px solid #fff;
+    background:#d9d9dd;
+  }
+
+  .people i:nth-child(2){
+    width:88px;
+    height:88px;
+    z-index:2;
+    background:#b88cf1;
+  }
+
+  .context{
+    padding:clamp(72px,8vw,112px) var(--pad);
+    background:#fff;
+  }
+
+  .context__inner{
+    width:min(100%,var(--max));
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:minmax(280px,.42fr) minmax(0,.58fr);
+    gap:clamp(54px,8vw,120px);
+  }
+
+  .context__copy h2{
+    margin:0;
+    max-width:8ch;
+    font-size:clamp(50px,5.3vw,82px);
+    line-height:.92;
+    letter-spacing:-.058em;
+    font-weight:720;
+  }
+
+  .context__copy p:last-child{
+    margin:22px 0 0;
+    max-width:31rem;
+    color:var(--muted);
+    font-size:17px;
+    line-height:1.6;
+  }
+
+  .context__list{
+    border-top:1px solid var(--line);
+  }
+
+  .context__list article{
+    min-height:150px;
+    padding:24px 0;
+    border-bottom:1px solid var(--line);
+    display:grid;
+    grid-template-columns:44px 1fr;
+    gap:20px;
+  }
+
+  .context__list article > span{
+    color:#9a9a9e;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.12em;
+  }
+
+  .context__list h3{
+    margin:0;
+    font-size:24px;
+    line-height:1.04;
+    letter-spacing:-.035em;
+  }
+
+  .context__list p{
+    margin:10px 0 0;
+    max-width:34rem;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.55;
+  }
+
+  .finish{
+    padding:clamp(88px,9vw,138px) var(--pad);
+    background:#090909;
+    color:#fff;
+  }
+
+  .finish__inner{
+    width:min(100%,var(--max));
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:minmax(0,.58fr) minmax(380px,.42fr);
+    gap:clamp(54px,8vw,120px);
+    align-items:center;
+  }
+
+  .finish .eyebrow{color:rgba(255,255,255,.36)}
+
+  .finish__copy h2{
+    margin:0;
+    max-width:8ch;
+    font-size:clamp(54px,6vw,94px);
+    line-height:.9;
+    letter-spacing:-.06em;
+    font-weight:720;
+  }
+
+  .finish__copy p{
+    margin:24px 0 0;
+    max-width:35rem;
+    color:rgba(255,255,255,.56);
+    font-size:17px;
+    line-height:1.6;
+  }
+
+  .finish__card{
+    min-height:360px;
+    padding:34px;
+    border-radius:28px;
+    background:#fff;
+    color:#111;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    box-shadow:0 34px 90px rgba(0,0,0,.28);
+  }
+
+  .finish__mark{
+    width:66px;
+    height:66px;
+    margin-bottom:auto;
+    border-radius:50%;
+    background:#b88cf1;
+    display:grid;
+    place-items:center;
+    font-size:30px;
+    font-weight:800;
+  }
+
+  .finish__card span{
+    color:#8a8a8e;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+  }
+
+  .finish__card strong{
+    margin-top:10px;
+    max-width:9ch;
+    font-size:40px;
+    line-height:.96;
+    letter-spacing:-.05em;
+  }
+
+  .closing{
+    padding:clamp(88px,10vw,138px) var(--pad);
+    background:#fff;
+    text-align:center;
+  }
+
+  .closing__inner{
+    width:min(100%,900px);
+    margin:0 auto;
+  }
+
+  .closing img{
+    width:58px;
+    height:58px;
+    display:block;
+    object-fit:contain;
+    margin:0 auto 28px;
+  }
+
+  .closing h2{
+    margin:0 auto;
+    max-width:9ch;
+    font-size:clamp(58px,7vw,108px);
+    line-height:.88;
+    letter-spacing:-.064em;
+    font-weight:760;
+  }
+
+  .closing__inner > p:nth-of-type(2){
+    margin:20px auto 0;
+    max-width:34rem;
+    color:var(--muted);
+    font-size:18px;
+    line-height:1.5;
+  }
+
+  .closing__actions{justify-content:center}
+
+  @media(max-width:960px){
+    .hero__inner,
+    .statement__inner,
+    .productShot__head,
+    .context__inner,
+    .finish__inner{
+      grid-template-columns:1fr;
+    }
+
+    .hero__visual{
+      max-width:650px;
+      width:100%;
+      margin:0 auto;
+    }
+
+    .statement p:last-child,
+    .productShot__head > p{
+      max-width:36rem;
+    }
+
+    .stages__grid{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .stages__grid article:nth-child(2){
+      border-right:0;
+    }
+
+    .stages__grid article:nth-child(-n+2){
+      border-bottom:1px solid var(--line);
+    }
+  }
+
+  @media(max-width:700px){
+    .hero,
+    .statement,
+    .productShot,
+    .stages,
+    .adaptive,
+    .context,
+    .finish,
+    .closing{
+      padding-left:18px;
+      padding-right:18px;
+    }
+
+    .hero{
+      padding-top:62px;
+      padding-bottom:82px;
+    }
+
+    .hero h1{
+      font-size:clamp(58px,16vw,80px);
+    }
+
+    .hero__lead{font-size:18px}
+
+    .hero__actions .button,
+    .closing__actions .button{
+      flex:1 1 100%;
+    }
+
+    .hero__visual{min-height:500px}
+
+    .liveCard{
+      width:min(88vw,380px);
+      min-height:445px;
+      padding:22px;
+      border-radius:28px;
+    }
+
+    .liveCard__title{margin-top:52px}
+    .liveCard__title strong{font-size:34px}
+
+    .floatTag{
+      padding:8px 10px;
+      font-size:9px;
+    }
+
+    .statement h2,
+    .productShot__head h2,
+    .stages__head h2,
+    .adaptive__head h2,
+    .context__copy h2,
+    .finish__copy h2{
+      font-size:clamp(46px,13vw,64px);
+    }
+
+    .productShot__frame{
+      padding:8px;
+      border-radius:20px;
+    }
+
+    .productShot__frame img{border-radius:14px}
+
+    .stages__grid{
+      grid-template-columns:1fr;
+    }
+
+    .stages__grid article,
+    .stages__grid article:first-child,
+    .stages__grid article:last-child{
+      min-height:220px;
+      padding:24px 0;
+      border-right:0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .stages__grid article:last-child{border-bottom:0}
+
+    .adaptive__grid{
+      grid-template-columns:1fr;
+    }
+
+    .modeCard{
+      min-height:390px;
+      padding:24px;
+      border-radius:20px;
+    }
+
+    .context__list article{
+      min-height:130px;
+    }
+
+    .finish__card{
+      min-height:320px;
+      padding:28px;
+    }
+
+    .closing h2{
+      font-size:clamp(58px,16vw,82px);
+    }
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+  }
+
+  .closing__bird{
+    width:54px !important;
+    height:auto !important;
+    max-height:40px !important;
+    display:block !important;
+    object-fit:contain !important;
+    margin:0 auto 22px !important;
+    border-radius:0 !important;
+  }
+
+</style>

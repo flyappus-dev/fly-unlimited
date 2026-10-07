@@ -1,0 +1,1948 @@
+---
+import SiteNav from "../components/SiteNav.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+
+const siteName = "FLY Unlimited";
+const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
+
+const ways = [
+  {
+    number: "01",
+    title: "Services",
+    description: "Find someone who can do what you need — from creative work to hands-on help.",
+    example: "Photograph my event Friday night.",
+    icon: "service",
+  },
+  {
+    number: "02",
+    title: "Delivery",
+    description: "Put a pickup and destination into one FLY and keep the handoff connected.",
+    example: "Pick this up and bring it downtown.",
+    icon: "delivery",
+  },
+  {
+    number: "03",
+    title: "Transport",
+    description: "Go from here to there, return later, or coordinate a route with multiple stops.",
+    example: "Take me there and bring me back later.",
+    icon: "transport",
+  },
+  {
+    number: "04",
+    title: "Stays",
+    description: "Find a place that fits the moment without leaving the network around you.",
+    example: "I need a place for the weekend.",
+    icon: "stay",
+  },
+  {
+    number: "05",
+    title: "Rentals",
+    description: "Find access to something you need without turning the request into a purchase.",
+    example: "I need a camera for Saturday.",
+    icon: "rental",
+  },
+  {
+    number: "06",
+    title: "Collabs",
+    description: "Find people to build, create, perform, organize, or make something happen with.",
+    example: "Help me build the launch.",
+    icon: "collab",
+  },
+];
+
+const examples = [
+  "I need a photographer tomorrow night.",
+  "Pick this up and deliver it to me.",
+  "Take me to the airport Friday morning.",
+  "Looking for someone to help shoot a campaign.",
+  "I need somewhere to stay this weekend.",
+  "Looking to rent equipment for an event.",
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Explore FLY • {siteName}</title>
+    <meta
+      name="description"
+      content="Explore the many ways to FLY — services, delivery, transport, stays, rentals, collaborations, and whatever else real life needs."
+    />
+    <meta name="theme-color" content="#ffffff" />
+      <link rel="stylesheet" href="/fly-home-ask-how-compact-v24.css" />
+    <link rel="stylesheet" href="/how-category-profiles-v60.css" />
+    <link rel="stylesheet" href="/how-steps-types-separation-v67.css" />
+    <link rel="stylesheet" href="/fly-refinement-v1.css" />
+</head>
+
+  <body class="siteShellPage page-explore">
+    <SiteNav />
+
+    <main>
+      <section class="hero" aria-labelledby="explore-title">
+        <div class="hero__inner">
+          <div class="hero__copy">
+            <p class="eyebrow">Explore FLY</p>
+            <h1 id="explore-title">
+              <span class="hero__primary">Whatever you need.</span>
+              <span class="hero__secondary">Start with the ask.</span>
+            </h1>
+            <p class="hero__lead">
+              FLY is one marketplace for the things people need, the things people can do,
+              and the opportunities already moving around them.
+            </p>
+
+            <div class="hero__actions">
+              <a
+                class="button button--dark"
+                href={appStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="downloadFlyBird" aria-hidden="true"></span>Download FLY
+              </a>
+              <a class="button button--light" href="/how-it-works/">See how FLY works</a>
+            </div>
+          </div>
+
+          <div class="askStage" aria-label="Examples of things you can ask for on FLY">
+            <div class="askStage__card">
+              <div class="askStage__top">
+                <span>ASK</span>
+                <span aria-hidden="true">+</span>
+              </div>
+
+              <p class="askStage__prompt">What do you need?</p>
+
+              <div class="askStage__field">
+                <span>I need</span>
+                <strong>event photos tonight.</strong>
+              </div>
+
+              <div class="askStage__meta">
+                <span>When</span>
+                <span>Where</span>
+                <span>Details</span>
+              </div>
+            </div>
+
+            <span class="example example--one">Event photos</span>
+            <span class="example example--two">A ride</span>
+            <span class="example example--three">Miami Design District</span>
+            <span class="example example--four">Friday 8 PM</span>
+            <span class="example example--five">Details attached</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="manifesto" aria-labelledby="manifesto-title">
+        <div class="manifesto__inner">
+          <p class="eyebrow">One network</p>
+          <h2 id="manifesto-title">Real life does not fit inside one category.</h2>
+          <p>
+            Sometimes you need a person. Sometimes a place. Sometimes a ride,
+            a delivery, a rental, or someone to build something with. FLY starts
+            with the need and gives it somewhere to go.
+          </p>
+        </div>
+      </section>
+
+      <section class="exploreWaysMerged" id="ways" aria-labelledby="explore-ways-title">
+        <div class="exploreWaysMerged__inner">
+          <div class="exploreWaysMerged__head">
+            <div>
+              <p class="eyebrow">Ways to use FLY</p>
+              <h2 id="explore-ways-title">Real life has more than one shape.</h2>
+            </div>
+            <p>
+              Start with what you need. FLY can support different kinds of
+              requests without making you begin in a different app every time.
+            </p>
+          </div>
+
+          <div class="exploreWaysMerged__grid">
+            <article class="exploreWay">
+              <span>01</span><div><h3>Services</h3><p>Find someone who can do the work you need.</p></div>
+              <strong>“Photograph my event Friday night.”</strong>
+            </article>
+            <article class="exploreWay">
+              <span>02</span><div><h3>Delivery</h3><p>Move something from pickup to destination.</p></div>
+              <strong>“Pick this up and bring it downtown.”</strong>
+            </article>
+            <article class="exploreWay exploreWay--featured">
+              <span>03</span><div><h3>Rides &amp; Transport</h3><p>One-way, return, scheduled or multi-stop transportation.</p></div>
+              <strong>“Take me there, then bring me back two hours later.”</strong>
+            </article>
+            <article class="exploreWay">
+              <span>04</span><div><h3>Stays</h3><p>Find somewhere that fits the moment.</p></div>
+              <strong>“I need a place for the weekend.”</strong>
+            </article>
+            <article class="exploreWay">
+              <span>05</span><div><h3>Rentals</h3><p>Get temporary access to something you need.</p></div>
+              <strong>“I need a camera for Saturday.”</strong>
+            </article>
+            <article class="exploreWay">
+              <span>06</span><div><h3>Collabs</h3><p>Build, create, organize or make something happen together.</p></div>
+              <strong>“Help me build the launch.”</strong>
+            </article>
+            <article class="exploreWay exploreWay--wide">
+              <span>07</span><div><h3>Purchase &amp; sourcing</h3><p>Find something you want to buy or source through the same marketplace.</p></div>
+              <strong>“Looking for tickets for Saturday night.”</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+<section class="exploreCategoryHub" aria-label="Explore FLY categories">
+        <div class="exploreCategoryHub__inner">
+          <aside class="categoryBannerExact" aria-labelledby="category-banner-title">
+          <div class="categoryBannerExact__copy">
+            <h3 id="category-banner-title">Discover Categories</h3>
+
+            <p>
+              Categories help your Ask reach the right people and opportunities.
+              Something different? Start with what you need.
+            </p>
+
+            <a href="/how-it-works/#ask" class="categoryBannerExact__link">
+              Ask first
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <div class="categoryBannerExact__rail" aria-label="Popular FLY categories">
+
+            <div class="categoryBannerExact__item">
+              <div class="categoryBannerExact__icon categoryBannerExact__icon--home">
+                <img src="/flyhome.svg" alt="" aria-hidden="true" />
+              </div>
+              <span>For Home</span>
+            </div>
+
+            <div class="categoryBannerExact__item">
+              <div class="categoryBannerExact__icon categoryBannerExact__icon--events">
+                <img src="/category-icons/Events.svg" alt="" aria-hidden="true" />
+              </div>
+              <span>Events</span>
+            </div>
+
+            <div class="categoryBannerExact__item">
+              <div class="categoryBannerExact__icon categoryBannerExact__icon--business">
+                <img src="/category-icons/Business.svg" alt="" aria-hidden="true" />
+              </div>
+              <span>Business</span>
+            </div>
+
+            <div class="categoryBannerExact__item">
+              <div class="categoryBannerExact__icon categoryBannerExact__icon--photo">
+                <img src="/category-icons/Photo.svg" alt="" aria-hidden="true" />
+              </div>
+              <span>Photo &amp; Video</span>
+            </div>
+
+            <div class="categoryBannerExact__item">
+              <div class="categoryBannerExact__icon categoryBannerExact__icon--technology">
+                <img src="/category-icons/Technology.svg" alt="" aria-hidden="true" />
+              </div>
+              <span>Technology</span>
+            </div>
+
+            <div class="categoryBannerExact__item">
+              <div class="categoryBannerExact__icon categoryBannerExact__icon--collabs">
+                <img src="/category-icons/Collabs.svg" alt="" aria-hidden="true" />
+              </div>
+              <span>Collabs</span>
+            </div>
+
+            <div class="categoryBannerExact__item">
+              <div class="categoryBannerExact__icon categoryBannerExact__icon--pets">
+                <img src="/category-icons/Pets.svg" alt="" aria-hidden="true" />
+              </div>
+              <span>For Pets</span>
+            </div>
+
+            <div class="categoryBannerExact__item">
+              <div class="categoryBannerExact__icon categoryBannerExact__icon--gaming">
+                <img src="/category-icons/Gaming.svg" alt="" aria-hidden="true" />
+              </div>
+              <span>Gaming</span>
+            </div>
+
+            <div class="categoryBannerExact__item">
+              <div class="categoryBannerExact__icon categoryBannerExact__icon--education">
+                <img src="/category-icons/Education.svg" alt="" aria-hidden="true" />
+              </div>
+              <span>Education</span>
+            </div>
+
+          </div>
+        </aside>
+        </div>
+      </section>
+
+<section class="marketMixV24 stepsTypesStandaloneV67" id="fly-types" aria-labelledby="market-mix-v67-title">
+        <div class="marketMixV24__inner">
+          <h2 class="marketMixV24__title" id="market-mix-v67-title">One category. Many ways to FLY.</h2>
+          <p class="marketMixV24__lead">Once your Ask has a category, that same category can support different ways to make it happen: Service, Rental, Delivery, or Purchase.</p>
+          <div class="marketMixV24__event"><span class="marketMixV24__eventIcon" aria-hidden="true"><img src="/category-icons/Events.svg" alt="" /></span><span class="marketMixV24__eventText"><small>Category</small><strong>Events</strong></span></div>
+          <div class="marketMixV24__branch" aria-hidden="true"></div>
+          <div class="marketMixV24__examples">
+            <article class="marketMixV24__example"><div class="marketMixV24__type"><span class="marketMixV24__typeIcon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="7" width="14" height="11" rx="2"></rect><path d="M9 7V5h6v2M5 11h14"></path></svg></span><span>Service</span></div><div class="marketMixV60__profile"><img class="marketMixV60__avatar" src="/campaign/how-profile-service-v60.jpg" alt="" /><span class="marketMixV60__identity"><strong class="marketMixV60__name">Ethan Cole</strong><small class="marketMixV60__username">@ethancole</small></span></div><p class="marketMixV24__ask">Need a photographer for our wedding ceremony and reception.</p></article>
+            <article class="marketMixV24__example"><div class="marketMixV24__type"><span class="marketMixV24__typeIcon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="4"></circle><path d="M12 12h7M16 12v3M19 12v2"></path></svg></span><span>Rental</span></div><div class="marketMixV60__profile"><img class="marketMixV60__avatar" src="/campaign/how-profile-rental-v60.jpg" alt="" /><span class="marketMixV60__identity"><strong class="marketMixV60__name">Leo Martinez</strong><small class="marketMixV60__username">@leo.m</small></span></div><p class="marketMixV24__ask">Need speakers and lighting for a small live concert this weekend.</p></article>
+            <article class="marketMixV24__example"><div class="marketMixV24__type"><span class="marketMixV24__typeIcon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"></path><circle cx="7" cy="18" r="1.5"></circle><circle cx="18" cy="18" r="1.5"></circle></svg></span><span>Delivery</span></div><div class="marketMixV60__profile"><img class="marketMixV60__avatar" src="/campaign/how-profile-delivery-v60.jpg" alt="" /><span class="marketMixV60__identity"><strong class="marketMixV60__name">Sofia Grant</strong><small class="marketMixV60__username">@sofiagrant</small></span></div><p class="marketMixV24__ask">Need flowers delivered to the wedding venue before the ceremony.</p></article>
+            <article class="marketMixV24__example"><div class="marketMixV24__type"><span class="marketMixV24__typeIcon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 8h12l1 12H5L6 8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg></span><span>Purchase</span></div><div class="marketMixV60__profile"><img class="marketMixV60__avatar" src="/campaign/how-profile-purchase-v60.jpg" alt="" /><span class="marketMixV60__identity"><strong class="marketMixV60__name">Jordan Blake</strong><small class="marketMixV60__username">@jordanb</small></span></div><p class="marketMixV24__ask">Looking for Smashing Pumpkins tickets.</p></article>
+          </div>
+          <p class="marketMixV24__close">The category stays the same; the FLY type changes how the request is fulfilled.</p>
+        </div>
+      </section>
+
+
+
+      <section class="exploreFeatures" id="features" aria-labelledby="explore-features-title">
+        <div class="exploreFeatures__inner">
+          <div class="exploreFeatures__head">
+            <p class="eyebrow">More than the match</p>
+            <h2 id="explore-features-title">FLY keeps going after you connect.</h2>
+            <p>
+              The marketplace is only the beginning. FLY also gives the request
+              a place to move, get funded when appropriate, and become part of a
+              network you can return to.
+            </p>
+          </div>
+
+          <div class="exploreFeatures__grid">
+            <a class="featureStory featureStory--dark" href="/livetime/">
+              <div class="featureStory__top"><span>01</span><span>Explore LiveTime ↗</span></div>
+              <div class="featureStory__copy">
+                <p>LiveTime</p><h3>Where the FLY happens.</h3>
+                <span>Keep the plan, progress, files, routes, updates and completion connected while the FLY is happening.</span>
+              </div>
+              <div class="featureStory__flow" aria-hidden="true"><i>✓</i><b></b><i class="active">2</i><b></b><i>3</i><b></b><i>4</i></div>
+            </a>
+
+            <article class="featureStory featureStory--pay">
+              <div class="featureStory__top"><span>02</span><span>Early Pay</span></div>
+              <div class="featureStory__copy">
+                <p>Early Pay</p><h3>Some FLYs need money before they are finished.</h3>
+                <span>When Early Pay is available for a FLY, eligible funds can be made available earlier so the FLY can keep moving. Availability and eligibility may vary.</span>
+              </div>
+              <div class="featureStory__money" aria-hidden="true"><span>$</span><div><small>FLY funded</small><strong>Earlier access</strong></div></div>
+            </article>
+
+            <article class="featureStory featureStory--network">
+              <div class="featureStory__top"><span>03</span><span>FLY Network</span></div>
+              <div class="featureStory__copy">
+                <p>FLY Network</p><h3>One FLY can become a connection.</h3>
+                <span>Profiles, people you work with and repeat interactions can become part of the network around you instead of disappearing after one transaction.</span>
+              </div>
+              <div class="featureStory__people" aria-hidden="true">
+                <img src="/campaign/how-profile-service-v60.jpg" alt="" />
+                <img src="/campaign/how-profile-rental-v60.jpg" alt="" />
+                <img src="/campaign/how-profile-delivery-v60.jpg" alt="" />
+                <img src="/campaign/how-profile-purchase-v60.jpg" alt="" />
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+<section class="examples" aria-labelledby="examples-title">
+        <div class="examples__inner">
+          <div class="examples__copy">
+            <p class="eyebrow">What does that look like?</p>
+            <h2 id="examples-title">The marketplace starts with a sentence.</h2>
+            <p>
+              You do not have to think like a marketplace operator. Start with what
+              you actually need and make the request clear.
+            </p>
+          </div>
+
+          <div class="examples__rail" aria-label="Example FLY asks">
+            {examples.map((example, index) => (
+              <article class="exampleAsk">
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <p>{example}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="logic" aria-labelledby="logic-title">
+        <div class="logic__inner">
+          <div class="logic__heading">
+            <p class="eyebrow">Simple on the surface</p>
+            <h2 id="logic-title">The ask comes first. FLY organizes what happens next.</h2>
+          </div>
+
+          <div class="logic__grid">
+            <article>
+              <span>01</span>
+              <h3>What it is about</h3>
+              <p>
+                Categories make a FLY easier to understand and easier for the right
+                people to discover.
+              </p>
+            </article>
+
+            <article>
+              <span>02</span>
+              <h3>How it needs to happen</h3>
+              <p>
+                The experience can adapt to the job itself — work, delivery,
+                transportation, a stay, a rental, a collaboration, and more.
+              </p>
+            </article>
+
+            <article>
+              <span>03</span>
+              <h3>Who fits</h3>
+              <p>
+                People discover the FLY, apply when it fits, and the host chooses
+                who they want to move forward with.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="handoff" aria-labelledby="handoff-title">
+        <div class="handoff__inner">
+          <div class="handoff__copy">
+            <p class="eyebrow">From ask to done</p>
+            <h2 id="handoff-title">Finding someone is only the beginning.</h2>
+            <p>
+              Once a FLY connects, the work should not disappear into scattered
+              texts, screenshots, payment apps, and loose details. FLY keeps the
+              next steps connected to the request.
+            </p>
+            <a href="/how-it-works/">See the full flow <span aria-hidden="true">→</span></a>
+          </div>
+
+          <div class="handoff__flow" aria-label="FLY flow">
+            <div><span>01</span><strong>Ask</strong></div>
+            <div><span>02</span><strong>Discover</strong></div>
+            <div><span>03</span><strong>Connect</strong></div>
+            <div><span>04</span><strong>LiveTime</strong></div>
+            <div><span>05</span><strong>Complete</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing" aria-labelledby="closing-title">
+        <div class="closing__inner">
+          <img class="closing__bird" src="/brand/fly-bird-filled.svg" alt="" aria-hidden="true" />
+          <p class="eyebrow">FLY Unlimited</p>
+          <h2 id="closing-title">There is a marketplace around you.</h2>
+          <p>Open it.</p>
+
+          <a
+            class="button button--dark"
+            href={appStoreUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="downloadFlyBird" aria-hidden="true"></span>Download FLY
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <SiteFooter />
+  </body>
+</html>
+
+<style>
+  :root{
+    --black:#090909;
+    --ink:#111;
+    --muted:#6e6e73;
+    --line:rgba(17,17,17,.12);
+    --paper:#f5f5f7;
+    --purple:#b88cf1;
+    --max:1240px;
+    --pad:clamp(20px,4vw,64px);
+  }
+
+  *{box-sizing:border-box}
+
+  html{
+    margin:0;
+    padding:0;
+    scroll-behavior:smooth;
+    background:#fff;
+  }
+
+  body{
+    margin:0;
+    padding:0;
+    background:#fff;
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+
+  a{color:inherit}
+
+  main{padding-top:0}
+
+  .eyebrow{
+    margin:0 0 16px;
+    color:#86868b;
+    font-size:10px;
+    line-height:1;
+    font-weight:800;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+  }
+
+  .hero{
+    padding:clamp(54px,6vw,90px) var(--pad) clamp(62px,7vw,102px);
+    overflow:hidden;
+    background:#fff;
+  }
+
+  .hero__inner{
+    width:min(100%,var(--max));
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:minmax(0,.92fr) minmax(430px,.78fr);
+    gap:clamp(64px,8vw,130px);
+    align-items:center;
+  }
+
+  .hero h1{
+    margin:0;
+    max-width:10.2ch;
+    font-size:clamp(62px,7vw,112px);
+    line-height:.89;
+    letter-spacing:-.064em;
+    font-weight:760;
+  }
+
+  .hero h1 span{
+    display:block;
+  }
+
+  .hero__primary{
+    color:#0a0a0a;
+  }
+
+  .hero__secondary{
+    margin-top:.03em;
+    color:#9a9a9e;
+  }
+
+  .hero__lead{
+    margin:28px 0 0;
+    max-width:37rem;
+    color:var(--muted);
+    font-size:clamp(18px,1.55vw,23px);
+    line-height:1.5;
+    letter-spacing:-.018em;
+  }
+
+  .hero__actions{
+    margin-top:32px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+
+  .button{
+    min-height:46px;
+    padding:0 19px;
+    border-radius:999px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:760;
+  }
+
+  .button--dark{
+    background:#0a0a0a;
+    color:#fff;
+  }
+
+  .button--light{
+    border:1px solid rgba(10,10,10,.12);
+    background:#fff;
+    color:#111;
+  }
+
+  .askStage{
+    position:relative;
+    min-height:520px;
+    display:grid;
+    place-items:center;
+  }
+
+  .askStage::before{
+    content:"";
+    position:absolute;
+    width:430px;
+    height:430px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(184,140,241,.22),rgba(184,140,241,0) 68%);
+    filter:blur(2px);
+  }
+
+  .askStage__card{
+    position:relative;
+    z-index:2;
+    width:min(100%,390px);
+    min-height:420px;
+    padding:26px;
+    border-radius:34px;
+    background:#0a0a0a;
+    color:#fff;
+    box-shadow:0 34px 80px rgba(0,0,0,.22);
+    transform:rotate(-2deg);
+  }
+
+  .askStage__top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:rgba(255,255,255,.48);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.16em;
+  }
+
+  .askStage__top span:last-child{
+    width:32px;
+    height:32px;
+    border-radius:999px;
+    display:grid;
+    place-items:center;
+    background:rgba(255,255,255,.09);
+    color:#fff;
+    font-size:19px;
+    font-weight:400;
+  }
+
+  .askStage__prompt{
+    margin:92px 0 0;
+    color:rgba(255,255,255,.54);
+    font-size:16px;
+  }
+
+  .askStage__field{
+    margin-top:12px;
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    font-size:clamp(34px,4vw,50px);
+    line-height:.98;
+    letter-spacing:-.055em;
+  }
+
+  .askStage__field span{color:#fff}
+  .askStage__field strong{color:#d8bcff;font-weight:680}
+
+  .askStage__meta{
+    position:absolute;
+    left:26px;
+    right:26px;
+    bottom:28px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+  }
+
+  .askStage__meta span{
+    min-height:38px;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:999px;
+    display:grid;
+    place-items:center;
+    color:rgba(255,255,255,.60);
+    font-size:11px;
+    font-weight:650;
+  }
+
+  .example{
+    position:absolute;
+    z-index:3;
+    padding:10px 13px;
+    border:1px solid rgba(10,10,10,.08);
+    border-radius:999px;
+    background:rgba(255,255,255,.94);
+    box-shadow:0 12px 32px rgba(0,0,0,.08);
+    color:#111;
+    font-size:12px;
+    font-weight:700;
+    white-space:nowrap;
+  }
+
+  .example--one{top:28px;right:6%}
+  .example--two{top:24%;left:0}
+  .example--three{right:-2%;bottom:31%}
+  .example--four{left:2%;bottom:11%}
+  .example--five{right:10%;bottom:1%}
+
+  .manifesto{
+    padding:clamp(74px,8vw,118px) var(--pad);
+    background:#090909;
+    color:#fff;
+  }
+
+  .manifesto__inner{
+    width:min(100%,var(--max));
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(320px,.42fr);
+    gap:clamp(40px,8vw,120px);
+    align-items:end;
+  }
+
+  .manifesto .eyebrow{color:rgba(255,255,255,.38)}
+
+  .manifesto h2{
+    margin:0;
+    max-width:10ch;
+    font-size:clamp(54px,6vw,96px);
+    line-height:.91;
+    letter-spacing:-.058em;
+    font-weight:720;
+  }
+
+  .manifesto p:last-child{
+    margin:0;
+    color:rgba(255,255,255,.58);
+    font-size:clamp(17px,1.4vw,21px);
+    line-height:1.6;
+  }
+
+  .ways{
+    padding:clamp(72px,8vw,112px) var(--pad);
+    background:#fff;
+  }
+
+  .sectionHead{
+    width:min(100%,var(--max));
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(300px,.38fr);
+    gap:clamp(40px,8vw,120px);
+    align-items:end;
+  }
+
+  .sectionHead h2{
+    margin:0;
+    font-size:clamp(48px,5.3vw,82px);
+    line-height:.93;
+    letter-spacing:-.055em;
+    font-weight:720;
+  }
+
+  .sectionHead > p{
+    margin:0;
+    color:var(--muted);
+    font-size:17px;
+    line-height:1.55;
+  }
+
+  .ways__grid{
+    width:min(100%,var(--max));
+    margin:clamp(48px,6vw,82px) auto 0;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    border-top:1px solid var(--line);
+    border-left:1px solid var(--line);
+  }
+
+  .wayCard{
+    min-height:315px;
+    padding:26px;
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    gap:22px;
+    background:#fff;
+  }
+
+  .wayCard__top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+  }
+
+  .wayCard__number{
+    color:#9a9a9e;
+    font-size:11px;
+    font-weight:750;
+    letter-spacing:.1em;
+  }
+
+  .wayCard__icon{
+    width:46px;
+    height:46px;
+    border-radius:999px;
+    display:grid;
+    place-items:center;
+    background:#f3f3f4;
+  }
+
+  .wayCard__icon svg{
+    width:22px;
+    height:22px;
+    fill:none;
+    stroke:#111;
+    stroke-width:1.8;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+  }
+
+  .wayCard__icon--delivery{background:#eaf7ee}
+  .wayCard__icon--transport{background:#eeeeee}
+  .wayCard__icon--stay{background:#f4ecfb}
+  .wayCard__icon--rental{background:#f8f1d8}
+  .wayCard__icon--collab{background:#e9f1fb}
+
+  .wayCard__copy h3{
+    margin:0;
+    font-size:clamp(34px,3.2vw,50px);
+    line-height:.98;
+    letter-spacing:-.05em;
+    font-weight:700;
+  }
+
+  .wayCard__copy p{
+    margin:15px 0 0;
+    max-width:29rem;
+    color:var(--muted);
+    font-size:16px;
+    line-height:1.55;
+  }
+
+  .wayCard__example{
+    padding-top:20px;
+    border-top:1px solid var(--line);
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+  }
+
+  .wayCard__example span{
+    color:#9a9a9e;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+  }
+
+  .wayCard__example strong{
+    font-size:14px;
+    line-height:1.35;
+    font-weight:680;
+  }
+
+  .wayCard--open{
+    grid-column:1 / -1;
+    min-height:0;
+    padding:30px 34px;
+    display:grid;
+    grid-template-columns:minmax(260px,.95fr) minmax(280px,1fr) auto;
+    gap:clamp(28px,5vw,72px);
+    align-items:center;
+    background:#b88cf1;
+    color:#111;
+    text-decoration:none;
+    transition:
+      background .20s ease,
+      transform .20s ease;
+  }
+
+  .wayCard--open:hover{
+    background:#ae7eea;
+  }
+
+  .wayCard__openIntro{
+    min-width:0;
+  }
+
+  .wayCard__openEyebrow{
+    margin:0 0 9px !important;
+    color:rgba(17,17,17,.52) !important;
+    font-size:9px !important;
+    line-height:1;
+    font-weight:850;
+    letter-spacing:.17em;
+    text-transform:uppercase;
+  }
+
+  .wayCard--open h3{
+    margin:0;
+    font-size:clamp(30px,3vw,46px);
+    line-height:.96;
+    letter-spacing:-.05em;
+    font-weight:720;
+  }
+
+  .wayCard__openText{
+    margin:0 !important;
+    max-width:31rem;
+    color:rgba(17,17,17,.66) !important;
+    font-size:14px !important;
+    line-height:1.5 !important;
+  }
+
+  .wayCard__openAction{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    white-space:nowrap;
+    font-size:13px;
+    font-weight:800;
+  }
+
+  .wayCard__openArrow{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:#111;
+    color:#fff;
+    font-size:17px;
+    transition:transform .20s ease;
+  }
+
+  .wayCard--open:hover .wayCard__openArrow{
+    transform:translate(3px,-3px);
+  }
+
+  .examples{
+    padding:clamp(72px,8vw,112px) var(--pad);
+    background:#f5f5f7;
+  }
+
+  .examples__inner{
+    width:min(100%,var(--max));
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:minmax(280px,.42fr) minmax(0,.58fr);
+    gap:clamp(50px,8vw,120px);
+  }
+
+  .examples__copy h2{
+    margin:0;
+    max-width:8.5ch;
+    font-size:clamp(48px,5vw,76px);
+    line-height:.93;
+    letter-spacing:-.055em;
+    font-weight:720;
+  }
+
+  .examples__copy > p:last-child{
+    margin:22px 0 0;
+    max-width:30rem;
+    color:var(--muted);
+    font-size:17px;
+    line-height:1.6;
+  }
+
+  .examples__rail{
+    border-top:1px solid var(--line);
+  }
+
+  .exampleAsk{
+    min-height:86px;
+    padding:17px 0;
+    border-bottom:1px solid var(--line);
+    display:grid;
+    grid-template-columns:42px 1fr;
+    gap:16px;
+    align-items:center;
+  }
+
+  .exampleAsk span{
+    color:#9a9a9e;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.12em;
+  }
+
+  .exampleAsk p{
+    margin:0;
+    font-size:clamp(19px,2vw,27px);
+    line-height:1.1;
+    letter-spacing:-.035em;
+    font-weight:650;
+  }
+
+  .logic{
+    padding:clamp(72px,8vw,112px) var(--pad);
+    background:#fff;
+  }
+
+  .logic__inner{
+    width:min(100%,var(--max));
+    margin:0 auto;
+  }
+
+  .logic__heading{
+    max-width:58rem;
+  }
+
+  .logic__heading h2{
+    margin:0;
+    font-size:clamp(48px,5.5vw,86px);
+    line-height:.92;
+    letter-spacing:-.058em;
+    font-weight:720;
+  }
+
+  .logic__grid{
+    margin-top:clamp(50px,6vw,78px);
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+
+  .logic__grid article{
+    min-height:260px;
+    padding:28px 28px 30px 0;
+    border-right:1px solid var(--line);
+  }
+
+  .logic__grid article + article{padding-left:28px}
+  .logic__grid article:last-child{border-right:0}
+
+  .logic__grid span{
+    color:#9a9a9e;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.12em;
+  }
+
+  .logic__grid h3{
+    margin:86px 0 0;
+    font-size:23px;
+    line-height:1.04;
+    letter-spacing:-.035em;
+  }
+
+  .logic__grid p{
+    margin:12px 0 0;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.55;
+  }
+
+  .handoff{
+    padding:clamp(74px,8vw,116px) var(--pad);
+    background:#090909;
+    color:#fff;
+  }
+
+  .handoff__inner{
+    width:min(100%,var(--max));
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:minmax(0,.55fr) minmax(380px,.45fr);
+    gap:clamp(54px,8vw,120px);
+    align-items:center;
+  }
+
+  .handoff .eyebrow{color:rgba(255,255,255,.36)}
+
+  .handoff__copy h2{
+    margin:0;
+    max-width:9ch;
+    font-size:clamp(50px,5.6vw,88px);
+    line-height:.91;
+    letter-spacing:-.058em;
+    font-weight:720;
+  }
+
+  .handoff__copy p{
+    margin:24px 0 0;
+    max-width:34rem;
+    color:rgba(255,255,255,.56);
+    font-size:17px;
+    line-height:1.6;
+  }
+
+  .handoff__copy a{
+    margin-top:28px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    color:#fff;
+    font-size:14px;
+    font-weight:750;
+    text-decoration:none;
+  }
+
+  .handoff__flow{
+    border-top:1px solid rgba(255,255,255,.16);
+  }
+
+  .handoff__flow div{
+    min-height:76px;
+    border-bottom:1px solid rgba(255,255,255,.16);
+    display:grid;
+    grid-template-columns:48px 1fr;
+    gap:16px;
+    align-items:center;
+  }
+
+  .handoff__flow span{
+    color:rgba(255,255,255,.34);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.12em;
+  }
+
+  .handoff__flow strong{
+    font-size:clamp(20px,2vw,28px);
+    line-height:1;
+    letter-spacing:-.035em;
+  }
+
+  .closing{
+    padding:clamp(88px,10vw,138px) var(--pad);
+    background:#fff;
+    text-align:center;
+  }
+
+  .closing__inner{
+    width:min(100%,900px);
+    margin:0 auto;
+  }
+
+  .closing img{
+    width:58px;
+    height:58px;
+    object-fit:contain;
+    border-radius:0;
+    margin-bottom:28px;
+  }
+
+  .closing h2{
+    margin:0 auto;
+    max-width:10ch;
+    font-size:clamp(58px,7vw,108px);
+    line-height:.88;
+    letter-spacing:-.064em;
+    font-weight:760;
+  }
+
+  .closing > .closing__inner > p:nth-of-type(2){
+    margin:18px 0 28px;
+    color:#8a8a8e;
+    font-size:clamp(20px,2vw,28px);
+    letter-spacing:-.025em;
+  }
+
+  @media(max-width:960px){
+    .hero__inner,
+    .manifesto__inner,
+    .sectionHead,
+    .examples__inner,
+    .handoff__inner{
+      grid-template-columns:1fr;
+    }
+
+    .askStage{
+      min-height:500px;
+      max-width:620px;
+      margin:0 auto;
+      width:100%;
+    }
+
+    .manifesto p:last-child,
+    .sectionHead > p{
+      max-width:36rem;
+    }
+
+    .logic__grid{
+      grid-template-columns:1fr;
+    }
+
+    .logic__grid article,
+    .logic__grid article + article{
+      min-height:auto;
+      padding:28px 0;
+      border-right:0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .logic__grid article:last-child{border-bottom:0}
+    .logic__grid h3{margin-top:40px}
+  }
+
+  @media(max-width:700px){
+    main{padding-top:0}
+
+    .hero{
+      padding:62px 18px 76px;
+    }
+
+    .hero h1{
+      max-width:9.6ch;
+      font-size:clamp(56px,16vw,78px);
+    }
+
+    .hero__lead{
+      font-size:18px;
+    }
+
+    .hero__actions .button{
+      flex:1 1 100%;
+    }
+
+    .askStage{
+      min-height:440px;
+      margin-top:6px;
+    }
+
+    .askStage__card{
+      width:min(88vw,360px);
+      min-height:385px;
+      padding:22px;
+      border-radius:28px;
+    }
+
+    .askStage__prompt{margin-top:72px}
+
+    .askStage__meta{
+      left:22px;
+      right:22px;
+      bottom:22px;
+    }
+
+    .example{
+      font-size:10px;
+      padding:8px 10px;
+    }
+
+    .example--one{right:0}
+    .example--two{left:-4px}
+    .example--three{right:-5px}
+    .example--four{left:0}
+    .example--five{right:2%}
+
+    .manifesto,
+    .ways,
+    .examples,
+    .logic,
+    .handoff,
+    .closing{
+      padding-left:18px;
+      padding-right:18px;
+    }
+
+    .manifesto h2,
+    .sectionHead h2,
+    .examples__copy h2,
+    .logic__heading h2,
+    .handoff__copy h2{
+      font-size:clamp(46px,13vw,64px);
+    }
+
+    .ways__grid{
+      grid-template-columns:1fr;
+      border-left:0;
+      border-top:1px solid var(--line);
+    }
+
+    .wayCard{
+      min-height:280px;
+      padding:24px 0;
+      border-right:0;
+    }
+
+    .wayCard--open{
+      grid-column:auto;
+      min-height:0;
+      padding:24px;
+      margin-top:18px;
+      border:0;
+      border-radius:18px;
+      grid-template-columns:1fr;
+      gap:22px;
+    }
+
+    .wayCard__openText{
+      max-width:26rem;
+    }
+
+    .wayCard__openAction{
+      justify-content:space-between;
+      padding-top:3px;
+    }
+
+    .wayCard__openArrow{
+      width:40px;
+      height:40px;
+    }
+
+    .examples__rail{margin-top:6px}
+
+    .handoff__flow div{
+      min-height:68px;
+    }
+
+    .closing h2{
+      font-size:clamp(58px,16vw,82px);
+    }
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+  }
+
+  .closing__bird{
+    width:54px !important;
+    height:auto !important;
+    max-height:40px !important;
+    display:block !important;
+    object-fit:contain !important;
+    margin:0 auto 22px !important;
+    border-radius:0 !important;
+  }
+
+
+  .manifesto{
+    position:relative;
+    overflow:hidden;
+  }
+
+  .manifesto::before{
+    content:"";
+    position:absolute;
+    inset:0 auto 0 0;
+    width:54%;
+    background:
+      linear-gradient(90deg, rgba(0,0,0,.16) 0%, rgba(0,0,0,.48) 72%, rgba(0,0,0,.78) 100%),
+      url("/campaign/how-livetime-editorial-v48.png") center center / cover no-repeat;
+    opacity:.46;
+    pointer-events:none;
+  }
+
+  .manifesto__inner{
+    position:relative;
+    z-index:1;
+  }
+
+  @media(max-width:960px){
+    .manifesto::before{
+      width:100%;
+      opacity:.24;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,.58) 100%),
+        url("/campaign/how-livetime-editorial-v48.png") center center / cover no-repeat;
+    }
+  }
+
+
+
+  /* ===== BEYOND CATEGORIES — EDITORIAL LINK CARD ===== */
+
+  .otherWays{
+    width:min(100%,var(--max));
+    margin:28px auto 0;
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:#fff;
+    overflow:hidden;
+  }
+
+  .otherWays__top{
+    min-height:154px;
+    padding:27px 30px;
+    display:grid;
+    grid-template-columns:minmax(280px,.95fr) minmax(300px,1fr) auto;
+    gap:clamp(28px,5vw,72px);
+    align-items:center;
+  }
+
+  .otherWays__headline{
+    display:flex;
+    align-items:flex-start;
+    gap:15px;
+  }
+
+  .otherWays__mark{
+    width:9px;
+    height:9px;
+    margin-top:7px;
+    flex:0 0 auto;
+    border-radius:999px;
+    background:#b88cf1;
+  }
+
+  .otherWays__eyebrow{
+    margin:0 0 7px;
+    color:#8a8a8e;
+    font-size:9px;
+    line-height:1;
+    font-weight:850;
+    letter-spacing:.17em;
+    text-transform:uppercase;
+  }
+
+  .otherWays h3{
+    margin:0;
+    font-size:clamp(28px,2.7vw,42px);
+    line-height:.96;
+    letter-spacing:-.048em;
+    font-weight:720;
+  }
+
+  .otherWays__copy{
+    margin:0;
+    max-width:31rem;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.52;
+  }
+
+  .otherWays__cta{
+    min-height:42px;
+    padding:0 16px;
+    border-radius:999px;
+    background:#0a0a0a;
+    color:#fff;
+    display:inline-flex;
+    align-items:center;
+    gap:13px;
+    text-decoration:none;
+    white-space:nowrap;
+    font-size:12px;
+    font-weight:800;
+    transition:
+      transform .18s ease,
+      background .18s ease;
+  }
+
+  .otherWays__cta:hover{
+    transform:translateY(-1px);
+    background:#242424;
+  }
+
+  .otherWays__cta span:last-child{
+    font-size:15px;
+    transition:transform .18s ease;
+  }
+
+  .otherWays__cta:hover span:last-child{
+    transform:translate(2px,-2px);
+  }
+
+  .otherWays__rail{
+    min-height:57px;
+    padding:0 30px;
+    border-top:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    gap:17px;
+    overflow-x:auto;
+    scrollbar-width:none;
+    color:#77777b;
+    font-size:10px;
+    line-height:1;
+    font-weight:800;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    white-space:nowrap;
+  }
+
+  .otherWays__rail::-webkit-scrollbar{
+    display:none;
+  }
+
+  .otherWays__rail i{
+    width:3px;
+    height:3px;
+    flex:0 0 auto;
+    border-radius:50%;
+    background:#c3c3c6;
+  }
+
+  .otherWays__more{
+    color:#8050bf;
+  }
+
+  @media(max-width:900px){
+    .otherWays__top{
+      grid-template-columns:1fr 1fr;
+    }
+
+    .otherWays__cta{
+      width:max-content;
+      grid-column:1 / -1;
+    }
+  }
+
+  @media(max-width:620px){
+    .otherWays{
+      margin-top:20px;
+      border-radius:16px;
+    }
+
+    .otherWays__top{
+      min-height:0;
+      padding:24px;
+      grid-template-columns:1fr;
+      gap:20px;
+    }
+
+    .otherWays__copy{
+      max-width:29rem;
+    }
+
+    .otherWays__cta{
+      width:100%;
+      justify-content:space-between;
+    }
+
+    .otherWays__rail{
+      min-height:54px;
+      padding:0 24px;
+      gap:14px;
+    }
+  }
+
+
+
+  /* ===== DISCOVER MORE — CATEGORY RAIL ===== */
+
+  .discoverWays{
+    width:min(100%,var(--max));
+    margin:26px auto 0;
+    padding:30px 34px;
+    border-radius:28px;
+    background:#f5f5f7;
+    display:grid;
+    grid-template-columns:minmax(260px,.42fr) minmax(0,1fr);
+    gap:clamp(36px,5vw,74px);
+    align-items:center;
+  }
+
+  .discoverWays__intro h3{
+    margin:0;
+    font-size:clamp(28px,2.7vw,42px);
+    line-height:.98;
+    letter-spacing:-.045em;
+    font-weight:720;
+  }
+
+  .discoverWays__intro p{
+    margin:10px 0 0;
+    max-width:28rem;
+    color:#6e6e73;
+    font-size:14px;
+    line-height:1.52;
+  }
+
+  .discoverWays__ask{
+    width:max-content;
+    margin-top:15px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:#111;
+    text-decoration:none;
+    font-size:12px;
+    line-height:1;
+    font-weight:800;
+  }
+
+  .discoverWays__ask span{
+    transition:transform .18s ease;
+  }
+
+  .discoverWays__ask:hover span{
+    transform:translateX(3px);
+  }
+
+  .discoverWays__categories{
+    min-width:0;
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:clamp(14px,1.8vw,25px);
+    overflow-x:auto;
+    padding:4px 2px;
+    scrollbar-width:none;
+  }
+
+  .discoverWays__categories::-webkit-scrollbar{
+    display:none;
+  }
+
+  .discoverWays__category{
+    min-width:68px;
+    flex:0 0 auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+    text-align:center;
+  }
+
+  .discoverWays__category > span{
+    color:#6e6e73;
+    font-size:9px;
+    line-height:1.15;
+    font-weight:700;
+    letter-spacing:.02em;
+    white-space:nowrap;
+  }
+
+  .discoverWays__icon{
+    width:54px;
+    height:54px;
+    border-radius:16px;
+    display:grid;
+    place-items:center;
+    box-shadow:
+      0 8px 18px rgba(0,0,0,.05),
+      inset 0 0 0 1px rgba(255,255,255,.18);
+  }
+
+  .discoverWays__icon img{
+    width:27px;
+    height:27px;
+    display:block;
+    object-fit:contain;
+    filter:brightness(0) invert(1);
+  }
+
+  .discoverWays__icon--events{
+    background:#0761ad;
+  }
+
+  .discoverWays__icon--business{
+    background:#2dcc70;
+  }
+
+  .discoverWays__icon--photo{
+    background:#9b59b6;
+  }
+
+  .discoverWays__icon--tech{
+    background:#6600e8;
+  }
+
+  .discoverWays__icon--collabs{
+    background:#3498db;
+  }
+
+  .discoverWays__icon--pets{
+    background:#20c997;
+  }
+
+  .discoverWays__icon--gaming{
+    background:#c62828;
+  }
+
+  .discoverWays__icon--education{
+    background:#00bfee;
+  }
+
+  @media(max-width:960px){
+    .discoverWays{
+      grid-template-columns:1fr;
+      gap:25px;
+    }
+
+    .discoverWays__categories{
+      justify-content:flex-start;
+    }
+  }
+
+  @media(max-width:620px){
+    .discoverWays{
+      margin-top:20px;
+      padding:24px;
+      border-radius:22px;
+    }
+
+    .discoverWays__categories{
+      margin-left:-4px;
+      margin-right:-4px;
+    }
+
+    .discoverWays__icon{
+      width:50px;
+      height:50px;
+      border-radius:15px;
+    }
+
+    .discoverWays__icon img{
+      width:24px;
+      height:24px;
+    }
+  }
+
+
+
+  /* ===== DISCOVER CATEGORIES — REFERENCE MATCH ===== */
+
+  .categoryBannerExact{
+    width:min(100%,var(--max));
+    min-height:178px;
+    margin:26px auto 0;
+    padding:28px 32px;
+    border-radius:32px;
+    background:#f5f5f7;
+    display:grid;
+    grid-template-columns:minmax(310px,.42fr) minmax(0,1fr);
+    gap:clamp(34px,4vw,68px);
+    align-items:center;
+  }
+
+  .categoryBannerExact__copy{
+    min-width:0;
+  }
+
+  .categoryBannerExact__copy h3{
+    margin:0;
+    color:#111;
+    font-size:clamp(27px,2.5vw,38px);
+    line-height:.98;
+    letter-spacing:-.045em;
+    font-weight:720;
+  }
+
+  .categoryBannerExact__copy p{
+    margin:11px 0 0;
+    max-width:31rem;
+    color:#6e6e73;
+    font-size:14px;
+    line-height:1.5;
+  }
+
+  .categoryBannerExact__link{
+    width:max-content;
+    margin-top:12px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:#111;
+    text-decoration:none;
+    font-size:12px;
+    line-height:1;
+    font-weight:800;
+  }
+
+  .categoryBannerExact__link span{
+    transition:transform .18s ease;
+  }
+
+  .categoryBannerExact__link:hover span{
+    transform:translateX(3px);
+  }
+
+  .categoryBannerExact__rail{
+    min-width:0;
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:clamp(12px,1.3vw,20px);
+    overflow-x:auto;
+    padding:4px 0;
+    scrollbar-width:none;
+  }
+
+  .categoryBannerExact__rail::-webkit-scrollbar{
+    display:none;
+  }
+
+  .categoryBannerExact__item{
+    width:64px;
+    flex:0 0 64px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:7px;
+    text-align:center;
+  }
+
+  .categoryBannerExact__item > span{
+    color:#6e6e73;
+    font-size:9px;
+    line-height:1.12;
+    font-weight:700;
+    white-space:nowrap;
+  }
+
+  .categoryBannerExact__icon{
+    width:54px;
+    height:54px;
+    border-radius:16px;
+    display:grid;
+    place-items:center;
+    box-shadow:
+      0 8px 18px rgba(0,0,0,.06),
+      inset 0 0 0 1px rgba(255,255,255,.16);
+  }
+
+  .categoryBannerExact__icon img{
+    width:27px;
+    height:27px;
+    display:block;
+    object-fit:contain;
+    filter:brightness(0) invert(1);
+  }
+
+  .categoryBannerExact__icon--home{background:#6600ff}
+  .categoryBannerExact__icon--events{background:#0054a3}
+  .categoryBannerExact__icon--business{background:#2ecc71}
+  .categoryBannerExact__icon--photo{background:#9b59b6}
+  .categoryBannerExact__icon--technology{background:#6000e0}
+  .categoryBannerExact__icon--collabs{background:#3498db}
+  .categoryBannerExact__icon--pets{background:#20c997}
+  .categoryBannerExact__icon--gaming{background:#c62828}
+  .categoryBannerExact__icon--education{background:#00c3ff}
+
+  @media(max-width:980px){
+    .categoryBannerExact{
+      grid-template-columns:1fr;
+      gap:24px;
+    }
+
+    .categoryBannerExact__rail{
+      justify-content:flex-start;
+    }
+  }
+
+  @media(max-width:620px){
+    .categoryBannerExact{
+      min-height:0;
+      padding:24px;
+      border-radius:24px;
+    }
+
+    .categoryBannerExact__copy h3{
+      font-size:30px;
+    }
+
+    .categoryBannerExact__rail{
+      margin-right:-10px;
+    }
+
+    .categoryBannerExact__item{
+      width:60px;
+      flex-basis:60px;
+    }
+
+    .categoryBannerExact__icon{
+      width:50px;
+      height:50px;
+      border-radius:15px;
+    }
+
+    .categoryBannerExact__icon img{
+      width:24px;
+      height:24px;
+    }
+  }
+
+
+
+  /* ===== EXPLORE — CATEGORIES + FLY TYPES MERGED ===== */
+
+  .exploreCategoryHub{
+    padding:clamp(68px,7vw,96px) var(--pad) 20px;
+    background:#fff;
+  }
+
+  .exploreCategoryHub__inner{
+    width:min(100%,var(--max));
+    margin:0 auto;
+  }
+
+  .exploreCategoryHub .categoryBannerExact{
+    margin:0 auto;
+  }
+
+  .marketMixV24.stepsTypesStandaloneV67{
+    margin-top:0 !important;
+    padding-top:58px !important;
+  }
+
+  .marketMixV24.stepsTypesStandaloneV67 .marketMixV24__inner{
+    width:min(100%,1180px) !important;
+  }
+
+  @media(max-width:720px){
+    .exploreCategoryHub{
+      padding:54px 18px 16px;
+    }
+
+    .marketMixV24.stepsTypesStandaloneV67{
+      padding-top:48px !important;
+    }
+  }
+
+
+  .exploreWaysMerged{padding:clamp(74px,8vw,116px) var(--pad);background:#fff}
+  .exploreWaysMerged__inner,.exploreFeatures__inner{width:min(100%,var(--max));margin:0 auto}
+  .exploreWaysMerged__head{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.38fr);gap:clamp(42px,7vw,104px);align-items:end}
+  .exploreWaysMerged__head h2{margin:0;max-width:11ch;font-size:clamp(48px,5.4vw,84px);line-height:.92;letter-spacing:-.058em;font-weight:720}
+  .exploreWaysMerged__head>p{margin:0;color:#6e6e73;font-size:16px;line-height:1.58}
+  .exploreWaysMerged__grid{margin-top:clamp(42px,5vw,68px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+  .exploreWay{min-height:250px;padding:24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;gap:24px;background:#fff}
+  .exploreWay>span{color:#9a9a9f;font-size:9px;font-weight:800;letter-spacing:.14em}
+  .exploreWay h3{margin:0;font-size:clamp(27px,2.5vw,40px);line-height:.98;letter-spacing:-.048em}
+  .exploreWay p{margin:9px 0 0;color:#6e6e73;font-size:13px;line-height:1.5}
+  .exploreWay strong{padding-top:15px;border-top:1px solid var(--line);font-size:12px;line-height:1.35}
+  .exploreWay--featured{background:#0a0a0a;color:#fff}.exploreWay--featured>span,.exploreWay--featured p{color:rgba(255,255,255,.48)}.exploreWay--featured strong{color:#fff;border-top-color:rgba(255,255,255,.14)}
+  .exploreWay--wide{grid-column:span 3;min-height:190px;display:grid;grid-template-columns:50px minmax(0,1fr) minmax(280px,.7fr);align-items:center}.exploreWay--wide strong{padding:0 0 0 24px;border-top:0;border-left:1px solid var(--line)}
+  .exploreFeatures{padding:clamp(82px,9vw,128px) var(--pad);background:#fff;border-top:1px solid #ececef}
+  .exploreFeatures__head{max-width:62rem}.exploreFeatures__head h2{margin:0;max-width:11ch;font-size:clamp(50px,5.6vw,88px);line-height:.91;letter-spacing:-.06em}.exploreFeatures__head>p:last-child{margin:22px 0 0;max-width:42rem;color:#6e6e73;font-size:16px;line-height:1.6}
+  .exploreFeatures__grid{margin-top:clamp(46px,6vw,78px);display:grid;grid-template-columns:1.05fr .95fr .95fr;gap:14px}
+  .featureStory{min-height:470px;padding:28px;border:1px solid #e4e4e7;border-radius:24px;display:flex;flex-direction:column;overflow:hidden;background:#fff;color:#111;text-decoration:none}
+  .featureStory__top{display:flex;justify-content:space-between;gap:18px;color:#8a8a90;font-size:9px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+  .featureStory__copy{margin-top:auto}.featureStory__copy>p{margin:0 0 10px;color:#8a8a90;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.featureStory__copy h3{margin:0;max-width:10ch;font-size:clamp(32px,3vw,46px);line-height:.96;letter-spacing:-.05em}.featureStory__copy>span{margin-top:15px;display:block;color:#6e6e73;font-size:13px;line-height:1.55}
+  .featureStory--dark{background:#090909;color:#fff;border-color:#090909}.featureStory--dark .featureStory__top,.featureStory--dark .featureStory__copy>p,.featureStory--dark .featureStory__copy>span{color:rgba(255,255,255,.5)}
+  .featureStory__flow{margin-top:34px;display:grid;grid-template-columns:34px 1fr 34px 1fr 34px 1fr 34px;align-items:center}.featureStory__flow i{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.45);font-size:10px;font-style:normal}.featureStory__flow b{height:1px;background:rgba(255,255,255,.14)}.featureStory__flow i:first-child{background:#fff;color:#111}.featureStory__flow .active{background:#b88cf1;color:#111;border-color:#b88cf1}
+  .featureStory--pay{background:#f5f5f7}.featureStory__money{margin-top:32px;padding:18px;border-radius:18px;background:#fff;display:flex;align-items:center;gap:14px}.featureStory__money>span{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:#b88cf1;font-size:20px;font-weight:800}.featureStory__money div{display:flex;flex-direction:column;gap:3px}.featureStory__money small{color:#8a8a90;font-size:9px;font-weight:750;text-transform:uppercase}.featureStory__money strong{font-size:14px}
+  .featureStory__people{margin-top:32px;display:flex;align-items:center}.featureStory__people img{width:56px;height:56px;margin-right:-12px;border:4px solid #fff;border-radius:50%;object-fit:cover}.featureStory__people img:nth-child(2){width:68px;height:68px;z-index:2}
+  @media(max-width:980px){.exploreWaysMerged__head{grid-template-columns:1fr}.exploreWaysMerged__grid{grid-template-columns:repeat(2,minmax(0,1fr))}.exploreWay--wide{grid-column:span 2}.exploreFeatures__grid{grid-template-columns:1fr 1fr}.featureStory--dark{grid-column:1/-1}}
+  @media(max-width:680px){.exploreWaysMerged,.exploreFeatures{padding-left:18px;padding-right:18px}.exploreWaysMerged__grid{grid-template-columns:1fr;border-left:0}.exploreWay{min-height:220px;padding:24px 0;border-right:0}.exploreWay--wide{grid-column:auto;display:flex}.exploreWay--wide strong{padding:15px 0 0;border-left:0;border-top:1px solid var(--line)}.exploreFeatures__grid{grid-template-columns:1fr}.featureStory--dark{grid-column:auto}.featureStory{min-height:400px;padding:24px}}
+
+
+  .exploreWaysMerged{padding:clamp(74px,8vw,116px) var(--pad);background:#fff}
+  .exploreWaysMerged__inner,.exploreFeatures__inner{width:min(100%,var(--max));margin:0 auto}
+  .exploreWaysMerged__head{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.38fr);gap:clamp(42px,7vw,104px);align-items:end}
+  .exploreWaysMerged__head h2{margin:0;max-width:11ch;font-size:clamp(48px,5.4vw,84px);line-height:.92;letter-spacing:-.058em;font-weight:720}
+  .exploreWaysMerged__head>p{margin:0;color:#6e6e73;font-size:16px;line-height:1.58}
+  .exploreWaysMerged__grid{margin-top:clamp(42px,5vw,68px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+  .exploreWay{min-height:250px;padding:24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;gap:24px;background:#fff}
+  .exploreWay>span{color:#9a9a9f;font-size:9px;font-weight:800;letter-spacing:.14em}
+  .exploreWay h3{margin:0;font-size:clamp(27px,2.5vw,40px);line-height:.98;letter-spacing:-.048em}
+  .exploreWay p{margin:9px 0 0;color:#6e6e73;font-size:13px;line-height:1.5}
+  .exploreWay strong{padding-top:15px;border-top:1px solid var(--line);font-size:12px;line-height:1.35}
+  .exploreWay--featured{background:#0a0a0a;color:#fff}.exploreWay--featured>span,.exploreWay--featured p{color:rgba(255,255,255,.48)}.exploreWay--featured strong{color:#fff;border-top-color:rgba(255,255,255,.14)}
+  .exploreWay--wide{grid-column:span 3;min-height:190px;display:grid;grid-template-columns:50px minmax(0,1fr) minmax(280px,.7fr);align-items:center}.exploreWay--wide strong{padding:0 0 0 24px;border-top:0;border-left:1px solid var(--line)}
+  .exploreFeatures{padding:clamp(82px,9vw,128px) var(--pad);background:#fff;border-top:1px solid #ececef}
+  .exploreFeatures__head{max-width:62rem}.exploreFeatures__head h2{margin:0;max-width:11ch;font-size:clamp(50px,5.6vw,88px);line-height:.91;letter-spacing:-.06em}.exploreFeatures__head>p:last-child{margin:22px 0 0;max-width:42rem;color:#6e6e73;font-size:16px;line-height:1.6}
+  .exploreFeatures__grid{margin-top:clamp(46px,6vw,78px);display:grid;grid-template-columns:1.05fr .95fr .95fr;gap:14px}
+  .featureStory{min-height:470px;padding:28px;border:1px solid #e4e4e7;border-radius:24px;display:flex;flex-direction:column;overflow:hidden;background:#fff;color:#111;text-decoration:none}
+  .featureStory__top{display:flex;justify-content:space-between;gap:18px;color:#8a8a90;font-size:9px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+  .featureStory__copy{margin-top:auto}.featureStory__copy>p{margin:0 0 10px;color:#8a8a90;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.featureStory__copy h3{margin:0;max-width:10ch;font-size:clamp(32px,3vw,46px);line-height:.96;letter-spacing:-.05em}.featureStory__copy>span{margin-top:15px;display:block;color:#6e6e73;font-size:13px;line-height:1.55}
+  .featureStory--dark{background:#090909;color:#fff;border-color:#090909}.featureStory--dark .featureStory__top,.featureStory--dark .featureStory__copy>p,.featureStory--dark .featureStory__copy>span{color:rgba(255,255,255,.5)}
+  .featureStory__flow{margin-top:34px;display:grid;grid-template-columns:34px 1fr 34px 1fr 34px 1fr 34px;align-items:center}.featureStory__flow i{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.45);font-size:10px;font-style:normal}.featureStory__flow b{height:1px;background:rgba(255,255,255,.14)}.featureStory__flow i:first-child{background:#fff;color:#111}.featureStory__flow .active{background:#b88cf1;color:#111;border-color:#b88cf1}
+  .featureStory--pay{background:#f5f5f7}.featureStory__money{margin-top:32px;padding:18px;border-radius:18px;background:#fff;display:flex;align-items:center;gap:14px}.featureStory__money>span{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:#b88cf1;font-size:20px;font-weight:800}.featureStory__money div{display:flex;flex-direction:column;gap:3px}.featureStory__money small{color:#8a8a90;font-size:9px;font-weight:750;text-transform:uppercase}.featureStory__money strong{font-size:14px}
+  .featureStory__people{margin-top:32px;display:flex;align-items:center}.featureStory__people img{width:56px;height:56px;margin-right:-12px;border:4px solid #fff;border-radius:50%;object-fit:cover}.featureStory__people img:nth-child(2){width:68px;height:68px;z-index:2}
+  @media(max-width:980px){.exploreWaysMerged__head{grid-template-columns:1fr}.exploreWaysMerged__grid{grid-template-columns:repeat(2,minmax(0,1fr))}.exploreWay--wide{grid-column:span 2}.exploreFeatures__grid{grid-template-columns:1fr 1fr}.featureStory--dark{grid-column:1/-1}}
+  @media(max-width:680px){.exploreWaysMerged,.exploreFeatures{padding-left:18px;padding-right:18px}.exploreWaysMerged__grid{grid-template-columns:1fr;border-left:0}.exploreWay{min-height:220px;padding:24px 0;border-right:0}.exploreWay--wide{grid-column:auto;display:flex}.exploreWay--wide strong{padding:15px 0 0;border-left:0;border-top:1px solid var(--line)}.exploreFeatures__grid{grid-template-columns:1fr}.featureStory--dark{grid-column:auto}.featureStory{min-height:400px;padding:24px}}
+
+</style>

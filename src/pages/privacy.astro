@@ -1,4 +1,6 @@
 ---
+import SiteNav from "../components/SiteNav.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 export const prerender = true;
 
 const title = "Privacy Policy — FLY Unlimited (FLY)";
@@ -804,36 +806,13 @@ const contactEmail = "contact@fly-unlimited.com";
     <link rel="stylesheet" href="/fly-global-nav-minimal-v21.css" />
     <link rel="stylesheet" href="/fly-global-nav-bare-icons-v22.css" />
     <link rel="stylesheet" href="/fly-global-nav-no-selector-v23.css" />
+    <link rel="stylesheet" href="/fly-refinement-v1.css" />
 </head>
 
-  <body>
-    <header class="topbar">
-      <div class="topbarInner">
-        <a class="brand" href="/" aria-label="FLY Unlimited">
-          <img class="mascot" src="/logo-alt.png" alt="FLY mascot" />
-        </a>
+  <body class="siteShellPage page-legal">
+    <SiteNav />
 
-        <nav class="nav" aria-label="Navigation">
-          <a class="navBtn" href="/" aria-label="Home" title="Home">
-            <img class="navIcon" src="/flyhome.svg" alt="" aria-hidden="true" />
-          </a>
-
-          <a class="navBtn" href="/how-it-works/" aria-label="How it works" title="How it works">
-            <img class="navIcon" src="/flyinactive.svg" alt="" aria-hidden="true" />
-          </a>
-
-          <a class="navBtn" href="/info/" aria-label="Info" title="Info">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="9" />
-              <path d="M12 10.6v6" />
-              <path d="M12 7.4h.01" />
-            </svg>
-          </a>
-        </nav>
-      </div>
-    </header>
-
-    <div class="wrap">
+<div class="wrap">
       <h1>{title}</h1>
 
       <div class="meta">
@@ -972,23 +951,9 @@ const contactEmail = "contact@fly-unlimited.com";
       <hr />
       <p style="font-size:13px;opacity:.75;margin:0;">© 2026 FLY Unlimited, LLC</p>
     </div>
+    <SiteFooter />
 
-
-    <footer class="legalFooter" aria-label="Footer">
-      <div class="legalFooterInner">
-        <div>© 2026 FLY Unlimited, LLC</div>
-        <div class="legalFooterLinks">
-          <a href="/">Home</a>
-          <a href="/how-it-works/">How it works</a>
-          <a href="/info/">Info</a>
-          <a href="/terms/">Terms</a>
-          <a href={`mailto:${contactEmail}`}>Contact</a>
-        </div>
-      </div>
-    </footer>
-
-
-    <script is:inline>
+<script is:inline>
       (() => {
         const bar = document.querySelector(".topbar");
         if (!bar) return;

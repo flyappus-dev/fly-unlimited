@@ -1,0 +1,853 @@
+
+/* =========================================================
+   FLY UNLIMITED — SITE-WIDE REFINEMENT V1
+   Editorial display voice + product clarity
+   ========================================================= */
+
+:root{
+  --fly-display:"Arial Narrow","Helvetica Neue Condensed Bold","Arial",sans-serif;
+  --fly-body:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;
+  --fly-black:#090909;
+  --fly-white:#ffffff;
+  --fly-panel:#f5f5f7;
+  --fly-muted:#6e6e73;
+  --fly-line:rgba(17,17,17,.105);
+  --fly-purple:#b88cf1;
+}
+
+html{background:#fff;scroll-behavior:smooth}
+body{
+  background:#fff !important;
+  color:#111;
+  font-family:var(--fly-body) !important;
+  font-synthesis:none;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+main>section{scroll-margin-top:72px}
+p{text-wrap:pretty}
+h1,h2{text-wrap:balance}
+
+/* Major page titles use the same display voice as the campaign banners. */
+.page-explore h1,.page-explore h2,
+.page-how h1,.page-how h2,
+.page-livetime h1,.page-livetime h2,
+.page-info .aboutTitle,.page-info .contactTitle,.page-info .linksTitle{
+  font-family:var(--fly-display) !important;
+  font-stretch:condensed;
+  font-weight:900 !important;
+  letter-spacing:-.062em !important;
+}
+.page-explore h1,.page-explore h2,
+.page-how h1,.page-how h2,
+.page-livetime h1,.page-livetime h2{line-height:.9 !important}
+
+/* Keep UI/body typography neutral. */
+.eyebrow,[class*="__eyebrow"],[class*="Kicker"],[class*="__kicker"]{
+  font-family:var(--fly-body) !important;
+  font-weight:800 !important;
+  letter-spacing:.16em !important;
+  text-transform:uppercase;
+}
+
+/* Campaign identity stays strongest on Home + About. */
+.page-home .display,.page-info .display,.page-home .statementWord,
+.page-home .heroTitle,.page-home .campaignTitle,.page-info .heroTitle{
+  font-family:var(--fly-display) !important;
+  font-stretch:condensed;
+  font-weight:900 !important;
+  letter-spacing:-.062em !important;
+}
+.page-home .heroTitle,.page-home .campaignTitle,.page-info .heroTitle{
+  line-height:.84 !important;
+}
+.page-home .heroPhoto,.page-home .campaignPhoto,.page-info .heroPhoto{
+  filter:saturate(.72) contrast(.99) brightness(.90) sepia(.035) !important;
+}
+
+/* NAV */
+.siteNav{
+  min-height:54px !important;
+  background:rgba(255,255,255,.94) !important;
+  border-bottom:1px solid rgba(17,17,17,.075) !important;
+  box-shadow:none !important;
+  backdrop-filter:blur(18px) saturate(140%);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+}
+.siteNav__spacer{height:54px !important}
+.siteNav__inner{
+  min-height:54px !important;
+  width:min(calc(100% - 30px),1280px) !important;
+}
+.siteNav__brand img{height:18px !important;width:auto !important}
+.siteNav__desktop{gap:0 !important}
+.siteNav__link{
+  min-height:32px !important;
+  padding:0 12px !important;
+  border-radius:999px !important;
+  color:#5f5f63 !important;
+  font-size:11.5px !important;
+  font-weight:700 !important;
+}
+.siteNav__link:hover{color:#111 !important;background:#f5f5f7 !important}
+.siteNav__link.is-active,.siteNav__link[aria-current="page"]{
+  color:#111 !important;background:#f0f0f2 !important
+}
+.siteNav__download{
+  min-height:34px !important;
+  padding:0 16px !important;
+  border-radius:999px !important;
+  font-size:11.5px !important;
+  font-weight:780 !important;
+}
+
+/* BUTTONS */
+.button,.cta,.pill,.heroCta,.finalV17__download,.contactLink{
+  min-height:44px;
+  border-radius:999px !important;
+  font-family:var(--fly-body) !important;
+  font-weight:780 !important;
+}
+.button,.cta,.pill,.siteNav__download,.finalV17__download{
+  transition:transform .18s ease,background .18s ease,border-color .18s ease,opacity .18s ease;
+}
+.button:hover,.cta:hover,.pill:hover,.siteNav__download:hover,.finalV17__download:hover{
+  transform:translateY(-1px)
+}
+
+/* EXPLORE */
+.page-explore .hero{
+  padding-top:clamp(58px,6vw,88px) !important;
+  padding-bottom:clamp(68px,7vw,106px) !important;
+  background:#fff !important;
+}
+.page-explore .hero h1{
+  max-width:8.2ch !important;
+  font-size:clamp(68px,7vw,112px) !important;
+}
+.page-explore .hero__lead{
+  max-width:34rem !important;
+  margin-top:24px !important;
+  color:var(--fly-muted) !important;
+  font-size:clamp(17px,1.35vw,20px) !important;
+  line-height:1.55 !important;
+}
+.page-explore .hero__visual{
+  transform:scale(.88) !important;
+  transform-origin:center !important;
+}
+.page-explore .manifesto{
+  min-height:620px;
+  padding-top:clamp(76px,8vw,120px) !important;
+  padding-bottom:clamp(76px,8vw,120px) !important;
+}
+.page-explore .manifesto h2{
+  max-width:8.2ch !important;
+  font-size:clamp(64px,6.8vw,110px) !important;
+}
+.page-explore .exploreWaysMerged{
+  padding-top:clamp(72px,7vw,108px) !important;
+  padding-bottom:clamp(72px,7vw,108px) !important;
+}
+.page-explore .exploreWaysMerged__grid{margin-top:48px !important}
+.page-explore .exploreWay{
+  min-height:220px !important;
+  padding:22px !important;
+  gap:20px !important;
+}
+.page-explore .exploreWay h3{font-size:clamp(27px,2.35vw,38px) !important}
+.page-explore .exploreWay p{
+  max-width:22rem;color:var(--fly-muted) !important;font-size:13.5px !important;line-height:1.5 !important
+}
+.page-explore .categoryBannerExact{
+  min-height:158px !important;
+  margin-top:24px !important;
+  padding:26px 30px !important;
+  border-radius:28px !important;
+  background:#f5f5f7 !important;
+}
+.page-explore .categoryBannerExact__copy h3{
+  font-family:var(--fly-body) !important;
+  font-size:clamp(28px,2.4vw,38px) !important;
+  font-weight:760 !important;
+  letter-spacing:-.045em !important;
+}
+.page-explore .categoryBannerExact__icon{
+  width:50px !important;height:50px !important;border-radius:15px !important;
+  box-shadow:0 6px 16px rgba(0,0,0,.045) !important;
+}
+.page-explore .categoryBannerExact__item{width:62px !important;flex-basis:62px !important}
+.page-explore .marketMixV24.stepsTypesStandaloneV67{
+  padding-top:76px !important;padding-bottom:82px !important;background:#fff !important
+}
+.page-explore .marketMixV24__title{
+  font-family:var(--fly-display) !important;
+  font-stretch:condensed;
+  font-weight:900 !important;
+  letter-spacing:-.062em !important;
+  line-height:.9 !important;
+}
+.page-explore .marketMixV24__example{
+  box-shadow:0 10px 30px rgba(0,0,0,.035) !important;
+}
+.page-explore .exploreFeatures{
+  padding-top:clamp(76px,8vw,116px) !important;
+  padding-bottom:clamp(76px,8vw,116px) !important;
+}
+.page-explore .featureStory{
+  min-height:430px !important;
+  border-radius:22px !important;
+  box-shadow:none !important;
+}
+.page-explore .featureStory--dark{box-shadow:0 22px 60px rgba(0,0,0,.12) !important}
+
+/* HOW */
+.page-how .heroTitle{font-size:clamp(66px,7vw,104px) !important;max-width:8.5ch !important}
+.page-how .guideIntroV59{padding-top:68px !important;padding-bottom:52px !important}
+.page-how .guideIntroV59__title,
+.page-how .marketMixV24__title{
+  font-family:var(--fly-display) !important;
+  font-stretch:condensed;
+  font-weight:900 !important;
+  letter-spacing:-.06em !important;
+  line-height:.9 !important;
+}
+.page-how .guideIntroV59__categories{border-radius:22px !important}
+.page-how .marketMixV24.stepsTypesStandaloneV67{padding-top:78px !important;padding-bottom:84px !important}
+.page-how .marketMixV24__lead{max-width:44rem !important;font-size:17px !important}
+.page-how .marketMixV24__example{
+  min-height:184px !important;border-radius:20px !important;
+  box-shadow:0 10px 30px rgba(0,0,0,.035) !important;
+}
+.page-how .marketMixV24.stepsTypesStandaloneV67 .marketMixV24__example::after{
+  content:"Events";
+  position:absolute;
+  top:17px;right:17px;z-index:4;
+  min-height:30px;
+  padding:0 11px 0 37px;
+  border-radius:999px;
+  display:flex;align-items:center;
+  background:#fff url("/category-icons/Events.svg") no-repeat 11px center / 15px 15px;
+  border:1px solid rgba(17,17,17,.075);
+  box-shadow:0 8px 22px rgba(0,0,0,.045);
+  color:#70747f;
+  font-family:var(--fly-body);
+  font-size:9px;line-height:1;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
+  pointer-events:none;
+}
+.page-how .how.stepsCarouselV42{padding-top:44px !important;padding-bottom:38px !important}
+.page-how .how.stepsCarouselV42 .howRow{min-height:560px !important}
+
+/* LIVETIME */
+.page-livetime .hero{
+  padding-top:clamp(58px,6vw,92px) !important;
+  padding-bottom:clamp(70px,7vw,110px) !important;
+}
+.page-livetime .hero h1{max-width:7.6ch !important;font-size:clamp(70px,7vw,112px) !important}
+.page-livetime .hero__lead{
+  max-width:35rem !important;font-size:clamp(17px,1.35vw,20px) !important;line-height:1.55 !important
+}
+.page-livetime .liveCard{
+  transform:rotate(1.1deg) scale(.95) !important;
+  box-shadow:0 30px 80px rgba(0,0,0,.18) !important;
+}
+.page-livetime .statement,.page-livetime .productShot,.page-livetime .stages,
+.page-livetime .adaptive,.page-livetime .context,.page-livetime .finish,.page-livetime .closing{
+  padding-top:clamp(72px,8vw,116px) !important;
+  padding-bottom:clamp(72px,8vw,116px) !important;
+}
+.page-livetime .statement h2,.page-livetime .productShot__head h2,.page-livetime .stages__head h2,
+.page-livetime .adaptive__head h2,.page-livetime .context__copy h2,.page-livetime .finish__copy h2,
+.page-livetime .closing h2{
+  font-family:var(--fly-display) !important;
+  font-stretch:condensed;
+  font-weight:900 !important;
+  letter-spacing:-.062em !important;
+}
+.page-livetime .productShot__frame{
+  border-radius:24px !important;box-shadow:0 22px 60px rgba(0,0,0,.065) !important
+}
+.page-livetime .modeCard{min-height:390px !important;border-radius:22px !important}
+.page-livetime .editorialCut__image,.page-livetime .moodBand__image{border-radius:22px !important}
+.page-livetime .editorialCut__image img,.page-livetime .moodBand__image img{
+  filter:saturate(.76) contrast(1.02) brightness(.91) !important
+}
+
+/* INFO */
+.page-info .about,.page-info .contact,.page-info .linksSection{
+  padding-top:clamp(70px,7vw,106px) !important;
+  padding-bottom:clamp(70px,7vw,106px) !important;
+}
+.page-info .aboutTitle,.page-info .contactTitle{max-width:9ch !important}
+.page-info .principle{min-height:160px !important}
+.page-info .resource{min-height:126px !important}
+
+/* LEGAL */
+.page-legal main{max-width:900px;margin:0 auto}
+.page-legal h1{
+  font-family:var(--fly-display) !important;font-stretch:condensed;
+  font-size:clamp(54px,6vw,88px) !important;line-height:.9 !important;
+  letter-spacing:-.06em !important;font-weight:900 !important;
+}
+.page-legal h2{
+  font-family:var(--fly-body) !important;font-size:24px !important;
+  letter-spacing:-.03em !important;line-height:1.1 !important
+}
+
+/* FOOTER */
+.siteFooter{padding-top:58px !important;padding-bottom:52px !important}
+.siteFooter__logo{display:none !important}
+.siteFooter h2{
+  font-family:var(--fly-display) !important;font-stretch:condensed;
+  font-weight:900 !important;letter-spacing:-.06em !important;line-height:.88 !important
+}
+.siteFooter a{transition:opacity .18s ease}.siteFooter a:hover{opacity:.72}
+
+@media(max-width:960px){
+  .page-explore .hero__visual{transform:scale(.94) !important}
+  .page-livetime .liveCard{transform:rotate(.7deg) scale(.96) !important}
+}
+@media(max-width:700px){
+  .siteNav__spacer{height:52px !important}
+  .siteNav,.siteNav__inner{min-height:52px !important}
+  .page-explore h1,.page-explore h2,.page-how h1,.page-how h2,.page-livetime h1,.page-livetime h2{
+    letter-spacing:-.055em !important
+  }
+  .page-explore .hero{padding-top:48px !important;padding-bottom:58px !important}
+  .page-explore .hero h1{font-size:clamp(58px,16vw,78px) !important}
+  .page-explore .hero__visual{min-height:460px !important;transform:scale(.94) !important}
+  .page-explore .manifesto{min-height:560px}
+  .page-explore .exploreWay{min-height:0 !important}
+  .page-explore .categoryBannerExact{padding:22px !important;border-radius:22px !important}
+  .page-explore .featureStory{min-height:360px !important}
+  .page-how .how.stepsCarouselV42 .howRow{min-height:0 !important}
+  .page-how .marketMixV24.stepsTypesStandaloneV67 .marketMixV24__example::after{
+    top:13px;right:13px;min-height:28px;padding-left:34px;
+    background-position:10px center;background-size:14px 14px;font-size:8px
+  }
+  .page-livetime .hero h1{font-size:clamp(58px,16vw,80px) !important}
+  .page-livetime .liveCard{transform:none !important}
+  .siteFooter{padding-top:46px !important;padding-bottom:44px !important}
+}
+@media(prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto !important;transition:none !important;animation:none !important}
+}
+
+
+/* ===== TYPOGRAPHY SCOPE CORRECTION V1.1 ===== */
+
+/*
+  Brand rule:
+  - condensed display face = hero / campaign banners only
+  - neutral sans = product content, section titles, cards, footer, legal
+*/
+
+/* Return normal content headings to the product font. */
+.page-explore h2,
+.page-how h2,
+.page-livetime h2,
+.page-info .aboutTitle,
+.page-info .contactTitle,
+.page-info .linksTitle,
+.page-legal h1,
+.siteFooter h2,
+.page-explore .marketMixV24__title,
+.page-how .marketMixV24__title,
+.page-how .guideIntroV59__title,
+.page-livetime .statement h2,
+.page-livetime .productShot__head h2,
+.page-livetime .stages__head h2,
+.page-livetime .adaptive__head h2,
+.page-livetime .context__copy h2,
+.page-livetime .finish__copy h2,
+.page-livetime .closing h2{
+  font-family:var(--fly-body) !important;
+  font-stretch:normal !important;
+  font-weight:720 !important;
+  letter-spacing:-.052em !important;
+}
+
+/* Product section headings can still be bold, but not campaign-condensed. */
+.page-explore h2,
+.page-how h2,
+.page-livetime h2{
+  line-height:.92 !important;
+}
+
+/* Keep the display face only on true hero/campaign moments. */
+.page-home .heroTitle,
+.page-home .campaignTitle,
+.page-info .heroTitle,
+.page-explore .hero h1,
+.page-how .heroTitle,
+.page-livetime .hero h1{
+  font-family:var(--fly-display) !important;
+  font-stretch:condensed !important;
+  font-weight:900 !important;
+  letter-spacing:-.062em !important;
+  line-height:.84 !important;
+  text-transform:uppercase;
+}
+
+/* Explore and LiveTime hero copy can keep sentence case if authored that way. */
+.page-explore .hero h1,
+.page-livetime .hero h1{
+  text-transform:none;
+}
+
+/* The How hero follows its existing authored casing. */
+.page-how .heroTitle{
+  text-transform:none;
+}
+
+/* Home/About hero campaign styling stays untouched. */
+.page-home .display,
+.page-info .display{
+  font-family:var(--fly-display) !important;
+  font-stretch:condensed !important;
+  font-weight:900 !important;
+}
+
+/* Footer should feel product/editorial, not like a second hero. */
+.siteFooter h2{
+  line-height:.94 !important;
+  letter-spacing:-.045em !important;
+}
+
+/* Legal hierarchy returns to straightforward document typography. */
+.page-legal h1{
+  font-size:clamp(46px,5vw,72px) !important;
+  line-height:.94 !important;
+  letter-spacing:-.05em !important;
+}
+
+/* ===== END TYPOGRAPHY SCOPE CORRECTION V1.1 ===== */
+
+
+/* ===== FLY TYPOGRAPHY / HOW HERO CORRECTION V1.2 ===== */
+
+/*
+  FINAL TYPOGRAPHY RULE
+  Home / About / How hero banners = campaign display voice.
+  Explore / LiveTime = original clean product voice.
+  All non-hero content = product voice.
+*/
+
+/* EXPLORE — return to original product typography */
+.page-explore h1,
+.page-explore h2,
+.page-explore .marketMixV24__title,
+.page-explore .exploreWaysMerged__head h2,
+.page-explore .exploreFeatures__head h2,
+.page-explore .manifesto h2,
+.page-explore .closing h2{
+  font-family:var(--fly-body) !important;
+  font-stretch:normal !important;
+  text-transform:none !important;
+}
+
+.page-explore .hero h1{
+  font-weight:760 !important;
+  line-height:.88 !important;
+  letter-spacing:-.066em !important;
+}
+
+.page-explore h2,
+.page-explore .marketMixV24__title,
+.page-explore .exploreWaysMerged__head h2,
+.page-explore .exploreFeatures__head h2,
+.page-explore .manifesto h2,
+.page-explore .closing h2{
+  font-weight:720 !important;
+  line-height:.92 !important;
+  letter-spacing:-.058em !important;
+}
+
+/* LIVETIME — return to original product typography */
+.page-livetime h1,
+.page-livetime h2,
+.page-livetime .statement h2,
+.page-livetime .productShot__head h2,
+.page-livetime .stages__head h2,
+.page-livetime .adaptive__head h2,
+.page-livetime .context__copy h2,
+.page-livetime .finish__copy h2,
+.page-livetime .closing h2{
+  font-family:var(--fly-body) !important;
+  font-stretch:normal !important;
+  text-transform:none !important;
+}
+
+.page-livetime .hero h1{
+  font-weight:760 !important;
+  line-height:.88 !important;
+  letter-spacing:-.066em !important;
+}
+
+.page-livetime h2,
+.page-livetime .statement h2,
+.page-livetime .productShot__head h2,
+.page-livetime .stages__head h2,
+.page-livetime .adaptive__head h2,
+.page-livetime .context__copy h2,
+.page-livetime .finish__copy h2,
+.page-livetime .closing h2{
+  font-weight:720 !important;
+  line-height:.92 !important;
+  letter-spacing:-.058em !important;
+}
+
+/* HOW TO FLY — stronger campaign banner */
+.page-how .hero{
+  min-height:650px !important;
+}
+
+.page-how .hero::before{
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5,5,5,.78) 0%,
+      rgba(5,5,5,.58) 33%,
+      rgba(5,5,5,.25) 58%,
+      rgba(5,5,5,.05) 82%,
+      rgba(5,5,5,0) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.04),
+      rgba(0,0,0,.17)
+    ) !important;
+}
+
+.page-how .heroInner{
+  min-height:650px !important;
+  padding-top:clamp(112px,11vw,154px) !important;
+  padding-bottom:clamp(62px,6vw,86px) !important;
+}
+
+.page-how .heroCopy{
+  width:min(100%,720px) !important;
+}
+
+.page-how .howHeroTitle{
+  margin:0 !important;
+  max-width:7.2ch !important;
+  font-family:var(--fly-display) !important;
+  font-stretch:condensed !important;
+  font-size:clamp(76px,8.1vw,132px) !important;
+  font-weight:900 !important;
+  line-height:.80 !important;
+  letter-spacing:-.072em !important;
+  text-transform:uppercase !important;
+  text-shadow:0 3px 30px rgba(0,0,0,.18);
+}
+
+.page-how .howHeroTitle__main,
+.page-how .howHeroTitle__accent{
+  display:block;
+}
+
+.page-how .howHeroTitle__main{
+  color:#f8f1e7;
+}
+
+.page-how .howHeroTitle__accent{
+  color:#b88cf1;
+  margin-top:.035em;
+}
+
+.page-how .heroLead{
+  margin-top:26px !important;
+  max-width:34rem !important;
+  color:rgba(255,255,255,.82) !important;
+  font-family:var(--fly-body) !important;
+  font-size:clamp(17px,1.35vw,21px) !important;
+  font-weight:500 !important;
+  line-height:1.5 !important;
+  letter-spacing:-.018em !important;
+}
+
+.page-how .heroCta{
+  margin-top:27px !important;
+  min-height:46px !important;
+  padding:0 20px !important;
+  font-size:13px !important;
+  font-weight:780 !important;
+  box-shadow:0 10px 30px rgba(0,0,0,.10);
+}
+
+/* Everything after the How hero stays neutral/product */
+.page-how main section:not(.hero) h1,
+.page-how main section:not(.hero) h2,
+.page-how main section:not(.hero) h3,
+.page-how .guideIntroV59__title,
+.page-how .marketMixV24__title,
+.page-how .stepsHeadingV66__title{
+  font-family:var(--fly-body) !important;
+  font-stretch:normal !important;
+  text-transform:none !important;
+}
+
+.page-how .guideIntroV59__title,
+.page-how .marketMixV24__title,
+.page-how .stepsHeadingV66__title{
+  font-weight:720 !important;
+  letter-spacing:-.052em !important;
+}
+
+@media(max-width:700px){
+  .page-how .hero{
+    min-height:0 !important;
+  }
+
+  .page-how .heroInner{
+    min-height:0 !important;
+  }
+
+  .page-how .howHeroTitle{
+    max-width:6.5ch !important;
+    font-size:clamp(62px,18vw,88px) !important;
+    line-height:.80 !important;
+    letter-spacing:-.065em !important;
+  }
+
+  .page-how .heroLead{
+    margin-top:20px !important;
+    font-size:16px !important;
+  }
+}
+
+/* ===== END FLY TYPOGRAPHY / HOW HERO CORRECTION V1.2 ===== */
+
+
+/* ===== EXPLORE + LIVETIME HERO FONT RESTORE V1.3 ===== */
+
+/*
+  Explore + LiveTime keep their original clean product typography.
+  The condensed campaign font is NOT used on these hero titles.
+*/
+
+.page-explore .hero h1,
+.page-livetime .hero h1{
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "SF Pro Text",
+    "Helvetica Neue",
+    Arial,
+    sans-serif !important;
+
+  font-stretch:normal !important;
+  font-weight:760 !important;
+  font-style:normal !important;
+  text-transform:none !important;
+
+  line-height:.88 !important;
+  letter-spacing:-.066em !important;
+}
+
+/* Restore their original product-scale sizing too. */
+.page-explore .hero h1{
+  font-size:clamp(68px,7.4vw,116px) !important;
+}
+
+.page-livetime .hero h1{
+  font-size:clamp(68px,7.4vw,116px) !important;
+}
+
+@media(max-width:700px){
+  .page-explore .hero h1,
+  .page-livetime .hero h1{
+    font-size:clamp(58px,16vw,80px) !important;
+    letter-spacing:-.058em !important;
+  }
+}
+
+/* ===== END EXPLORE + LIVETIME HERO FONT RESTORE V1.3 ===== */
+
+
+
+/* ===== HOW HERO SUBTITLE WRAP V1.4 ===== */
+
+.page-how .heroLead{
+  max-width:29rem !important;
+  font-size:clamp(17px,1.25vw,20px) !important;
+  line-height:1.48 !important;
+  letter-spacing:-.018em !important;
+  text-wrap:balance !important;
+}
+
+@media(max-width:700px){
+  .page-how .heroLead{
+    max-width:23rem !important;
+  }
+}
+
+
+/* ===== CATEGORY ICON ONLY V1.5 ===== */
+
+/*
+  In the "One category. Many ways to FLY." cards,
+  use the actual category icon only (no EVENTS text label).
+*/
+
+.page-explore .marketMixV24.stepsTypesStandaloneV67 .marketMixV24__example::after,
+.page-how .marketMixV24.stepsTypesStandaloneV67 .marketMixV24__example::after{
+  content:"" !important;
+  position:absolute;
+  top:16px;
+  right:16px;
+  z-index:4;
+
+  width:46px;
+  height:46px;
+  min-height:46px;
+  padding:0 !important;
+
+  border-radius:14px;
+  background:
+    #f7f8fb url("/category-icons/Events.svg")
+    no-repeat center / 22px 22px !important;
+
+  border:1px solid rgba(17,17,17,.08);
+  box-shadow:0 10px 24px rgba(0,0,0,.05);
+  pointer-events:none;
+}
+
+@media(max-width:700px){
+  .page-explore .marketMixV24.stepsTypesStandaloneV67 .marketMixV24__example::after,
+  .page-how .marketMixV24.stepsTypesStandaloneV67 .marketMixV24__example::after{
+    top:13px;
+    right:13px;
+    width:42px;
+    height:42px;
+    min-height:42px;
+    border-radius:13px;
+    background-size:20px 20px !important;
+  }
+}
+
+/* ===== END CATEGORY ICON ONLY V1.5 ===== */
+
+
+/* ===== CATEGORY ICON ORIGINAL COLOR V1.6 ===== */
+
+/*
+  Match the Events category icon to its real category treatment:
+  blue tile + white Events calendar icon.
+*/
+
+.page-explore .marketMixV24.stepsTypesStandaloneV67 .marketMixV24__example::after,
+.page-how .marketMixV24.stepsTypesStandaloneV67 .marketMixV24__example::after{
+  background:
+    #0054a3 url("/category-icons/Events.svg")
+    no-repeat center / 22px 22px !important;
+
+  border-color:#0054a3 !important;
+  box-shadow:0 10px 24px rgba(0,84,163,.16) !important;
+}
+
+/* ===== END CATEGORY ICON ORIGINAL COLOR V1.6 ===== */
+
+
+/* ===== CATEGORY ICON SCALE TUNE V1.7 ===== */
+
+/* Make the category icon in the example cards a bit smaller and quieter. */
+.page-explore .marketMixV24.stepsTypesStandaloneV67 .marketMixV24__example::after,
+.page-how .marketMixV24.stepsTypesStandaloneV67 .marketMixV24__example::after{
+  top:22px !important;
+  right:22px !important;
+  width:36px !important;
+  height:36px !important;
+  min-height:36px !important;
+  border-radius:11px !important;
+  background-size:17px 17px !important;
+}
+
+@media(max-width:700px){
+  .page-explore .marketMixV24.stepsTypesStandaloneV67 .marketMixV24__example::after,
+  .page-how .marketMixV24.stepsTypesStandaloneV67 .marketMixV24__example::after{
+    top:16px !important;
+    right:16px !important;
+    width:34px !important;
+    height:34px !important;
+    min-height:34px !important;
+    border-radius:10px !important;
+    background-size:16px 16px !important;
+  }
+}
+
+/* ===== END CATEGORY ICON SCALE TUNE V1.7 ===== */
+
+
+/* ===== CATEGORY ICON SCALE TUNE V1.8 ===== */
+
+/* Shrink the example-card category icon about 20% more. */
+.page-explore .marketMixV24.stepsTypesStandaloneV67 .marketMixV24__example::after,
+.page-how .marketMixV24.stepsTypesStandaloneV67 .marketMixV24__example::after{
+  top:24px !important;
+  right:24px !important;
+  width:29px !important;
+  height:29px !important;
+  min-height:29px !important;
+  border-radius:9px !important;
+  background-size:14px 14px !important;
+}
+
+@media(max-width:700px){
+  .page-explore .marketMixV24.stepsTypesStandaloneV67 .marketMixV24__example::after,
+  .page-how .marketMixV24.stepsTypesStandaloneV67 .marketMixV24__example::after{
+    top:16px !important;
+    right:16px !important;
+    width:27px !important;
+    height:27px !important;
+    min-height:27px !important;
+    border-radius:8px !important;
+    background-size:13px 13px !important;
+  }
+}
+
+/* ===== END CATEGORY ICON SCALE TUNE V1.8 ===== */
+
+
+/* ===== DOWNLOAD FLY BIRD V1 ===== */
+
+.downloadFlyBird{
+  display:inline-block;
+  width:18px;
+  height:11px;
+  flex:0 0 auto;
+
+  background:currentColor;
+
+  -webkit-mask:
+    url("/brand/fly-bird-filled.svg")
+    center / contain no-repeat;
+
+  mask:
+    url("/brand/fly-bird-filled.svg")
+    center / contain no-repeat;
+}
+
+a:has(.downloadFlyBird),
+button:has(.downloadFlyBird){
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+
+@media(max-width:700px){
+  .downloadFlyBird{
+    width:16px;
+    height:10px;
+  }
+
+  a:has(.downloadFlyBird),
+  button:has(.downloadFlyBird){
+    gap:7px;
+  }
+}
+
+/* ===== END DOWNLOAD FLY BIRD V1 ===== */

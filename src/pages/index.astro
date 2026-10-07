@@ -1,4 +1,6 @@
 ---
+import SiteNav from "../components/SiteNav.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 const siteName = "FLY Unlimited";
 const contactEmail = "hello@fly-unlimited.com";
 const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
@@ -1151,36 +1153,13 @@ const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
 <link rel="stylesheet" href="/home-flow-fix-v31.css" />
     <link rel="stylesheet" href="/home-final-banner-v41.css" />
     <link rel="stylesheet" href="/home-banner2-marketplace-v43.css" />
+    <link rel="stylesheet" href="/fly-refinement-v1.css" />
 </head>
 
-  <body>
-    <header class="topbar">
-      <div class="topbarInner">
-        <a class="brand" href="/" aria-label="FLY Unlimited">
-          <img class="mascot" src="/logo-alt.png" alt="FLY mascot" />
-        </a>
+  <body class="siteShellPage page-home">
+    <SiteNav />
 
-        <nav class="nav" aria-label="Navigation">
-          <a class="navBtn currentPage" aria-current="page" href="/" aria-label="Home" title="Home">
-            <img class="navIcon" src="/flyhomeactive.svg" alt="" aria-hidden="true" />
-          </a>
-
-          <a class="navBtn" href="/how-it-works/" aria-label="How it works" title="How it works">
-            <img class="navIcon" src="/flyinactive.svg" alt="" aria-hidden="true" />
-          </a>
-
-          <a class="navBtn" href="/info/" aria-label="Info" title="Info">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="9"></circle>
-              <path d="M12 10.6v6"></path>
-              <path d="M12 7.4h.01"></path>
-            </svg>
-          </a>
-        </nav>
-      </div>
-    </header>
-
-    <main>
+<main>
       <!-- FLY HOMEPAGE PHASE 1.1 — TIGHTENED -->
       <section class="hero" aria-labelledby="hero-title">
         <img
@@ -1209,7 +1188,7 @@ const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
 
             <div class="heroActions">
               <a class="cta primary" href={appStoreUrl} target="_blank" rel="noopener noreferrer">
-                Download FLY
+                <span class="downloadFlyBird" aria-hidden="true"></span>Download FLY
               </a>
               <a class="cta secondary" href="/how-it-works/">
                 How FLY works
@@ -1373,27 +1352,14 @@ const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
             target="_blank"
             rel="noopener noreferrer"
           >
-            Download FLY
+            <span class="downloadFlyBird" aria-hidden="true"></span>Download FLY
           </a>
         </div>
       </section>
     </main>
+    <SiteFooter />
 
-    <footer class="footer">
-      <div class="footerInner">
-        <div>© 2026 {siteName}</div>
-
-        <div class="footerLinks">
-          <a href="/how-it-works/">How it works</a>
-          <a href="/info/">Info</a>
-          <a href="/terms/">Terms</a>
-          <a href="/privacy/">Privacy</a>
-          <a href={"mailto:" + contactEmail}>Contact</a>
-        </div>
-      </div>
-    </footer>
-
-    <script is:inline>
+<script is:inline>
       (() => {
         const bar = document.querySelector(".topbar");
         if (!bar) return;

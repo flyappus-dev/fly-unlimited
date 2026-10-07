@@ -1,4 +1,6 @@
 ---
+import SiteNav from "../components/SiteNav.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 const siteName = "FLY Unlimited";
 const contactEmail = "hello@fly-unlimited.com";
 const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
@@ -3369,6 +3371,96 @@ const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
       }
 
       /* ===== END HOW IT WORKS — HORIZONTAL RAILS FIX V2 ===== */
+
+  .howExploreBridge{padding:34px 24px;background:#fff;border-top:1px solid #ececef;border-bottom:1px solid #ececef}
+  .howExploreBridge__inner{width:min(100%,1180px);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:32px}
+  .howExploreBridge p{margin:0 0 7px;color:#8a8a90;font-size:9px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
+  .howExploreBridge h2{margin:0;font-size:clamp(25px,2.5vw,38px);line-height:1;letter-spacing:-.045em}
+  .howExploreBridge a{min-height:42px;padding:0 16px;border-radius:999px;background:#0a0a0a;color:#fff;display:inline-flex;align-items:center;gap:12px;text-decoration:none;white-space:nowrap;font-size:12px;font-weight:750}
+  @media(max-width:680px){.howExploreBridge{padding:28px 18px}.howExploreBridge__inner{align-items:flex-start;flex-direction:column}}
+
+
+  .howExploreBridge{padding:34px 24px;background:#fff;border-top:1px solid #ececef;border-bottom:1px solid #ececef}
+  .howExploreBridge__inner{width:min(100%,1180px);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:32px}
+  .howExploreBridge p{margin:0 0 7px;color:#8a8a90;font-size:9px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
+  .howExploreBridge h2{margin:0;font-size:clamp(25px,2.5vw,38px);line-height:1;letter-spacing:-.045em}
+  .howExploreBridge a{min-height:42px;padding:0 16px;border-radius:999px;background:#0a0a0a;color:#fff;display:inline-flex;align-items:center;gap:12px;text-decoration:none;white-space:nowrap;font-size:12px;font-weight:750}
+  @media(max-width:680px){.howExploreBridge{padding:28px 18px}.howExploreBridge__inner{align-items:flex-start;flex-direction:column}}
+
+
+  /* ===== HOW PAGE — CATEGORY CHIP ON FLY TYPE CARDS ===== */
+
+  .marketMixV24.stepsTypesStandaloneV67 :is(
+    .marketMixV24__card,
+    .marketMixV60__card,
+    .stepsTypesStandaloneV67__card,
+    article
+  ){
+    position:relative;
+  }
+
+  .marketMixV24.stepsTypesStandaloneV67 :is(
+    .marketMixV24__card,
+    .marketMixV60__card,
+    .stepsTypesStandaloneV67__card,
+    article
+  )::after{
+    content:"Events";
+    position:absolute;
+    top:18px;
+    right:18px;
+    z-index:4;
+    min-height:32px;
+    padding:0 12px 0 40px;
+    border-radius:999px;
+    display:inline-flex;
+    align-items:center;
+    background:
+      #ffffff url("/category-icons/Events.svg") no-repeat 12px center / 16px 16px;
+    border:1px solid rgba(17,17,17,.08);
+    box-shadow:0 10px 24px rgba(17,17,17,.06);
+    color:#5f6472;
+    font-size:10px;
+    line-height:1;
+    font-weight:800;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    pointer-events:none;
+  }
+
+  @media (max-width: 900px){
+    .marketMixV24.stepsTypesStandaloneV67 :is(
+      .marketMixV24__card,
+      .marketMixV60__card,
+      .stepsTypesStandaloneV67__card,
+      article
+    )::after{
+      top:14px;
+      right:14px;
+      min-height:30px;
+      padding:0 10px 0 36px;
+      background-size:14px 14px;
+      background-position:11px center;
+      font-size:9px;
+    }
+  }
+
+  @media (max-width: 640px){
+    .marketMixV24.stepsTypesStandaloneV67 :is(
+      .marketMixV24__card,
+      .marketMixV60__card,
+      .stepsTypesStandaloneV67__card,
+      article
+    )::after{
+      top:12px;
+      right:12px;
+      min-height:28px;
+      padding:0 9px 0 33px;
+    }
+  }
+
+  /* ===== END HOW CATEGORY CHIP PATCH ===== */
+
 </style>
 
     <link rel="stylesheet" href="/how-guided-marketplace-v2.css" />
@@ -3408,42 +3500,22 @@ const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
     <link rel="stylesheet" href="/how-card03-mobile-fit-v65-12.css" />
     <link rel="stylesheet" href="/how-repeat-needs-orbit-v65-19.css" />
     <link rel="stylesheet" href="/how-steps-types-separation-v67.css" />
+    <link rel="stylesheet" href="/fly-refinement-v1.css" />
 </head>
 
-  <body>
-    <header class="topbar">
-      <div class="topbarInner">
-        <a class="brand" href="/" aria-label="FLY Unlimited">
-          <img class="mascot" src="/logo-alt.png" alt="FLY mascot" />
-        </a>
+  <body class="siteShellPage page-how">
+    <SiteNav />
 
-        <nav class="nav" aria-label="Navigation">
-          <a class="navBtn" href="/" aria-label="Home" title="Home">
-            <img class="navIcon" src="/flyhome.svg" alt="" aria-hidden="true" />
-          </a>
-
-          <a class="navBtn currentPage" aria-current="page" href="/how-it-works/" aria-label="How it works" title="How it works">
-            <img class="navIcon" src="/flyactive.svg" alt="" aria-hidden="true" />
-          </a>
-
-          <a class="navBtn" href="/info/" aria-label="Info" title="Info">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="9"></circle>
-              <path d="M12 10.6v6"></path>
-              <path d="M12 7.4h.01"></path>
-            </svg>
-          </a>
-        </nav>
-      </div>
-    </header>
-
-    <main>
+<main>
 <section class="hero" aria-labelledby="how-title">
         <img class="heroPhoto" src="/campaign/how-hero-ask-v39.png" alt="" aria-hidden="true" />
 
         <div class="heroInner">
           <div class="heroCopy">
-<h1 class="heroTitle" id="how-title">How to FLY</h1>
+<h1 class="heroTitle howHeroTitle" id="how-title">
+              <span class="howHeroTitle__main">HOW TO</span>
+              <span class="howHeroTitle__accent">FLY.</span>
+            </h1>
             <p class="heroLead">Create a FLY, connect, coordinate it live, and complete it.</p>
             <p class="heroSub"></p>
             <a class="heroCta" href="#guide-start">Start the guide <span aria-hidden="true">→</span></a>
@@ -3531,7 +3603,7 @@ const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
                   <span class="stepsAskSingleV67__identity"><strong class="stepsAskSingleV67__name">Taylor Kim</strong><small class="stepsAskSingleV67__username">@taylor.k</small></span>
                   <span class="stepsAskSingleV67__type"><img src="/category-icons/Photo.svg" alt="" />Photo &amp; Video</span>
                 </div>
-                <p class="stepsAskSingleV67__ask">Need a photographer for a rooftop event tomorrow night.</p>
+                <p class="stepsAskSingleV67__ask">Need a photographer for a three-day band photoshoot.</p>
                 <div class="stepsAskSingleV67__meta" aria-hidden="true">
                   <span class="stepsAskSingleV67__pill"><svg viewBox="0 0 24 24"><path d="M12 21s6-5.5 6-11a6 6 0 1 0-12 0c0 5.5 6 11 6 11Z"></path><circle cx="12" cy="10" r="2"></circle></svg>Los Angeles</span>
                   <span class="stepsAskSingleV67__pill"><svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="14" rx="2"></rect><path d="M8 4v4M16 4v4M4 10h16"></path></svg>Tomorrow</span>
@@ -3717,7 +3789,11 @@ const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
         <p class="stepsCarouselV42__hint">Swipe, scroll, or use the arrows to move through the six steps.</p>
 </section>
 
-      <section class="marketMixV24 stepsTypesStandaloneV67" id="fly-types" aria-labelledby="market-mix-v67-title">
+<!-- FLY PHASE 8 — WAYS TO FLY -->
+
+
+
+<section class="marketMixV24 stepsTypesStandaloneV67" id="fly-types" aria-labelledby="market-mix-v67-title">
         <div class="marketMixV24__inner">
           <h2 class="marketMixV24__title" id="market-mix-v67-title">One category. Many ways to FLY.</h2>
           <p class="marketMixV24__lead">Once your Ask has a category, choose the FLY type that matches how you want it fulfilled: Service, Rental, Delivery, or Purchase.</p>
@@ -3733,14 +3809,7 @@ const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
         </div>
       </section>
 
-
-
-
-      <!-- FLY PHASE 8 — WAYS TO FLY -->
-
-
-
-      <section class="liveExplainV14" aria-labelledby="livetime-v14-title">
+<section class="liveExplainV14" aria-labelledby="livetime-v14-title">
         <div class="liveExplainV14__inner">
           <div class="liveExplainV14__media">
             <img src="/campaign/how-livetime-editorial-v48.png" alt="" aria-hidden="true" />
@@ -3811,27 +3880,15 @@ const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
           </div>
 
           <a class="finalV17__download" href={appStoreUrl} target="_blank" rel="noopener noreferrer">
-            <span>Download FLY</span>
+            <span><span class="downloadFlyBird" aria-hidden="true"></span>Download FLY</span>
             <span class="finalV17__arrow" aria-hidden="true">↗</span>
           </a>
         </div>
       </section>
     </main>
+    <SiteFooter />
 
-    <footer class="footer">
-      <div class="footerInner">
-        <div>© 2026 {siteName}</div>
-        <div class="footerLinks">
-          <a href="/">Home</a>
-          <a href="/info/">Info</a>
-          <a href="/terms/">Terms</a>
-          <a href="/privacy/">Privacy</a>
-          <a href={`mailto:${contactEmail}`}>Contact</a>
-        </div>
-      </div>
-    </footer>
-
-    <script is:inline>
+<script is:inline>
       (() => {
         const bar = document.querySelector(".topbar");
         if (!bar) return;

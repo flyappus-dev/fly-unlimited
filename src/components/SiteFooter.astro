@@ -1,0 +1,189 @@
+---
+const appStoreUrl = "https://apps.apple.com/us/app/fly-unlimited/id6758623880";
+const year = new Date().getFullYear();
+---
+
+<footer class="siteFooter">
+  <div class="siteFooter__inner">
+    <section class="siteFooter__brand">
+<h2>Ask. Connect. Repeat.</h2>
+      <p>A marketplace built around what you need, what you can offer, and what is happening around you.</p>
+
+      <a
+        class="siteFooter__download"
+        href={appStoreUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class="downloadFlyBird" aria-hidden="true"></span>Download FLY
+      </a>
+    </section>
+
+    <nav class="siteFooter__links" aria-label="Footer navigation">
+      <div>
+        <p>Product</p>
+        <a href="/explore/">Explore FLY</a>
+        <a href="/">Home</a>
+        <a href="/how-it-works/">How it works</a>
+        <a href="/livetime/">LiveTime</a>
+      </div>
+
+      <div>
+        <p>Company</p>
+        <a href="/info/">About</a>
+        <a href="/contact/">Contact</a>
+      </div>
+
+      <div>
+        <p>Legal</p>
+        <a href="/terms/">Terms</a>
+        <a href="/privacy/">Privacy</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="siteFooter__bottom">
+    <span>© {year} FLY Unlimited</span>
+    <span>Open the marketplace around you.</span>
+  </div>
+</footer>
+
+<style>
+  .siteFooter{
+    background:#090909;
+    color:#fff;
+    padding:clamp(64px,8vw,110px) clamp(20px,4vw,64px) 28px;
+  }
+
+  .siteFooter__inner,
+  .siteFooter__bottom{
+    width:min(100%,1240px);
+    margin:0 auto;
+  }
+
+  .siteFooter__inner{
+    display:grid;
+    grid-template-columns:minmax(0,1.1fr) minmax(420px,.9fr);
+    gap:clamp(54px,8vw,120px);
+    align-items:start;
+  }
+
+  .siteFooter__logo{
+    width:max-content;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    color:#fff;
+    text-decoration:none;
+  }
+
+  .siteFooter__logo img{
+    width:auto;
+    height:24px;
+    display:block;
+    object-fit:contain;
+    filter:brightness(0) invert(1);
+    border-radius:0;
+  }
+
+  .siteFooter__brand h2{
+    margin:0;
+    max-width:8ch;
+    font-size:clamp(44px,5vw,76px);
+    line-height:.92;
+    letter-spacing:-.055em;
+    font-weight:720;
+  }
+
+  .siteFooter__brand p{
+    margin:22px 0 0;
+    max-width:32rem;
+    color:rgba(255,255,255,.55);
+    font-size:15px;
+    line-height:1.55;
+  }
+
+  .siteFooter__download{
+    min-height:44px;
+    margin-top:26px;
+    padding:0 18px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:999px;
+    background:#fff;
+    color:#090909;
+    font-size:13px;
+    font-weight:760;
+    text-decoration:none;
+  }
+
+  .siteFooter__links{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:28px;
+  }
+
+  .siteFooter__links div{
+    display:flex;
+    flex-direction:column;
+    gap:13px;
+  }
+
+  .siteFooter__links p{
+    margin:0 0 7px;
+    color:rgba(255,255,255,.34);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+  }
+
+  .siteFooter__links a{
+    width:max-content;
+    color:rgba(255,255,255,.72);
+    font-size:13px;
+    font-weight:620;
+    text-decoration:none;
+  }
+
+  .siteFooter__links a:hover{color:#fff}
+
+  .siteFooter__bottom{
+    margin-top:clamp(64px,8vw,110px);
+    padding-top:22px;
+    border-top:1px solid rgba(255,255,255,.12);
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+    color:rgba(255,255,255,.34);
+    font-size:11px;
+  }
+
+  @media(max-width:820px){
+    .siteFooter__inner{
+      grid-template-columns:1fr;
+    }
+
+    .siteFooter__links{
+      grid-template-columns:repeat(3,minmax(0,1fr));
+    }
+  }
+
+  @media(max-width:560px){
+    .siteFooter{
+      padding-left:18px;
+      padding-right:18px;
+    }
+
+    .siteFooter__links{
+      grid-template-columns:1fr 1fr;
+      row-gap:36px;
+    }
+
+    .siteFooter__brand h2{
+      font-size:48px;
+    }
+  }
+</style>
