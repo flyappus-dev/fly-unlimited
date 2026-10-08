@@ -2570,3 +2570,599 @@ button:has(.downloadFlyBird){
 
 
 /* ===== END LIVETIME STATEMENT DESKTOP FIX V1 ===== */
+
+/* ===== ABOUT COLOR RHYTHM V3 ===== */
+
+
+/* =========================================================
+   PRINCIPLES — TINY COLOR SIGNALS
+   ========================================================= */
+
+.page-info .aboutStoryV1__principles article > span{
+  width:34px;
+  height:25px;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:999px;
+}
+
+.page-info .aboutStoryV1__principles article:nth-child(1) > span{
+  background:#eee6fa;
+  color:#7653a8;
+}
+
+.page-info .aboutStoryV1__principles article:nth-child(2) > span{
+  background:#faefb8;
+  color:#6d5a00;
+}
+
+.page-info .aboutStoryV1__principles article:nth-child(3) > span{
+  background:#eeeeef;
+  color:#55555a;
+}
+
+
+/* =========================================================
+   PRODUCT STRIP — MAIN COLOR INTERRUPTION
+   ========================================================= */
+
+.page-info .aboutSignalsV3{
+  width:min(100%,1240px);
+
+  margin:
+    clamp(72px,8vw,116px)
+    auto
+    0;
+
+  padding:clamp(34px,4.5vw,58px);
+
+  border-radius:30px;
+
+  background:
+    radial-gradient(
+      circle at 88% 10%,
+      rgba(255,255,255,.66),
+      transparent 30%
+    ),
+    linear-gradient(
+      140deg,
+      #e6dbf3 0%,
+      #f1e9f8 100%
+    );
+
+  color:#111;
+}
+
+.page-info .aboutSignalsV3__head{
+  display:grid;
+
+  grid-template-columns:
+    minmax(0,.40fr)
+    minmax(0,.60fr);
+
+  gap:clamp(34px,6vw,86px);
+
+  align-items:end;
+}
+
+.page-info .aboutSignalsV3__head > p{
+  margin:0;
+
+  color:#786a82;
+
+  font-size:10px;
+  font-weight:820;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+}
+
+.page-info .aboutSignalsV3__head h2{
+  margin:0;
+
+  max-width:11ch;
+
+  font-size:clamp(40px,4.7vw,70px);
+  line-height:.93;
+  letter-spacing:-.054em;
+  font-weight:750;
+}
+
+.page-info .aboutSignalsV3__grid{
+  margin-top:clamp(40px,5vw,62px);
+
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+
+  border-top:1px solid rgba(17,17,17,.12);
+  border-bottom:1px solid rgba(17,17,17,.12);
+}
+
+.page-info .aboutSignalsV3__item{
+  position:relative;
+
+  min-height:240px;
+
+  padding:26px 24px;
+
+  display:flex;
+  flex-direction:column;
+
+  border-right:1px solid rgba(17,17,17,.12);
+
+  color:#111;
+  text-decoration:none;
+}
+
+.page-info .aboutSignalsV3__item:last-child{
+  border-right:0;
+}
+
+.page-info .aboutSignalsV3__icon{
+  width:46px;
+  height:46px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:14px;
+
+  font-size:20px;
+  font-weight:780;
+}
+
+.page-info .aboutSignalsV3__icon svg{
+  width:22px;
+  height:22px;
+
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.75;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.page-info .aboutSignalsV3__icon--live{
+  background:#b88cf1;
+}
+
+.page-info .aboutSignalsV3__icon--pay{
+  background:#f2d35c;
+}
+
+.page-info .aboutSignalsV3__icon--network{
+  background:#111;
+  color:#fff;
+}
+
+.page-info .aboutSignalsV3__item > div{
+  margin-top:auto;
+}
+
+.page-info .aboutSignalsV3__item small{
+  display:block;
+
+  margin-bottom:9px;
+
+  color:#786c80;
+
+  font-size:9px;
+  font-weight:820;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+
+.page-info .aboutSignalsV3__item strong{
+  display:block;
+
+  max-width:12ch;
+
+  font-size:clamp(24px,2.35vw,34px);
+  line-height:.98;
+  letter-spacing:-.045em;
+}
+
+.page-info .aboutSignalsV3__item p{
+  margin:11px 0 0;
+
+  max-width:23rem;
+
+  color:#665d6c;
+
+  font-size:13px;
+  line-height:1.5;
+}
+
+.page-info .aboutSignalsV3__item > b{
+  position:absolute;
+
+  top:28px;
+  right:24px;
+
+  opacity:.38;
+
+  font-size:18px;
+  font-weight:500;
+
+  transition:
+    opacity .18s ease,
+    transform .18s ease;
+}
+
+@media(hover:hover){
+  .page-info a.aboutSignalsV3__item:hover > b{
+    opacity:1;
+    transform:translateX(3px);
+  }
+}
+
+
+/* =========================================================
+   PEOPLE / BUSINESS
+   ========================================================= */
+
+.page-info .aboutStoryV1__audienceGrid article:first-child{
+  background:
+    linear-gradient(
+      145deg,
+      #f0eaf7 0%,
+      #f7f3fa 100%
+    ) !important;
+}
+
+.page-info .aboutStoryV1__audienceGrid article:first-child > span{
+  color:#7e6d8b !important;
+}
+
+
+/* =========================================================
+   ASK. CONNECT. REPEAT.
+   Turn existing black slab into the brand color moment.
+   ========================================================= */
+
+.page-info .aboutStoryV1__belief{
+  position:relative;
+  overflow:hidden;
+
+  background:
+    radial-gradient(
+      circle at 86% 18%,
+      rgba(255,255,255,.68),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #e5d9f3 0%,
+      #f0e8f7 55%,
+      #ebe0f5 100%
+    ) !important;
+
+  color:#111 !important;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(60,40,80,.05);
+}
+
+.page-info .aboutStoryV1__belief::before{
+  content:"";
+
+  position:absolute;
+
+  width:175px;
+  height:175px;
+
+  top:-66px;
+  right:-42px;
+
+  border-radius:50%;
+
+  background:#f2d35c;
+
+  opacity:.94;
+}
+
+.page-info .aboutStoryV1__belief > *{
+  position:relative;
+  z-index:1;
+}
+
+.page-info .aboutStoryV1__belief > p{
+  color:#74677d !important;
+}
+
+.page-info .aboutStoryV1__belief h3{
+  color:#111 !important;
+}
+
+.page-info .aboutStoryV1__belief h3 span{
+  display:inline-block;
+
+  padding:.01em .11em .05em;
+
+  border-radius:.14em;
+
+  background:#f2d35c;
+
+  transform:rotate(-1deg);
+}
+
+.page-info .aboutStoryV1__belief > span{
+  color:#625869 !important;
+}
+
+
+/* =========================================================
+   MOBILE / TABLET
+   ========================================================= */
+
+@media(max-width:900px){
+
+  .page-info .aboutSignalsV3{
+    width:calc(100% - 36px);
+  }
+
+  .page-info .aboutSignalsV3__head{
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+
+  .page-info .aboutSignalsV3__grid{
+    grid-template-columns:1fr;
+  }
+
+  .page-info .aboutSignalsV3__item{
+    min-height:185px;
+
+    border-right:0;
+    border-bottom:1px solid rgba(17,17,17,.12);
+  }
+
+  .page-info .aboutSignalsV3__item:last-child{
+    border-bottom:0;
+  }
+
+}
+
+
+@media(max-width:560px){
+
+  .page-info .aboutSignalsV3{
+    width:calc(100% - 36px);
+
+    margin-top:58px;
+
+    padding:28px 22px;
+
+    border-radius:24px;
+  }
+
+  .page-info .aboutSignalsV3__head h2{
+    font-size:42px;
+  }
+
+  .page-info .aboutSignalsV3__item{
+    min-height:165px;
+
+    padding:22px 0;
+  }
+
+  .page-info .aboutSignalsV3__item strong{
+    font-size:28px;
+  }
+
+  .page-info .aboutStoryV1__belief::before{
+    width:112px;
+    height:112px;
+
+    top:-40px;
+    right:-34px;
+  }
+
+  .page-info .aboutStoryV1__belief h3 span{
+    display:table;
+
+    margin:8px auto 0;
+  }
+
+}
+
+
+/* ===== END ABOUT COLOR RHYTHM V3 ===== */
+
+/* ===== ABOUT SIGNALS WHITE REFINEMENT V1 ===== */
+
+
+/* =========================================================
+   KEEP THIS FEATURE MOMENT WHITE
+   Color comes from the icons, not the whole panel.
+   ========================================================= */
+
+.page-info .aboutSignalsV3{
+  background:#fff !important;
+
+  border:1px solid rgba(17,17,17,.08) !important;
+
+  box-shadow:
+    0 20px 55px rgba(0,0,0,.045) !important;
+
+  padding:
+    clamp(30px,3.8vw,48px)
+    clamp(28px,4vw,48px) !important;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.page-info .aboutSignalsV3__head{
+  gap:clamp(24px,4vw,54px) !important;
+}
+
+.page-info .aboutSignalsV3__head > p{
+  color:#87818b !important;
+}
+
+.page-info .aboutSignalsV3__head h2{
+  max-width:10ch !important;
+}
+
+
+/* =========================================================
+   FEATURE ROWS
+   Less empty vertical space.
+   ========================================================= */
+
+.page-info .aboutSignalsV3__grid{
+  margin-top:clamp(30px,4vw,46px) !important;
+}
+
+.page-info .aboutSignalsV3__item{
+  min-height:205px !important;
+  padding:24px 22px !important;
+}
+
+.page-info .aboutSignalsV3__item small{
+  margin-bottom:7px !important;
+}
+
+.page-info .aboutSignalsV3__item strong{
+  font-size:clamp(23px,2.25vw,32px) !important;
+}
+
+.page-info .aboutSignalsV3__item p{
+  margin-top:9px !important;
+  line-height:1.46 !important;
+}
+
+.page-info .aboutSignalsV3__icon{
+  width:43px !important;
+  height:43px !important;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media(max-width:900px){
+
+  .page-info .aboutSignalsV3{
+    width:calc(100% - 36px) !important;
+
+    padding:
+      30px
+      28px !important;
+  }
+
+  .page-info .aboutSignalsV3__head{
+    gap:14px !important;
+  }
+
+  .page-info .aboutSignalsV3__grid{
+    margin-top:30px !important;
+  }
+
+  .page-info .aboutSignalsV3__item{
+    min-height:150px !important;
+
+    padding:
+      22px
+      4px !important;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   Fix the oversized spacing visible in the screenshot.
+   ========================================================= */
+
+@media(max-width:560px){
+
+  .page-info .aboutSignalsV3{
+    width:calc(100% - 28px) !important;
+
+    margin-top:46px !important;
+
+    padding:
+      26px
+      22px !important;
+
+    border-radius:24px !important;
+  }
+
+  .page-info .aboutSignalsV3__head{
+    display:block !important;
+  }
+
+  .page-info .aboutSignalsV3__head > p{
+    margin:0 0 18px !important;
+
+    font-size:9px !important;
+  }
+
+  .page-info .aboutSignalsV3__head h2{
+    margin:0 !important;
+
+    max-width:9ch !important;
+
+    font-size:40px !important;
+    line-height:.94 !important;
+  }
+
+  .page-info .aboutSignalsV3__grid{
+    margin-top:30px !important;
+  }
+
+  .page-info .aboutSignalsV3__item{
+    min-height:0 !important;
+
+    padding:
+      20px
+      0 !important;
+  }
+
+  .page-info .aboutSignalsV3__icon{
+    width:40px !important;
+    height:40px !important;
+
+    border-radius:12px !important;
+  }
+
+  .page-info .aboutSignalsV3__item > div{
+    margin-top:22px !important;
+  }
+
+  .page-info .aboutSignalsV3__item small{
+    margin-bottom:7px !important;
+  }
+
+  .page-info .aboutSignalsV3__item strong{
+    max-width:11ch !important;
+
+    font-size:27px !important;
+    line-height:.98 !important;
+  }
+
+  .page-info .aboutSignalsV3__item p{
+    margin-top:9px !important;
+
+    max-width:30rem !important;
+
+    font-size:14px !important;
+    line-height:1.45 !important;
+  }
+
+  .page-info .aboutSignalsV3__item > b{
+    top:24px !important;
+    right:2px !important;
+  }
+
+}
+
+
+/* ===== END ABOUT SIGNALS WHITE REFINEMENT V1 ===== */
