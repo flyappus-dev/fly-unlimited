@@ -13,11 +13,5 @@
 	"observability": {
 		"enabled": true
 	},
-	"upload_source_maps": true,
-	"routes": [
-		{
-			"pattern": "fly-unlimited.com/*",
-			"zone_name": "fly-unlimited.com"
-		}
-	]
+	"upload_source_maps": true
 }
