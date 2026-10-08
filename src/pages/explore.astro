@@ -50,14 +50,6 @@ const ways = [
   },
 ];
 
-const examples = [
-  "I need a photographer tomorrow night.",
-  "Pick this up and deliver it to me.",
-  "Take me to the airport Friday morning.",
-  "Looking for someone to help shoot a campaign.",
-  "I need somewhere to stay this weekend.",
-  "Looking to rent equipment for an event.",
-];
 ---
 
 <!doctype html>
@@ -90,8 +82,8 @@ const examples = [
               <span class="hero__secondary">Start with the ask.</span>
             </h1>
             <p class="hero__lead">
-              FLY is one marketplace for the things people need, the things people can do,
-              and the opportunities already moving around them.
+              Services, rides, deliveries, stays, rentals, purchases, collaborations
+              and more — one marketplace that starts with what you actually need.
             </p>
 
             <div class="hero__actions">
@@ -149,51 +141,255 @@ const examples = [
         </div>
       </section>
 
-      <section class="exploreWaysMerged" id="ways" aria-labelledby="explore-ways-title">
-        <div class="exploreWaysMerged__inner">
-          <div class="exploreWaysMerged__head">
+
+<section class="exploreWaysPremium" id="ways" aria-labelledby="explore-ways-premium-title">
+  <div class="exploreWaysPremium__inner">
+
+    <header class="exploreWaysPremium__head">
+      <div>
+        <p class="eyebrow">Ways to use FLY</p>
+        <h2 id="explore-ways-premium-title">
+          One marketplace.<br />
+          Different ways to get things done.
+        </h2>
+      </div>
+
+      <p>
+        A FLY can be a service, a delivery, a ride, a stay, a rental,
+        a collaboration or a purchase. Start with what you need —
+        FLY adapts to how it needs to happen.
+      </p>
+    </header>
+
+
+    <div class="exploreWaysPremium__list">
+
+      <!-- SERVICE -->
+      <article class="exploreWayPremium">
+
+        <div class="exploreWayPremium__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <rect x="4" y="7" width="16" height="12" rx="2"></rect>
+            <path d="M9 7V5h6v2M4 11h16"></path>
+          </svg>
+        </div>
+
+        <div class="exploreWayPremium__copy">
+          <p class="exploreWayPremium__label">Service</p>
+          <h3>Services</h3>
+          <p>Find someone who can do the work you need.</p>
+        </div>
+
+        <div class="exploreWayPremium__example">
+          <span>Example Ask</span>
+          <strong>“Photograph my event Friday night.”</strong>
+        </div>
+
+      </article>
+
+
+      <!-- DELIVERY -->
+      <article class="exploreWayPremium">
+
+        <div class="exploreWayPremium__mark exploreWayPremium__mark--delivery" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 7h11v9H3z"></path>
+            <path d="M14 10h4l3 3v3h-7z"></path>
+            <circle cx="7" cy="18" r="1.5"></circle>
+            <circle cx="18" cy="18" r="1.5"></circle>
+          </svg>
+        </div>
+
+        <div class="exploreWayPremium__copy">
+          <p class="exploreWayPremium__label">Delivery</p>
+          <h3>Delivery</h3>
+          <p>Move something from pickup to destination.</p>
+        </div>
+
+        <div class="exploreWayPremium__example">
+          <span>Example Ask</span>
+          <strong>“Pick this up and bring it downtown.”</strong>
+        </div>
+
+      </article>
+
+
+      <!-- RIDES -->
+      <article class="exploreWayPremium exploreWayPremium--ride">
+
+        <div class="exploreWayPremium__mark exploreWayPremium__mark--ride" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M5 16h14"></path>
+            <path d="m7 16 1.5-6h7L18 16"></path>
+            <circle cx="8" cy="18" r="1.5"></circle>
+            <circle cx="17" cy="18" r="1.5"></circle>
+            <path d="M10 7h4"></path>
+          </svg>
+        </div>
+
+        <div class="exploreWayPremium__copy">
+          <p class="exploreWayPremium__label">Rides &amp; Transport</p>
+          <h3>From here to there.<br />And back.</h3>
+          <p>
+            One-way, return, scheduled or multi-stop transportation —
+            all inside one FLY.
+          </p>
+        </div>
+
+        <div class="exploreRidePreview" aria-label="Example transportation FLY">
+
+          <div class="exploreRidePreview__profile">
+            <img
+              src="/campaign/how-profile-delivery-v60.jpg"
+              alt=""
+              aria-hidden="true"
+            />
+
             <div>
-              <p class="eyebrow">Ways to use FLY</p>
-              <h2 id="explore-ways-title">Real life has more than one shape.</h2>
+              <strong>Maya R.</strong>
+              <span>@maya.r</span>
             </div>
-            <p>
-              Start with what you need. FLY can support different kinds of
-              requests without making you begin in a different app every time.
-            </p>
+
+            <small>Ride FLY</small>
           </div>
 
-          <div class="exploreWaysMerged__grid">
-            <article class="exploreWay">
-              <span>01</span><div><h3>Services</h3><p>Find someone who can do the work you need.</p></div>
-              <strong>“Photograph my event Friday night.”</strong>
-            </article>
-            <article class="exploreWay">
-              <span>02</span><div><h3>Delivery</h3><p>Move something from pickup to destination.</p></div>
-              <strong>“Pick this up and bring it downtown.”</strong>
-            </article>
-            <article class="exploreWay exploreWay--featured">
-              <span>03</span><div><h3>Rides &amp; Transport</h3><p>One-way, return, scheduled or multi-stop transportation.</p></div>
-              <strong>“Take me there, then bring me back two hours later.”</strong>
-            </article>
-            <article class="exploreWay">
-              <span>04</span><div><h3>Stays</h3><p>Find somewhere that fits the moment.</p></div>
-              <strong>“I need a place for the weekend.”</strong>
-            </article>
-            <article class="exploreWay">
-              <span>05</span><div><h3>Rentals</h3><p>Get temporary access to something you need.</p></div>
-              <strong>“I need a camera for Saturday.”</strong>
-            </article>
-            <article class="exploreWay">
-              <span>06</span><div><h3>Collabs</h3><p>Build, create, organize or make something happen together.</p></div>
-              <strong>“Help me build the launch.”</strong>
-            </article>
-            <article class="exploreWay exploreWay--wide">
-              <span>07</span><div><h3>Purchase &amp; sourcing</h3><p>Find something you want to buy or source through the same marketplace.</p></div>
-              <strong>“Looking for tickets for Saturday night.”</strong>
-            </article>
+          <p>
+            Take me to dinner in Wynwood, then bring me back at 11.
+          </p>
+
+          <div class="exploreRidePreview__route">
+            <div>
+              <i></i>
+              <span>Pickup</span>
+            </div>
+
+            <b></b>
+
+            <div>
+              <i></i>
+              <span>Wynwood</span>
+            </div>
+
+            <b></b>
+
+            <div>
+              <i></i>
+              <span>Return</span>
+            </div>
           </div>
+
+          <div class="exploreRidePreview__chips">
+            <span>Tonight · 8 PM</span>
+            <span>Return · 11 PM</span>
+          </div>
+
         </div>
-      </section>
+
+      </article>
+
+
+      <!-- STAYS -->
+      <article class="exploreWayPremium">
+
+        <div class="exploreWayPremium__mark exploreWayPremium__mark--stay" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 20V9l8-5 8 5v11"></path>
+            <path d="M8 20v-6h8v6"></path>
+          </svg>
+        </div>
+
+        <div class="exploreWayPremium__copy">
+          <p class="exploreWayPremium__label">Stay</p>
+          <h3>Stays</h3>
+          <p>Find somewhere that fits the moment.</p>
+        </div>
+
+        <div class="exploreWayPremium__example">
+          <span>Example Ask</span>
+          <strong>“I need a place for the weekend.”</strong>
+        </div>
+
+      </article>
+
+
+      <!-- RENTALS -->
+      <article class="exploreWayPremium">
+
+        <div class="exploreWayPremium__mark exploreWayPremium__mark--rental" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <circle cx="8" cy="12" r="4"></circle>
+            <path d="M12 12h8M17 12v3M20 12v2"></path>
+          </svg>
+        </div>
+
+        <div class="exploreWayPremium__copy">
+          <p class="exploreWayPremium__label">Rental</p>
+          <h3>Rentals</h3>
+          <p>Get temporary access to something you need.</p>
+        </div>
+
+        <div class="exploreWayPremium__example">
+          <span>Example Ask</span>
+          <strong>“I need a camera for Saturday.”</strong>
+        </div>
+
+      </article>
+
+
+      <!-- COLLABS -->
+      <article class="exploreWayPremium">
+
+        <div class="exploreWayPremium__mark exploreWayPremium__mark--collab" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <circle cx="8" cy="8" r="3"></circle>
+            <circle cx="17" cy="8" r="3"></circle>
+            <path d="M2.5 19c.8-3 2.6-4.5 5.5-4.5s4.7 1.5 5.5 4.5"></path>
+            <path d="M13.5 15.5c1-.7 2.2-1 3.5-1 2.5 0 4 1.2 4.7 3.5"></path>
+          </svg>
+        </div>
+
+        <div class="exploreWayPremium__copy">
+          <p class="exploreWayPremium__label">Collaboration</p>
+          <h3>Collabs</h3>
+          <p>Build, create, organize or make something happen together.</p>
+        </div>
+
+        <div class="exploreWayPremium__example">
+          <span>Example Ask</span>
+          <strong>“Help me build the launch.”</strong>
+        </div>
+
+      </article>
+
+
+      <!-- PURCHASE -->
+      <article class="exploreWayPremium">
+
+        <div class="exploreWayPremium__mark exploreWayPremium__mark--purchase" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M6 8h12l1 12H5L6 8z"></path>
+            <path d="M9 8V6a3 3 0 0 1 6 0v2"></path>
+          </svg>
+        </div>
+
+        <div class="exploreWayPremium__copy">
+          <p class="exploreWayPremium__label">Purchase</p>
+          <h3>Purchase &amp; sourcing</h3>
+          <p>Find something you want to buy or source through the same marketplace.</p>
+        </div>
+
+        <div class="exploreWayPremium__example">
+          <span>Example Ask</span>
+          <strong>“Looking for tickets for Saturday night.”</strong>
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
 
 <section class="exploreCategoryHub" aria-label="Explore FLY categories">
         <div class="exploreCategoryHub__inner">
@@ -289,7 +485,7 @@ const examples = [
           <div class="marketMixV24__event"><span class="marketMixV24__eventIcon" aria-hidden="true"><img src="/category-icons/Events.svg" alt="" /></span><span class="marketMixV24__eventText"><small>Category</small><strong>Events</strong></span></div>
           <div class="marketMixV24__branch" aria-hidden="true"></div>
           <div class="marketMixV24__examples">
-            <article class="marketMixV24__example"><div class="marketMixV24__type"><span class="marketMixV24__typeIcon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="7" width="14" height="11" rx="2"></rect><path d="M9 7V5h6v2M5 11h14"></path></svg></span><span>Service</span></div><div class="marketMixV60__profile"><img class="marketMixV60__avatar" src="/campaign/how-profile-service-v60.jpg" alt="" /><span class="marketMixV60__identity"><strong class="marketMixV60__name">Ethan Cole</strong><small class="marketMixV60__username">@ethancole</small></span></div><p class="marketMixV24__ask">Need a photographer for our wedding ceremony and reception.</p></article>
+            <article class="marketMixV24__example"><div class="marketMixV24__type"><span class="marketMixV24__typeIcon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="7" width="14" height="11" rx="2"></rect><path d="M9 7V5h6v2M5 11h14"></path></svg></span><span>Service</span></div><div class="marketMixV60__profile"><img class="marketMixV60__avatar" src="/campaign/how-profile-service-v60.jpg" alt="" /><span class="marketMixV60__identity"><strong class="marketMixV60__name">Ethan Cole</strong><small class="marketMixV60__username">@ethancole</small></span></div><p class="marketMixV24__ask">Need an event coordinator for our wedding ceremony and reception.</p></article>
             <article class="marketMixV24__example"><div class="marketMixV24__type"><span class="marketMixV24__typeIcon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="4"></circle><path d="M12 12h7M16 12v3M19 12v2"></path></svg></span><span>Rental</span></div><div class="marketMixV60__profile"><img class="marketMixV60__avatar" src="/campaign/how-profile-rental-v60.jpg" alt="" /><span class="marketMixV60__identity"><strong class="marketMixV60__name">Leo Martinez</strong><small class="marketMixV60__username">@leo.m</small></span></div><p class="marketMixV24__ask">Need speakers and lighting for a small live concert this weekend.</p></article>
             <article class="marketMixV24__example"><div class="marketMixV24__type"><span class="marketMixV24__typeIcon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"></path><circle cx="7" cy="18" r="1.5"></circle><circle cx="18" cy="18" r="1.5"></circle></svg></span><span>Delivery</span></div><div class="marketMixV60__profile"><img class="marketMixV60__avatar" src="/campaign/how-profile-delivery-v60.jpg" alt="" /><span class="marketMixV60__identity"><strong class="marketMixV60__name">Sofia Grant</strong><small class="marketMixV60__username">@sofiagrant</small></span></div><p class="marketMixV24__ask">Need flowers delivered to the wedding venue before the ceremony.</p></article>
             <article class="marketMixV24__example"><div class="marketMixV24__type"><span class="marketMixV24__typeIcon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 8h12l1 12H5L6 8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg></span><span>Purchase</span></div><div class="marketMixV60__profile"><img class="marketMixV60__avatar" src="/campaign/how-profile-purchase-v60.jpg" alt="" /><span class="marketMixV60__identity"><strong class="marketMixV60__name">Jordan Blake</strong><small class="marketMixV60__username">@jordanb</small></span></div><p class="marketMixV24__ask">Looking for Smashing Pumpkins tickets.</p></article>
@@ -306,9 +502,9 @@ const examples = [
             <p class="eyebrow">More than the match</p>
             <h2 id="explore-features-title">FLY keeps going after you connect.</h2>
             <p>
-              The marketplace is only the beginning. FLY also gives the request
-              a place to move, get funded when appropriate, and become part of a
-              network you can return to.
+              The connection is only the beginning. LiveTime carries the FLY forward,
+              Early Pay can help eligible FLYs move sooner, and FLY Network makes
+              useful connections easier to return to.
             </p>
           </div>
 
@@ -347,95 +543,14 @@ const examples = [
           </div>
         </div>
       </section>
-<section class="examples" aria-labelledby="examples-title">
-        <div class="examples__inner">
-          <div class="examples__copy">
-            <p class="eyebrow">What does that look like?</p>
-            <h2 id="examples-title">The marketplace starts with a sentence.</h2>
-            <p>
-              You do not have to think like a marketplace operator. Start with what
-              you actually need and make the request clear.
-            </p>
-          </div>
 
-          <div class="examples__rail" aria-label="Example FLY asks">
-            {examples.map((example, index) => (
-              <article class="exampleAsk">
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <p>{example}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section class="logic" aria-labelledby="logic-title">
-        <div class="logic__inner">
-          <div class="logic__heading">
-            <p class="eyebrow">Simple on the surface</p>
-            <h2 id="logic-title">The ask comes first. FLY organizes what happens next.</h2>
-          </div>
-
-          <div class="logic__grid">
-            <article>
-              <span>01</span>
-              <h3>What it is about</h3>
-              <p>
-                Categories make a FLY easier to understand and easier for the right
-                people to discover.
-              </p>
-            </article>
-
-            <article>
-              <span>02</span>
-              <h3>How it needs to happen</h3>
-              <p>
-                The experience can adapt to the job itself — work, delivery,
-                transportation, a stay, a rental, a collaboration, and more.
-              </p>
-            </article>
-
-            <article>
-              <span>03</span>
-              <h3>Who fits</h3>
-              <p>
-                People discover the FLY, apply when it fits, and the host chooses
-                who they want to move forward with.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="handoff" aria-labelledby="handoff-title">
-        <div class="handoff__inner">
-          <div class="handoff__copy">
-            <p class="eyebrow">From ask to done</p>
-            <h2 id="handoff-title">Finding someone is only the beginning.</h2>
-            <p>
-              Once a FLY connects, the work should not disappear into scattered
-              texts, screenshots, payment apps, and loose details. FLY keeps the
-              next steps connected to the request.
-            </p>
-            <a href="/how-it-works/">See the full flow <span aria-hidden="true">→</span></a>
-          </div>
-
-          <div class="handoff__flow" aria-label="FLY flow">
-            <div><span>01</span><strong>Ask</strong></div>
-            <div><span>02</span><strong>Discover</strong></div>
-            <div><span>03</span><strong>Connect</strong></div>
-            <div><span>04</span><strong>LiveTime</strong></div>
-            <div><span>05</span><strong>Complete</strong></div>
-          </div>
-        </div>
-      </section>
 
       <section class="closing" aria-labelledby="closing-title">
         <div class="closing__inner">
           <img class="closing__bird" src="/brand/fly-bird-filled.svg" alt="" aria-hidden="true" />
           <p class="eyebrow">FLY Unlimited</p>
-          <h2 id="closing-title">There is a marketplace around you.</h2>
-          <p>Open it.</p>
+          <h2 id="closing-title">What do you need next?</h2>
+          <p>Put it into the marketplace.</p>
 
           <a
             class="button button--dark"

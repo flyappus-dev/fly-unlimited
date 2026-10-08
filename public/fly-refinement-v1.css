@@ -851,3 +851,1722 @@ button:has(.downloadFlyBird){
 }
 
 /* ===== END DOWNLOAD FLY BIRD V1 ===== */
+
+/* ===== FLY MILLION DOLLAR CONTENT PASS V1 ===== */
+
+.page-info .infoFooterGapV63_1{
+  display:none !important;
+}
+
+.aboutStoryV1{
+  padding:clamp(88px,10vw,150px) clamp(20px,4vw,64px);
+  background:#fff;
+  color:#111;
+}
+
+.aboutStoryV1__inner{
+  width:min(100%,1240px);
+  margin:0 auto;
+}
+
+.aboutStoryV1__eyebrow{
+  margin:0 0 16px;
+  color:#8a8a90;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+.aboutStoryV1__intro{
+  display:grid;
+  grid-template-columns:minmax(0,1.18fr) minmax(320px,.62fr);
+  gap:clamp(48px,8vw,128px);
+  align-items:end;
+}
+
+.aboutStoryV1__intro .aboutStoryV1__eyebrow{
+  grid-column:1 / -1;
+}
+
+.aboutStoryV1__intro h2{
+  margin:0;
+  max-width:10ch;
+  font-size:clamp(54px,6.2vw,96px);
+  line-height:.92;
+  letter-spacing:-.058em;
+  font-weight:760;
+}
+
+.aboutStoryV1__intro > p:last-child{
+  margin:0;
+  max-width:35rem;
+  color:#6e6e73;
+  font-size:clamp(18px,1.45vw,21px);
+  line-height:1.58;
+}
+
+.aboutStoryV1__principles{
+  margin-top:clamp(64px,8vw,112px);
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  border-top:1px solid rgba(17,17,17,.12);
+  border-bottom:1px solid rgba(17,17,17,.12);
+}
+
+.aboutStoryV1__principles article{
+  min-height:290px;
+  padding:28px 30px 34px;
+  border-right:1px solid rgba(17,17,17,.12);
+  display:flex;
+  flex-direction:column;
+}
+
+.aboutStoryV1__principles article:last-child{
+  border-right:0;
+}
+
+.aboutStoryV1__principles article > span{
+  color:#aaaab0;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.16em;
+}
+
+.aboutStoryV1__principles h3{
+  margin:auto 0 14px;
+  max-width:10ch;
+  font-size:clamp(28px,2.6vw,42px);
+  line-height:1;
+  letter-spacing:-.045em;
+  font-weight:740;
+}
+
+.aboutStoryV1__principles p{
+  margin:0;
+  max-width:22rem;
+  color:#6e6e73;
+  font-size:15px;
+  line-height:1.58;
+}
+
+.aboutStoryV1__gallery{
+  margin-top:clamp(72px,9vw,132px);
+  display:grid;
+  grid-template-columns:.82fr 1.25fr .82fr;
+  gap:clamp(12px,2vw,26px);
+  align-items:center;
+}
+
+.aboutStoryV1__photo{
+  margin:0;
+  overflow:hidden;
+  background:#eee;
+}
+
+.aboutStoryV1__photo img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  filter:saturate(.84) contrast(.98);
+}
+
+.aboutStoryV1__photo--hero{
+  height:clamp(440px,55vw,720px);
+}
+
+.aboutStoryV1__photo--side{
+  height:clamp(330px,39vw,520px);
+}
+
+.aboutStoryV1__audience{
+  margin-top:clamp(88px,10vw,150px);
+}
+
+.aboutStoryV1__audience h2{
+  margin:0;
+  max-width:10ch;
+  font-size:clamp(48px,5.4vw,82px);
+  line-height:.94;
+  letter-spacing:-.052em;
+  font-weight:750;
+}
+
+.aboutStoryV1__audienceGrid{
+  margin-top:clamp(48px,6vw,82px);
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+}
+
+.aboutStoryV1__audienceGrid article{
+  min-height:330px;
+  padding:clamp(28px,4vw,52px);
+  border-radius:28px;
+  background:#f5f5f7;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+}
+
+.aboutStoryV1__audienceGrid article:last-child{
+  background:#0a0a0a;
+  color:#fff;
+}
+
+.aboutStoryV1__audienceGrid article > span{
+  margin-bottom:auto;
+  color:#8a8a90;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.aboutStoryV1__audienceGrid article:last-child > span{
+  color:rgba(255,255,255,.42);
+}
+
+.aboutStoryV1__audienceGrid h3{
+  margin:64px 0 12px;
+  max-width:13ch;
+  font-size:clamp(29px,3vw,46px);
+  line-height:1;
+  letter-spacing:-.046em;
+  font-weight:740;
+}
+
+.aboutStoryV1__audienceGrid p{
+  margin:0;
+  max-width:31rem;
+  color:#6e6e73;
+  font-size:15px;
+  line-height:1.58;
+}
+
+.aboutStoryV1__audienceGrid article:last-child p{
+  color:rgba(255,255,255,.62);
+}
+
+.aboutStoryV1__belief{
+  margin-top:clamp(90px,11vw,168px);
+  padding:clamp(58px,8vw,104px);
+  border-radius:32px;
+  background:#0a0a0a;
+  color:#fff;
+  text-align:center;
+}
+
+.aboutStoryV1__belief > p{
+  margin:0;
+  color:rgba(255,255,255,.4);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+.aboutStoryV1__belief h3{
+  margin:20px auto 0;
+  font-size:clamp(54px,7vw,108px);
+  line-height:.88;
+  letter-spacing:-.06em;
+  font-weight:760;
+}
+
+.aboutStoryV1__belief > span{
+  margin:28px auto 0;
+  max-width:42rem;
+  display:block;
+  color:rgba(255,255,255,.62);
+  font-size:clamp(17px,1.4vw,20px);
+  line-height:1.58;
+}
+
+@media(max-width:820px){
+
+  .aboutStoryV1__intro{
+    grid-template-columns:1fr;
+  }
+
+  .aboutStoryV1__principles{
+    grid-template-columns:1fr;
+  }
+
+  .aboutStoryV1__principles article{
+    border-right:0;
+    border-bottom:1px solid rgba(17,17,17,.12);
+  }
+
+  .aboutStoryV1__gallery{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .aboutStoryV1__photo--hero{
+    grid-column:1 / -1;
+    grid-row:1;
+  }
+
+  .aboutStoryV1__audienceGrid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:560px){
+
+  .aboutStoryV1{
+    padding-left:18px;
+    padding-right:18px;
+  }
+
+  .aboutStoryV1__gallery{
+    gap:8px;
+  }
+
+  .aboutStoryV1__belief{
+    padding:58px 22px;
+    border-radius:24px;
+  }
+
+}
+
+/* ===== END FLY MILLION DOLLAR CONTENT PASS V1 ===== */
+
+/* ===== HOME MILLION DOLLAR POLISH V2 ===== */
+
+
+/* -------------------------------------------------
+   TABLET / SMALL DESKTOP HERO
+   Do not split the premium hero into photo + slab.
+   ------------------------------------------------- */
+
+@media(min-width:761px) and (max-width:1050px){
+
+  .page-home .hero{
+    position:relative !important;
+    min-height:calc(100svh - 56px) !important;
+    height:auto !important;
+    display:block !important;
+    overflow:hidden !important;
+    isolation:isolate !important;
+    background:#111 !important;
+  }
+
+  .page-home .heroPhoto{
+    position:absolute !important;
+    inset:0 !important;
+    width:100% !important;
+    height:100% !important;
+    aspect-ratio:auto !important;
+    object-fit:cover !important;
+    object-position:65% center !important;
+    display:block !important;
+    order:initial !important;
+    z-index:-3 !important;
+    filter:saturate(.72) contrast(.96) brightness(.86) sepia(.04) !important;
+  }
+
+  .page-home .hero::before{
+    content:"" !important;
+    display:block !important;
+    position:absolute !important;
+    inset:0 !important;
+    z-index:-2 !important;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(5,5,5,.84) 0%,
+        rgba(5,5,5,.69) 34%,
+        rgba(5,5,5,.37) 57%,
+        rgba(5,5,5,.08) 78%,
+        rgba(5,5,5,0) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(0,0,0,.05),
+        rgba(0,0,0,.18)
+      ) !important;
+  }
+
+  .page-home .heroInner{
+    position:relative !important;
+    z-index:1 !important;
+    width:min(100%,1440px) !important;
+    min-height:calc(100svh - 56px) !important;
+    height:auto !important;
+    margin:0 auto !important;
+    padding:
+      clamp(78px,10vw,116px)
+      clamp(30px,5vw,58px)
+      clamp(64px,8vw,92px) !important;
+    display:flex !important;
+    align-items:center !important;
+    background:transparent !important;
+    order:initial !important;
+  }
+
+  .page-home .heroCopy{
+    width:min(54%,490px) !important;
+    max-width:490px !important;
+    margin:0 !important;
+    padding:0 !important;
+    color:#fff !important;
+  }
+
+  .page-home .heroTitle{
+    max-width:5.8ch !important;
+    font-size:clamp(68px,9.2vw,96px) !important;
+    line-height:.82 !important;
+  }
+
+  .page-home .heroSub{
+    margin-top:22px !important;
+    max-width:31rem !important;
+  }
+
+  .page-home .heroBody{
+    max-width:30rem !important;
+    font-size:17px !important;
+    line-height:1.58 !important;
+    color:rgba(255,255,255,.74) !important;
+  }
+
+}
+
+
+/* -------------------------------------------------
+   WHAT IS FLY?
+   Keep this as a confident 3-column idea on tablets.
+   ------------------------------------------------- */
+
+@media(min-width:761px) and (max-width:1050px){
+
+  .page-home .statement{
+    padding:
+      clamp(72px,8vw,96px)
+      clamp(30px,5vw,52px)
+      clamp(78px,9vw,108px) !important;
+  }
+
+  .page-home .statementTop{
+    display:grid !important;
+    grid-template-columns:minmax(0,1.05fr) minmax(290px,.95fr) !important;
+    gap:42px !important;
+    align-items:end !important;
+  }
+
+  .page-home .statementTitle{
+    font-size:clamp(48px,6vw,70px) !important;
+  }
+
+  .page-home .statementRail{
+    margin-top:48px !important;
+    display:grid !important;
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  }
+
+  .page-home .statementItem{
+    min-height:230px !important;
+    padding:24px 22px 28px !important;
+    border-right:1px solid var(--hair) !important;
+    border-bottom:0 !important;
+  }
+
+  .page-home .statementItem:last-child{
+    border-right:0 !important;
+  }
+
+  .page-home .statementWord{
+    font-size:clamp(38px,4.4vw,54px) !important;
+  }
+
+  .page-home .statementText{
+    font-size:14px !important;
+    line-height:1.55 !important;
+  }
+
+}
+
+
+/* -------------------------------------------------
+   ASK MOMENT
+   Less dead air; keep the composer as the hero object.
+   ------------------------------------------------- */
+
+.page-home .homeAskV24{
+  padding-top:clamp(72px,8vw,104px) !important;
+  padding-bottom:clamp(78px,8.5vw,112px) !important;
+}
+
+.page-home .homeAskV24__lead{
+  max-width:39rem !important;
+}
+
+
+/* -------------------------------------------------
+   PRODUCT DIFFERENTIATORS
+   Clean, product-like, no redundant footer chant.
+   ------------------------------------------------- */
+
+.page-home .homeNetworkV31__head{
+  max-width:900px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+
+.page-home .homeNetworkV31__lead{
+  max-width:46rem !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+
+.page-home .homeNetworkV31__item{
+  transition:
+    transform .22s cubic-bezier(.2,.8,.2,1),
+    background .22s cubic-bezier(.2,.8,.2,1) !important;
+}
+
+@media(hover:hover){
+  .page-home .homeNetworkV31__item:hover{
+    transform:translateY(-4px);
+    background:rgba(17,17,17,.018);
+  }
+}
+
+.page-home .homeNetworkV31__icon svg{
+  width:25px !important;
+  height:25px !important;
+  stroke-width:1.8 !important;
+}
+
+.page-home .homeNetworkV31__itemTitle{
+  letter-spacing:-.045em !important;
+}
+
+.page-home .homeNetworkV31__types{
+  display:none !important;
+}
+
+
+/* -------------------------------------------------
+   FINAL CTA
+   Keep the image — just give the copy more restraint.
+   ------------------------------------------------- */
+
+.page-home .closingTitle{
+  margin-top:14px !important;
+  font-size:clamp(28px,2.5vw,38px) !important;
+}
+
+.page-home .closingSub{
+  margin-top:8px !important;
+}
+
+.page-home .closingCta{
+  margin-top:26px !important;
+}
+
+
+/* -------------------------------------------------
+   MOBILE
+   Keep the intentional stacked photo/text treatment.
+   ------------------------------------------------- */
+
+@media(max-width:760px){
+
+  .page-home .statementTop{
+    display:block !important;
+  }
+
+  .page-home .statementBody{
+    margin-top:22px !important;
+  }
+
+  .page-home .statementRail{
+    grid-template-columns:1fr !important;
+  }
+
+}
+
+
+/* ===== END HOME MILLION DOLLAR POLISH V2 ===== */
+
+/* ===== EXPLORE MILLION DOLLAR POLISH V1 ===== */
+
+
+/* -------------------------------------------------
+   HERO — keep product and proposition together
+   on tablet / small desktop.
+   ------------------------------------------------- */
+
+@media(min-width:761px) and (max-width:1050px){
+
+  .page-explore .hero{
+    padding:
+      clamp(52px,6vw,70px)
+      clamp(34px,5vw,52px)
+      clamp(58px,7vw,78px) !important;
+  }
+
+  .page-explore .hero__inner{
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) minmax(300px,.78fr) !important;
+    gap:clamp(28px,4vw,52px) !important;
+    align-items:center !important;
+  }
+
+  .page-explore .hero h1{
+    max-width:8.2ch !important;
+    font-size:clamp(58px,7vw,76px) !important;
+    line-height:.88 !important;
+  }
+
+  .page-explore .hero__lead{
+    margin-top:24px !important;
+    max-width:31rem !important;
+    font-size:17px !important;
+  }
+
+  .page-explore .hero__actions{
+    margin-top:27px !important;
+  }
+
+  .page-explore .askStage{
+    width:100% !important;
+    max-width:none !important;
+    min-height:440px !important;
+    margin:0 !important;
+  }
+
+  .page-explore .askStage::before{
+    width:370px !important;
+    height:370px !important;
+  }
+
+  .page-explore .askStage__card{
+    width:min(100%,340px) !important;
+    min-height:385px !important;
+    padding:24px !important;
+    border-radius:30px !important;
+    transform:rotate(-1.5deg) !important;
+  }
+
+  .page-explore .askStage__prompt{
+    margin-top:76px !important;
+  }
+
+  .page-explore .askStage__meta{
+    left:24px !important;
+    right:24px !important;
+    bottom:24px !important;
+  }
+
+  .page-explore .example{
+    padding:8px 11px !important;
+    font-size:10.5px !important;
+  }
+
+}
+
+
+/* -------------------------------------------------
+   WAYS → CATEGORIES
+   Keep breathing room without the white desert.
+   ------------------------------------------------- */
+
+.page-explore .exploreWaysMerged{
+  padding-bottom:clamp(56px,6vw,76px) !important;
+}
+
+.page-explore .exploreCategoryHub{
+  padding-top:clamp(24px,3.4vw,44px) !important;
+}
+
+
+/* -------------------------------------------------
+   CATEGORY / TYPE EXPLANATION
+   Slightly stronger hierarchy, still clean.
+   ------------------------------------------------- */
+
+.page-explore .marketMixV24.stepsTypesStandaloneV67{
+  padding-top:clamp(48px,5vw,62px) !important;
+}
+
+.page-explore .marketMixV24__close{
+  max-width:52rem !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+
+
+/* -------------------------------------------------
+   PRODUCT DIFFERENTIATORS
+   The cards already work — just tighten rhythm.
+   ------------------------------------------------- */
+
+.page-explore .exploreFeatures{
+  padding-top:clamp(78px,8vw,108px) !important;
+  padding-bottom:clamp(82px,8vw,112px) !important;
+}
+
+.page-explore .exploreFeatures__head > p:last-child{
+  max-width:46rem !important;
+}
+
+.page-explore .featureStory{
+  transition:
+    transform .22s cubic-bezier(.2,.8,.2,1),
+    box-shadow .22s cubic-bezier(.2,.8,.2,1) !important;
+}
+
+@media(hover:hover){
+
+  .page-explore .featureStory:hover{
+    transform:translateY(-4px);
+    box-shadow:0 24px 60px rgba(0,0,0,.07);
+  }
+
+}
+
+
+/* -------------------------------------------------
+   EXPLORE CLOSING
+   More compact and unique to this page.
+   ------------------------------------------------- */
+
+.page-explore .closing{
+  padding-top:clamp(76px,8vw,100px) !important;
+  padding-bottom:clamp(82px,8vw,108px) !important;
+}
+
+.page-explore .closing__bird{
+  margin-bottom:18px !important;
+}
+
+.page-explore .closing h2{
+  max-width:9ch !important;
+}
+
+.page-explore .closing > .closing__inner > p:nth-of-type(2){
+  margin-top:16px !important;
+  margin-bottom:28px !important;
+}
+
+
+/* Mobile stays intentionally stacked. */
+@media(max-width:760px){
+
+  .page-explore .exploreWaysMerged{
+    padding-bottom:52px !important;
+  }
+
+  .page-explore .exploreCategoryHub{
+    padding-top:18px !important;
+  }
+
+}
+
+
+/* ===== END EXPLORE MILLION DOLLAR POLISH V1 ===== */
+
+/* ===== EXPLORE WAYS PREMIUM V2 ===== */
+
+.page-explore .exploreWaysPremium{
+  padding:
+    clamp(84px,9vw,126px)
+    clamp(20px,4vw,64px)
+    clamp(74px,8vw,110px);
+  background:#fff;
+}
+
+.page-explore .exploreWaysPremium__inner{
+  width:min(100%,1240px);
+  margin:0 auto;
+}
+
+
+/* HEADER */
+
+.page-explore .exploreWaysPremium__head{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(320px,.42fr);
+  gap:clamp(48px,8vw,118px);
+  align-items:end;
+}
+
+.page-explore .exploreWaysPremium__head h2{
+  margin:0;
+  max-width:12ch;
+  font-size:clamp(50px,5.5vw,86px);
+  line-height:.92;
+  letter-spacing:-.058em;
+  font-weight:740;
+}
+
+.page-explore .exploreWaysPremium__head > p{
+  margin:0;
+  max-width:34rem;
+  color:#6e6e73;
+  font-size:16px;
+  line-height:1.6;
+}
+
+
+/* LIST — deliberately NOT a grid of boxes */
+
+.page-explore .exploreWaysPremium__list{
+  margin-top:clamp(54px,6vw,82px);
+  border-top:1px solid rgba(17,17,17,.12);
+}
+
+.page-explore .exploreWayPremium{
+  min-height:178px;
+  padding:30px 8px;
+  border-bottom:1px solid rgba(17,17,17,.12);
+
+  display:grid;
+  grid-template-columns:64px minmax(300px,.9fr) minmax(300px,.72fr);
+  gap:clamp(26px,4vw,60px);
+  align-items:center;
+}
+
+
+/* ICON */
+
+.page-explore .exploreWayPremium__mark{
+  width:48px;
+  height:48px;
+  border-radius:15px;
+
+  display:grid;
+  place-items:center;
+
+  background:#f2f2f4;
+}
+
+.page-explore .exploreWayPremium__mark svg{
+  width:22px;
+  height:22px;
+  fill:none;
+  stroke:#111;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.page-explore .exploreWayPremium__mark--delivery{
+  background:#eaf7ee;
+}
+
+.page-explore .exploreWayPremium__mark--stay{
+  background:#f1e9f9;
+}
+
+.page-explore .exploreWayPremium__mark--rental{
+  background:#f8f1d8;
+}
+
+.page-explore .exploreWayPremium__mark--collab{
+  background:#e9f1fb;
+}
+
+.page-explore .exploreWayPremium__mark--purchase{
+  background:#f3ecff;
+}
+
+
+/* COPY */
+
+.page-explore .exploreWayPremium__label{
+  margin:0 0 8px;
+  color:#98989e;
+  font-size:9px;
+  line-height:1;
+  font-weight:820;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.page-explore .exploreWayPremium__copy h3{
+  margin:0;
+  font-size:clamp(29px,2.8vw,43px);
+  line-height:.96;
+  letter-spacing:-.048em;
+  font-weight:720;
+}
+
+.page-explore .exploreWayPremium__copy > p:last-child{
+  margin:10px 0 0;
+  max-width:31rem;
+  color:#6e6e73;
+  font-size:14px;
+  line-height:1.5;
+}
+
+
+/* EXAMPLE */
+
+.page-explore .exploreWayPremium__example{
+  min-width:0;
+  padding-left:clamp(20px,3vw,38px);
+  border-left:1px solid rgba(17,17,17,.11);
+}
+
+.page-explore .exploreWayPremium__example span{
+  display:block;
+  margin-bottom:9px;
+  color:#98989e;
+  font-size:9px;
+  font-weight:820;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+.page-explore .exploreWayPremium__example strong{
+  display:block;
+  max-width:30rem;
+  color:#111;
+  font-size:15px;
+  line-height:1.45;
+  font-weight:680;
+}
+
+
+/* ======================================================
+   FEATURED RIDE — one real product moment
+   ====================================================== */
+
+.page-explore .exploreWayPremium--ride{
+  min-height:340px;
+  margin:18px 0;
+
+  padding:
+    clamp(28px,4vw,46px)
+    clamp(26px,4vw,48px);
+
+  border:0;
+  border-radius:28px;
+
+  grid-template-columns:64px minmax(270px,.72fr) minmax(390px,1fr);
+
+  background:#090909;
+  color:#fff;
+  overflow:hidden;
+}
+
+.page-explore .exploreWayPremium--ride .exploreWayPremium__mark{
+  align-self:start;
+  background:rgba(255,255,255,.09);
+}
+
+.page-explore .exploreWayPremium--ride .exploreWayPremium__mark svg{
+  stroke:#fff;
+}
+
+.page-explore .exploreWayPremium--ride .exploreWayPremium__label{
+  color:rgba(255,255,255,.4);
+}
+
+.page-explore .exploreWayPremium--ride .exploreWayPremium__copy h3{
+  max-width:9ch;
+  color:#fff;
+  font-size:clamp(38px,4vw,58px);
+}
+
+.page-explore .exploreWayPremium--ride .exploreWayPremium__copy > p:last-child{
+  max-width:27rem;
+  color:rgba(255,255,255,.52);
+}
+
+
+/* MINI RIDE FLY */
+
+.page-explore .exploreRidePreview{
+  padding:22px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:22px;
+
+  background:rgba(255,255,255,.055);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 26px 60px rgba(0,0,0,.16);
+}
+
+.page-explore .exploreRidePreview__profile{
+  display:grid;
+  grid-template-columns:42px 1fr auto;
+  gap:11px;
+  align-items:center;
+}
+
+.page-explore .exploreRidePreview__profile img{
+  width:42px;
+  height:42px;
+  display:block;
+  object-fit:cover;
+  border-radius:50%;
+}
+
+.page-explore .exploreRidePreview__profile > div{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+
+.page-explore .exploreRidePreview__profile strong{
+  color:#fff;
+  font-size:13px;
+  font-weight:720;
+}
+
+.page-explore .exploreRidePreview__profile span{
+  color:rgba(255,255,255,.4);
+  font-size:10px;
+}
+
+.page-explore .exploreRidePreview__profile small{
+  padding:7px 9px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:999px;
+  color:rgba(255,255,255,.54);
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.page-explore .exploreRidePreview > p{
+  margin:25px 0 0;
+  max-width:25rem;
+  color:#fff;
+  font-size:clamp(21px,2vw,27px);
+  line-height:1.12;
+  letter-spacing:-.035em;
+  font-weight:650;
+}
+
+
+/* ROUTE */
+
+.page-explore .exploreRidePreview__route{
+  margin-top:30px;
+
+  display:grid;
+  grid-template-columns:auto 1fr auto 1fr auto;
+  align-items:start;
+  gap:10px;
+}
+
+.page-explore .exploreRidePreview__route > div{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:7px;
+}
+
+.page-explore .exploreRidePreview__route i{
+  width:10px;
+  height:10px;
+  display:block;
+
+  border:2px solid #fff;
+  border-radius:50%;
+}
+
+.page-explore .exploreRidePreview__route > div:nth-of-type(2) i{
+  background:#b88cf1;
+  border-color:#b88cf1;
+}
+
+.page-explore .exploreRidePreview__route b{
+  height:1px;
+  margin-top:5px;
+  background:rgba(255,255,255,.2);
+}
+
+.page-explore .exploreRidePreview__route span{
+  color:rgba(255,255,255,.42);
+  font-size:8px;
+  font-weight:740;
+}
+
+
+/* CHIPS */
+
+.page-explore .exploreRidePreview__chips{
+  margin-top:19px;
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+}
+
+.page-explore .exploreRidePreview__chips span{
+  min-height:30px;
+  padding:0 11px;
+
+  display:inline-flex;
+  align-items:center;
+
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+
+  color:rgba(255,255,255,.68);
+  font-size:9px;
+  font-weight:720;
+}
+
+
+/* ======================================================
+   RESPONSIVE
+   ====================================================== */
+
+@media(max-width:980px){
+
+  .page-explore .exploreWaysPremium__head{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  .page-explore .exploreWaysPremium__head > p{
+    max-width:40rem;
+  }
+
+  .page-explore .exploreWayPremium{
+    grid-template-columns:58px minmax(0,1fr);
+  }
+
+  .page-explore .exploreWayPremium__example{
+    grid-column:2;
+    padding:18px 0 0;
+    border-left:0;
+    border-top:1px solid rgba(17,17,17,.1);
+  }
+
+  .page-explore .exploreWayPremium--ride{
+    grid-template-columns:58px minmax(0,1fr);
+  }
+
+  .page-explore .exploreWayPremium--ride .exploreRidePreview{
+    grid-column:2;
+  }
+
+}
+
+
+@media(max-width:620px){
+
+  .page-explore .exploreWaysPremium{
+    padding:
+      70px
+      18px
+      62px;
+  }
+
+  .page-explore .exploreWaysPremium__head h2{
+    font-size:clamp(46px,13vw,62px);
+  }
+
+  .page-explore .exploreWayPremium{
+    min-height:0;
+    padding:27px 0;
+
+    grid-template-columns:46px minmax(0,1fr);
+    gap:18px;
+  }
+
+  .page-explore .exploreWayPremium__mark{
+    width:42px;
+    height:42px;
+    border-radius:13px;
+  }
+
+  .page-explore .exploreWayPremium__mark svg{
+    width:19px;
+    height:19px;
+  }
+
+  .page-explore .exploreWayPremium__copy h3{
+    font-size:32px;
+  }
+
+  .page-explore .exploreWayPremium__example{
+    grid-column:1 / -1;
+    margin-left:60px;
+  }
+
+  .page-explore .exploreWayPremium--ride{
+    margin:16px 0;
+    padding:26px;
+
+    border-radius:22px;
+
+    grid-template-columns:1fr;
+    gap:22px;
+  }
+
+  .page-explore .exploreWayPremium--ride .exploreWayPremium__mark,
+  .page-explore .exploreWayPremium--ride .exploreRidePreview{
+    grid-column:auto;
+  }
+
+  .page-explore .exploreWayPremium--ride .exploreWayPremium__copy h3{
+    font-size:42px;
+  }
+
+  .page-explore .exploreRidePreview{
+    padding:18px;
+    border-radius:18px;
+  }
+
+}
+
+
+/* ===== END EXPLORE WAYS PREMIUM V2 ===== */
+
+/* ===== HOW FINAL MILLION DOLLAR POLISH V1 ===== */
+
+.page-how .howExploreBridge{
+  padding:38px 24px !important;
+}
+
+.page-how .howExploreBridge a{
+  color:#fff !important;
+  background:#0a0a0a !important;
+}
+
+.page-how .howExploreBridge a:visited{
+  color:#fff !important;
+}
+
+.page-how .howExploreBridge a:hover{
+  color:#fff !important;
+  background:#242424 !important;
+}
+
+.page-how .liveExplainV14__link{
+  width:max-content;
+  margin-top:20px;
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  color:#fff;
+  text-decoration:none;
+  font-size:12px;
+  line-height:1;
+  font-weight:760;
+}
+
+.page-how .liveExplainV14__link span{
+  transition:transform .18s ease;
+}
+
+@media(hover:hover){
+  .page-how .liveExplainV14__link:hover span{
+    transform:translateX(3px);
+  }
+}
+
+.page-how #categories .howText{
+  max-width:31rem !important;
+}
+
+@media(min-width:761px){
+  .page-how .stepsCarouselV42 .howRow{
+    min-height:min(72vh,720px) !important;
+  }
+}
+
+/* ===== END HOW FINAL MILLION DOLLAR POLISH V1 ===== */
+
+/* ===== HOW REPEAT MOBILE FIX V1 ===== */
+
+/*
+  Keep the existing equal mobile card height.
+  Only compact/reposition Step 06 internally.
+*/
+
+@media(max-width:720px){
+
+  .page-how .stepsCarouselV42 .howRow#repeat{
+    align-content:start !important;
+    padding:
+      36px
+      24px
+      26px !important;
+    gap:18px !important;
+  }
+
+  .page-how .stepsCarouselV42 .howRow#repeat > div:first-child{
+    align-self:start !important;
+  }
+
+  .page-how .stepsCarouselV42 .howRow#repeat .howNum{
+    margin:0 0 12px !important;
+    font-size:13px !important;
+    line-height:1 !important;
+  }
+
+  .page-how .stepsCarouselV42 .howRow#repeat .howTitle{
+    margin:0 !important;
+    font-size:clamp(44px,11vw,52px) !important;
+    line-height:.92 !important;
+  }
+
+  .page-how .stepsCarouselV42 .howRow#repeat .howText{
+    margin-top:14px !important;
+    max-width:none !important;
+    font-size:15px !important;
+    line-height:1.42 !important;
+  }
+
+  .page-how .stepsCarouselV42 .howRow#repeat .repeatNeedsOrbitV65_18{
+    margin-top:0 !important;
+    min-height:0 !important;
+  }
+
+  .page-how .stepsCarouselV42 .howRow#repeat .repeatNeedsOrbitV65_18__stage{
+    --orbit-size:clamp(205px,61vw,250px) !important;
+    --avatar-size:clamp(32px,8.2vw,39px) !important;
+    --icon-size:clamp(34px,8.6vw,40px) !important;
+
+    width:min(100%,292px) !important;
+    margin:0 auto !important;
+  }
+
+  .page-how .stepsCarouselV42 .howRow#repeat .repeatNeedsOrbitV65_18__core{
+    padding:12px !important;
+  }
+
+  .page-how .stepsCarouselV42 .howRow#repeat .repeatNeedsOrbitV65_18__coreTitle{
+    font-size:clamp(22px,6vw,28px) !important;
+  }
+
+  .page-how .stepsCarouselV42 .howRow#repeat .repeatNeedsOrbitV65_18__coreSub{
+    margin-top:7px !important;
+    font-size:8px !important;
+    line-height:1.15 !important;
+  }
+}
+
+
+/* Extra-small phones */
+@media(max-width:390px){
+
+  .page-how .stepsCarouselV42 .howRow#repeat{
+    padding:
+      30px
+      20px
+      22px !important;
+    gap:14px !important;
+  }
+
+  .page-how .stepsCarouselV42 .howRow#repeat .howNum{
+    margin-bottom:9px !important;
+  }
+
+  .page-how .stepsCarouselV42 .howRow#repeat .howTitle{
+    font-size:42px !important;
+  }
+
+  .page-how .stepsCarouselV42 .howRow#repeat .howText{
+    margin-top:11px !important;
+    font-size:14px !important;
+    line-height:1.36 !important;
+  }
+
+  .page-how .stepsCarouselV42 .howRow#repeat .repeatNeedsOrbitV65_18__stage{
+    --orbit-size:clamp(190px,58vw,220px) !important;
+    --avatar-size:34px !important;
+    --icon-size:35px !important;
+    width:min(100%,260px) !important;
+  }
+}
+
+/* ===== END HOW REPEAT MOBILE FIX V1 ===== */
+
+/* ===== HOW FIRST CARD REAL CATEGORY ICON V1 ===== */
+
+.page-how .stepsAskSingleV67__type{
+  padding:6px 10px 6px 6px !important;
+  gap:7px !important;
+  background:#f6f4f8 !important;
+  color:#67676d !important;
+}
+
+.page-how .stepsAskSingleV67__categoryIcon{
+  width:28px;
+  height:28px;
+  flex:0 0 28px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:8px;
+  background:#9b59b6;
+
+  box-shadow:
+    0 6px 14px rgba(155,89,182,.18),
+    inset 0 0 0 1px rgba(255,255,255,.12);
+}
+
+.page-how .stepsAskSingleV67__categoryIcon img{
+  width:15px !important;
+  height:15px !important;
+  display:block !important;
+  object-fit:contain !important;
+  filter:brightness(0) invert(1) !important;
+}
+
+@media(max-width:620px){
+
+  .page-how .stepsAskSingleV67__type{
+    padding:5px 8px 5px 5px !important;
+    gap:6px !important;
+  }
+
+  .page-how .stepsAskSingleV67__categoryIcon{
+    width:25px;
+    height:25px;
+    flex-basis:25px;
+    border-radius:7px;
+  }
+
+  .page-how .stepsAskSingleV67__categoryIcon img{
+    width:13px !important;
+    height:13px !important;
+  }
+}
+
+/* ===== END HOW FIRST CARD REAL CATEGORY ICON V1 ===== */
+
+/* ===== HOW INTRO PHOTO CATEGORY FIX ===== */
+
+.page-how .guideIntroV59__categoryIcon--photo{
+  background:#9b59b6 !important;
+}
+
+.page-how .guideIntroV59__categoryIcon--photo img{
+  filter:brightness(0) invert(1) !important;
+}
+
+/* ===== END HOW INTRO PHOTO CATEGORY FIX ===== */
+
+/* ===== LIVETIME FINAL REFINEMENT V1 ===== */
+
+
+/* =========================================================
+   MANIFESTO
+   Same visual idea, less empty black acreage.
+   ========================================================= */
+
+.page-livetime .statement{
+  padding-top:clamp(76px,8vw,116px) !important;
+  padding-bottom:clamp(76px,8vw,116px) !important;
+}
+
+.page-livetime .statement__inner{
+  gap:clamp(46px,7vw,96px) !important;
+}
+
+.page-livetime .statement p:last-child{
+  max-width:34rem !important;
+}
+
+
+/* =========================================================
+   PRODUCT SHOT
+   Let the screenshot remain the proof.
+   ========================================================= */
+
+.page-livetime .productShot{
+  padding-top:clamp(66px,7vw,94px) !important;
+  padding-bottom:clamp(68px,7vw,98px) !important;
+}
+
+.page-livetime .productShot__frame{
+  margin-top:clamp(38px,5vw,58px) !important;
+  box-shadow:
+    0 24px 60px rgba(0,0,0,.07) !important;
+}
+
+
+/* =========================================================
+   PLAN / PROGRESS / SHARE / COMPLETE
+   This was visually too tall in the recording.
+   ========================================================= */
+
+.page-livetime .stages{
+  padding-top:clamp(68px,7vw,96px) !important;
+  padding-bottom:clamp(68px,7vw,96px) !important;
+}
+
+.page-livetime .stages__grid{
+  margin-top:clamp(38px,4.5vw,58px) !important;
+}
+
+.page-livetime .stages__grid article{
+  min-height:250px !important;
+  padding-top:24px !important;
+  padding-bottom:26px !important;
+}
+
+.page-livetime .stages__grid h3{
+  font-size:29px !important;
+}
+
+.page-livetime .stages__grid p{
+  max-width:16rem !important;
+}
+
+
+/* =========================================================
+   ADAPTIVE LIVETIME
+   Preserve the existing cards, refine the finish.
+   ========================================================= */
+
+.page-livetime .adaptive{
+  padding-top:clamp(74px,8vw,104px) !important;
+  padding-bottom:clamp(76px,8vw,108px) !important;
+}
+
+.page-livetime .adaptive__grid{
+  margin-top:clamp(42px,5vw,64px) !important;
+}
+
+.page-livetime .modeCard{
+  min-height:400px !important;
+  padding:28px !important;
+  border:1px solid rgba(17,17,17,.055);
+  transition:
+    transform .22s cubic-bezier(.2,.8,.2,1),
+    box-shadow .22s cubic-bezier(.2,.8,.2,1);
+}
+
+.page-livetime .modeCard--dark{
+  border-color:#0a0a0a !important;
+}
+
+@media(hover:hover){
+  .page-livetime .modeCard:hover{
+    transform:translateY(-3px);
+    box-shadow:0 22px 52px rgba(0,0,0,.065);
+  }
+}
+
+.page-livetime .modeCard p{
+  max-width:27rem !important;
+}
+
+
+/* =========================================================
+   CLOSING
+   Still cinematic, just a little more disciplined.
+   ========================================================= */
+
+.page-livetime .closing{
+  padding-top:clamp(76px,8vw,108px) !important;
+  padding-bottom:clamp(80px,8vw,112px) !important;
+}
+
+.page-livetime .closing__inner > p:nth-of-type(2){
+  max-width:38rem !important;
+}
+
+
+/* =========================================================
+   MOBILE
+   Keep the same design language, reduce unnecessary height.
+   ========================================================= */
+
+@media(max-width:700px){
+
+  .page-livetime .statement,
+  .page-livetime .productShot,
+  .page-livetime .stages,
+  .page-livetime .adaptive,
+  .page-livetime .closing{
+    padding-top:64px !important;
+    padding-bottom:68px !important;
+  }
+
+  .page-livetime .stages__grid article,
+  .page-livetime .stages__grid article:first-child,
+  .page-livetime .stages__grid article:last-child{
+    min-height:180px !important;
+    padding-top:22px !important;
+    padding-bottom:22px !important;
+  }
+
+  .page-livetime .modeCard{
+    min-height:360px !important;
+  }
+
+}
+
+
+/* ===== END LIVETIME FINAL REFINEMENT V1 ===== */
+
+/* ===== LIVETIME STATEMENT DESKTOP FIX V1 ===== */
+
+
+/* =========================================================
+   DESKTOP
+   Eyebrow + headline live together on the left.
+   Supporting copy sits on the right.
+   ========================================================= */
+
+@media(min-width:1181px){
+
+  .page-livetime .statement{
+    padding-top:clamp(82px,8vw,118px) !important;
+    padding-bottom:clamp(86px,8vw,124px) !important;
+  }
+
+  .page-livetime .statement__inner{
+    display:grid !important;
+
+    grid-template-columns:
+      minmax(0,1.18fr)
+      minmax(320px,.46fr) !important;
+
+    grid-template-areas:
+      "eyebrow copy"
+      "title   copy" !important;
+
+    column-gap:clamp(72px,8vw,132px) !important;
+    row-gap:20px !important;
+
+    align-items:end !important;
+  }
+
+  .page-livetime .statement .eyebrow{
+    grid-area:eyebrow !important;
+
+    margin:0 !important;
+    align-self:end !important;
+  }
+
+  .page-livetime .statement h2{
+    grid-area:title !important;
+
+    margin:0 !important;
+
+    max-width:11.5ch !important;
+
+    font-size:clamp(58px,5.55vw,88px) !important;
+    line-height:.91 !important;
+    letter-spacing:-.058em !important;
+  }
+
+  .page-livetime .statement p:last-child{
+    grid-area:copy !important;
+
+    align-self:end !important;
+
+    margin:0 0 7px !important;
+
+    max-width:32rem !important;
+
+    font-size:clamp(17px,1.25vw,19px) !important;
+    line-height:1.58 !important;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET / SMALL DESKTOP
+   Stack intentionally BEFORE the desktop composition gets tight.
+   ========================================================= */
+
+@media(min-width:701px) and (max-width:1180px){
+
+  .page-livetime .statement{
+    padding:
+      clamp(74px,8vw,96px)
+      clamp(32px,5vw,58px)
+      clamp(78px,8vw,102px) !important;
+  }
+
+  .page-livetime .statement__inner{
+    display:grid !important;
+
+    grid-template-columns:1fr !important;
+
+    grid-template-areas:
+      "eyebrow"
+      "title"
+      "copy" !important;
+
+    gap:0 !important;
+  }
+
+  .page-livetime .statement .eyebrow{
+    grid-area:eyebrow !important;
+    margin:0 0 20px !important;
+  }
+
+  .page-livetime .statement h2{
+    grid-area:title !important;
+
+    margin:0 !important;
+
+    max-width:12ch !important;
+
+    font-size:clamp(58px,8vw,84px) !important;
+    line-height:.91 !important;
+  }
+
+  .page-livetime .statement p:last-child{
+    grid-area:copy !important;
+
+    margin:30px 0 0 !important;
+
+    max-width:40rem !important;
+
+    font-size:18px !important;
+    line-height:1.58 !important;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   Preserve the layout that already looks good.
+   ========================================================= */
+
+@media(max-width:700px){
+
+  .page-livetime .statement__inner{
+    display:block !important;
+  }
+
+  .page-livetime .statement .eyebrow{
+    margin:0 0 28px !important;
+  }
+
+  .page-livetime .statement h2{
+    margin:0 !important;
+
+    max-width:10.5ch !important;
+
+    font-size:clamp(46px,13vw,64px) !important;
+    line-height:.93 !important;
+  }
+
+  .page-livetime .statement p:last-child{
+    margin:34px 0 0 !important;
+
+    max-width:34rem !important;
+
+    font-size:17px !important;
+    line-height:1.58 !important;
+  }
+
+}
+
+
+/* ===== END LIVETIME STATEMENT DESKTOP FIX V1 ===== */

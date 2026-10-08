@@ -1,7 +1,9 @@
 {
 	"name": "fly-unlimited",
 	"compatibility_date": "2025-10-08",
-	"compatibility_flags": ["nodejs_compat"],
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
 	"workers_dev": false,
 	"main": "./dist/_worker.js/index.js",
 	"assets": {
@@ -11,5 +13,11 @@
 	"observability": {
 		"enabled": true
 	},
-	"upload_source_maps": true
+	"upload_source_maps": true,
+	"routes": [
+		{
+			"pattern": "fly-unlimited.com/*",
+			"zone_name": "fly-unlimited.com"
+		}
+	]
 }
